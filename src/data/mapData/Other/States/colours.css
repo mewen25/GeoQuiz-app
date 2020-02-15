@@ -1,0 +1,64 @@
+#Alaska,
+#Nebraska,
+#Nevada,
+#Florida,
+#New-Mexico,
+#New-York,
+#North-Carolina {
+  fill: #50514f;
+}
+
+#California,
+#Arkansas,
+#Colorado,
+#Idaho,
+#Virginia,
+#Connecticut,
+#Alabama,
+#Hawaii,
+#Ohio,
+#Iowa,
+#North-Dakota {
+  fill: #f25f5c;
+}
+
+#Delaware,
+#Oregon,
+#Georgia,
+#Illinois,
+#Wyoming,
+#Oklahoma,
+#Arizona,
+#Mississippi,
+#Minnesota,
+#New-Hampshire,
+#Pennsylvania,
+#Rhode-Island {
+  fill: #ffe066;
+}
+
+#Indiana,
+#Kansas,
+#Texas,
+#Utah,
+#Vermont,
+#Washington,
+#Tennessee,
+#New-Jersey,
+#South-Carolina,
+#South-Dakota,
+#West-Virginia,
+#Wisconsin {
+  fill: #247ba0;
+}
+
+#Kentucky,
+#Louisiana,
+#Maine,
+#Maryland,
+#Massachusetts,
+#Michigan,
+#Missouri,
+#Montana {
+  fill: #70c1b3;
+}

@@ -1,0 +1,267 @@
+export default [
+  {
+    name: "Algeria",
+    id: "Algeria",
+    capital: "N/A"
+  },
+  {
+    name: "Angola",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Benin",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Botswana",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Burkina-Faso",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Burundi",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Cabo-Verde",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Cameroon",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Central-African-Republic",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Chad",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Comoros",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Côte-d-Ivoire",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Djibouti",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "DR-Congo",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Egypt",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Equatorial-Guinea",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Eritrea",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Eswatini",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Ethiopia",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Gabon",
+    id: "Angola",
+    capital: "N/A"
+  },
+  {
+    name: "Gambia",
+    id: "Gambia",
+    capital: "N/A"
+  },
+  {
+    name: "Ghana",
+    id: "Ghana",
+    capital: "N/A"
+  },
+  {
+    name: "Guinea",
+    id: "Guinea",
+    capital: "N/A"
+  },
+  {
+    name: "Guinea Bissau",
+    id: "Guinea-Bissau",
+    capital: "N/A"
+  },
+  {
+    name: "Kenya",
+    id: "Kenya",
+    capital: "N/A"
+  },
+  {
+    name: "Lesotho",
+    id: "Lesotho",
+    capital: "N/A"
+  },
+  {
+    name: "Liberia",
+    id: "Liberia",
+    capital: "N/A"
+  },
+  {
+    name: "Libya",
+    id: "Libya",
+    capital: "N/A"
+  },
+  {
+    name: "Madagascar",
+    id: "Madagascar",
+    capital: "N/A"
+  },
+  {
+    name: "Malawi",
+    id: "Malawi",
+    capital: "N/A"
+  },
+  {
+    name: "Mali",
+    id: "Mali",
+    capital: "N/A"
+  },
+  {
+    name: "Mauritania",
+    id: "Mauritania",
+    capital: "N/A"
+  },
+  {
+    name: "Mauritius",
+    id: "Mauritius",
+    capital: "N/A"
+  },
+  {
+    name: "Morocco",
+    id: "Morocco",
+    capital: "N/A"
+  },
+  {
+    name: "Mozambique",
+    id: "Mozambique",
+    capital: "N/A"
+  },
+  {
+    name: "Namibia",
+    id: "Namibia",
+    capital: "N/A"
+  },
+  {
+    name: "Niger",
+    id: "Niger",
+    capital: "N/A"
+  },
+  {
+    name: "Nigeria",
+    id: "Nigeria",
+    capital: "N/A"
+  },
+  {
+    name: "Rwanda",
+    id: "Rwanda",
+    capital: "N/A"
+  },
+  {
+    name: "Sao Tome and Principe",
+    id: "Sao-Tome-and-Principe",
+    capital: "N/A"
+  },
+  {
+    name: "Senegal",
+    id: "Senegal",
+    capital: "N/A"
+  },
+  {
+    name: "Seychelles",
+    id: "Seychelles",
+    capital: "N/A"
+  },
+  {
+    name: "Sierra Leone",
+    id: "Sierra-Leone",
+    capital: "N/A"
+  },
+  {
+    name: "Somalia",
+    id: "Somalia",
+    capital: "N/A"
+  },
+  {
+    name: "South Africa",
+    id: "South-Africa",
+    capital: "N/A"
+  },
+  {
+    name: "South Sudan",
+    id: "South-Sudan",
+    capital: "N/A"
+  },
+  {
+    name: "Sudan",
+    id: "Sudan",
+    capital: "N/A"
+  },
+  {
+    name: "Tanzania",
+    id: "Tanzania",
+    capital: "N/A"
+  },
+  {
+    name: "Togo",
+    id: "Togo",
+    capital: "N/A"
+  },
+  {
+    name: "Tunisia",
+    id: "Tunisia",
+    capital: "N/A"
+  },
+  {
+    name: "Uganda",
+    id: "Uganda",
+    capital: "N/A"
+  },
+  {
+    name: "Zambia",
+    id: "Zambia",
+    capital: "N/A"
+  },
+  {
+    name: "Zimbabwe",
+    id: "Zimbabwe",
+    capital: "N/A"
+  }
+];

@@ -1,0 +1,77 @@
+#Syria,
+#Saudi-Arabia,
+#Uzbekistan,
+#Pakistan,
+#Bhutan,
+#Sri-Lanka,
+#Laos,
+#Japan {
+  fill: #4281a4;
+}
+
+#India,
+#Kyrgyzstan,
+#Malaysia,
+#Mongolia,
+#Philippines {
+  fill: #48a9a6;
+}
+
+#Turkey,
+#China,
+#Bangladesh,
+#Thailand,
+#Oman,
+#Jordan,
+#Iran {
+  fill: #e2b88e;
+}
+
+#Iraq,
+#Turkmenistan,
+#Tajikistan,
+#Myanmar,
+#Armenia,
+#Vietnam,
+#South-Korea,
+#Taiwan,
+#United-Arab-Emirates {
+  fill: #d4b483;
+}
+
+#Kazakhstan,
+#Yemen,
+#Afghanistan,
+#Kazakhstan,
+#Nepal,
+#Cambodia,
+#Indonesia,
+#North-Korea {
+  fill: #c1666b;
+}
+
+#Lebanon1,
+#Qatar1,
+#Israel1,
+#Bahrain1,
+#Brunei1,
+#Singapore1,
+#Maldives1,
+#Kuwait1,
+#Timor-Leste1 {
+  fill: rgb(0, 25, 247);
+}
+
+#Kuwait,
+#Bahrain,
+#Qatar,
+#Lebanon,
+#Israel,
+#Singapore,
+#Brunei,
+#Timor-Leste,
+#Maldives {
+  stroke: rgba(214, 72, 72, 0.788);
+  stroke-width: 1px;
+  fill: rgba(204, 50, 11, 0.363);
+}

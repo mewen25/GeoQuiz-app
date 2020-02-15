@@ -1,0 +1,173 @@
+* {
+  font-family: "Baloo Chettan", cursive;
+  /* font-size: calc(3px + 1vw); */
+}
+
+.modal {
+  padding-right: 0px !important;
+}
+
+.modal-content {
+  background-color: #383a3879 !important;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.game-modal-content {
+  text-align: center;
+  font-size: 40px;
+}
+
+.game-modal-btns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.btn.disabled,
+.btn:disabled {
+  cursor: default;
+}
+
+.game-modal-btns > button {
+  margin-right: 10px;
+}
+
+.game-modal-btns button {
+  margin-top: 0 !important;
+  height: 80px;
+  width: 40%;
+  font-size: 40px;
+  padding: 4px;
+}
+
+.game-modal-info {
+  width: 50%;
+  justify-content: center;
+  margin: 3% auto;
+}
+
+.game-modal-info h1 {
+  color: rgba(255, 255, 255, 0.973);
+  text-align: left;
+}
+
+#game-modal-title {
+  color: white;
+  font-size: 45px;
+}
+
+.game-modal-start {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.game-modal-start {
+  font-size: 30px;
+  width: 20%;
+}
+
+.game-modal-start button {
+  font-size: 30px;
+}
+
+.info-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info-flex h1 {
+  flex-shrink: 0;
+}
+
+#finish-modal-title {
+  color: white;
+  font-size: calc(15px + 2vw);
+}
+
+.finish-scores {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: start;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.774);
+}
+
+.finish-scores h2 {
+  margin-left: 2px;
+}
+
+#finish-score-title {
+  color: #dedede;
+  font-size: 50px;
+  margin: 0 auto;
+  width: 60%;
+  border-bottom: solid rgba(0, 0, 0, 0.986) 1px;
+}
+
+#finish-score {
+  color: white;
+  font-size: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+.finish-scores img {
+  width: 30px;
+  height: 30px;
+}
+
+.finish-info-col {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.finish-scores-info {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 2%;
+  border-radius: 40px;
+  width: 80%;
+  margin: 0 1%;
+}
+
+#finish-modal-replayBtn:hover,
+#finish-modal-homeBtn:hover {
+  background-color: rgb(59, 99, 160) !important;
+}
+
+.info-subtitle {
+  justify-self: flex-start;
+}
+
+/* #finish-modal-title {
+  font-size: 50px;
+  color: white;
+} */
+
+/* #finish-modal-face {
+  margin-bottom: 2%;
+}
+
+.finish-scores {
+  margin-bottom: 2%;
+  color: white;
+}
+
+.finish-scores-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 70%;
+  margin: 0 auto;
+} */

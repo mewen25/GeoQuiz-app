@@ -1,0 +1,80 @@
+#Tunisia,
+#Mali,
+#Liberia,
+#South-Sudan,
+#Somalia,
+#Mozambique,
+#Angola,
+#Burundi,
+#Togo,
+#Sao-Tome-and-Principe1,
+#Congo,
+#Mauritius1,
+#Comoros1,
+#Seychelles1,
+#Cabo-Verde1 {
+  fill: #778eac;
+}
+
+#Morocco,
+#Senegal,
+#Benin,
+#Chad,
+#DR-Congo,
+#Uganda,
+#Zambia,
+#South-Africa {
+  fill: #c04f39;
+}
+
+#Western-Sahara,
+#Guinea,
+#Ghana,
+#Niger,
+#Libya,
+#Cameroon,
+#Ethiopia,
+#Madagascar,
+#Lesotho {
+  fill: #c78a20;
+}
+
+#Mauritania,
+#Sierra-Leone,
+#Côte-d-Ivoire,
+#Nigeria,
+#Gabon,
+#Central-African-Republic,
+#Egypt,
+#Eritrea,
+#Kenya,
+#Malawi,
+#Botswana,
+#Rwanda,
+#Guinea-Bissau {
+  fill: #29355e;
+}
+
+#Algeria,
+#Burkina-Faso,
+#Gambia,
+#Sudan,
+#Tanzania,
+#Zimbabwe,
+#Namibia,
+#Equatorial-Guinea,
+#Eswatini,
+#Djibouti {
+  fill: #6fa146;
+}
+
+#Sao-Tome-and-Principe,
+#Cabo-Verde,
+#Seychelles,
+#Mauritius,
+#Comoros,
+#Seychelles {
+  stroke: rgba(214, 72, 72, 0.76);
+  stroke-width: 0.5px;
+  fill: rgba(204, 50, 11, 0);
+}

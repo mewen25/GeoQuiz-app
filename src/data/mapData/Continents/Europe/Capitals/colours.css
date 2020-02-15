@@ -1,0 +1,8 @@
+#Map {
+  fill: #a0cc6dcc;
+}
+#Map:hover {
+  -webkit-user-select: none;
+  cursor: default;
+  opacity: 1;
+}
