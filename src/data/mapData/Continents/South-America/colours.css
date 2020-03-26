@@ -1,27 +1,46 @@
 #Brazil,
-#Chile {
+#Chile,
+/* CAPITALS */
+#Brasília,
+#Santiago {
   fill: #17583e;
 }
 
 #Ecuador,
-#French-Guiana {
+#Quito {
   fill: #8daa5c;
 }
 
 #Colombia,
 #Suriname,
-#Paraguay {
+#Paraguay,
+/* CAPITALS */
+#Bogotá,
+#Paramaribo,
+#Asunción {
   fill: #f5e158;
 }
 
 #Venezuela,
 #Bolivia,
-#Uruguay {
+#Uruguay,
+/* CAPITALS */
+#Caracas,
+#Sucre,
+#Montevideo {
   fill: #c6d83c;
 }
 
 #Peru,
 #Argentina,
-#Guyana {
+#Guyana,
+/* CAPITAL */
+#Lima,
+#Buenos-Aires,
+#Georgetown {
   fill: #4b96c0;
+}
+
+#Map {
+  fill: grey;
 }

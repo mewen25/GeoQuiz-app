@@ -86,7 +86,8 @@ export default [
     capital: "N/A"
   },
   {
-    name: "Gambia",
+    id: "The-Gambia",
+    name: "The Gambia",
     capital: "N/A"
   },
   {

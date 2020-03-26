@@ -25,13 +25,13 @@ const GameModal = props => {
 
   const verdict = () => {
     if (gameAccuracy == 100) {
-      return "Perfect Score! Very well done!";
+      return "Perfect Score!";
     } else if (gameAccuracy > 80) {
-      return "Very good! Not far from a perfect score!";
+      return "Very good!";
     } else if (gameAccuracy > 50) {
-      return "Not bad, this can improved though";
+      return "Not bad!";
     } else {
-      return "Looks like you found this tricky, try giving it another go";
+      return "Try Again?";
     }
   };
 
@@ -65,7 +65,11 @@ const GameModal = props => {
             </div>
             <div id="finish-info-col-3" className="finish-info-col">
               <h2 className="finish-score-subtitle">Time: </h2>
-              <h2>02:00</h2>
+              <h2>
+                {new Date(props.info.finalTime * 1000)
+                  .toISOString()
+                  .substr(14, 5)}
+              </h2>
             </div>
           </div>
           <div className="finish-info-score">
@@ -74,7 +78,7 @@ const GameModal = props => {
           </div>
           <div className="game-modal-btns">
             <GameButton
-              name="TryAgain"
+              name="Try Again"
               id="finish-modal-replayBtn"
               colour="#6297E5"
               handleClick={() => window.location.reload()}

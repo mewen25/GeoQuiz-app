@@ -5,10 +5,20 @@ import AppliedRoute from "./components/AppliedRoute";
 //Pages
 import Home from "./pages/Home/Home";
 import Game from "./pages/Game/Game";
+import Learn from "./pages/Learn/Learn";
 
 export default ({ childProps }) => (
   <Switch>
     <AppliedRoute path="/" exact component={Home} props={childProps} />
-    <AppliedRoute path="/game/:continent" component={Game} props={childProps} />
+    <AppliedRoute
+      path="/quiz/:continent/:quiz"
+      component={Game}
+      props={childProps}
+    />
+    <AppliedRoute
+      path="/learn/:continent/:learn"
+      component={Learn}
+      props={childProps}
+    />
   </Switch>
 );

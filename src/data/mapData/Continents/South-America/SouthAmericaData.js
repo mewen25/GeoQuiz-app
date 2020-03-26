@@ -46,10 +46,5 @@ export default [
   {
     name: "Suriname",
     capital: "N/A"
-  },
-  {
-    name: "French Guiana",
-    id: "French-Guiana",
-    capital: "N/A"
   }
 ];

@@ -1,38 +1,71 @@
 #Mexico,
 #Dominican-Republic1,
-#Nicaragua,
 #Trinidad-and-Tobago1,
 #Grenada1,
 #Saint-Vincent-and-the-Grenadines1,
 #Barbados1,
 #Saint-Lucia1,
 #Dominica1,
+#Saint-Vincent-and-the-Grenadines,
+#Haiti1,
 #Antigua-and-Barbuda1,
 #Saint-Kitts-and-Nevis1,
-#Bahamas1 {
+#Bahamas1,
+/* CAPITALS */
+#Kingston,
+#Panama-City,
+#San-Salvador,
+#Kingstown,
+#Basseterre {
   fill: #4281a4;
 }
 
 #USA,
 #Belize1,
 #Jamaica1,
-#Panama1 {
+#Panama1,
+#Costa-Rica,
+#Cuba1,
+#Saint-Lucia,
+/* CAPITALS */
+#Washington,
+#Belmopan,
+#San-Jose,
+#Havana,
+#Castries,
+#Saint-Georges {
   fill: #48a9a6;
 }
 
+#El-Salvador1,
+#Dominica,
 #Honduras,
-#Haiti1 {
-  fill: #e2b88e;
-}
-
-#El-Salvador1 {
-  fill: #d4b483;
+#Trinidad-and-Tobago,
+/* CAPITALS */
+#Roseau,
+#Tegucigalpa,
+#Port-of-Spain,
+#Mexico-City,
+#Port-au-Prince,
+#Nuuk {
+  fill: #d6a277;
 }
 
 #Canada,
 #Guatemala,
-#Cuba1,
-#Costa-Rica1 {
+#Nicaragua,
+#Antigua-and-Barbuda,
+#Costa-Rica1,
+#Barbados,
+#Dominican-Republic1,
+#Bahamas1,
+/* CAPITALS */
+#Ottawa,
+#Managua,
+#Saint-Johns,
+#Bridgetown,
+#Santo-Domingo,
+#Nassau {
   fill: #c1666b;
 }
 
@@ -40,41 +73,21 @@
   fill: rgba(73, 102, 64, 0.664);
 }
 
-#Saint-Kitts-and-Nevis1,
-#Antigua-and-Barbuda1,
-#Dominica1,
-#Saint-Lucia1,
-#Saint-Vincent-and-the-Grenadines1,
-#Barbados1,
-#Trinidad-and-Tobago1,
-#Cuba1,
+#Saint-Kitts-and-Nevis,
 #El-Salvador1,
 #Jamaica1,
-#Haiti1,
-#Belize1,
-#Grenada1,
+#Grenada,
 #Panama1,
-#Costa-Rica1,
-#Dominican-Republic1,
-#Bahamas1 {
+#Costa-Rica1 {
   fill: #1a535c;
 }
 
-#Saint-Kitts-and-Nevis,
-#Antigua-and-Barbuda,
-#Dominica,
-#Saint-Lucia,
-#Saint-Vincent-and-the-Grenadines,
-#Barbados,
-#Trinidad-and-Tobago,
 #Cuba,
 #El-Salvador,
 #Jamaica,
 #Haiti,
 #Belize,
-#Grenada,
-#Panama,
-#Costa-Rica,
+#Jamaica,
 #Dominican-Republic,
 #Bahamas {
   stroke: rgba(214, 72, 72, 0.979);
@@ -82,6 +95,12 @@
   fill: rgba(204, 50, 11, 0.164);
 }
 
-/* #Cuba {
-  fill: rgba(0, 0, 0, 0.37);
-} */
+#Map {
+  fill: rgb(141, 141, 141);
+}
+
+#None {
+  fill: rgba(255, 255, 255, 0);
+  stroke: black;
+  stroke-width: 2px;
+}

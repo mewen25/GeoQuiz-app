@@ -1,20 +1,24 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Helmet } from "react-helmet";
 import GameModal from "./GameModal";
 import FinishModal from "./FinishModal";
 import Header from "../../components/Header";
 import gameData from "../../data/config/continentData";
+import { GameContext } from "../../components/gameContext";
 import "./game.css";
 import "./modal.css";
 
-import GameMap from "./GameMap";
+//import GameMap from "./GameMap";
+import GameMap from "./GamePage";
 
 const Game = ({ match }) => {
+  const { game, setGameState } = useContext(GameContext);
   const [show, setShow] = useState(true);
   const [continent, setContinent] = useState(match.params.continent);
   const [gameValues, setGameValues] = useState({
-    continent: undefined,
+    continent: "",
     mode: undefined,
-    time: "02:20",
+    time: undefined,
     findAmount: undefined,
     countriesData: undefined,
     map: undefined
@@ -22,7 +26,7 @@ const Game = ({ match }) => {
   const [finish, setFinish] = useState(false);
   const [gameResults, setGameResults] = useState({});
 
-  const gameSetup = (newMode = "countries") => {
+  const gameSetup = (newMode = match.params.quiz) => {
     const data = gameData[continent];
     setGameValues({
       continent: data.continent,
@@ -37,42 +41,57 @@ const Game = ({ match }) => {
 
   const handleStart = () => {
     setShow(false);
+    setGameState(true);
+  };
+
+  const modalContent = {
+    title: (
+      <h2>
+        {continent} <b>{gameValues.mode}</b> Quiz!
+      </h2>
+    ),
+    body: (
+      <div className="game-modal-info">
+        <div className="info-flex">
+          <h1>{gameValues.mode}:</h1>
+          <h1>{gameValues.findAmount}</h1>
+        </div>
+        <div className="info-flex">
+          <h1>Continent:</h1>
+          <h1>{gameValues.continent}</h1>
+        </div>
+      </div>
+    )
   };
 
   useEffect(() => {
     gameSetup();
 
     return function cleanup() {
-      //window.location.reload();
+      window.location.reload();
     };
   }, []);
 
   return (
     <div className="game">
+      <Helmet>
+        <title>{gameValues.continent + " - " + gameValues.mode} Quiz</title>
+      </Helmet>
       {gameValues.map ? (
-        <div className="game-map">
-          <GameMap
-            data={gameValues}
-            show={show}
-            setFinish={setFinish}
-            setResults={setGameResults}
-          />
-        </div>
+        <GameMap
+          data={gameValues}
+          show={show}
+          setFinish={setFinish}
+          setResults={setGameResults}
+        />
       ) : null}
       <GameModal
         show={show}
-        continent={gameValues.continent}
-        mode={gameValues.mode}
-        time={gameValues.time}
-        findAmount={gameValues.findAmount}
-        changeMode={gameSetup}
+        title={modalContent.title}
+        content={modalContent.body}
         gameStart={handleStart}
       />
-      {finish == true ? (
-        <FinishModal finish={finish} info={gameResults} />
-      ) : (
-        console.log(finish)
-      )}
+      {finish ? <FinishModal finish={finish} info={gameResults} /> : null}
     </div>
   );
 };

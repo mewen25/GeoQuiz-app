@@ -3,9 +3,23 @@
 #Uzbekistan,
 #Pakistan,
 #Bhutan,
+#Georgia-as,
 #Sri-Lanka,
+#Philippines,
 #Laos,
-#Japan {
+#Japan,
+/* CAPITALS */
+#Tokyo,
+#Vientiane,
+#Sri-JayawardenepuraKotte,
+#Tbilisi,
+#Thimphu,
+#Islamabad,
+#Tashkent,
+#Riyadh,
+#Damascus,
+#Manila,
+#Singapore-Capital {
   fill: #4281a4;
 }
 
@@ -13,17 +27,35 @@
 #Kyrgyzstan,
 #Malaysia,
 #Mongolia,
-#Philippines {
+#Azerbaijan-as,
+#United-Arab-Emirates,
+/* CAPITALS */
+#New-Delhi,
+#Bishkek,
+#Kuala-Lumpur,
+#Ulaanbaatar,
+#Baku,
+#Abu-Dhabi,
+#Dili {
   fill: #48a9a6;
 }
 
-#Turkey,
+#Turkey-as,
 #China,
 #Bangladesh,
 #Thailand,
 #Oman,
 #Jordan,
-#Iran {
+#Iran,
+/* CAPITALS */
+#Ankara,
+#Beijing,
+#Dhaka,
+#Bangkok,
+#Muscat,
+#Amman,
+#Baghdad,
+#Bandar-Seri-Begawan {
   fill: #e2b88e;
 }
 
@@ -33,10 +65,19 @@
 #Myanmar,
 #Armenia,
 #Vietnam,
+#Russia-as,
 #South-Korea,
 #Taiwan,
-#United-Arab-Emirates {
-  fill: #d4b483;
+/* Capitals */
+#Tehran,
+#Ashgabat,
+#Naypyidaw,
+#Yerevan,
+#Hanoi,
+#Moscow,
+#Seoul,
+#Taipei {
+  fill: #c07b43;
 }
 
 #Kazakhstan,
@@ -46,7 +87,15 @@
 #Nepal,
 #Cambodia,
 #Indonesia,
-#North-Korea {
+#North-Korea,
+/* CAPITALS */
+#Nur-Sultan,
+#Sana-a,
+#Kabul,
+#Kathmandu,
+#Phnom-Penh,
+#Jakarta,
+#Pyongyang {
   fill: #c1666b;
 }
 
@@ -59,7 +108,7 @@
 #Maldives1,
 #Kuwait1,
 #Timor-Leste1 {
-  fill: rgb(0, 25, 247);
+  fill: rgb(48, 131, 199);
 }
 
 #Kuwait,

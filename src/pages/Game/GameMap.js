@@ -2,17 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 
 import { useTimer } from "use-timer";
 import ToSelect from "./ToSelect";
-import { SVGMap } from "react-svg-map";
 
-import "../../data/mapData/Continents/North-America/colours.css";
-import "../../data/mapData/Continents/Asia/colours.css";
-import "../../data/mapData/Continents/Europe/colours.css";
-import "../../data/mapData/Continents/South-America/colours.css";
-import "../../data/mapData/Continents/Africa/colours.css";
-import "../../data/mapData/Continents/Oceania/colours.css";
-import "../../data/mapData/Other/States/colours.css";
-import "../../data/mapData/Continents/Europe/Capitals/colours.css";
-
+import GameInfo from "./GameInfo";
 import SkipBtn from "./SkipBtn";
 import ShowMeBtn from "./ShowMeBtn";
 import GameButton from "./GameButton";
@@ -44,20 +35,51 @@ const GameMap = props => {
     correct: 0,
     wrong: 0
   });
-  const [totalCountries, setTotalCountries] = useState(props.data.data.length);
+  const [totalCountries, setTotalCountries] = useState(
+    Object.keys(props.data.data).length
+  );
   const [missCount, setMissCount] = useState([]);
   const [showMeCount, setShowMeCount] = useState(0);
+  const [finishTime, setFinishTime] = useState(0);
   const mapRef = useRef(null);
+  const Map = props.data.map;
 
   let col = "#56b953";
   let currentMisses = 0;
 
   let displayPoints = "none";
   useEffect(() => {
-    setCountryList(props.data.data);
+    setCountryList(shuffleArray(props.data.data));
     setTotalCountries(props.data.data.length);
     gameQuestion(props.data.data);
-  }, [props.show, props.data.mode]);
+    //loadStyles();
+  }, [props.show]);
+
+  // function loadStyles() {
+  //   const load = props.data.continent;
+  //   const mode = props.data.mode;
+  //   if (load == "Europe") {
+  //     if (mode == "Countries") {
+  //       require("../../data/mapData/Continents/Europe/colours.css");
+  //     } else if (mode == "Capitals") {
+  //       require("../../data/mapData/Continents/Europe/Capitals/colours.css");
+  //     }
+  //   } else if (load == "North America") {
+  //     if (mode == "Countries" || mode == "Capitals") {
+  //       require("../../data/mapData/Continents/North-America/colours.css");
+  //     } else if (mode == "US States" || mode == "US State Capitals") {
+  //       require("../../data/mapData/Other/States/colours.css");
+  //     }
+  //   } else if (load == "Asia") {
+  //     require("../../data/mapData/Continents/Asia/colours.css");
+  //   } else if (load == "Oceania") {
+  //     require("../../data/mapData/Continents/Oceania/colours.css");
+  //   } else if (load == "Africa") {
+  //     require("../../data/mapData/Continents/Africa/colours.css");
+  //   } else if (load == "South America") {
+  //     require("../../data/mapData/Continents/South-America/colours.css");
+  //   }
+  // }
 
   useEffect(() => {
     gameQuestion();
@@ -70,6 +92,20 @@ const GameMap = props => {
     colour: col,
     fontSize: 50
   };
+
+  useEffect(() => {
+    console.log("search", search, props.data.data);
+  }, [search]);
+
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
 
   function handleAnimation(element, animationName, own = false) {
     const node = document.querySelector(element);
@@ -99,7 +135,7 @@ const GameMap = props => {
     let newSign = "";
     let col = "#56b953";
 
-    if (correct) {
+    if (correct == true) {
       newSign = "+";
       newPoints += 100;
       if (time < 1) {
@@ -110,45 +146,37 @@ const GameMap = props => {
       } else if (time < 5) {
         newPoints += 20;
       }
+    } else if (correct == "show") {
+      col = "#b95353";
+      newSign = "";
+      newPoints -= 200;
     } else {
       col = "#b95353";
       newSign = "";
       newPoints -= 50;
     }
 
-    if (points.total + newPoints < 0) {
-      newPoints = 0;
-    }
-
     setPoints(prevData => ({
       current: newPoints,
-      total: points.total + points.current,
+      total:
+        points.total + points.current < 0 ? 0 : points.total + points.current,
       sign: newSign,
       colour: col
     }));
   };
 
   const gameQuestion = (data = countryList) => {
+    console.log("datass", data, data[0]);
     setupTimer();
-    console.log("comparing", answerCount.correct, totalCountries);
     if (answerCount.correct < totalCountries) {
-      let countryIndex = 0;
-      let selectedCountry = null;
-      if (search != null) {
-        selectedCountry = search;
-        do {
-          countryIndex = Math.floor(Math.random() * data.length);
-          selectedCountry = data[countryIndex];
-        } while (selectedCountry == search && data.length > 1);
-      }
       if (!props.show) {
-        handleAnimation("#game-place", "bounceIn");
+        handleAnimation(".info-place", "bounceIn");
       }
       currentMisses = 0;
-      setSearch(selectedCountry);
-      setSearchIndex(countryIndex);
+      setSearch(data[0]);
+      setSearchIndex(0);
     } else {
-      handleGameFinish();
+      //handleGameFinish();
     }
   };
 
@@ -172,20 +200,21 @@ const GameMap = props => {
     gameQuestion();
   };
 
-  const handleGameFinish = () => {
-    const someData = props.data.data.map(country => {
-      var findGuess = document.getElementById(country.id || country.name);
-      //findGuess.classList.remove("selected");
-    });
-    props.setFinish(true);
-    props.setResults({
-      score: answerCount,
-      skipped: showMeCount,
-      misses: missCount,
-      total: totalCountries,
-      totalScore: points.total
-    });
-  };
+  // const handleGameFinish = () => {
+  //   const someData = props.data.data.map(country => {
+  //     var findGuess = document.getElementById(country.id || country.name);
+  //     //findGuess.classList.remove("selected");
+  //   });
+  //   props.setFinish(true);
+  //   props.setResults({
+  //     score: answerCount,
+  //     skipped: showMeCount,
+  //     misses: missCount,
+  //     total: totalCountries,
+  //     totalScore: points.total,
+  //     finalTime: finishTime
+  //   });
+  // };
 
   const handleClick = event => {
     //console.log(answerCount.correct);
@@ -194,11 +223,15 @@ const GameMap = props => {
       x: event.nativeEvent.offsetX,
       y: event.nativeEvent.offsetY
     });
-    // console.log("clicked:", clicked, "Looking for:", search.name);
-    if (clicked != "Map") {
-      setGuess(clicked);
-    }
-    if (!correctAnswers.includes(clicked) && clicked != "Map") {
+    if (
+      !correctAnswers.includes(clicked) &&
+      clicked != "Map" &&
+      clicked != "None" &&
+      clicked != "Map1"
+    ) {
+      if (clicked != "Map") {
+        setGuess(clicked);
+      }
       if (clicked == search.id || clicked == search.name) {
         completeSearch();
         handlePoints(true);
@@ -218,69 +251,48 @@ const GameMap = props => {
   };
 
   const handleSkip = () => {
+    var array = countryList;
+    array.push(array.shift());
+    setCountryList(array);
     gameQuestion();
   };
 
   const handleShowMe = () => {
     setShowMeCount(showMeCount + 1);
     handleAnimation(`#${search.id || search.name}`, "zoomIn");
+    handlePoints("show");
     completeSearch();
   };
 
   return (
     <div className="game-layout">
+      {/* <SVGMap
+        map={props.data.map}
+        onLocationClick={handleClick}
+        guess={guess}
+      /> */}
       <div className="game-testthing">
         <p id="game-pointsScore" className="noDisplay" style={pointsStyle}>
           {points.sign}
           {points.current != 0 ? points.current : null}
         </p>
       </div>
-      <div id="game-map">
-        <SVGMap
-          map={props.data.map}
-          onLocationClick={handleClick}
-          guess={guess}
-          ref={mapRef}
-        />
-      </div>
       {!props.show ? (
-        <>
-          <div id="game-section">
-            <ToSelect
-              search={search}
-              guess={guess}
-              correct={answerCount.correct}
-              wrong={answerCount.wrong}
-              data={totalCountries}
-              show={props.show}
-              continent={props.data.continentId}
-              mode={props.data.mode}
-              score={points.total}
-              answers={correctAnswers}
-            />
-          </div>
-          <div className="game-extras">
-            <div className="game-extras-col-1">
-              <GameButton
-                name="Skip"
-                id="game-skipButton"
-                colour="#88C955"
-                handleClick={handleSkip}
-              />
-              <GameButton
-                name="Show Me"
-                id="game-showMeButton"
-                colour="#6297E5"
-                handleClick={handleShowMe}
-              />
-            </div>
-          </div>
-          <div className="game-missCounter-container">
-            <img src={require("../../assets/images/cross.png")} />
-            <h2 id="game-missCounter">{answerCount.wrong}</h2>
-          </div>
-        </>
+        <GameInfo
+          mode={props.data.mode}
+          continent={props.data.continentId}
+          place={search}
+          correct={answerCount.correct}
+          misses={answerCount.wrong}
+          total={totalCountries}
+          points={points.total}
+          time={time}
+          handleSkip={handleSkip}
+          handleShowMe={handleShowMe}
+          handleFinish={setFinishTime}
+        />
       ) : null}
+      <Map handleClick={handleClick} data={props.data.data} />
     </div>
   );
 };

@@ -57,7 +57,7 @@
 
 #Algeria,
 #Burkina-Faso,
-#Gambia,
+#The-Gambia,
 #Sudan,
 #Tanzania,
 #Zimbabwe,
@@ -74,7 +74,19 @@
 #Mauritius,
 #Comoros,
 #Seychelles {
-  stroke: rgba(214, 72, 72, 0.76);
-  stroke-width: 0.5px;
-  fill: rgba(204, 50, 11, 0);
+  stroke: rgba(214, 72, 72, 0.788);
+  stroke-width: 2px;
+  fill: rgba(204, 50, 11, 0.363);
+}
+
+#Map {
+  fill: rgb(141, 141, 141);
+}
+
+#Map2,
+#Map1,
+#None {
+  fill: rgba(255, 255, 255, 0);
+  stroke: black;
+  stroke-width: 2px;
 }

@@ -1,5 +1,9 @@
 export default [
   {
+    id: "Andorra-la-Vella",
+    name: "Andorra la Vella"
+  },
+  {
     name: "Tirana"
   },
   {
@@ -23,9 +27,9 @@ export default [
   {
     name: "Zagreb"
   },
-  //   {
-  //     name: "Nicosia"
-  //   },
+  {
+    name: "Nicosia"
+  },
   {
     name: "Prague"
   },
@@ -69,6 +73,12 @@ export default [
     name: "Riga"
   },
   {
+    name: "Vaduz"
+  },
+  {
+    name: "Valletta"
+  },
+  {
     name: "Vilnius"
   },
   {
@@ -97,6 +107,10 @@ export default [
   },
   {
     name: "Bucharest"
+  },
+  {
+    id: "Monte-Carlo",
+    name: "Monte Carlo"
   },
   {
     name: "Moscow"

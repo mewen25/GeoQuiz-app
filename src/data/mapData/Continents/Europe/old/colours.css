@@ -1,0 +1,78 @@
+#United-Kingdom,
+#Sweden,
+#Germany,
+#Lithuania,
+#Slovenia,
+#Ukraine,
+#Serbia,
+#Azerbaijan-eu,
+#Malta1 {
+  fill: #4281a4;
+}
+
+#Iceland,
+#Denmark,
+#Latvia,
+#Austria,
+#Luxembourg,
+#Moldova,
+#Montenegro,
+#Turkey-eu {
+  fill: #48a9a6;
+}
+
+#Ireland,
+#Spain,
+#Italy,
+#Norway,
+#Poland,
+#Hungary,
+#Estonia,
+#North-Macedonia,
+#Cyprus {
+  fill: #e2b88e;
+}
+
+#Belgium,
+#Switzerland,
+#Croatia,
+#Slovakia,
+#Albania,
+#Bulgaria,
+#Russia-eu {
+  fill: #d4b483;
+}
+
+#Portugal,
+#France,
+#Netherlands,
+#Czechia,
+#Bosnia-and-Herzegovina,
+#Finland,
+#Belarus,
+#Romania,
+#Greece,
+#Georgia-eu,
+#Kosovo {
+  fill: #c1666b;
+}
+
+#San-Marino1,
+#Vatican-City1,
+#Liechtenstein1,
+#Andorra1,
+#Monaco1,
+#Malta1 {
+  fill: #1a535c;
+}
+
+#San-Marino,
+#Vatican-City,
+#Liechtenstein,
+#Andorra,
+#Monaco,
+#Malta {
+  stroke: rgba(214, 72, 72, 0.788);
+  stroke-width: 1px;
+  fill: rgba(204, 50, 11, 0.363);
+}

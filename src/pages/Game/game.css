@@ -1,9 +1,6 @@
-body {
-  /* overflow: hidden; */
-  -webkit-user-select: none; /* Chrome all / Safari all */
-  -moz-user-select: none; /* Firefox all */
-  -ms-user-select: none; /* IE 10+ */
-  user-select: none; /* Likely future */
+.game {
+  height: calc(100% - 45px);
+  position: relative;
 }
 
 .game-layout {
@@ -11,17 +8,36 @@ body {
   height: 100%;
 }
 
-.svg-map {
+.game-map-container {
+  height: 100%;
+  width: auto;
+  overflow-x: scroll;
   position: absolute;
-  width: 100%;
-  height: 95%;
-  margin-left: 2%;
-  margin-top: 1%;
+  top: -20px;
+  right: 15%;
 }
-.svg-map__location {
-  cursor: pointer;
+
+.flash {
+}
+
+.shown {
+  animation-duration: 5s;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+.game-map {
+  height: 100%;
+}
+.quiz-country {
   stroke: white;
   stroke-width: 0.1px;
+}
+
+.quiz-country:hover {
+  opacity: 0.5;
+  outline: 0;
+  cursor: pointer;
 }
 
 /* .showPoints {
@@ -45,6 +61,7 @@ body {
 }
 
 .wrongSelect {
+  position: absolute;
   animation: shake 0.2s;
   -webkit-animation: shake 0.2s;
 }
@@ -115,23 +132,12 @@ body {
   }
 }
 
-.svg-map__location:hover {
-  opacity: 0.5;
-  outline: 0;
-}
-.svg-map__location:focus {
-  outline: 0;
-}
-.svg-map__location[aria-checked="true"] {
-  /* fill: #f4bc44 !important; */
-}
-
-.selected {
+.complete {
   opacity: 0.4 !important;
   fill: gray !important;
 }
 
-.selected:hover {
+.complete:hover {
   cursor: default;
 }
 
@@ -194,31 +200,6 @@ body {
   background-color: rgb(43, 76, 126) !important;
 }
 
-.game-missCounter-container {
-  width: auto;
-  max-width: 120px;
-  height: 50px;
-  margin-left: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-size: 35px;
-  color: black;
-  border-radius: 40px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-.game-missCounter-container img {
-  width: 30px;
-  height: 30px;
-  margin-top: 10px;
-}
-
-#game-missCounter {
-  font-size: 40px;
-  margin-left: 5px;
-}
-
 #game-timers {
   position: absolute;
   bottom: 10%;
@@ -232,17 +213,6 @@ body {
   display: none;
 }
 
-#game-pointsScore {
-  font-size: 45px;
-  /* color: rgb(87, 185, 83); */
-  position: absolute;
-  -webkit-user-select: none; /* Chrome all / Safari all */
-  -moz-user-select: none; /* Firefox all */
-  -ms-user-select: none; /* IE 10+ */
-  user-select: none; /* Likely future */
-  z-index: 5;
-}
-
 @keyframes points {
   from {
     color: rgb(87, 185, 83);
@@ -254,6 +224,7 @@ body {
 
 .game-testthing {
   position: absolute;
+  pointer-events: none;
   top: 0px;
   left: 0px;
 }
@@ -265,65 +236,15 @@ body {
   width: 80%;
 } */
 
-.game-info-container {
-  margin-left: 0%;
+/* .info-place {
+  position: fixed;
+  margin: 10px;
   display: flex;
   flex-direction: column;
+  width: auto;
+  white-space: nowrap;
 }
-
-.game-info {
-  display: flex;
-  position: sticky;
-  width: 40%;
-  margin-left: 1%;
-  margin-top: 0%;
-  flex-direction: column;
-}
-
-.game-info-place {
-  display: flex;
-  flex-direction: row;
-  margin-left: 1%;
-}
-
-.game-info-place img {
-  margin-left: 0.5%;
-  height: 50px;
-  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
-}
-
-#game-place {
-  background-color: #fff;
-  border: 0px solid #000;
-  box-sizing: border-box;
-  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  color: rgb(0, 0, 0);
-  font-size: 40px;
-  height: 55px;
-  padding: 0 10px;
-}
-
-.game-info-misc-container {
-  display: flex;
-  flex-direction: row;
-  width: 300px;
-  margin-left: 1%;
-}
-
-.game-misc-info {
-  background-color: #fff;
-  border: 0px solid #000;
-  height: 40px;
-  width: 50%;
-  font-size: 25px;
-  color: rgb(102, 102, 102);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 5%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+ */
 
 .game-info-guess {
   position: absolute;
@@ -335,60 +256,18 @@ body {
   color: #ffa3a3;
 }
 
-.game-score-and-time {
-  width: 50%;
-}
+@media (max-width: 650px) {
+  .game-extras,
+  .game-missCounter-container {
+    display: none;
+  }
 
-.game-points-score {
-  width: 40%;
-  margin-left: 3%;
-}
+  .svg-map {
+    margin-top: 20%;
+  }
 
-/* @-webkit-keyframes shake {
-  0%,
-  to {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-    transform: translate3d(-10px, 0, 0);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate3d(10px, 0, 0);
-    transform: translate3d(10px, 0, 0);
+  #game-place {
+    font-size: 30px;
+    padding-top: 8px;
   }
 }
-@keyframes shake {
-  0%,
-  to {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-    transform: translate3d(-10px, 0, 0);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate3d(10px, 0, 0);
-    transform: translate3d(10px, 0, 0);
-  }
-}
-.shake {
-  -webkit-animation-name: shake;
-  animation-name: shake;
-} */

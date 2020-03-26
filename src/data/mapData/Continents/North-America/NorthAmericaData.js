@@ -43,11 +43,11 @@ export default [
     id: "El-Salvador",
     capital: "San Salvador"
   },
-  {
-    name: "Greenland (Denmark)",
-    id: "Greenland",
-    capital: "N/A"
-  },
+  // {
+  //   name: "Greenland (Denmark)",
+  //   id: "Greenland",
+  //   capital: "N/A"
+  // },
   {
     name: "Grenada",
     capital: "Saint George's"

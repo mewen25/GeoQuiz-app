@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { GameContext } from "../components/gameContext";
 
 const Header = match => {
+  const { game } = useContext(GameContext);
   return (
-    <div className="header">
-      <Link to="/" className="home-link">
-        {`<GeoQuiz>`}
-      </Link>
-    </div>
+    <>
+      {game ? (
+        <div className="header">
+          <Link to="/" className="home-link">
+            {`<GeoQuiz>`}
+          </Link>
+        </div>
+      ) : null}
+    </>
   );
 };
 

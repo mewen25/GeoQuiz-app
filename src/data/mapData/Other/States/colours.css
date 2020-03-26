@@ -4,7 +4,15 @@
 #Florida,
 #New-Mexico,
 #New-York,
-#North-Carolina {
+#North-Carolina,
+/* CAPITALS */
+#Juneau,
+#Lincoln,
+#Carson-City,
+#Tallahassee,
+#Santa-Fe,
+#Albany,
+#Raleigh {
   fill: #50514f;
 }
 
@@ -18,13 +26,24 @@
 #Hawaii,
 #Ohio,
 #Iowa,
-#North-Dakota {
+#North-Dakota,
+/* CAPITALS */
+#Sacramento,
+#Little-Rock,
+#Denver,
+#Boise,
+#Richmond,
+#Hartford,
+#Montgomery,
+#Honolulu,
+#Columbus,
+#Des-Moines,
+#Bismarck {
   fill: #f25f5c;
 }
 
 #Delaware,
 #Oregon,
-#Georgia,
 #Illinois,
 #Wyoming,
 #Oklahoma,
@@ -33,7 +52,19 @@
 #Minnesota,
 #New-Hampshire,
 #Pennsylvania,
-#Rhode-Island {
+#Rhode-Island,
+/* CAPITALS */
+#Dover,
+#Salem,
+#Springfield,
+#Cheyenne,
+#Oklahoma-City,
+#Phoenix,
+#Jackson,
+#Saint-Paul,
+#Concord,
+#Harrisburg,
+#Providence {
   fill: #ffe066;
 }
 
@@ -48,7 +79,20 @@
 #South-Carolina,
 #South-Dakota,
 #West-Virginia,
-#Wisconsin {
+#Wisconsin,
+/* CAPITALS */
+#Indianapolis,
+#Topeka,
+#Austin,
+#Salt-Lake-City,
+#Montpelier,
+#Olympia,
+#Nashville,
+#Trenton,
+#Columbia,
+#Pierre,
+#Charleston,
+#Madison {
   fill: #247ba0;
 }
 
@@ -59,6 +103,29 @@
 #Massachusetts,
 #Michigan,
 #Missouri,
-#Montana {
+#Georgia-us,
+#Montana,
+/* CAPITALS */
+#Frankfort,
+#Baton-Rouge,
+#Augusta,
+#Annapolis,
+#Boston,
+#Lansing,
+#Jefferson-City,
+#Atlanta,
+#Helena {
   fill: #70c1b3;
+}
+
+#Map {
+  fill: rgb(141, 141, 141);
+}
+
+#Map2,
+#Map1,
+#None {
+  fill: rgba(255, 255, 255, 0);
+  stroke: black;
+  stroke-width: 2px;
 }

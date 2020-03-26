@@ -36,6 +36,7 @@ export default [
     capital: "N/A"
   },
   {
+    id: "Georgia-us",
     name: "Georgia",
     capital: "N/A"
   },

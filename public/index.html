@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="Geography Quiz" content="Interactive Geography Quiz!" />
+    <meta
+      name="description"
+      content="Study or throughly test your knowledge on the Countries & Capitals of the world!"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
@@ -59,9 +62,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <title>GeoQuiz</title>
     <link href="/static/css/2.17e5ed98.chunk.css" rel="stylesheet" />
     <link href="/static/css/main.12b192ec.chunk.css" rel="stylesheet" />
+    <title>Interactive Geography Quiz - GeoQuiz</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -71,6 +74,28 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyCi1FSFCH7xTvO7oCaWYvgt8RA4_qcP3yQ",
+        authDomain: "geoquiz-92d0a.firebaseapp.com",
+        databaseURL: "https://geoquiz-92d0a.firebaseio.com",
+        projectId: "geoquiz-92d0a",
+        storageBucket: "geoquiz-92d0a.appspot.com",
+        messagingSenderId: "224075559344",
+        appId: "1:224075559344:web:0d529fe0862ce6abcae675",
+        measurementId: "G-H39Q1YBJ4C"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
     </script>
   </body>
 </html>

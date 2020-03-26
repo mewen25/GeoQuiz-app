@@ -9,6 +9,7 @@ export default [
   },
   {
     name: "Azerbaijan",
+    id: "Azerbaijan-as",
     capital: "Baku"
   },
   {
@@ -41,6 +42,7 @@ export default [
   // },
   {
     name: "Georgia",
+    id: "Georgia-as",
     capital: "N/A"
   },
   {
@@ -134,6 +136,7 @@ export default [
   },
   {
     name: "Russia",
+    id: "Russia-as",
     capital: "Moscow"
   },
   {
@@ -183,6 +186,7 @@ export default [
   },
   {
     name: "Turkey",
+    id: "Turkey-as",
     capital: "N/A"
   },
   {

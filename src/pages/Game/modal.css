@@ -1,5 +1,5 @@
 * {
-  font-family: "Baloo Chettan", cursive;
+  /* font-family: "Baloo Chettan", cursive; */
   /* font-size: calc(3px + 1vw); */
 }
 
@@ -44,9 +44,10 @@
 }
 
 .game-modal-info {
-  width: 50%;
-  justify-content: center;
+  width: 100%;
   margin: 3% auto;
+  justify-content: center;
+  color: white;
 }
 
 .game-modal-info h1 {
@@ -54,19 +55,31 @@
   text-align: left;
 }
 
+#back-btn {
+  width: 100px;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.modal-backBtn h3 {
+  color: rgb(109, 187, 99);
+}
+
+#back-arrow {
+  width: 20px;
+  height: 15px;
+}
+
 #game-modal-title {
   color: white;
   font-size: 45px;
+  text-transform: capitalize;
 }
 
 .game-modal-start {
-  width: 20%;
   margin: 0 auto;
-}
-
-.game-modal-start {
   font-size: 30px;
-  width: 20%;
+  width: 50%;
 }
 
 .game-modal-start button {
@@ -76,7 +89,7 @@
 .info-flex {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .info-flex h1 {

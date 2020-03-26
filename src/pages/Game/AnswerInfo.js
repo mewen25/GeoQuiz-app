@@ -1,7 +1,6 @@
 import React from "react";
 
 const AnswerInfo = props => {
-  console.log("THING", props);
   return (
     <div>
       <h1>{props.guessInfo.click}</h1>
