@@ -10,13 +10,14 @@ export default function ScrollPage(props) {
 
   const handleClick = event => {
     setPageSelect(event.target.id);
+    props.scroll(1200);
   };
   let modeStyle = {
     quizBg: "#104779",
     quizBtn: "#173b5b",
     quizHover: "#2170b6",
     quizSelect: "#E7722F",
-    learnBg: "#e96214",
+    learnBg: "#F3742B",
     learnBtn: "#e7722f",
     learnHover: "#FF8F50",
     learnSelect: "#173b5b"
@@ -51,6 +52,7 @@ export default function ScrollPage(props) {
         }
       ></div>
       <ToggleSwitch setMode={props.setMode} mode={props.mode} />
+      <h1 id="mode-title">{props.mode}</h1>
       <h1 className="selectContinent">Select a Continent</h1>
       <div className="continents-container">
         <div className="continentsRow">

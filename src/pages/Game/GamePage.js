@@ -5,6 +5,11 @@ import GameInfo from "./GameInfo";
 
 export default function GamePage(props) {
   const { time, start, reset } = useTimer();
+  const [finish, setFinish] = useState(false);
+  const [mousePos, setMousePos] = useState({
+    x: 0,
+    y: 0
+  });
   const [list, setList] = useState(props.data.data);
   const [listArr, setListArr] = useState([]);
   const [find, setFind] = useState({
@@ -16,13 +21,20 @@ export default function GamePage(props) {
     wrong: [],
     skipped: []
   });
+  const [score, setScore] = useState(0);
   const [misses, setMisses] = useState(0);
   const [status, setStatus] = useState({
     finish: [],
     wrong: ""
   });
+  const [pointFeedback, setPointFeedback] = useState({
+    points: 0,
+    state: false
+  });
+  const [finishTime, setFinishTime] = useState(0);
   const totalCountries = Object.keys(props.data.data).length;
   const Map = props.data.map;
+  const maxPoints = props.data.maxPointGain;
 
   useEffect(() => {
     let newListArr = [];
@@ -35,6 +47,16 @@ export default function GamePage(props) {
   useEffect(() => {
     getFind();
   }, [listArr, props.show]);
+
+  const updateMousePosition = ev => {
+    setMousePos({ x: ev.clientX, y: ev.clientY });
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", updateMousePosition);
+
+    return () => window.removeEventListener("click", updateMousePosition);
+  }, []);
 
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -50,35 +72,51 @@ export default function GamePage(props) {
     let data = Object.assign({}, list);
     if (add && !data[element].class.includes(classname)) {
       data[element].class.push(classname);
-    } else if (!add) {
-      console.log(classname);
-      data[element].class.filter(item => item != classname);
+    } else if (!add && data[element].class.includes(classname)) {
+      const newClasses = data[element].class.filter(c => c !== classname);
+      data[element].class = newClasses;
     }
     setList(data);
   };
 
-  function animate(name, animation, custom = false) {
-    const node = document.querySelector(name);
-    if (custom) {
-      node.classList.add(animation);
-    } else {
+  const setupTimer = () => {
+    reset();
+    start();
+  };
+
+  function animate(name, animation, custom = false, instruction = false) {
+    let node;
+    if (!custom) {
+      node = document.querySelector(name);
       node.classList.add("animated", animation);
+    } else {
+      node = document.querySelector(`#${name}`);
+      node.classList.add(animation);
     }
     node.onanimationend = () => {
       if (custom) {
         node.classList.remove(animation);
       } else {
         node.classList.remove("animated", animation);
+        if (instruction) {
+          setPointFeedback({
+            points: 0,
+            state: false
+          });
+        }
       }
     };
   }
 
   const getFind = () => {
-    if (answers.correct.length + answers.skipped.length < totalCountries) {
+    if (answers.correct.length < totalCountries) {
       if (!props.show) {
+        setupTimer();
         animate("#info-place-name", "bounceIn");
       }
       setFind(list[listArr[0]]);
+    } else {
+      handleFinish();
     }
   };
 
@@ -95,22 +133,25 @@ export default function GamePage(props) {
     }
   };
 
-  const result = (state, found) => {
+  const result = (state, found, exception = false) => {
     let newAnswers = Object.assign({}, answers);
     if (state) {
-      manageClass(found, "animated flash shown", false);
       setListArr(listArr.filter(c => list[c].name != list[found].name));
       newAnswers["correct"].push(find.name);
       setAnswers(newAnswers);
       manageClass(found, "complete");
+      if (!exception) {
+        managePoints("correct");
+      }
       getFind();
     } else {
       if (!newAnswers.wrong.includes(list[found].name)) {
         newAnswers["wrong"].push(list[found].name);
         setAnswers(newAnswers);
       }
+      managePoints("wrong");
       setMisses(misses + 1);
-      animate(`#${found}`, "wrongSelect", true);
+      animate(found, "wrongSelect", true);
     }
   };
 
@@ -121,24 +162,70 @@ export default function GamePage(props) {
     getFind();
   };
 
-  //   useEffect(() => {
-  //     if (!props.show) {
-  //       result(true, find.id || find.name);
-  //     }
-  //   }, [answers.skipped]);
-
   const handleShowMe = () => {
-    manageClass(find.id || find.name, "animated flash shown");
+    manageClass(find.id || find.name, "animated zoomIn");
     let newAnswers = Object.assign({}, answers);
-    //animate(`#${find.id || find.name}`, "flash");
+    animate(`#${find.id || find.name}`, "zoomIn");
+    result(true, find.id || find.name, true);
     newAnswers["skipped"].push(find.id || find.name);
+    managePoints("skipped");
     setAnswers(newAnswers);
-    //result(true, find.id || find.name);
-    //managePoints("show");
+  };
+
+  const managePoints = state => {
+    let newPoints;
+    const thisTime = time;
+    if (state == "correct") {
+      newPoints = Math.min(
+        Math.max(maxPoints - thisTime * 10, maxPoints * 0.5),
+        maxPoints
+      );
+    } else if (state == "wrong") {
+      newPoints = maxPoints * -0.2;
+    } else if (state == "skipped") {
+      newPoints = -50;
+    }
+    if (score + newPoints <= 0) {
+      setScore(0);
+    } else {
+      setScore(score + newPoints);
+    }
+    setPointFeedback({
+      points: newPoints,
+      state: true
+    });
+    animate("#game-pointsScore", "fadeOutUp", false, true);
+  };
+
+  const handleFinish = () => {
+    setList(props.data.data);
+    props.setResults({
+      score: answers.correct.length,
+      misses: misses,
+      skipped: answers.skipped,
+      total: totalCountries,
+      finalTime: finishTime,
+      finalScore: score
+    });
+    props.setFinish(true);
   };
 
   return (
     <div className="game-layout">
+      {pointFeedback.state ? (
+        <p
+          id="game-pointsScore"
+          style={{
+            color: pointFeedback.points > 0 ? "#56b953" : "#b95353",
+            left: mousePos.x,
+            top: mousePos.y - 50
+          }}
+        >
+          {`${pointFeedback.points > 0 ? "+" : ""}${pointFeedback.points}`}
+        </p>
+      ) : (
+        <p id="game-pointsScore"></p>
+      )}
       {!props.show ? (
         <GameInfo
           mode={props.data.mode}
@@ -146,9 +233,11 @@ export default function GamePage(props) {
           place={find}
           correct={answers.correct.length}
           misses={misses}
+          score={score}
           total={totalCountries}
           handleSkip={handleSkip}
           handleShowMe={handleShowMe}
+          setFinish={setFinishTime}
         />
       ) : null}
       <Map handleClick={handleClick} data={list} />

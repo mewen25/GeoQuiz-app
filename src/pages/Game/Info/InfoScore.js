@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useTimer } from "use-timer";
 
+import HelpBtns from "./HelpBtns";
+
 export default function InfoScore(props) {
   const { time, start, pause, reset } = useTimer({
     initialTime: 0,
@@ -12,7 +14,7 @@ export default function InfoScore(props) {
   }, []);
 
   useEffect(() => {
-    //props.finalTime(time);
+    props.finalTime(time);
     if (props.correct >= props.total) {
       pause();
     }

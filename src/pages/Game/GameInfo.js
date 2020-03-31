@@ -18,15 +18,17 @@ export default function GameInfo(props) {
       <InfoScore
         correct={props.correct}
         total={props.total}
-        points={props.points}
+        points={props.score}
         time={props.time}
-        finalTime={props.handleFinish}
+        finalTime={props.setFinish}
       />
-      <HelpBtns
-        handleSkip={props.handleSkip}
-        handleShowMe={props.handleShowMe}
-      />
-      <InfoMisses misses={props.misses} />
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <InfoMisses misses={props.misses} />
+        <HelpBtns
+          handleSkip={props.handleSkip}
+          handleShowMe={props.handleShowMe}
+        />
+      </div>
     </div>
   );
 }

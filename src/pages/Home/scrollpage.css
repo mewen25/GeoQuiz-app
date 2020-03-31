@@ -96,6 +96,7 @@
   margin: 0 auto;
   justify-content: center;
   height: auto;
+  min-height: 350px;
 }
 
 .selectContinent {
@@ -108,7 +109,7 @@
 
 #theme-switch {
   position: relative;
-  top: 100px;
+  top: 70px;
   left: 30px;
   width: 150px;
   height: 60px;
@@ -118,6 +119,15 @@
 
 #theme-switch:hover {
   cursor: pointer;
+}
+
+#mode-title {
+  font-size: 80px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: white;
+  text-transform: capitalize;
+  box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.25);
 }
 
 #theme-switch-circle {
@@ -152,6 +162,7 @@
   #home-img {
     padding-top: 2%;
     max-width: 500px;
+    top: 120px;
   }
   .quiz-link-container {
     /* flex-direction: column; */
@@ -166,7 +177,7 @@
 
   .home-mainBtns {
     align-content: space-between;
-    top: -100px;
+    top: 0px;
     margin: 0 auto;
     margin-top: 15%;
     background-color: #19487244;
