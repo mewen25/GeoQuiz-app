@@ -6,32 +6,34 @@
 .game-layout {
   width: 100%;
   height: 100%;
+  background: rgba(194, 226, 255, 0.54);
 }
 
 .game-map-container {
   height: 100%;
   width: auto;
   overflow-x: scroll;
-  position: absolute;
-  top: -20px;
-  right: 15%;
+  position: relative;
 }
 
-.flash {
+.game-map-container svg {
+  display: block;
+  margin: 0 auto;
 }
 
-.shown {
-  animation-duration: 5s;
-  animation-delay: 0.5s;
-  animation-iteration-count: infinite;
+.zoomIn {
+  animation-duration: 2s;
+  fill: rgb(241, 83, 83) !important;
 }
 
 .game-map {
+  display: block;
   height: 100%;
+  margin: 0 auto;
 }
 .quiz-country {
-  stroke: white;
-  stroke-width: 0.1px;
+  stroke: #deefff;
+  stroke-width: 0.8px;
 }
 
 .quiz-country:hover {
@@ -134,7 +136,7 @@
 
 .complete {
   opacity: 0.4 !important;
-  fill: gray !important;
+  fill: gray;
 }
 
 .complete:hover {
@@ -168,17 +170,20 @@
   flex-direction: column;
 }
 
+.fadeOutUp {
+  animation-duration: 1s;
+  animation-delay: 0s;
+}
+
 .game-button {
   border: none;
   border-radius: 40px;
-  margin: 0 15px;
-  line-height: 0;
+  margin: 0 0px;
   border-radius: 30px;
   font-size: 30px !important;
   color: white !important;
-  height: 35px;
+  height: auto;
   min-width: 120px;
-  max-width: auto;
   box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.25);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -205,14 +210,6 @@
   bottom: 10%;
 }
 
-.doDisplay {
-  display: block;
-}
-
-.noDisplay {
-  display: none;
-}
-
 @keyframes points {
   from {
     color: rgb(87, 185, 83);
@@ -229,23 +226,6 @@
   left: 0px;
 }
 
-/* .game-modal-btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 80%;
-} */
-
-/* .info-place {
-  position: fixed;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  white-space: nowrap;
-}
- */
-
 .game-info-guess {
   position: absolute;
   bottom: 2%;
@@ -254,6 +234,36 @@
   text-align: end;
   font-size: 40px;
   color: #ffa3a3;
+}
+
+.game-extra-data {
+  width: 100%;
+  height: 500px;
+  background-color: #77bcfc;
+  display: flex;
+  justify-content: center;
+}
+
+.extra-data-container {
+  display: flex;
+  flex-direction: row;
+  height: 200px;
+  color: white;
+}
+
+.extra-data-container img {
+  height: 60%;
+  width: 60%;
+  margin: auto 0;
+  margin-right: 30px;
+}
+
+.extra-data-info {
+  min-width: 250px;
+}
+
+.extra-data-info h2 {
+  text-align: center;
 }
 
 @media (max-width: 650px) {
@@ -269,5 +279,13 @@
   #game-place {
     font-size: 30px;
     padding-top: 8px;
+  }
+
+  .finish-info-col {
+    width: 100%;
+  }
+
+  .game-button {
+    line-height: 30px;
   }
 }

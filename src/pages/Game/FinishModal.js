@@ -7,18 +7,19 @@ import OptionButtons from "./OptionButtons";
 import GameButton from "./GameButton";
 
 const GameModal = props => {
-  const gameAccuracy = (
-    ((props.info.score.correct - props.info.skipped) /
-      (props.info.score.wrong + props.info.total)) *
-    100
-  ).toFixed(1);
+  console.log(props);
+  const gameAccuracy = Math.round(
+    ((props.info.score - props.info.skipped.length) /
+      (props.info.misses + props.info.total)) *
+      100
+  ); //.toFixed(1);
 
   const [gameScore, setGameScore] = useState({
-    score: props.info.score.correct - props.info.skipped,
+    score: props.info.score - props.info.skipped.length,
     answerPercent: Math.round(
-      ((props.info.score.correct - props.info.skipped) / props.info.total) * 100
+      ((props.info.score - props.info.skipped.length) / props.info.total) * 100
     ),
-    misses: props.info.score.wrong,
+    misses: props.info.misses,
     accuracy: gameAccuracy
   });
   const history = useHistory();
@@ -74,7 +75,7 @@ const GameModal = props => {
           </div>
           <div className="finish-info-score">
             <h2 id="finish-score-title">Total Score:</h2>
-            <h1 id="finish-score">{props.info.totalScore}</h1>
+            <h1 id="finish-score">{props.info.finalScore}</h1>
           </div>
           <div className="game-modal-btns">
             <GameButton
@@ -83,34 +84,12 @@ const GameModal = props => {
               colour="#6297E5"
               handleClick={() => window.location.reload()}
             />
-
             <GameButton
               name="Home"
               id="finish-modal-homeBtn"
               colour="#6297E5"
               handleClick={() => history.push("/")}
             />
-
-            {/* <Button
-              variant="success"
-              className="game-modal-button"
-              size="lg"
-              block
-              name="start"
-              onClick={() => window.location.reload()}
-            >
-              Try Again?
-            </Button>
-            <Button
-              className="game-modal-button"
-              variant="success"
-              size="lg"
-              block
-              name="start"
-              onClick={() => history.push("/")}
-            >
-              Home
-            </Button> */}
           </div>
         </Modal.Body>
       </Modal>

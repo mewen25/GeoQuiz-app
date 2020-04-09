@@ -1,17 +1,15 @@
 import React from "react";
 
 export default function InfoPlace(props) {
-  var imgPath = null;
-  try {
-    imgPath = require(`../../../assets/images/flags/continents/${props.continent}/${props.mode}/${props.place}.png`);
-  } catch (e) {
-    imgPath = null;
-  }
   return (
     <div className="info-place">
-      <h2 id="info-place-name">{props.place}</h2>
-      {imgPath ? (
-        <img alt={`${props.place}-flag`} id="info-place-flag" src={imgPath} />
+      <h2 id="info-place-name">{props.place.name}</h2>
+      {props.place.image ? (
+        <img
+          alt={`${props.place.name}-flag`}
+          id="info-place-flag"
+          src={props.place.image}
+        />
       ) : null}
     </div>
   );

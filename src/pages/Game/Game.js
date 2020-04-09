@@ -35,13 +35,13 @@ const Game = ({ match }) => {
       time: data.mode[newMode].time,
       findAmount: data.mode[newMode].findAmount,
       map: data.mode[newMode].map,
-      data: data.mode[newMode].data
+      data: data.mode[newMode].data,
+      maxPointGain: 250
     });
   };
 
   const handleStart = () => {
     setShow(false);
-    setGameState(true);
   };
 
   const modalContent = {
@@ -66,8 +66,10 @@ const Game = ({ match }) => {
 
   useEffect(() => {
     gameSetup();
+    setGameState(true);
 
     return function cleanup() {
+      setGameState(false);
       window.location.reload();
     };
   }, []);
