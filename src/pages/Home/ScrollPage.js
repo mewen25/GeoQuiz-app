@@ -8,7 +8,7 @@ import "./scrollpage.css";
 export default function ScrollPage(props) {
   const [pageSelect, setPageSelect] = useState(undefined);
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     setPageSelect(event.target.id);
     props.scroll(1200);
   };
@@ -17,10 +17,10 @@ export default function ScrollPage(props) {
     quizBtn: "#173b5b",
     quizHover: "#2170b6",
     quizSelect: "#E7722F",
-    learnBg: "#F3742B",
+    learnBg: "#EF7C29",
     learnBtn: "#e7722f",
     learnHover: "#FF8F50",
-    learnSelect: "#173b5b"
+    learnSelect: "#173b5b",
   };
 
   const pageBg = props.mode === "quiz" ? modeStyle.quizBg : modeStyle.learnBg;
@@ -69,13 +69,13 @@ export default function ScrollPage(props) {
                     bg: modeStyle.learnBg,
                     hover: modeStyle.learnHover,
                     btn: modeStyle.learnBtn,
-                    select: modeStyle.learnSelect
+                    select: modeStyle.learnSelect,
                   }
                 : {
                     bg: modeStyle.quizBg,
                     hover: modeStyle.quizHover,
                     btn: modeStyle.quizBtn,
-                    select: modeStyle.quizSelect
+                    select: modeStyle.quizSelect,
                   }
             }
           />
@@ -92,13 +92,13 @@ export default function ScrollPage(props) {
                     bg: modeStyle.learnBg,
                     hover: modeStyle.learnHover,
                     btn: modeStyle.learnBtn,
-                    select: modeStyle.learnSelect
+                    select: modeStyle.learnSelect,
                   }
                 : {
                     bg: modeStyle.quizBg,
                     hover: modeStyle.quizHover,
                     btn: modeStyle.quizBtn,
-                    select: modeStyle.quizSelect
+                    select: modeStyle.quizSelect,
                   }
             }
           />
@@ -115,13 +115,13 @@ export default function ScrollPage(props) {
                     bg: modeStyle.learnBg,
                     hover: modeStyle.learnHover,
                     btn: modeStyle.learnBtn,
-                    select: modeStyle.learnSelect
+                    select: modeStyle.learnSelect,
                   }
                 : {
                     bg: modeStyle.quizBg,
                     hover: modeStyle.quizHover,
                     btn: modeStyle.quizBtn,
-                    select: modeStyle.quizSelect
+                    select: modeStyle.quizSelect,
                   }
             }
           />
@@ -138,13 +138,13 @@ export default function ScrollPage(props) {
                     bg: modeStyle.learnBg,
                     hover: modeStyle.learnHover,
                     btn: modeStyle.learnBtn,
-                    select: modeStyle.learnSelect
+                    select: modeStyle.learnSelect,
                   }
                 : {
                     bg: modeStyle.quizBg,
                     hover: modeStyle.quizHover,
                     btn: modeStyle.quizBtn,
-                    select: modeStyle.quizSelect
+                    select: modeStyle.quizSelect,
                   }
             }
           />
@@ -161,13 +161,13 @@ export default function ScrollPage(props) {
                     bg: modeStyle.learnBg,
                     hover: modeStyle.learnHover,
                     btn: modeStyle.learnBtn,
-                    select: modeStyle.learnSelect
+                    select: modeStyle.learnSelect,
                   }
                 : {
                     bg: modeStyle.quizBg,
                     hover: modeStyle.quizHover,
                     btn: modeStyle.quizBtn,
-                    select: modeStyle.quizSelect
+                    select: modeStyle.quizSelect,
                   }
             }
           />
@@ -184,13 +184,13 @@ export default function ScrollPage(props) {
                     bg: modeStyle.learnBg,
                     hover: modeStyle.learnHover,
                     btn: modeStyle.learnBtn,
-                    select: modeStyle.learnSelect
+                    select: modeStyle.learnSelect,
                   }
                 : {
                     bg: modeStyle.quizBg,
                     hover: modeStyle.quizHover,
                     btn: modeStyle.quizBtn,
-                    select: modeStyle.quizSelect
+                    select: modeStyle.quizSelect,
                   }
             }
           />

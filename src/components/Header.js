@@ -9,7 +9,7 @@ const Header = match => {
       {game ? (
         <div className="header">
           <Link to="/" className="home-link">
-            {`<GeoQuiz>`}
+            {`GEOQUIZ`}
           </Link>
         </div>
       ) : null}

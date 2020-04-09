@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTimer } from "use-timer";
 
 import GameInfo from "./GameInfo";
+import ExtraData from "./ExtraData";
 
 export default function GamePage(props) {
   const { time, start, reset } = useTimer();
@@ -13,7 +14,11 @@ export default function GamePage(props) {
   const [list, setList] = useState(props.data.data);
   const [listArr, setListArr] = useState([]);
   const [find, setFind] = useState({
-    name: ""
+    data: {},
+    simple: {
+      name: "",
+      image: undefined
+    }
   });
   const [guess, setGuess] = useState(undefined);
   const [answers, setAnswers] = useState({
@@ -45,6 +50,7 @@ export default function GamePage(props) {
   }, []);
 
   useEffect(() => {
+    console.log(find, list);
     getFind();
   }, [listArr, props.show]);
 
@@ -84,6 +90,16 @@ export default function GamePage(props) {
     start();
   };
 
+  const getImage = () => {
+    var imgPath = null;
+    try {
+      imgPath = require(`../../assets/images/flags/continents/${props.data.continentId}/${props.data.mode}/${find.simple.name}.png`);
+    } catch (e) {
+      imgPath = null;
+    }
+    return imgPath;
+  };
+
   function animate(name, animation, custom = false, instruction = false) {
     let node;
     if (!custom) {
@@ -114,7 +130,15 @@ export default function GamePage(props) {
         setupTimer();
         animate("#info-place-name", "bounceIn");
       }
-      setFind(list[listArr[0]]);
+      if (list[listArr[0]]) {
+        setFind({
+          data: list[listArr[0]],
+          simple: {
+            name: list[listArr[0]].name,
+            image: getImage(list[listArr[0]].name)
+          }
+        });
+      }
     } else {
       handleFinish();
     }
@@ -126,7 +150,7 @@ export default function GamePage(props) {
       return;
     }
     setGuess(list[clicked].name);
-    if (list[clicked].name == find.name) {
+    if (list[clicked].name == find.data.name) {
       result(true, clicked);
     } else {
       result(false, clicked);
@@ -137,7 +161,7 @@ export default function GamePage(props) {
     let newAnswers = Object.assign({}, answers);
     if (state) {
       setListArr(listArr.filter(c => list[c].name != list[found].name));
-      newAnswers["correct"].push(find.name);
+      newAnswers["correct"].push(find.data.name);
       setAnswers(newAnswers);
       manageClass(found, "complete");
       if (!exception) {
@@ -163,11 +187,11 @@ export default function GamePage(props) {
   };
 
   const handleShowMe = () => {
-    manageClass(find.id || find.name, "animated zoomIn");
+    manageClass(find.data.id || find.data.name, "animated zoomIn");
     let newAnswers = Object.assign({}, answers);
-    animate(`#${find.id || find.name}`, "zoomIn");
-    result(true, find.id || find.name, true);
-    newAnswers["skipped"].push(find.id || find.name);
+    animate(`#${find.data.id || find.data.name}`, "zoomIn");
+    result(true, find.data.id || find.data.name, true);
+    newAnswers["skipped"].push(find.data.id || find.data.name);
     managePoints("skipped");
     setAnswers(newAnswers);
   };
@@ -230,7 +254,7 @@ export default function GamePage(props) {
         <GameInfo
           mode={props.data.mode}
           continent={props.data.continentId}
-          place={find}
+          place={find.simple}
           correct={answers.correct.length}
           misses={misses}
           score={score}
@@ -241,6 +265,13 @@ export default function GamePage(props) {
         />
       ) : null}
       <Map handleClick={handleClick} data={list} />
+      {!props.show ? (
+        <ExtraData
+          place={find.data}
+          mode={props.data.mode}
+          continent={props.data.continentId}
+        />
+      ) : null}
     </div>
   );
 }

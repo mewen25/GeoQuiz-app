@@ -157,7 +157,7 @@
 @media (max-width: 650px) {
   #home-page {
     background: #042b4f;
-    height: 100vh;
+    height: 100%;
   }
   #home-img {
     padding-top: 2%;

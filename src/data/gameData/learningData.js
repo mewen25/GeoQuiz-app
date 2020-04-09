@@ -15,8 +15,16 @@ export default [
               land: "103,000 km²",
               language: "Icelandic",
               animal: "Gyrfalcon",
-              styles: ["#000a84", "#ff0023", "#fff"],
-              class: "country"
+              flagStyles: ["#000a84", "#ff0023", "#fff"],
+              styles: {
+                learn: ["#20694B"],
+                quiz: ["#F4FFA2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Iceland.png`),
             },
             Ireland: {
               name: "Ireland",
@@ -25,18 +33,34 @@ export default [
               land: "84,421 km²",
               language: "Irish, English",
               animal: "Irish hare",
-              styles: ["#11a92d", "#fb9153", "#fff"],
-              class: "country"
+              flagStyles: ["#11a92d", "#fb9153", "#fff"],
+              styles: {
+                learn: ["#8DAA5C"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Ireland.png`),
             },
             "United Kingdom": {
-              name: "United-Kingdom",
+              name: "United Kingdom",
               capital: "London",
               population: "65,110,000",
               land: "242,495 km²",
               language: "English",
               animal: "Lion",
-              styles: ["#cf142b", "#00247d", "#fff"],
-              class: "country"
+              flagStyles: ["#cf142b", "#00247d", "#fff"],
+              styles: {
+                learn: ["#20694B"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/United Kingdom.png`),
             },
             Norway: {
               name: "Norway",
@@ -45,8 +69,16 @@ export default [
               land: "385,203 km²",
               language: "Norwegian",
               animal: "Moose",
-              styles: ["#ef2b2d", "#002868", "#fff"],
-              class: "country"
+              flagStyles: ["#ef2b2d", "#002868", "#fff"],
+              styles: {
+                learn: ["#8DAA5C"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Norway.png`),
             },
             Denmark: {
               name: "Denmark",
@@ -55,8 +87,16 @@ export default [
               land: "42,933 km²",
               language: "Danish",
               animal: "Mute Swan",
-              styles: ["#c60c30", "#fff", "#fff"],
-              class: "country"
+              flagStyles: ["#c60c30", "#fff", "#fff"],
+              styles: {
+                learn: ["#C6D83B"],
+                quiz: ["#F4FFA2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Denmark.png`),
             },
             Finland: {
               name: "Finland",
@@ -65,8 +105,16 @@ export default [
               land: "338,440 km²",
               language: "Finnish, Swedish",
               animal: "brown bear",
-              styles: ["#003580", "#fff", "#fff"],
-              class: "country"
+              flagStyles: ["#003580", "#fff", "#fff"],
+              styles: {
+                learn: ["#C6D83B"],
+                quiz: ["#F4FFA2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Finland.png`),
             },
             Sweden: {
               name: "Sweden",
@@ -75,8 +123,16 @@ export default [
               land: "450,295 km²",
               language: "Swedish",
               animal: "Moose/Elk",
-              styles: ["#006aa7", "#fecc00", "#fff"],
-              class: "country"
+              flagStyles: ["#006aa7", "#fecc00", "#fff"],
+              styles: {
+                learn: ["#20694B"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Sweden.png`),
             },
             Estonia: {
               name: "Estonia",
@@ -85,8 +141,16 @@ export default [
               land: "45,226 km²",
               language: "Estonian",
               animal: "grey wolf",
-              styles: ["#4891d9", "#000", "#fff"],
-              class: "country"
+              flagStyles: ["#4891d9", "#000", "#fff"],
+              styles: {
+                learn: ["#20694B"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Estonia.png`),
             },
             Latvia: {
               name: "Latvia",
@@ -95,8 +159,16 @@ export default [
               land: "64,589 km²",
               language: "Latvian",
               animal: "Two-spotted ladybird",
-              styles: ["#9e3039", "#fff", "#fff"],
-              class: "country"
+              flagStyles: ["#9e3039", "#fff", "#fff"],
+              styles: {
+                learn: ["#8DAA5C"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Latvia.png`),
             },
             Lithuania: {
               name: "Lithuania",
@@ -105,25 +177,21 @@ export default [
               land: "65,300 km²",
               language: "Lithuanian",
               animal: "white stork",
-              styles: ["#fdb913", "#c1272d", "#006a44"],
-              class: "country"
-            }
-          }
+              flagStyles: ["#fdb913", "#c1272d", "#006a44"],
+              styles: {
+                learn: ["#C6D83B"],
+                quiz: ["#F4FFA2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Lithuania.png`),
+            },
+          },
         ],
-        // countries: [
-        //   "Iceland",
-        //   "Ireland",
-        //   "United Kingdom",
-        //   "Norway",
-        //   "Denmark",
-        //   "Sweden",
-        //   "Finland",
-        //   "Estonia",
-        //   "Latvia",
-        //   "Lithuania"
-        // ],
-        map: LearnNorthernEurope
-      }
-    }
-  }
+        map: LearnNorthernEurope,
+      },
+    },
+  },
 ];

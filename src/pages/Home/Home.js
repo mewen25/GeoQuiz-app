@@ -15,6 +15,10 @@ const Home = () => {
   const { mode, setModeState } = useContext(ModeContext);
   const [gameMode, setGameMode] = useState("quiz");
 
+  useEffect(() => {
+    setGameState(false);
+  }, []);
+
   const handleClickQuiz = () => {
     setGameMode("quiz");
     setModeState("quiz");

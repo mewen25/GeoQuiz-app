@@ -42,7 +42,6 @@ const Game = ({ match }) => {
 
   const handleStart = () => {
     setShow(false);
-    setGameState(true);
   };
 
   const modalContent = {
@@ -67,8 +66,10 @@ const Game = ({ match }) => {
 
   useEffect(() => {
     gameSetup();
+    setGameState(true);
 
     return function cleanup() {
+      setGameState(false);
       window.location.reload();
     };
   }, []);
