@@ -9,7 +9,7 @@ export default function GamePage(props) {
   const [finish, setFinish] = useState(false);
   const [mousePos, setMousePos] = useState({
     x: 0,
-    y: 0
+    y: 0,
   });
   const [list, setList] = useState(props.data.data);
   const [listArr, setListArr] = useState([]);
@@ -17,24 +17,24 @@ export default function GamePage(props) {
     data: {},
     simple: {
       name: "",
-      image: undefined
-    }
+      image: undefined,
+    },
   });
   const [guess, setGuess] = useState(undefined);
   const [answers, setAnswers] = useState({
     correct: [],
     wrong: [],
-    skipped: []
+    skipped: [],
   });
   const [score, setScore] = useState(0);
   const [misses, setMisses] = useState(0);
   const [status, setStatus] = useState({
     finish: [],
-    wrong: ""
+    wrong: "",
   });
   const [pointFeedback, setPointFeedback] = useState({
     points: 0,
-    state: false
+    state: false,
   });
   const [finishTime, setFinishTime] = useState(0);
   const totalCountries = Object.keys(props.data.data).length;
@@ -54,7 +54,7 @@ export default function GamePage(props) {
     getFind();
   }, [listArr, props.show]);
 
-  const updateMousePosition = ev => {
+  const updateMousePosition = (ev) => {
     setMousePos({ x: ev.clientX, y: ev.clientY });
   };
 
@@ -79,7 +79,7 @@ export default function GamePage(props) {
     if (add && !data[element].class.includes(classname)) {
       data[element].class.push(classname);
     } else if (!add && data[element].class.includes(classname)) {
-      const newClasses = data[element].class.filter(c => c !== classname);
+      const newClasses = data[element].class.filter((c) => c !== classname);
       data[element].class = newClasses;
     }
     setList(data);
@@ -117,7 +117,7 @@ export default function GamePage(props) {
         if (instruction) {
           setPointFeedback({
             points: 0,
-            state: false
+            state: false,
           });
         }
       }
@@ -135,8 +135,8 @@ export default function GamePage(props) {
           data: list[listArr[0]],
           simple: {
             name: list[listArr[0]].name,
-            image: getImage(list[listArr[0]].name)
-          }
+            image: getImage(list[listArr[0]].name),
+          },
         });
       }
     } else {
@@ -144,8 +144,9 @@ export default function GamePage(props) {
     }
   };
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     const clicked = event.currentTarget.id;
+    console.log(clicked);
     if (list[clicked].class.includes("complete")) {
       return;
     }
@@ -160,7 +161,7 @@ export default function GamePage(props) {
   const result = (state, found, exception = false) => {
     let newAnswers = Object.assign({}, answers);
     if (state) {
-      setListArr(listArr.filter(c => list[c].name != list[found].name));
+      setListArr(listArr.filter((c) => list[c].name != list[found].name));
       newAnswers["correct"].push(find.data.name);
       setAnswers(newAnswers);
       manageClass(found, "complete");
@@ -196,7 +197,7 @@ export default function GamePage(props) {
     setAnswers(newAnswers);
   };
 
-  const managePoints = state => {
+  const managePoints = (state) => {
     let newPoints;
     const thisTime = time;
     if (state == "correct") {
@@ -216,7 +217,7 @@ export default function GamePage(props) {
     }
     setPointFeedback({
       points: newPoints,
-      state: true
+      state: true,
     });
     animate("#game-pointsScore", "fadeOutUp", false, true);
   };
@@ -229,7 +230,7 @@ export default function GamePage(props) {
       skipped: answers.skipped,
       total: totalCountries,
       finalTime: finishTime,
-      finalScore: score
+      finalScore: score,
     });
     props.setFinish(true);
   };
@@ -242,7 +243,7 @@ export default function GamePage(props) {
           style={{
             color: pointFeedback.points > 0 ? "#56b953" : "#b95353",
             left: mousePos.x,
-            top: mousePos.y - 50
+            top: mousePos.y - 50,
           }}
         >
           {`${pointFeedback.points > 0 ? "+" : ""}${pointFeedback.points}`}

@@ -112,7 +112,7 @@ export default function Learn({ match }) {
     const limit = 12;
     let size;
     if (word.length >= limit) {
-      size = "34px";
+      size = "40px";
     } else {
       size = "54px";
     }
@@ -163,6 +163,7 @@ export default function Learn({ match }) {
             <a href="#">Eastern europe</a>
           </div>
         </div>
+        <hr />
         <div className="learn-page-container">
           {learn ? (
             <div id="learning-info-container" data-aos="zoom-in">
@@ -191,14 +192,12 @@ export default function Learn({ match }) {
             />
           )}
           <div className="learn-map-container" onClick={handleClose}>
-            <div id="learn-map">
-              <Map
-                handleClick={handleClick}
-                data={mapData[0]}
-                selected={learn}
-                type="learn"
-              />
-            </div>
+            <Map
+              handleClick={handleClick}
+              data={mapData[0]}
+              selected={learn}
+              type="learn"
+            />
           </div>
         </div>
         <button

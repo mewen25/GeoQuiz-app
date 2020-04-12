@@ -9,18 +9,19 @@ export default function NavOptions(props) {
   const history = useHistory();
   //const navData = ;
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     history.push(`/${props.mode}/${props.selected}/${event.currentTarget.id}`);
   };
 
   if (props.selected) {
     var quizButtons = navData[0][props.selected][props.mode]["links"].map(
-      item => {
+      (item) => {
         return (
           <QuizButton
             img={item.img}
             name={item.name}
             link={item.link}
+            disabled={item.disabled}
             onClick={handleClick}
           />
         );

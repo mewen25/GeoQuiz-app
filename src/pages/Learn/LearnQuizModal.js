@@ -7,9 +7,9 @@ export default function LearnQuizModal(props) {
         <button className="learn-quiz-modal-btn" onClick={props.handleClick}>
           Start Quiz!
         </button>
-        <p>{`Countries:  10`}</p>
-        <p>{`Capitals:  10`}</p>
-        <p>{`Flags:  10`}</p>
+        <p>Countries</p>
+        <p>Capitals</p>
+        <p>Flags</p>
       </div>
     </div>
   );

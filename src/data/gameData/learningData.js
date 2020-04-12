@@ -1,5 +1,6 @@
 import React from "react";
 import LearnNorthernEurope from "../mapData/Continents/Europe/Learn/LearnNorthernEurope";
+import LearnCentralEurope from "../mapData/Continents/Europe/Learn/LearnCentralEurope";
 
 export default [
   {
@@ -191,6 +192,131 @@ export default [
           },
         ],
         map: LearnNorthernEurope,
+      },
+      "central-europe": {
+        title: "Central Europe",
+        countries: [
+          {
+            France: {
+              name: "France",
+              capital: "Paris",
+              styles: {
+                learn: ["#8DAA5C"],
+                quiz: ["#F4FFA2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/France.png`),
+            },
+            Belgium: {
+              name: "Belgium",
+              capital: "Brussels",
+              styles: {
+                learn: ["#18583E"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Belgium.png`),
+            },
+            Netherlands: {
+              name: "Netherlands",
+              capital: "Amsterdam",
+              styles: {
+                learn: ["#8DAA5C"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Netherlands.png`),
+            },
+            Germany: {
+              name: "Germany",
+              capital: "Berlin",
+              styles: {
+                learn: ["#C6D83C"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Germany.png`),
+            },
+            Luxembourg: {
+              name: "Luxembourg",
+              capital: "Luxembourg",
+              styles: {
+                learn: ["#5B876C"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Luxembourg.png`),
+            },
+            Switzerland: {
+              name: "Switzerland",
+              capital: "Bern",
+              styles: {
+                learn: ["#18583E"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Switzerland.png`),
+            },
+            Liechtenstein: {
+              name: "Liechtenstein",
+              capital: "Vaduz",
+              styles: {
+                learn: ["#5B876C"],
+                quiz: ["#F4FFA2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Liechtenstein.png`),
+            },
+            Austria: {
+              name: "Austria",
+              capital: "Vienna",
+              styles: {
+                learn: ["#8DAA5C"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Austria.png`),
+            },
+            Monaco: {
+              name: "Monaco",
+              capital: "Monte Carlo",
+              styles: {
+                learn: ["#18583E"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Monaco.png`),
+            },
+          },
+        ],
+        map: LearnCentralEurope,
       },
     },
   },
