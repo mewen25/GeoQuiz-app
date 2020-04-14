@@ -5,7 +5,7 @@ export default function QuizButton(props) {
   const { mode, setModeState } = useContext(ModeContext);
   return (
     <>
-      {!props.disbaled ? (
+      {!props.disabled ? (
         <div
           className="quiz-button-container"
           id={props.link}

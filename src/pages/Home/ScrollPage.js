@@ -30,7 +30,7 @@ export default function ScrollPage(props) {
       <div
         className="colBar"
         style={
-          props.mode == "quiz"
+          props.mode === "quiz"
             ? { backgroundColor: "#0C2E4E" }
             : { backgroundColor: "#6B2A06" }
         }
@@ -38,7 +38,7 @@ export default function ScrollPage(props) {
       <div
         className="colBar"
         style={
-          props.mode == "quiz"
+          props.mode === "quiz"
             ? { backgroundColor: "#0B365E" }
             : { backgroundColor: "#B55018" }
         }
@@ -46,7 +46,7 @@ export default function ScrollPage(props) {
       <div
         className="colBar"
         style={
-          props.mode == "quiz"
+          props.mode === "quiz"
             ? { backgroundColor: "#0F4270" }
             : { backgroundColor: "#D76525" }
         }

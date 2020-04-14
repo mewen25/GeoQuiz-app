@@ -1,13 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 
-const OptionButtons = props => {
-  const selectedStyle = {
-    backgroundColor: "#457434 !important",
-    boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.5) !important"
-  };
-
-  const optionButtons = props.btns.map(item => (
+const OptionButtons = (props) => {
+  const optionButtons = props.btns.map((item) => (
     <Button
       name={item}
       variant="success"

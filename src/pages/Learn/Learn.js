@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
-import data from "../../data/mapData/Continents/Europe/Europe";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+//import data from "../../data/mapData/Continents/Europe/Europe";
 import "./learn.css";
 import { GameContext } from "../../components/gameContext";
 import GameModal from "../Game/GameModal";
 import learnDatas from "../../data/gameData/learningData";
 //import MapQuiz from "../../data/mapData/Continents/Europe/Learn/LearnNorthernEuropeQuiz";
 import LearnQuiz from "./LearnQuiz";
+import BarInfo from "../../components/BarInfo";
 
 export default function Learn({ match }) {
   const { game, setGameState } = useContext(GameContext);
@@ -15,9 +18,9 @@ export default function Learn({ match }) {
   const Map = data.map;
   const [show, setShow] = useState(true);
   const [learn, setLearn] = useState(undefined);
-  const [learnFind, setLearnFind] = useState(undefined);
   const [prevLearn, setPrevLearn] = useState(undefined);
   const [learnData, setLearnData] = useState({});
+  const [countries, setCountries] = useState([]);
   const [finish, setFinish] = useState(false);
 
   var imgPath = null;
@@ -62,12 +65,12 @@ export default function Learn({ match }) {
     setGameState(true);
     return () => {
       let newState = Object.assign({}, mapData);
-      for (let [key, value] of Object.entries(mapData[0])) {
+      for (let [key, _] of Object.entries(mapData[0])) {
         newState[0][key].class = "country";
       }
+      window.location.reload();
       setMapData(newState);
       setGameState(false);
-      //window.location.reload();
     };
   }, []);
 
@@ -75,9 +78,12 @@ export default function Learn({ match }) {
     const selected = event.currentTarget.id;
     setLearn(selected);
     getCountryData(selected);
-    if (learn != selected) {
-      //getCountryData(selected);
-    }
+  }
+
+  function handleClickLink(event) {
+    const selected = event.target.id;
+    setLearn(selected);
+    getCountryData(selected);
   }
 
   function getCountryData(selected) {
@@ -92,32 +98,16 @@ export default function Learn({ match }) {
     });
   }
 
-  // function getCountryData(country) {
-  //   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-  //     .then(response => response.json())
-  //     .then(data =>
-  //       setLearnData({
-  //         name: data[0].name,
-  //         capital: data[0].capital,
-  //         population: data[0].population
-  //           .toString()
-  //           .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"),
-  //         language: data[0].languages,
-  //         flag: data[0].flag
-  //       })
-  //     );
+  // function getFontSize(word) {
+  //   const limit = 12;
+  //   let size;
+  //   if (word.length >= limit) {
+  //     size = "40px";
+  //   } else {
+  //     size = "54px";
+  //   }
+  //   return size;
   // }
-
-  function getFontSize(word) {
-    const limit = 12;
-    let size;
-    if (word.length >= limit) {
-      size = "40px";
-    } else {
-      size = "54px";
-    }
-    return size;
-  }
 
   const handleStart = () => {
     setShow(false);
@@ -135,7 +125,7 @@ export default function Learn({ match }) {
   );
 
   const handleClose = (e) => {
-    if (e.target.tagName == "svg") {
+    if (e.target.tagName === "svg") {
       setLearn(undefined);
       if (prevLearn) {
         manageClass(prevLearn, "learn", "selected", false);
@@ -146,6 +136,9 @@ export default function Learn({ match }) {
 
   return (
     <>
+      <Helmet>
+        <title>Learning {learnDatas[0][continent][thisMap].title}</title>
+      </Helmet>
       <div className="learn-page">
         <div className="learn-title">
           <h2>{data.title}</h2>
@@ -157,41 +150,31 @@ export default function Learn({ match }) {
               justifyContent: "center",
             }}
           >
-            <a href="#">Northern europe</a>
-            <a href="#">Southern europe</a>
-            <a href="#">Western europe</a>
-            <a href="#">Eastern europe</a>
+            <Link to={`/learn/${continent}/northern-europe`}>
+              Northern europe
+            </Link>
+            <Link to={`/learn/${continent}/${thisMap}`}>Southern europe</Link>
+            <Link to={`/learn/${continent}/western-europe`}>
+              Western europe
+            </Link>
+            <Link to={`/learn/${continent}/eastern-europe`}>
+              Eastern europe
+            </Link>
           </div>
         </div>
         <hr />
         <div className="learn-page-container">
-          {learn ? (
-            <div id="learning-info-container" data-aos="zoom-in">
-              <div id="learning-info-name">
-                <div id="learning-info-title">
-                  <h2 style={{ fontSize: getFontSize(learn) }}>{learn}</h2>
-                </div>
-                <img alt={`${learnData.name}-flag`} src={learnData.flag} />
-              </div>
-              <div id="learning-infos" data-aos="zoom-in">
-                <h2>Capital: {learnData.capital}</h2>
-                {/* <h4>Population: {learnData.population}</h4>
-                <h4>Land Area: {learnData.land}</h4>
-                <h4>Language(s): {learnData.language}</h4>
-                <h4>National Animal: {learnData.animal}</h4> */}
-              </div>
-            </div>
-          ) : (
-            <GameModal
-              show={show}
-              title={
-                <h1>Learning {learnDatas[0][continent][thisMap].title}</h1>
-              }
-              content={modalContent}
-              gameStart={handleStart}
-            />
-          )}
-          <div className="learn-map-container" onClick={handleClose}>
+          <GameModal
+            show={show}
+            title={<h1>Learning {learnDatas[0][continent][thisMap].title}</h1>}
+            content={modalContent}
+            gameStart={handleStart}
+          />
+          <div
+            className="learn-map-container"
+            id="mapContainer"
+            onClick={handleClose}
+          >
             <Map
               handleClick={handleClick}
               data={mapData[0]}
@@ -199,11 +182,25 @@ export default function Learn({ match }) {
               type="learn"
             />
           </div>
+          <BarInfo
+            one={
+              learnData
+                ? {
+                    place: learnData.name,
+                    img: learnData.flag,
+                    sub: learnData.capital,
+                  }
+                : null
+            }
+            two={learnData ? learnData : null}
+            three={countries}
+            handleClick={handleClickLink}
+          />
         </div>
         <button
           onClick={() =>
             window.scrollTo({
-              top: 1000,
+              top: 1200,
               left: 0,
               behavior: "smooth",
             })
@@ -219,6 +216,7 @@ export default function Learn({ match }) {
         continent={continent}
         finish={finish}
         setFinish={setFinish}
+        setCountries={setCountries}
       />
     </>
   );

@@ -1,0 +1,86 @@
+.barInfo {
+  width: 80%;
+  height: auto;
+  border-top: 4px solid #cdc3c3;
+  margin: 20px auto;
+  /* display: grid;
+  grid-template-columns: 2fr 2fr 3fr;
+  grid-template-rows: auto; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.barInfo-one,
+.barInfo-two,
+.barInfo-three {
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  padding-right: 20px;
+  border-right: 4px solid #cdc3c3;
+  margin: 20px;
+}
+
+.barInfo-one {
+  flex: 1;
+}
+
+.barInfo-two {
+  font-size: 25px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.barInfo-three {
+  flex-direction: row;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  align-content: flex-start;
+  font-size: 23px;
+  flex: 1 1;
+}
+
+.barInfo-three p {
+  margin: 5px;
+  color: #074dd4;
+}
+
+.barInfo-three p:hover {
+  cursor: pointer;
+  color: #1f5acf;
+  background-color: #d5e3ff;
+}
+
+.barInfo img {
+  width: auto;
+  height: 40px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+#barInfo-one-flex1 {
+  font-size: 40px;
+  white-space: nowrap;
+}
+
+#barInfo-one-flex1,
+#barInfo-one-flex2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 50px;
+}
+
+@media (max-width: 640px) {
+  .barInfo-one,
+  .barInfo-two,
+  .barInfo-three {
+    border-right: none;
+    border-bottom: 4px solid #cdc3c3;
+  }
+}

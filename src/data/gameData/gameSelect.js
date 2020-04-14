@@ -21,14 +21,19 @@ export default [
         links: [
           {
             name: "Northern Europe",
-            img: "europe-countries-icon.png",
+            img: "learn_northern-europe.png",
             link: "northern-europe",
             disabled: false,
           },
           {
-            name: "Central Europe",
-            img: "europe-countries-icon.png",
-            link: "central-europe",
+            name: "Western Europe",
+            img: "learn_western-europe.png",
+            link: "western-europe",
+          },
+          {
+            name: "Eastern Europe",
+            img: "learn_eastern-europe.png",
+            link: "eastern-europe",
           },
           // {
           //   name: "Southern Europe",

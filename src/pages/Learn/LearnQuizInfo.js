@@ -9,11 +9,15 @@ export default function LearnQuizInfo(props) {
         <h2 id="learn-quiz-search">
           Where is: <br />
           <span style={{ color: "#FF720C", textTransform: "uppercase" }}>
-            {props.searchType != "flag" ? props.find : <img src={props.find} />}
+            {props.searchType !== "flag" ? (
+              props.find
+            ) : (
+              <img alt="find-flag" src={props.find} />
+            )}
           </span>
         </h2>
         <div className="learn-quiz-contents-places" data-aos="zoom-in">
-          {props.searchType != "flag"
+          {props.searchType !== "flag"
             ? props.searchList[props.searchType].map((c) => (
                 <SearchList
                   text={c}

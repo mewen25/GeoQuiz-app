@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTimer } from "use-timer";
 
 import GameInfo from "./GameInfo";
-import ExtraData from "./ExtraData";
+//import ExtraData from "./ExtraData";
 
 export default function GamePage(props) {
   const { time, start, reset } = useTimer();
@@ -50,7 +50,6 @@ export default function GamePage(props) {
   }, []);
 
   useEffect(() => {
-    console.log(find, list);
     getFind();
   }, [listArr, props.show]);
 
@@ -146,7 +145,6 @@ export default function GamePage(props) {
 
   const handleClick = (event) => {
     const clicked = event.currentTarget.id;
-    console.log(clicked);
     if (list[clicked].class.includes("complete")) {
       return;
     }
@@ -266,13 +264,13 @@ export default function GamePage(props) {
         />
       ) : null}
       <Map handleClick={handleClick} data={list} />
-      {!props.show ? (
+      {/* {!props.show ? (
         <ExtraData
           place={find.data}
           mode={props.data.mode}
           continent={props.data.continentId}
         />
-      ) : null}
+      ) : null} */}
     </div>
   );
 }

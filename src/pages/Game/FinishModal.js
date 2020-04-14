@@ -1,31 +1,27 @@
-import React, { useState, useEffect } from "react";
-import { Modal, Button } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import React, { useState } from "react";
+import { Modal } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-
-import OptionButtons from "./OptionButtons";
 import GameButton from "./GameButton";
 
-const GameModal = props => {
-  console.log(props);
+const GameModal = (props) => {
   const gameAccuracy = Math.round(
     ((props.info.score - props.info.skipped.length) /
       (props.info.misses + props.info.total)) *
       100
   ); //.toFixed(1);
 
-  const [gameScore, setGameScore] = useState({
+  const [gameScore] = useState({
     score: props.info.score - props.info.skipped.length,
     answerPercent: Math.round(
       ((props.info.score - props.info.skipped.length) / props.info.total) * 100
     ),
     misses: props.info.misses,
-    accuracy: gameAccuracy
+    accuracy: gameAccuracy,
   });
   const history = useHistory();
 
   const verdict = () => {
-    if (gameAccuracy == 100) {
+    if (gameAccuracy === 100) {
       return "Perfect Score!";
     } else if (gameAccuracy > 80) {
       return "Very good!";
@@ -46,13 +42,10 @@ const GameModal = props => {
       >
         <Modal.Title id="finish-modal-title">{verdict()}</Modal.Title>
         <Modal.Body>
-          {/* <div id="finish-modal-face">
-            <img src={require("../../assets/images/smiley.png")} />
-          </div> */}
           <div className="finish-scores">
             <div id="finish-info-col-1" className="finish-info-col">
               <h2 className="finish-score-subtitle">Answered:</h2>
-              <img src={require("../../assets/images/tick.png")} />
+              <img alt="tick" src={require("../../assets/images/tick.png")} />
               <h2>
                 {gameScore.score}/{props.info.total}
               </h2>
@@ -60,7 +53,7 @@ const GameModal = props => {
             </div>
             <div id="finish-info-col-2" className="finish-info-col">
               <h2 className="finish-score-subtitle">Accuracy: </h2>
-              <img src={require("../../assets/images/cross.png")} />
+              <img alt="cross" src={require("../../assets/images/cross.png")} />
               <h2>{gameScore.misses}</h2>
               <h2>{gameScore.accuracy}%</h2>
             </div>

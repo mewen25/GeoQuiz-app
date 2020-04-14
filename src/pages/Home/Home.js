@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, animateScroll as Scroll } from "react-scroll";
+import React, { useContext } from "react";
+//import { Link, animateScroll as Scroll } from "react-scroll";
 import { Helmet } from "react-helmet";
 // import { ReactComponent as TitleImg } from "../../assets/images/home-img.svg";
 // import { ReactComponent as TitleImgSm } from "../../assets/images/home-img-sm.svg";
@@ -13,29 +13,27 @@ import ScrollPage from "./ScrollPage";
 const Home = () => {
   const { game, setGameState } = useContext(GameContext);
   const { mode, setModeState } = useContext(ModeContext);
-  const [gameMode, setGameMode] = useState("quiz");
+  //const [gameMode, setGameMode] = useState("quiz");
 
-  useEffect(() => {
-    setGameState(false);
-  }, []);
+  // useEffect(() => {
+  //   setGameState(false);
+  // }, []);
 
   const handleClickQuiz = () => {
-    setGameMode("quiz");
     setModeState("quiz");
-    scroll(900);
+    scroll(1100);
   };
 
   const handleClickLearn = () => {
-    setGameMode("learn");
     setModeState("learn");
-    scroll(900);
+    scroll(1100);
   };
 
   function scroll(position) {
     window.scrollTo({
       top: position,
       left: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   }
 

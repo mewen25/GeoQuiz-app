@@ -1,21 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
-import OptionButtons from "./OptionButtons";
-
-const GameModal = props => {
-  const [gameMode, setGameMode] = useState(1);
+const GameModal = (props) => {
   const history = useHistory();
-
-  const buttons = () => {
-    if (props.continent == "North America") {
-      return ["Countries", "Capitals", "States"];
-    } else {
-      return ["Countries", "Capitals"];
-    }
-  };
-
   return (
     <div className="game-setup">
       <Modal

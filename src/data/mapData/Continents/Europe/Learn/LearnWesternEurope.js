@@ -1,6 +1,6 @@
 import React from "react";
 
-function LearnNorthernEurope(props) {
+function LearnWesternEurope(props) {
   return (
     <>
       {props.data && props.type ? (
@@ -974,4 +974,4 @@ function LearnNorthernEurope(props) {
   );
 }
 
-export default LearnNorthernEurope;
+export default LearnWesternEurope;

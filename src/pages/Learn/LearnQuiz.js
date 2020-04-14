@@ -16,7 +16,6 @@ export default function LearnQuiz(props) {
   const [searchList, setSearchList] = useState(undefined);
   const [searchType, setSearchType] = useState("country");
   const [find, setFind] = useState(null);
-  const [guess, setGuess] = useState(undefined);
   const [misses, setMisses] = useState(0);
   const Map = props.map;
 
@@ -32,11 +31,12 @@ export default function LearnQuiz(props) {
 
   useEffect(() => {
     let newListArr = Object.assign({}, listArr);
-    for (let [key, value] of Object.entries(list)) {
+    for (let [_, value] of Object.entries(list)) {
       newListArr.country.push(value.name);
       newListArr.capital.push(value.capital);
       newListArr.flag.push(getImage(value.name));
     }
+    props.setCountries(newListArr.country);
     setListArr({
       country: shuffleArray(newListArr.country, "country"),
       capital: shuffleArray(newListArr.capital, "capital"),
@@ -54,19 +54,15 @@ export default function LearnQuiz(props) {
   }, [listArr, searchType]);
 
   useEffect(() => {
-    console.log("list", searchList);
-  }, [searchList]);
-
-  useEffect(() => {
     setMisses(0);
   }, [find]);
 
   const getHighlightColour = () => {
     var col;
     var txt = "black";
-    if (misses == 0) {
+    if (misses === 0) {
       col = "#72C54B";
-    } else if (misses == 1) {
+    } else if (misses === 1) {
       col = "#E7A525";
     } else {
       col = "#ED5A5A";
@@ -89,11 +85,11 @@ export default function LearnQuiz(props) {
       manageClass(key, "complete", false);
     }
     animate("#learn-map-quiz", "fadeIn");
-    if (searchType == "country") {
+    if ((searchType = "country")) {
       setSearchType("capital");
-    } else if (searchType == "capital") {
+    } else if (searchType === "capital") {
       setSearchType("flag");
-    } else if (searchType == "flag") {
+    } else if (searchType === "flag") {
       setFinish(true);
     }
   }
@@ -145,11 +141,10 @@ export default function LearnQuiz(props) {
     if (list[clicked].class.quiz.includes("complete")) {
       return;
     }
-    setGuess(list[clicked].name);
     if (
-      list[clicked].name == find ||
-      list[clicked].capital == find ||
-      list[clicked].flag == find
+      list[clicked].name === find ||
+      list[clicked].capital === find ||
+      list[clicked].flag === find
     ) {
       result(true, clicked);
     } else {
@@ -161,7 +156,7 @@ export default function LearnQuiz(props) {
     if (state) {
       animate("#learn-quiz-search", "bounceIn");
       let newListArr = Object.assign({}, listArr);
-      newListArr[searchType] = newListArr[searchType].filter((c) => find != c);
+      newListArr[searchType] = newListArr[searchType].filter((c) => find !== c);
       setListArr(newListArr);
       manageClass(found, "complete");
       getFind();

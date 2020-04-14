@@ -1,6 +1,6 @@
-import React from "react";
 import LearnNorthernEurope from "../mapData/Continents/Europe/Learn/LearnNorthernEurope";
-import LearnCentralEurope from "../mapData/Continents/Europe/Learn/LearnCentralEurope";
+import LearnWesternEurope from "../mapData/Continents/Europe/Learn/LearnWesternEurope";
+import LearnEasternEurope from "../mapData/Continents/Europe/Learn/LearnEasternEurope";
 
 export default [
   {
@@ -12,7 +12,7 @@ export default [
             Iceland: {
               name: "Iceland",
               capital: "Reykjavík",
-              population: "334,300",
+              population: "364,000",
               land: "103,000 km²",
               language: "Icelandic",
               animal: "Gyrfalcon",
@@ -30,7 +30,7 @@ export default [
             Ireland: {
               name: "Ireland",
               capital: "Dublin",
-              population: "6,378,000",
+              population: "4,904,000",
               land: "84,421 km²",
               language: "Irish, English",
               animal: "Irish hare",
@@ -48,7 +48,7 @@ export default [
             "United Kingdom": {
               name: "United Kingdom",
               capital: "London",
-              population: "65,110,000",
+              population: "65,650,000",
               land: "242,495 km²",
               language: "English",
               animal: "Lion",
@@ -66,7 +66,7 @@ export default [
             Norway: {
               name: "Norway",
               capital: "Oslo",
-              population: "5,223,256",
+              population: "5,368,000",
               land: "385,203 km²",
               language: "Norwegian",
               animal: "Moose",
@@ -84,7 +84,7 @@ export default [
             Denmark: {
               name: "Denmark",
               capital: "Copenhagen",
-              population: "5,717,014",
+              population: "5,603,000",
               land: "42,933 km²",
               language: "Danish",
               animal: "Mute Swan",
@@ -102,7 +102,7 @@ export default [
             Finland: {
               name: "Finland",
               capital: "Helsinki",
-              population: "5,491,817",
+              population: "5,518,000",
               land: "338,440 km²",
               language: "Finnish, Swedish",
               animal: "brown bear",
@@ -120,7 +120,7 @@ export default [
             Sweden: {
               name: "Sweden",
               capital: "Stockholm",
-              population: "9,894,888",
+              population: "10,230,000",
               land: "450,295 km²",
               language: "Swedish",
               animal: "Moose/Elk",
@@ -138,7 +138,7 @@ export default [
             Estonia: {
               name: "Estonia",
               capital: "Tallinn",
-              population: "1,315,944",
+              population: "1,328,000",
               land: "45,226 km²",
               language: "Estonian",
               animal: "grey wolf",
@@ -156,7 +156,7 @@ export default [
             Latvia: {
               name: "Latvia",
               capital: "Riga",
-              population: "1,961,600",
+              population: "1,920,000",
               land: "64,589 km²",
               language: "Latvian",
               animal: "Two-spotted ladybird",
@@ -174,7 +174,7 @@ export default [
             Lithuania: {
               name: "Lithuania",
               capital: "Vilnius",
-              population: "2,872,294",
+              population: "2,794,000",
               land: "65,300 km²",
               language: "Lithuanian",
               animal: "white stork",
@@ -193,13 +193,17 @@ export default [
         ],
         map: LearnNorthernEurope,
       },
-      "central-europe": {
-        title: "Central Europe",
+      "western-europe": {
+        title: "Western Europe",
         countries: [
           {
             France: {
               name: "France",
               capital: "Paris",
+              population: "66,990,000",
+              land: "643,801 km²",
+              language: "French",
+              animal: "Gallic Rooster",
               styles: {
                 learn: ["#8DAA5C"],
                 quiz: ["#F4FFA2"],
@@ -213,6 +217,10 @@ export default [
             Belgium: {
               name: "Belgium",
               capital: "Brussels",
+              population: "11,460,000",
+              land: "30,689 km²",
+              language: "Dutch, German, French",
+              animal: "Lion",
               styles: {
                 learn: ["#18583E"],
                 quiz: ["#FFA2A2"],
@@ -226,6 +234,10 @@ export default [
             Netherlands: {
               name: "Netherlands",
               capital: "Amsterdam",
+              population: "17,280,000",
+              land: "41,543 km²",
+              language: "Dutch",
+              animal: "Asiatic Lion",
               styles: {
                 learn: ["#8DAA5C"],
                 quiz: ["#A6EFFF"],
@@ -239,6 +251,10 @@ export default [
             Germany: {
               name: "Germany",
               capital: "Berlin",
+              population: "83,020,000",
+              land: "357,386 km²",
+              language: "Germany",
+              animal: "black eagle",
               styles: {
                 learn: ["#C6D83C"],
                 quiz: ["#FFA2A2"],
@@ -252,6 +268,10 @@ export default [
             Luxembourg: {
               name: "Luxembourg",
               capital: "Luxembourg",
+              population: "613,894",
+              land: "2,586 km²",
+              language: "Luxembourgish, German, French",
+              animal: "lion",
               styles: {
                 learn: ["#5B876C"],
                 quiz: ["#A6EFFF"],
@@ -265,6 +285,10 @@ export default [
             Switzerland: {
               name: "Switzerland",
               capital: "Bern",
+              population: "8,570,000",
+              land: "41,285 km²",
+              language: "German, Romansh, French, Italian",
+              animal: "St. Bernhard dog",
               styles: {
                 learn: ["#18583E"],
                 quiz: ["#FFA2A2"],
@@ -278,6 +302,10 @@ export default [
             Liechtenstein: {
               name: "Liechtenstein",
               capital: "Vaduz",
+              population: "38,557",
+              land: "160 km²",
+              language: "German",
+              animal: "kestrel",
               styles: {
                 learn: ["#5B876C"],
                 quiz: ["#F4FFA2"],
@@ -291,6 +319,10 @@ export default [
             Austria: {
               name: "Austria",
               capital: "Vienna",
+              population: "8,859,000",
+              land: "83,879 km²",
+              language: "German",
+              animal: "Eagle",
               styles: {
                 learn: ["#8DAA5C"],
                 quiz: ["#A6EFFF"],
@@ -304,6 +336,10 @@ export default [
             Monaco: {
               name: "Monaco",
               capital: "Monte Carlo",
+              population: "38,682",
+              land: "2.02 km²",
+              language: "French",
+              animal: "hedgehog",
               styles: {
                 learn: ["#18583E"],
                 quiz: ["#FFA2A2"],
@@ -316,7 +352,171 @@ export default [
             },
           },
         ],
-        map: LearnCentralEurope,
+        map: LearnWesternEurope,
+      },
+      "eastern-europe": {
+        title: "Eastern Europe",
+        countries: [
+          {
+            Ukraine: {
+              name: "Ukraine",
+              capital: "Kyiv",
+              styles: {
+                learn: ["#18583B"],
+                quiz: ["#F4FFA2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Ukraine.png`),
+            },
+            Bulgaria: {
+              name: "Bulgaria",
+              capital: "Sofia",
+              styles: {
+                learn: ["#18583B"],
+                quiz: ["#A4FFA3"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Bulgaria.png`),
+            },
+            Moldova: {
+              name: "Moldova",
+              capital: "Chisinau",
+              styles: {
+                learn: ["#8DAA5C"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Moldova.png`),
+            },
+            Romania: {
+              name: "Romania",
+              capital: "Bucharest",
+              styles: {
+                learn: ["#C6D83C"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Romania.png`),
+            },
+            Hungary: {
+              name: "Hungary",
+              capital: "Budapest",
+              styles: {
+                learn: ["#5B876C"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Hungary.png`),
+            },
+            Russia: {
+              name: "Russia",
+              capital: "Moscow",
+              styles: {
+                learn: ["#C6D83C"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Russia.png`),
+            },
+            Belarus: {
+              name: "Belarus",
+              capital: "Minsk",
+              styles: {
+                learn: ["#5B876C"],
+                quiz: ["#A4FFA3"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Belarus.png`),
+            },
+            Poland: {
+              name: "Poland",
+              capital: "Warsaw",
+              styles: {
+                learn: ["#8DAA5C"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Poland.png`),
+            },
+            Czechia: {
+              name: "Czechia",
+              capital: "Prague",
+              styles: {
+                learn: ["#18583E"],
+                quiz: ["#F4FFA2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Czechia.png`),
+            },
+            Slovakia: {
+              name: "Slovakia",
+              capital: "Bratislava",
+              styles: {
+                learn: ["#C6D83C"],
+                quiz: ["#FFA2A2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Slovakia.png`),
+            },
+            Georgia: {
+              name: "Georgia",
+              capital: "Tbilisi",
+              styles: {
+                learn: ["#8DAA5C"],
+                quiz: ["#A6EFFF"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Georgia.png`),
+            },
+            Azerbaijan: {
+              name: "Azerbaijan",
+              capital: "Baku",
+              styles: {
+                learn: ["#18583E"],
+                quiz: ["#F4FFA2"],
+              },
+              class: {
+                learn: ["country"],
+                quiz: ["country-Q"],
+              },
+              flag: require(`../../assets/images/flags/continents/europe/Countries/Azerbaijan.png`),
+            },
+          },
+        ],
+        map: LearnEasternEurope,
       },
     },
   },
