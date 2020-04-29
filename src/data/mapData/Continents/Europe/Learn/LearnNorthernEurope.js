@@ -3,7 +3,7 @@ import React from "react";
 function LearnNorthernEurope(props) {
   return (
     <>
-      {props.data && props.type ? (
+      {props.data["United Kingdom"] && props.type ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"

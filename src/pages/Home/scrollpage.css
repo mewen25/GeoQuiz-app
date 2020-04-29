@@ -1,9 +1,60 @@
 .scrollpage {
-  background: #104779;
+  margin-top: 0;
+  background: #fff;
   width: 100%;
   height: auto;
+  min-height: 500px;
   padding-bottom: 4%;
   font-family: "Baloo Chettan", cursive;
+}
+
+#scroll-wave {
+  position: relative;
+  width: 100%;
+  top: -200px;
+}
+
+#scroll-wave2 {
+  width: 100%;
+}
+
+#quizzes-label {
+  position: relative;
+  width: 100%;
+  top: -420px;
+  padding-left: 15%;
+  z-index: 2;
+  font-size: 36px;
+  color: #285979;
+  font-family: "Baloo Chettan", cursive;
+}
+
+.continent-quiz-container {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: repeat(auto, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  column-gap: 250px;
+  position: relative;
+  top: -300px;
+}
+
+.quiz-link-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.quiz-link-container img {
+  width: 100px;
+  align-self: center;
+}
+
+.quiz-links {
+  display: flex;
+  flex-direction: column;
 }
 
 .page-buttons {
@@ -74,7 +125,6 @@
   background: rgba(149, 142, 142, 0.1);
   width: auto;
   height: auto;
-  margin: 3% auto;
 }
 
 .quiz-button-container {

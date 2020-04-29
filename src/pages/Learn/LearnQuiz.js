@@ -17,7 +17,8 @@ export default function LearnQuiz(props) {
   const [searchType, setSearchType] = useState("country");
   const [find, setFind] = useState(null);
   const [misses, setMisses] = useState(0);
-  const Map = props.map;
+  //const [Map, setMap] = useState(props.map);
+  let Map = props.map;
 
   function getImage(country) {
     let img;
@@ -29,7 +30,16 @@ export default function LearnQuiz(props) {
     return img;
   }
 
-  useEffect(() => {
+  function resetQuiz() {
+    setQuizStart(false);
+    if (finish) {
+      setFinish(false);
+    }
+    Map = props.map;
+    createListArr();
+  }
+
+  function createListArr() {
     let newListArr = Object.assign({}, listArr);
     for (let [_, value] of Object.entries(list)) {
       newListArr.country.push(value.name);
@@ -42,6 +52,15 @@ export default function LearnQuiz(props) {
       capital: shuffleArray(newListArr.capital, "capital"),
       flag: shuffleArray(newListArr.flag, "flag"),
     });
+  }
+
+  useEffect(() => {
+    console.log("reset?", props);
+    resetQuiz();
+  }, [props.data]);
+
+  useEffect(() => {
+    createListArr();
   }, [props.finish]);
 
   useEffect(() => {
@@ -84,8 +103,8 @@ export default function LearnQuiz(props) {
     for (let [key, _] of Object.entries(list)) {
       manageClass(key, "complete", false);
     }
-    animate("#learn-map-quiz", "fadeIn");
-    if ((searchType = "country")) {
+    props.anim("#learn-map-quiz", "fadeIn");
+    if (searchType === "country") {
       setSearchType("capital");
     } else if (searchType === "capital") {
       setSearchType("flag");
@@ -101,27 +120,6 @@ export default function LearnQuiz(props) {
       changeQuiz();
     }
   };
-
-  function animate(name, animation, custom = false) {
-    let node;
-    if (!custom) {
-      node = document.querySelector(name);
-      node.classList.add("animated", animation);
-    } else {
-      node = document.querySelector(`#${name}`);
-      console.log(node);
-      if (node) {
-        node.classList.add(animation);
-      }
-    }
-    node.onanimationend = () => {
-      if (custom) {
-        node.classList.remove(animation);
-      } else {
-        node.classList.remove("animated", animation);
-      }
-    };
-  }
 
   const manageClass = (element, classname, add = true) => {
     let data = Object.assign({}, list);
@@ -154,7 +152,7 @@ export default function LearnQuiz(props) {
 
   const result = (state, found, exception = false) => {
     if (state) {
-      animate("#learn-quiz-search", "bounceIn");
+      props.anim("#learn-quiz-search", "bounceIn");
       let newListArr = Object.assign({}, listArr);
       newListArr[searchType] = newListArr[searchType].filter((c) => find !== c);
       setListArr(newListArr);

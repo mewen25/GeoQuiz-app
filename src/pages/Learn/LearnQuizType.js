@@ -22,7 +22,6 @@ export default function LearnQuizType(props) {
   }, []);
 
   useEffect(() => {
-    console.log(prevType);
     setPrevType(props.type);
     var newTypeObj = Object.assign({}, types);
     newTypeObj[props.type].current = true;

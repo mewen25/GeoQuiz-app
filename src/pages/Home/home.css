@@ -5,22 +5,35 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
-#home-page {
+.home-welcome-page {
   display: flex;
-  flex-direction: column;
-  align-content: center;
-  background: radial-gradient(
-    35.06% 50% at 50% 50%,
-    #104779 0%,
-    #215380 50.52%,
-    #042b4f 100%
-  );
+  align-items: center;
+  justify-content: center;
+  background-color: #285979;
   width: 100%;
   height: 100%;
   font-family: "Baloo Chettan", cursive;
   min-height: 1000px;
+}
+
+.top-wave {
+  position: absolute;
+  top: -300px;
+  width: 100%;
+  min-width: 700px;
+  height: 700px;
+}
+
+.home-content-container {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 70%;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #home-header-logo {
@@ -45,6 +58,15 @@ body {
   justify-content: space-evenly;
 }
 
+.wave {
+  width: 100%;
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Likely future */
+  pointer-events: none;
+}
+
 .home-header {
   background: rgba(255, 255, 255, 0.09);
   width: 80%;
@@ -61,39 +83,56 @@ body {
 }
 
 .home-mainBtns {
-  width: 100%;
-  height: auto;
-  position: relative;
-  top: -20vh;
+  width: 380px;
+  height: 70%;
+  background: rgba(35, 52, 63, 0.4);
+  border: 6px solid #568fb5;
+  box-sizing: border-box;
+  border-radius: 40px;
+  padding: 20px;
+}
+
+.home-btns-panel {
   display: flex;
-  flex-wrap: wrap;
-  max-width: 700px;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: rgba(119, 161, 201, 0.19);
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
 }
 
 #home-learnBtn {
-  background: #c25618;
-  font-size: 60px;
+  background: #98e575;
+  font-size: 50px;
   max-width: 300px;
+  box-shadow: 0px 4px 1px #88cc69;
+  border-radius: 24px;
 }
 
 #home-learnBtn:hover {
-  background: #e96214;
+  background: #93f566;
 }
 
 #home-learnBtn:active {
-  background: #f58d51;
+  background: #98e575;
 }
 
 #home-quizBtn {
-  background: #1c4e6a;
-  font-size: 70px;
+  background: #74c5e6;
+  font-size: 50px;
   max-width: 300px;
+  box-shadow: 0px 4px 1px #64acc9;
+  border-radius: 24px;
 }
 
 #home-quizBtn:hover {
-  background: #2170b6;
+  background: #5bcbf7;
 }
 
 #home-quizBtn:active {
@@ -164,13 +203,10 @@ body {
 }
 
 #home-img {
-  position: relative;
-  top: 50px;
   width: 100%;
   display: block;
   /* min-width: 700px; */
   max-width: 800px;
-  margin: 0 auto;
 }
 
 #home-tag {

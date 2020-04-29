@@ -2,17 +2,21 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GameContext } from "../components/gameContext";
 
-const Header = match => {
+const Header = (match) => {
   const { game } = useContext(GameContext);
   return (
     <>
-      {game ? (
-        <div className="header">
-          <Link to="/" className="home-link">
-            {`GEOQUIZ`}
-          </Link>
+      <div className="header">
+        <Link to="/" className="header-logo">
+          <img src={require("../assets/images/header-logo.png")} />
+        </Link>
+        <div className="header-nav">
+          <p>Home</p>
+          <p>Quiz</p>
+          <p>Learn</p>
+          <p>About</p>
         </div>
-      ) : null}
+      </div>
     </>
   );
 };

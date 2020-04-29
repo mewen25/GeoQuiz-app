@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
 // import { ReactComponent as TitleImg } from "../../assets/images/home-img.svg";
 // import { ReactComponent as TitleImgSm } from "../../assets/images/home-img-sm.svg";
+//import HomeImg from "../../assets/images/home_hero.png";
 import { GameContext } from "../../components/gameContext";
 import { ModeContext } from "../../components/modeContext";
 import "./home.css";
@@ -13,11 +14,6 @@ import ScrollPage from "./ScrollPage";
 const Home = () => {
   const { game, setGameState } = useContext(GameContext);
   const { mode, setModeState } = useContext(ModeContext);
-  //const [gameMode, setGameMode] = useState("quiz");
-
-  // useEffect(() => {
-  //   setGameState(false);
-  // }, []);
 
   const handleClickQuiz = () => {
     setModeState("quiz");
@@ -33,34 +29,46 @@ const Home = () => {
     window.scrollTo({
       top: position,
       left: 0,
-      behavior: "smooth",
     });
   }
 
   return (
     <>
-      <div id="home-page">
-        <Helmet>
-          <title>Interactive Geography Quiz - GeoQuiz</title>
-        </Helmet>
+      <Helmet>
+        <title>Interactive Geography Quiz - GeoQuiz</title>
+      </Helmet>
+      <div className="home-welcome-page">
         <img
-          alt="stars-img"
-          src={require("../../assets/images/home-stars.svg")}
-          id="home-stars"
-          data-aos="zoom-in"
+          alt="wave-svg"
+          className="top-wave wave"
+          src={require("../../assets/images/home-wave.svg")}
         />
-        <img
-          alt="world-img"
-          src={require("../../assets/images/home-world.svg")}
-          id="home-img"
-          data-aos="zoom-in"
-        />
-        <div id="home-tag">
-          <h2>Do You Know Your Countries of the World?</h2>
+        <div className="home-content-container">
+          <HomeBtns quiz={handleClickQuiz} learn={handleClickLearn} />
+          <img
+            alt="world-img"
+            src={require("../../assets/images/home-hero.png")}
+            id="home-img"
+            data-aos="zoom-in"
+          />
         </div>
-        <HomeBtns quiz={handleClickQuiz} learn={handleClickLearn} />
       </div>
+      <img
+        id="scroll-wave"
+        className="wave"
+        alt=""
+        src={require("../../assets/images/home-wave-split.svg")}
+      />
+      <p id="quizzes-label">
+        Geography Quizzes <span style={{ fontSize: "40px" }}>&darr;</span>
+      </p>
       <ScrollPage mode={mode} setMode={setModeState} scroll={scroll} />
+      <img
+        id="scroll-wave2"
+        className="wave"
+        alt=""
+        src={require("../../assets/images/home-wave-split2.svg")}
+      />
       <footer>&copy; Copyright 2020 Geoquiz.app</footer>
     </>
   );

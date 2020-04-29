@@ -20,19 +20,19 @@ export default function BarInfo(props) {
             <div className="barInfo-two">
               <p>
                 Population:{" "}
-                <span style={{ color: "#ED5A5A" }}>{props.two.population}</span>
+                <span className="barInfo-result">{props.two.population}</span>
               </p>
               <p>
                 Land Area:{" "}
-                <span style={{ color: "#ED5A5A" }}>{props.two.land}</span>
+                <span className="barInfo-result">{props.two.land}</span>
               </p>
               <p>
                 Languages:{" "}
-                <span style={{ color: "#ED5A5A" }}>{props.two.language}</span>
+                <span className="barInfo-result">{props.two.language}</span>
               </p>
               <p>
                 National Animal:{" "}
-                <span style={{ color: "#ED5A5A" }}>{props.two.animal}</span>
+                <span className="barInfo-result">{props.two.animal}</span>
               </p>
             </div>
           ) : null}

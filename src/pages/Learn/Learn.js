@@ -48,8 +48,16 @@ export default function Learn({ match }) {
   };
 
   useEffect(() => {
+    //window.location.reload();
+    // setMapData(
+    //   learnDatas[0][match.params.continent][match.params.learn]["countries"]
+    // );
+  }, []);
+
+  useEffect(() => {
     if (learn) {
       manageClass(learn, "learn", "selected");
+      animate("#barInfo-one-flex1", ["zoomIn", "faster"]);
       if (prevLearn) {
         manageClass(prevLearn, "learn", "selected", false);
       }
@@ -58,17 +66,19 @@ export default function Learn({ match }) {
   }, [learn]);
 
   useEffect(() => {
+    console.log("fresh", continent, match.params, learnData);
     window.scrollTo({
       top: 0,
       left: 0,
     });
+    //window.location.reload();
     setGameState(true);
     return () => {
       let newState = Object.assign({}, mapData);
       for (let [key, _] of Object.entries(mapData[0])) {
         newState[0][key].class = "country";
       }
-      window.location.reload();
+      //window.location.reload();
       setMapData(newState);
       setGameState(false);
     };
@@ -98,16 +108,27 @@ export default function Learn({ match }) {
     });
   }
 
-  // function getFontSize(word) {
-  //   const limit = 12;
-  //   let size;
-  //   if (word.length >= limit) {
-  //     size = "40px";
-  //   } else {
-  //     size = "54px";
-  //   }
-  //   return size;
-  // }
+  function animate(name, animation, custom = false) {
+    let node;
+    if (!custom) {
+      node = document.querySelector(name);
+      //const classes = animation.split(" ");
+      node.classList.add("animated", animation);
+    } else {
+      node = document.querySelector(`#${name}`);
+      console.log(node);
+      if (node) {
+        node.classList.add(animation);
+      }
+    }
+    node.onanimationend = () => {
+      if (custom) {
+        node.classList.remove(animation);
+      } else {
+        node.classList.remove("animated", animation);
+      }
+    };
+  }
 
   const handleStart = () => {
     setShow(false);
@@ -195,6 +216,7 @@ export default function Learn({ match }) {
             two={learnData ? learnData : null}
             three={countries}
             handleClick={handleClickLink}
+            anim={animate}
           />
         </div>
         <button
@@ -217,6 +239,7 @@ export default function Learn({ match }) {
         finish={finish}
         setFinish={setFinish}
         setCountries={setCountries}
+        anim={animate}
       />
     </>
   );

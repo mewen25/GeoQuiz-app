@@ -6,7 +6,7 @@ import GameInfo from "./GameInfo";
 
 export default function GamePage(props) {
   const { time, start, reset } = useTimer();
-  const [finish, setFinish] = useState(false);
+  //const [finish, setFinish] = useState(false);
   const [mousePos, setMousePos] = useState({
     x: 0,
     y: 0,
@@ -28,10 +28,10 @@ export default function GamePage(props) {
   });
   const [score, setScore] = useState(0);
   const [misses, setMisses] = useState(0);
-  const [status, setStatus] = useState({
-    finish: [],
-    wrong: "",
-  });
+  // const [status, setStatus] = useState({
+  //   finish: [],
+  //   wrong: "",
+  // });
   const [pointFeedback, setPointFeedback] = useState({
     points: 0,
     state: false,
@@ -149,7 +149,7 @@ export default function GamePage(props) {
       return;
     }
     setGuess(list[clicked].name);
-    if (list[clicked].name == find.data.name) {
+    if (list[clicked].name === find.data.name) {
       result(true, clicked);
     } else {
       result(false, clicked);
@@ -159,7 +159,7 @@ export default function GamePage(props) {
   const result = (state, found, exception = false) => {
     let newAnswers = Object.assign({}, answers);
     if (state) {
-      setListArr(listArr.filter((c) => list[c].name != list[found].name));
+      setListArr(listArr.filter((c) => list[c].name !== list[found].name));
       newAnswers["correct"].push(find.data.name);
       setAnswers(newAnswers);
       manageClass(found, "complete");
@@ -198,14 +198,14 @@ export default function GamePage(props) {
   const managePoints = (state) => {
     let newPoints;
     const thisTime = time;
-    if (state == "correct") {
+    if (state === "correct") {
       newPoints = Math.min(
         Math.max(maxPoints - thisTime * 10, maxPoints * 0.5),
         maxPoints
       );
-    } else if (state == "wrong") {
+    } else if (state === "wrong") {
       newPoints = maxPoints * -0.2;
-    } else if (state == "skipped") {
+    } else if (state === "skipped") {
       newPoints = -50;
     }
     if (score + newPoints <= 0) {

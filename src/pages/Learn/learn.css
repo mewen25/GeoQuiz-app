@@ -1,11 +1,12 @@
 .learn-page {
   margin: 0;
   padding: 0;
+  padding-top: 50px;
   width: 100%;
   height: auto;
   min-height: 800px;
   font-family: "Baloo Chettan", cursive;
-  background-color: #ebebeb;
+  background-color: #285979;
   display: flex;
   flex-direction: column;
   /* background: linear-gradient(180deg, #ffedbd 0%, #fde5c1 45.83%, #fcd87c 100%); */
@@ -20,16 +21,31 @@
 }
 
 .learn-title {
-  margin-top: 10px;
+  padding-top: 10px;
   text-align: center;
+  color: #fff;
 }
 
 .learn-title h2 {
-  font-size: 60px;
+  font-size: 36px;
+}
+
+.learn-links a:last-of-type {
+  border: none;
 }
 
 .learn-links a {
-  margin: 0 5px;
+  color: #c1effa;
+  margin: 0;
+  height: 20px;
+  font-size: 18px;
+  padding: 0 5px;
+  line-height: 20px;
+  border-right: 3px solid white;
+}
+
+.learn-links a:hover {
+  color: rgb(70, 214, 247);
 }
 
 .learn-page-container {
@@ -37,12 +53,12 @@
 }
 
 .learn-map-container {
-  height: 80vh;
-  width: 70%;
-  max-height: 80vh;
+  height: 550px;
+  width: 860px;
+  /* max-height: 80vh; */
   overflow-x: scroll;
   position: relative;
-  outline: solid 2px #dadada;
+  /* outline: solid 2px #dadada; */
   margin: 0 auto;
 }
 
@@ -76,10 +92,11 @@
 
 .country > path {
   stroke: white;
-  stroke-width: 2px;
+  stroke-width: 3px;
 }
+
 .country:hover > path {
-  stroke-width: 2px;
+  stroke-width: 4px;
 }
 
 .country:hover {
@@ -186,13 +203,16 @@
   width: 100%;
   height: 100%;
   min-height: 800px;
-  margin: 0;
   display: grid;
   grid-template-columns: 1fr 3fr;
   justify-content: center;
   font-family: "Baloo Chettan", cursive;
-  background: rgba(57, 100, 164, 0.78);
-  margin: 10px 0.5px;
+  background-color: "#FFF";
+  /* background: rgba(57, 100, 164, 0.78); */
+  margin: 0px auto;
+  border: 5px solid #285979;
+  box-shadow: inset 0px 0px 0px 4px #d2d2d2;
+  box-sizing: border-box;
 }
 
 .learn-quiz-title-container {
