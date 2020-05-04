@@ -1,14 +1,14 @@
 import React from "react";
 
-const QuizLink = () => (
+const QuizLink = (props) => (
   <div className="quiz-link-container">
-    <img src={require("../../assets/images/continent-img.png")} />
-    <p>Europe</p>
-    <div className="quiz-links">
-      <p>Countries of Europe</p>
-      <p>Capitals of Europe</p>
-      <p>Learn Europe</p>
+    <div className="quiz-link-continent">
+      <img alt={`continent-image-${props.name}`} src={props.img} />
+      <div className="quiz-link-label">
+        <p>{props.name}</p>
+      </div>
     </div>
+    <div className="quiz-link-links">{props.links}</div>
   </div>
 );
 

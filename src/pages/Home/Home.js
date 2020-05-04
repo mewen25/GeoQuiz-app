@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 //import { Link, animateScroll as Scroll } from "react-scroll";
 import { Helmet } from "react-helmet";
-// import { ReactComponent as TitleImg } from "../../assets/images/home-img.svg";
-// import { ReactComponent as TitleImgSm } from "../../assets/images/home-img-sm.svg";
-//import HomeImg from "../../assets/images/home_hero.png";
 import { GameContext } from "../../components/gameContext";
 import { ModeContext } from "../../components/modeContext";
 import "./home.css";
@@ -44,12 +41,16 @@ const Home = () => {
           src={require("../../assets/images/home-wave.svg")}
         />
         <div className="home-content-container">
+          <img
+            id="moon-img"
+            src={require("../../assets/images/home-moon.svg")}
+          />
           <HomeBtns quiz={handleClickQuiz} learn={handleClickLearn} />
           <img
             alt="world-img"
-            src={require("../../assets/images/home-hero.png")}
+            src={require("../../assets/images/earth-img.svg")}
             id="home-img"
-            data-aos="zoom-in"
+            // data-aos="zoom-in"
           />
         </div>
       </div>

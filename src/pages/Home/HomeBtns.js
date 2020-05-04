@@ -9,7 +9,7 @@ export default function HomeBtns(props) {
           <span style={{ color: "#98e575" }}>Easy!</span>
         </p>
         <button id="home-quizBtn" className="selectable" onClick={props.quiz}>
-          QUIZ
+          Quiz
         </button>
         <button id="home-learnBtn" className="selectable" onClick={props.learn}>
           Learn
