@@ -7,6 +7,8 @@ import { GameContext } from "../../components/gameContext";
 import GameModal from "../Game/GameModal";
 import learnDatas from "../../data/gameData/learningData";
 //import MapQuiz from "../../data/mapData/Continents/Europe/Learn/LearnNorthernEuropeQuiz";
+import LearnContents from "./LearnContents";
+import LearnSelected from "./LearnSelected";
 import LearnQuiz from "./LearnQuiz";
 import BarInfo from "../../components/BarInfo";
 
@@ -22,6 +24,7 @@ export default function Learn({ match }) {
   const [learnData, setLearnData] = useState({});
   const [countries, setCountries] = useState([]);
   const [finish, setFinish] = useState(false);
+  const [hasClicked, setHasClicked] = useState(false);
 
   var imgPath = null;
   try {
@@ -57,7 +60,7 @@ export default function Learn({ match }) {
   useEffect(() => {
     if (learn) {
       manageClass(learn, "learn", "selected");
-      animate("#barInfo-one-flex1", ["zoomIn", "faster"]);
+      //animate("#barInfo-one-flex1", ["zoomIn", "faster"]);
       if (prevLearn) {
         manageClass(prevLearn, "learn", "selected", false);
       }
@@ -88,6 +91,7 @@ export default function Learn({ match }) {
     const selected = event.currentTarget.id;
     setLearn(selected);
     getCountryData(selected);
+    setHasClicked(true);
   }
 
   function handleClickLink(event) {
@@ -184,8 +188,33 @@ export default function Learn({ match }) {
           </div>
         </div>
         <hr />
-        <div className="learn-page-container">
-          <GameModal
+        <div className="learn-page-container" onClick={handleClose}>
+          <div className="learn-page-infos">
+            <LearnContents countries={countries} handleClick={handleClickLink} />
+            {learn ? <LearnSelected data={
+              learnData
+                ? {
+                    place: learnData.name,
+                    img: learnData.flag,
+                    capital: learnData.capital,
+                  }
+                : null
+              }
+            /> : !hasClicked ?
+            <div className="learn-page-infos-placeholder">
+              <h1>Select a Country to get Learning!</h1>
+            </div> : null
+              }
+          </div>
+          <div className="learn-map-container">
+            <Map
+              handleClick={handleClick}
+              data={mapData[0]}
+              selected={learn}
+              type="learn"
+            />
+          </div>
+          {/* <GameModal
             show={show}
             title={<h1>Learning {learnDatas[0][continent][thisMap].title}</h1>}
             content={modalContent}
@@ -217,9 +246,9 @@ export default function Learn({ match }) {
             three={countries}
             handleClick={handleClickLink}
             anim={animate}
-          />
+          /> */}
         </div>
-        <button
+        {/* <button
           onClick={() =>
             window.scrollTo({
               top: 1200,
@@ -230,7 +259,21 @@ export default function Learn({ match }) {
           className="learn-scroll"
         >
           Quiz Below!
-        </button>
+        </button> */}
+        <div className="learn-page-key">
+          <div className="learn-page-key-hints">
+            <img src={require('../../assets/images/hint.svg')} alt="hint-img" />
+            <p>Hints/Memorisation tips</p>
+          </div>
+          <div className="learn-page-test-info">
+            <div className="learn-page-test-info-topics">
+              <p>Country</p>
+              <p>Capital</p>
+              <p>Flag</p>
+            </div>
+            <p>Information tested below</p>
+          </div>
+        </div>
       </div>
       <LearnQuiz
         map={Map}

@@ -46,6 +46,7 @@ export default function LearnQuiz(props) {
       newListArr.capital.push(value.capital);
       newListArr.flag.push(getImage(value.name));
     }
+    console.log("settin countries", newListArr.country);
     props.setCountries(newListArr.country);
     setListArr({
       country: shuffleArray(newListArr.country, "country"),
@@ -60,7 +61,7 @@ export default function LearnQuiz(props) {
   }, [props.data]);
 
   useEffect(() => {
-    createListArr();
+    //createListArr();
   }, [props.finish]);
 
   useEffect(() => {
