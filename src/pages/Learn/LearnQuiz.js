@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from "react";
+import LearnQuizType from "./LearnQuizType";
+import LearnQuizModes from "./LearnQuizModes";
+import LearnQuizButtons from "./LearnQuizButtons";
+import LearnNorthernEuropeQuiz from "./LearnNorthernEuropeQuiz";
 
-import LearnQuizModal from "./LearnQuizModal";
-import LearnQuizInfo from "./LearnQuizInfo";
-import LearnQuizFinish from "./LearnQuizFinish";
-
-export default function LearnQuiz(props) {
-  const [quizStart, setQuizStart] = useState(false);
-  const [finish, setFinish] = useState(false);
+function LearnQuiz(props) {
   const [list, setList] = useState(props.data);
   const [listArr, setListArr] = useState({
-    country: [],
-    capital: [],
-    flag: [],
+    Countries: [],
+    Capitals: [],
+    Flags: [],
   });
   const [searchList, setSearchList] = useState(undefined);
   const [searchType, setSearchType] = useState("country");
   const [find, setFind] = useState(null);
   const [misses, setMisses] = useState(0);
-  //const [Map, setMap] = useState(props.map);
-  let Map = props.map;
+  const Map = props.map;
+  const [mode, setMode] = useState("Countries");
+
+  useEffect(() => {
+    createListArr();
+  }, []);
 
   function getImage(country) {
     let img;
@@ -40,6 +42,7 @@ export default function LearnQuiz(props) {
   }
 
   function createListArr() {
+  useEffect(() => {
     let newListArr = Object.assign({}, listArr);
     for (let [_, value] of Object.entries(list)) {
       newListArr.country.push(value.name);
@@ -100,97 +103,40 @@ export default function LearnQuiz(props) {
     return array;
   }
 
-  function changeQuiz() {
-    for (let [key, _] of Object.entries(list)) {
-      manageClass(key, "complete", false);
+  function createListArr() {
+    let newListArr = Object.assign({}, listArr);
+    for (let [_, value] of Object.entries(list)) {
+      newListArr.Countries.push(value.name);
+      newListArr.Capitals.push(value.capital);
+      newListArr.Flags.push(getImage(value.name));
     }
-    props.anim("#learn-map-quiz", "fadeIn");
-    if (searchType === "country") {
-      setSearchType("capital");
-    } else if (searchType === "capital") {
-      setSearchType("flag");
-    } else if (searchType === "flag") {
-      setFinish(true);
-    }
+    console.log("settin countries", newListArr.Countries);
+    props.setCountries(newListArr.Countries);
+    setListArr({
+      Countries: shuffleArray(newListArr.Countries, "country"),
+      Capitals: shuffleArray(newListArr.Capitals, "capital"),
+      Flags: shuffleArray(newListArr.Flags, "flag"),
+    });
   }
 
-  const getFind = () => {
-    if (listArr[searchType].length > 0) {
-      setFind(listArr[searchType][0]);
-    } else {
-      changeQuiz();
-    }
-  };
-
-  const manageClass = (element, classname, add = true) => {
-    let data = Object.assign({}, list);
-    if (add && !data[element].class.quiz.includes(classname)) {
-      data[element].class.quiz.push(classname);
-    } else if (!add && data[element].class.quiz.includes(classname)) {
-      const newClasses = data[element].class.quiz.filter(
-        (c) => c !== classname
-      );
-      data[element].class.quiz = newClasses;
-    }
-    setList(data);
-  };
-
-  const handleClick = (event) => {
-    const clicked = event.currentTarget.id;
-    if (list[clicked].class.quiz.includes("complete")) {
-      return;
-    }
-    if (
-      list[clicked].name === find ||
-      list[clicked].capital === find ||
-      list[clicked].flag === find
-    ) {
-      result(true, clicked);
-    } else {
-      result(false, clicked);
-    }
-  };
-
-  const result = (state, found, exception = false) => {
-    if (state) {
-      props.anim("#learn-quiz-search", "bounceIn");
-      let newListArr = Object.assign({}, listArr);
-      newListArr[searchType] = newListArr[searchType].filter((c) => find !== c);
-      setListArr(newListArr);
-      manageClass(found, "complete");
-      getFind();
-    } else {
-      setMisses(misses + 1);
-      //animate(found, "wrongSelect", true);
-    }
-  };
+  const quizButtons = listArr[mode].map((b) => (
+    <LearnQuizButtons
+      content={mode === "Flags" ? <img src={b} alt="quiz-flag" /> : <p>{b}</p>}
+    />
+  ));
 
   return (
     <div className="learn-quiz-page">
-      {!quizStart ? <LearnQuizModal handleClick={setQuizStart} /> : null}
-      {finish ? <LearnQuizFinish /> : null}
-      <div className="learn-quiz-title-container">
-        {/* <h2 id="learn-quiz-title">Test This New Knowledge!</h2> */}
-        {quizStart && !finish ? (
-          <LearnQuizInfo
-            searchType={searchType}
-            searchList={searchList}
-            find={find}
-            listArr={listArr}
-            misses={misses}
-            getHighlightColour={getHighlightColour}
-          />
-        ) : null}
-      </div>
-      <div className="learn-quiz-map-container">
-        <div id="learn-map-quiz">
-          <Map
-            data={list}
-            type="quiz"
-            handleClick={!finish ? handleClick : null}
-          />
-        </div>
+      <LearnQuizModes mode={mode} setMode={setMode} />
+      <h1 id="LQ-title">
+        Test Yourself <i className="LQ-arrow"></i>
+      </h1>
+      <div className="LQ-gamearea">
+        <div className="LQ-buttons">{quizButtons}</div>
+        <LearnNorthernEuropeQuiz />
       </div>
     </div>
   );
 }
+
+export default LearnQuiz;

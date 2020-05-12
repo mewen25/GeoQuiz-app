@@ -6,7 +6,7 @@
   height: 100vh;
   min-height: 800px;
   font-family: "Baloo Chettan", cursive;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   display: flex;
   flex-direction: column;
   /* background: linear-gradient(180deg, #ffedbd 0%, #fde5c1 45.83%, #fcd87c 100%); */
@@ -35,7 +35,8 @@
 }
 
 .learn-links a {
-  color: #AD4E4E;
+  color: #ad4e4e;
+  color: #ad4e4e;
   margin: 0;
   height: 20px;
   font-size: 18px;
@@ -112,9 +113,59 @@
 }
 
 .learn-contents-countries p {
-  color: #2B4293;
+  color: #2b4293;
   position: relative;
   font-size: 1.4em;
+  /* outline: solid 2px #dadada; */
+  justify-self: flex-start;
+}
+
+.learn-map-container svg {
+  height: 100%;
+  width: 100%;
+  /* max-height: 800px; */
+}
+
+.learn-page-infos {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-width: 500px;
+  margin-left: 0%;
+  display: inline-block;
+  justify-content: space-around;
+}
+
+.learn-contents {
+  min-width: auto;
+  min-height: 300px;
+}
+
+.learn-contents-title {
+  width: 80%;
+  border-bottom: 4px solid black;
+}
+
+.learn-contents-title h3 {
+  color: #000;
+  font-size: 32px;
+  text-align: center;
+}
+
+.learn-contents-countries {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.learn-contents-country {
+  margin: 7px 5px;
+}
+
+.learn-contents-countries p {
+  color: #2b4293;
+  position: relative;
+  font-size: 1.2em;
   z-index: 1;
 }
 
@@ -122,8 +173,8 @@
   width: 100%;
   height: 10px;
   position: relative;
-  top: 38px;
-  background: #C2C9E1;
+  top: 34px;
+  background: #c2c9e1;
   border-radius: 6px;
   transform: matrix(1, 0, 0, -1, 0, 0);
 }
@@ -274,8 +325,8 @@
   width: 360px;
   height: 300px;
   position: absolute;
-  right: 60px;
-  bottom: -70px;
+  right: 10px;
+  top: 75vh;
   padding-top: 10px;
 }
 
@@ -324,7 +375,6 @@
   learn-info
 */
 
-
 .learn-page-selected {
   width: auto;
   min-width: 80%;
@@ -332,11 +382,11 @@
   padding: 15px;
   padding-top: 25px;
   margin-left: 120px;
-  background: #8F2626;
+  background: #8f2626;
   border-radius: 15px;
   color: white;
   box-shadow: -6px 9px 4px rgba(0, 0, 0, 0.5);
-  
+
   display: inline-flex;
   flex-direction: column;
 }
@@ -344,7 +394,7 @@
 .learn-selected-country {
   width: 100%;
   height: auto;
-  background-color:rgba(244, 170, 128, 0.2);
+  background-color: rgba(244, 170, 128, 0.2);
   display: flex;
   flex-direction: row;
   padding: 0 15px;
@@ -367,11 +417,11 @@
 
 .learn-selected-capital {
   margin-top: 7px;
-  width: auto; 
+  width: auto;
   height: auto;
   display: inline-block;
-  padding: 0px 15px;   
-  background-color:rgba(244, 170, 128, 0.2);
+  padding: 0px 15px;
+  background-color: rgba(244, 170, 128, 0.2);
 }
 
 .learn-selected-capital p {
@@ -380,22 +430,103 @@
   margin: 0;
 }
 
-
-
-
 /*
   Quiz side
 */
+
+.learn-quiz-modes-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 4px;
+}
+
+.learnQuizModesButton {
+  display: inline-block;
+  border-radius: 0 0 120px 120px;
+  color: white;
+  text-align: center;
+  margin-left: 60px;
+  font-size: 24px;
+}
+
+.learnQuizModesButton:hover {
+  cursor: pointer;
+}
+
+#LQ-title {
+  color: #7b7a7a;
+  display: block;
+  text-align: center;
+  position: relative;
+  pointer-events: none;
+  top: -40px;
+}
+
+.LQ-arrow {
+  border: 4px solid #7b7a7a;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  margin-bottom: 4px;
+
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.LQ-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  justify-content: space-evenly;
+  align-items: space-between;
+  padding: 5px;
+}
+
+.LQ-buttons-btn {
+  display: inline-block;
+  margin: 10px;
+  border-radius: 80px;
+  height: 45px;
+  width: auto;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  font-size: 24px;
+  min-width: 200px;
+}
+
+.LQ-buttons-btn:hover {
+  cursor: grab;
+}
+
+.LQ-gamearea {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.LQ-gamearea svg {
+  width: 100%;
+}
+
+.LQ-gamearea svg path:hover {
+  opacity: 0.5;
+}
 
 .learn-quiz-page {
   width: 100%;
   height: 100%;
   min-height: 800px;
+  margin: 0;
   display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 3fr;
-  justify-content: center;
+  justify-content: center; */
   font-family: "Baloo Chettan", cursive;
-  background: #FBF8F8;
+  background: #fbf8f8;
   margin: 0px auto;
   box-shadow: inset 0px 0px 0px 4px #d2d2d2;
   box-sizing: border-box;
