@@ -29,7 +29,21 @@
 }
 
 .learn-links a {
+<<<<<<< Updated upstream
   margin: 0 5px;
+=======
+  color: #ad4e4e;
+  margin: 0;
+  height: 20px;
+  font-size: 18px;
+  padding: 0 5px;
+  line-height: 20px;
+  border-right: 3px solid white;
+}
+
+.learn-links a:hover {
+  color: rgb(70, 214, 247);
+>>>>>>> Stashed changes
 }
 
 .learn-page-container {
@@ -41,9 +55,79 @@
   width: 70%;
   max-height: 80vh;
   overflow-x: scroll;
+<<<<<<< Updated upstream
   position: relative;
   outline: solid 2px #dadada;
   margin: 0 auto;
+=======
+  /* outline: solid 2px #dadada; */
+  justify-self: flex-start;
+}
+
+.learn-map-container svg {
+  height: 100%;
+  width: 100%;
+  /* max-height: 800px; */
+}
+
+.learn-page-infos {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-width: 500px;
+  margin-left: 0%;
+  display: inline-block;
+  justify-content: space-around;
+}
+
+.learn-contents {
+  min-width: auto;
+  min-height: 300px;
+}
+
+.learn-contents-title {
+  width: 80%;
+  border-bottom: 4px solid black;
+}
+
+.learn-contents-title h3 {
+  color: #000;
+  font-size: 32px;
+  text-align: center;
+}
+
+.learn-contents-countries {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.learn-contents-country {
+  margin: 7px 5px;
+}
+
+.learn-contents-countries p {
+  color: #2b4293;
+  position: relative;
+  font-size: 1.2em;
+  z-index: 1;
+}
+
+.learn-contents-highlight {
+  width: 100%;
+  height: 10px;
+  position: relative;
+  top: 34px;
+  background: #c2c9e1;
+  border-radius: 6px;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.learn-contents-countries p:hover {
+  cursor: pointer;
+  color: #6583d0;
+  /* background-color: #C2C9E1; */
+>>>>>>> Stashed changes
 }
 
 #mapContainer::-webkit-scrollbar {
@@ -178,18 +262,216 @@
   background-color: rgb(205, 205, 255);
 }
 
+<<<<<<< Updated upstream
+=======
+.learn-page-key {
+  width: 360px;
+  height: 300px;
+  position: absolute;
+  right: 10px;
+  top: 75vh;
+  padding-top: 10px;
+}
+
+.learn-page-key-hints {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: #878787;
+  font-size: 24px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid rgba(97, 97, 97, 0.25);
+}
+
+.learn-page-key-hints p {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.learn-page-test-info {
+  background: rgba(255, 130, 60, 0.2);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+.learn-page-test-info-topics {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.learn-page-test-info-topics p {
+  background: rgba(255, 130, 60, 0.2);
+  width: 100px;
+  border-radius: 5px;
+  height: auto;
+  text-align: center;
+  margin: 10px;
+}
+
+/*
+  learn-info
+*/
+
+.learn-page-selected {
+  width: auto;
+  min-width: 80%;
+  height: 400px;
+  padding: 15px;
+  padding-top: 25px;
+  margin-left: 120px;
+  background: #8f2626;
+  border-radius: 15px;
+  color: white;
+  box-shadow: -6px 9px 4px rgba(0, 0, 0, 0.5);
+
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.learn-selected-country {
+  width: 100%;
+  height: auto;
+  background-color: rgba(244, 170, 128, 0.2);
+  display: flex;
+  flex-direction: row;
+  padding: 0 15px;
+}
+
+.learn-selected-country p {
+  font-size: 48px;
+  justify-self: flex-start;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.learn-selected-country img {
+  width: auto;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.learn-selected-capital {
+  margin-top: 7px;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  padding: 0px 15px;
+  background-color: rgba(244, 170, 128, 0.2);
+}
+
+.learn-selected-capital p {
+  font-size: 1.8em;
+  display: inline-block;
+  margin: 0;
+}
+
+>>>>>>> Stashed changes
 /*
   Quiz side
 */
+
+.learn-quiz-modes-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 4px;
+}
+
+.learnQuizModesButton {
+  display: inline-block;
+  border-radius: 0 0 120px 120px;
+  color: white;
+  text-align: center;
+  margin-left: 60px;
+  font-size: 24px;
+}
+
+.learnQuizModesButton:hover {
+  cursor: pointer;
+}
+
+#LQ-title {
+  color: #7b7a7a;
+  display: block;
+  text-align: center;
+  position: relative;
+  pointer-events: none;
+  top: -40px;
+}
+
+.LQ-arrow {
+  border: 4px solid #7b7a7a;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  margin-bottom: 4px;
+
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.LQ-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  justify-content: space-evenly;
+  align-items: space-between;
+  padding: 5px;
+}
+
+.LQ-buttons-btn {
+  display: inline-block;
+  margin: 10px;
+  border-radius: 80px;
+  height: 45px;
+  width: auto;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  font-size: 24px;
+  min-width: 200px;
+}
+
+.LQ-buttons-btn:hover {
+  cursor: grab;
+}
+
+.LQ-gamearea {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.LQ-gamearea svg {
+  width: 100%;
+}
+
+.LQ-gamearea svg path:hover {
+  opacity: 0.5;
+}
 
 .learn-quiz-page {
   width: 100%;
   height: 100%;
   min-height: 800px;
+<<<<<<< Updated upstream
   margin: 0;
   display: grid;
+=======
+  /* display: grid;
+>>>>>>> Stashed changes
   grid-template-columns: 1fr 3fr;
-  justify-content: center;
+  justify-content: center; */
   font-family: "Baloo Chettan", cursive;
   background: rgba(57, 100, 164, 0.78);
   margin: 10px 0.5px;

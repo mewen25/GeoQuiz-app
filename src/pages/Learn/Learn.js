@@ -163,8 +163,44 @@ export default function Learn({ match }) {
           </div>
         </div>
         <hr />
+<<<<<<< Updated upstream
         <div className="learn-page-container">
           <GameModal
+=======
+        <div className="learn-page-container" onClick={handleClose}>
+          <div className="learn-page-infos">
+            <LearnContents
+              countries={countries}
+              handleClick={handleClickLink}
+            />
+            {learn ? (
+              <LearnSelected
+                data={
+                  learnData
+                    ? {
+                        place: learnData.name,
+                        img: learnData.flag,
+                        capital: learnData.capital,
+                      }
+                    : null
+                }
+              />
+            ) : !hasClicked ? (
+              <div className="learn-page-infos-placeholder">
+                <h1>Select a Country to get Learning!</h1>
+              </div>
+            ) : null}
+          </div>
+          <div className="learn-map-container">
+            <Map
+              handleClick={handleClick}
+              data={mapData[0]}
+              selected={learn}
+              type="learn"
+            />
+          </div>
+          {/* <GameModal
+>>>>>>> Stashed changes
             show={show}
             title={<h1>Learning {learnDatas[0][continent][thisMap].title}</h1>}
             content={modalContent}
@@ -208,15 +244,37 @@ export default function Learn({ match }) {
           className="learn-scroll"
         >
           Quiz Below!
+<<<<<<< Updated upstream
         </button>
+=======
+        </button> */}
+        <div className="learn-page-key">
+          <div className="learn-page-key-hints">
+            <img src={require("../../assets/images/hint.svg")} alt="hint-img" />
+            <p>Hints/Memorisation tips</p>
+          </div>
+          <div className="learn-page-test-info">
+            <div className="learn-page-test-info-topics">
+              <p>Country</p>
+              <p>Capital</p>
+              <p>Flag</p>
+            </div>
+            <p>Information tested below</p>
+          </div>
+        </div>
+>>>>>>> Stashed changes
       </div>
       <LearnQuiz
-        map={Map}
+        // map={Map}
         data={mapData[0]}
-        continent={continent}
-        finish={finish}
-        setFinish={setFinish}
+        // continent={continent}
+        // finish={finish}
+        // setFinish={setFinish}
         setCountries={setCountries}
+<<<<<<< Updated upstream
+=======
+        // anim={animate}
+>>>>>>> Stashed changes
       />
     </>
   );
