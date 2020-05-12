@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import {useHistory} from "react-router";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 //import data from "../../data/mapData/Continents/Europe/Europe";
@@ -6,6 +7,7 @@ import "./learn.css";
 import { GameContext } from "../../components/gameContext";
 import GameModal from "../Game/GameModal";
 import learnDatas from "../../data/gameData/learningData";
+import PageLinks from "./PageLinks";
 //import MapQuiz from "../../data/mapData/Continents/Europe/Learn/LearnNorthernEuropeQuiz";
 import LearnContents from "./LearnContents";
 import LearnSelected from "./LearnSelected";
@@ -25,6 +27,10 @@ export default function Learn({ match }) {
   const [countries, setCountries] = useState([]);
   const [finish, setFinish] = useState(false);
   const [hasClicked, setHasClicked] = useState(false);
+  const [clickedPlaces, setClickedPlaces] = useState([]);
+  const [currentMap, setCurrentMap] = useState(thisMap);
+
+  const history = useHistory();
 
   var imgPath = null;
   try {
@@ -60,6 +66,10 @@ export default function Learn({ match }) {
   useEffect(() => {
     if (learn) {
       manageClass(learn, "learn", "selected");
+      manageClass(learn, "learn", "country-searched")
+      if(!clickedPlaces.includes(learn)){
+        setClickedPlaces(prevData => [...prevData, learn]);
+      }
       //animate("#barInfo-one-flex1", ["zoomIn", "faster"]);
       if (prevLearn) {
         manageClass(prevLearn, "learn", "selected", false);
@@ -69,11 +79,11 @@ export default function Learn({ match }) {
   }, [learn]);
 
   useEffect(() => {
-    console.log("fresh", continent, match.params, learnData);
     window.scrollTo({
       top: 0,
       left: 0,
     });
+    if(thisMap !== currentMap){history.go();}
     //window.location.reload();
     setGameState(true);
     return () => {
@@ -85,7 +95,7 @@ export default function Learn({ match }) {
       setMapData(newState);
       setGameState(false);
     };
-  }, []);
+  }, [thisMap]);
 
   function handleClick(event) {
     const selected = event.currentTarget.id;
@@ -101,7 +111,7 @@ export default function Learn({ match }) {
   }
 
   function getCountryData(selected) {
-    setLearnData({
+    if(selected){setLearnData({
       name: selected,
       capital: mapData[0][selected].capital,
       population: mapData[0][selected].population,
@@ -109,7 +119,7 @@ export default function Learn({ match }) {
       land: mapData[0][selected].land,
       animal: mapData[0][selected].animal,
       flag: mapData[0][selected].flag,
-    });
+    })};
   }
 
   function animate(name, animation, custom = false) {
@@ -175,6 +185,7 @@ export default function Learn({ match }) {
               justifyContent: "center",
             }}
           >
+            {/* <PageLinks history={history} continent={continent} /> */}
             <Link to={`/learn/${continent}/northern-europe`}>
               Northern europe
             </Link>
@@ -190,7 +201,7 @@ export default function Learn({ match }) {
         <hr />
         <div className="learn-page-container" onClick={handleClose}>
           <div className="learn-page-infos">
-            <LearnContents countries={countries} handleClick={handleClickLink} />
+            <LearnContents learn={learn} countries={countries} handleClick={handleClickLink} />
             {learn ? <LearnSelected data={
               learnData
                 ? {
@@ -201,17 +212,18 @@ export default function Learn({ match }) {
                 : null
               }
             /> : !hasClicked ?
-            <div className="learn-page-infos-placeholder">
-              <h1>Select a Country to get Learning!</h1>
+            <div className="learn-page-infos-placeholder" style={{marginTop: "150px"}}>
+            <h1>Select a Country to get Learning!</h1>
             </div> : null
               }
           </div>
           <div className="learn-map-container">
             <Map
-              handleClick={handleClick}
+            handleClick={handleClick}
               data={mapData[0]}
               selected={learn}
               type="learn"
+              prevSelected={clickedPlaces}
             />
           </div>
           {/* <GameModal

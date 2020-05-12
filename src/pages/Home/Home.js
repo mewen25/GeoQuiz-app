@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { GameContext } from "../../components/gameContext";
 import { ModeContext } from "../../components/modeContext";
+import BackgroundImg from "../../assets/images/stars.jpg";
 import "./home.css";
 
 import HomeBtns from "./HomeBtns";
@@ -35,20 +36,21 @@ const Home = () => {
         <title>Interactive Geography Quiz - GeoQuiz</title>
       </Helmet>
       <div className="home-welcome-page">
+        {/* <img src={BackgroundImg} id="home-bg" /> */}
         <img
           alt="wave-svg"
           className="top-wave wave"
           src={require("../../assets/images/home-wave.svg")}
         />
         <div className="home-content-container">
-          <img
+          {/* <img
             id="moon-img"
             src={require("../../assets/images/home-moon.svg")}
-          />
+          /> */}
           <HomeBtns quiz={handleClickQuiz} learn={handleClickLearn} />
           <img
             alt="world-img"
-            src={require("../../assets/images/earth-img.svg")}
+            src={require("../../assets/images/home-bg-extra.svg")}
             id="home-img"
             // data-aos="zoom-in"
           />

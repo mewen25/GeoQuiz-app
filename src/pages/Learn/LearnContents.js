@@ -9,7 +9,7 @@ const LearnContents = (props) => {
             </div>
             <div className="learn-contents-countries">
                 {props.countries.map(c => (
-                    <LearnContentsCountry text={c} handleClick={props.handleClick} />
+                    <LearnContentsCountry isSelected={props.learn === c ? true : false} text={c} handleClick={props.handleClick} />
                 ))}
             </div>
         </div>
