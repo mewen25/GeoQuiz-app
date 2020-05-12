@@ -12,6 +12,10 @@ export default [
             Iceland: {
               name: "Iceland",
               capital: "Reykjavík",
+              altName: {
+                country: [],
+                capital: ["Reykjavik"]
+              },
               population: "364,000",
               land: "103,000 km²",
               language: "Icelandic",
@@ -48,6 +52,10 @@ export default [
             "United Kingdom": {
               name: "United Kingdom",
               capital: "London",
+              altName: {
+                country: ["uk"],
+                capital: []
+              },
               population: "65,650,000",
               land: "242,495 km²",
               language: "English",
@@ -234,6 +242,10 @@ export default [
             Netherlands: {
               name: "Netherlands",
               capital: "Amsterdam",
+              altName: {
+                country: ["holland"],
+                capital: []
+              },
               population: "17,280,000",
               land: "41,543 km²",
               language: "Dutch",
@@ -336,6 +348,10 @@ export default [
             Monaco: {
               name: "Monaco",
               capital: "Monte Carlo",
+              altName: {
+                country: [],
+                capital: ["monte-carlo"]
+              },
               population: "38,682",
               land: "2.02 km²",
               language: "French",
@@ -361,6 +377,10 @@ export default [
             Ukraine: {
               name: "Ukraine",
               capital: "Kyiv",
+              altName: {
+                country: [],
+                capital: ["Kiev"]
+              },
               styles: {
                 learn: ["#18583B"],
                 quiz: ["#F4FFA2"],
@@ -465,6 +485,10 @@ export default [
             Czechia: {
               name: "Czechia",
               capital: "Prague",
+              altName: {
+                country: ["Czech Republic", "Czech Republic"],
+                capital: []
+              },
               styles: {
                 learn: ["#18583E"],
                 quiz: ["#F4FFA2"],

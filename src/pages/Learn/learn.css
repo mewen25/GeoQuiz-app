@@ -95,12 +95,23 @@
 .learn-contents-title {
   width: 80%;
   border-bottom: 4px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.learn-contents-title h3 {
+#learn-contents-title1 {
   color: #000;
   font-size: 32px;
   text-align: center;
+  margin-left: 70px;
+}
+#learn-contents-title2 {
+  color: #D8602C;
+  font-size: 30px;
+  margin-left: 50px;
+  position: relative;
+  top: 10px;
 }
 
 .learn-contents-countries {
@@ -174,7 +185,7 @@
   height: 10px;
   position: relative;
   top: 34px;
-  background: #c2c9e1;
+  background-color: #c2c9e1;
   border-radius: 6px;
   transform: matrix(1, 0, 0, -1, 0, 0);
 }
@@ -407,6 +418,14 @@
   margin: 0;
 }
 
+.learn-selected-country input {
+  font-size: 35px;
+  justify-self: flex-start;
+  white-space: nowrap;
+  margin: 0;
+  text-align: center;
+}
+
 .learn-selected-country img {
   width: auto;
   height: 50px;
@@ -428,6 +447,22 @@
   font-size: 1.8em;
   display: inline-block;
   margin: 0;
+}
+
+.learn-selected-capital input {
+  font-size: 35px;
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+}
+
+.learn-selected-country input::placeholder, .learn-selected-capital input::placeholder {
+  font-size: 25px;
+}
+
+.learn-selected-country input:disabled, .learn-selected-capital input:disabled {
+  color: green;
+  text-transform: capitalize;
 }
 
 /*

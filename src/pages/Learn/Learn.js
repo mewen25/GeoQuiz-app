@@ -12,6 +12,7 @@ import PageLinks from "./PageLinks";
 import LearnContents from "./LearnContents";
 import LearnSelected from "./LearnSelected";
 import LearnQuiz from "./LearnQuiz";
+import LearnTestModal from "./LearnTestModal"
 import BarInfo from "../../components/BarInfo";
 
 export default function Learn({ match }) {
@@ -29,6 +30,8 @@ export default function Learn({ match }) {
   const [hasClicked, setHasClicked] = useState(false);
   const [clickedPlaces, setClickedPlaces] = useState([]);
   const [currentMap, setCurrentMap] = useState(thisMap);
+  const [isDoingTest, setIsDoingTest] = useState(false);
+  const [LearnCountry, setLearnCountry] = useState(null);
 
   const history = useHistory();
 
@@ -61,10 +64,18 @@ export default function Learn({ match }) {
     // setMapData(
     //   learnDatas[0][match.params.continent][match.params.learn]["countries"]
     // );
+    console.log(mapData);
   }, []);
 
   useEffect(() => {
+    console.log("MAP DATA", mapData);
+    console.log("LEARN DATA", learnData);
+    console.log("COUNTRIES", countries);
+  },[mapData, learnData])
+
+  useEffect(() => {
     if (learn) {
+      if(isDoingTest){setIsDoingTest(false);}
       manageClass(learn, "learn", "selected");
       manageClass(learn, "learn", "country-searched")
       if(!clickedPlaces.includes(learn)){
@@ -75,6 +86,8 @@ export default function Learn({ match }) {
         manageClass(prevLearn, "learn", "selected", false);
       }
       setPrevLearn(learn);
+
+      setLearnCountry(getCountrySvg())
     }
   }, [learn]);
 
@@ -106,6 +119,7 @@ export default function Learn({ match }) {
 
   function handleClickLink(event) {
     const selected = event.target.id;
+    setIsDoingTest(false);
     setLearn(selected);
     getCountryData(selected);
   }
@@ -119,6 +133,7 @@ export default function Learn({ match }) {
       land: mapData[0][selected].land,
       animal: mapData[0][selected].animal,
       flag: mapData[0][selected].flag,
+      altName: mapData[0][selected].altName ? mapData[0][selected].altName : null
     })};
   }
 
@@ -130,7 +145,6 @@ export default function Learn({ match }) {
       node.classList.add("animated", animation);
     } else {
       node = document.querySelector(`#${name}`);
-      console.log(node);
       if (node) {
         node.classList.add(animation);
       }
@@ -166,8 +180,14 @@ export default function Learn({ match }) {
         manageClass(prevLearn, "learn", "selected", false);
         setPrevLearn(undefined);
       }
+      setIsDoingTest(false);
     }
   };
+
+  const getCountrySvg = () => {
+    const map = document.getElementById("learnMap")
+    return Array.from(map.querySelectorAll("g")).filter(c => c.id === learn)[0].querySelector("path");
+  }
 
   return (
     <>
@@ -201,13 +221,14 @@ export default function Learn({ match }) {
         <hr />
         <div className="learn-page-container" onClick={handleClose}>
           <div className="learn-page-infos">
-            <LearnContents learn={learn} countries={countries} handleClick={handleClickLink} />
-            {learn ? <LearnSelected data={
+            <LearnContents learn={learn} countries={countries} handleClick={handleClickLink} searched={clickedPlaces} />
+            {learn ? <LearnSelected isTest={isDoingTest} setTest={setIsDoingTest} data={
               learnData
                 ? {
                     place: learnData.name,
                     img: learnData.flag,
                     capital: learnData.capital,
+                    altNames: learnData.altName
                   }
                 : null
               }
@@ -218,13 +239,36 @@ export default function Learn({ match }) {
               }
           </div>
           <div className="learn-map-container">
-            <Map
-            handleClick={handleClick}
+            {!isDoingTest ? <Map
+              handleClick={handleClick}
               data={mapData[0]}
               selected={learn}
               type="learn"
               prevSelected={clickedPlaces}
-            />
+            /> : 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              fillRule="evenodd"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeMiterlimit="1.5"
+              clipRule="evenodd"
+              viewBox="0 0 850 700"
+              id="learnMap1"
+              onClick={handleClose}
+              style={{display: "inline-block"}}
+            >
+              <path
+                fill={LearnCountry["attributes"]["fill"].value}
+                fillRule="nonzero"
+                d={LearnCountry["attributes"]["d"].value}
+                style={{width: "100%", height: "100%"}}
+              >
+
+              </path>
+            </svg>
+            }
           </div>
           {/* <GameModal
             show={show}

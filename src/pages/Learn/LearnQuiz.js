@@ -5,6 +5,7 @@ import LearnQuizButtons from "./LearnQuizButtons";
 import LearnNorthernEuropeQuiz from "./LearnNorthernEuropeQuiz";
 
 function LearnQuiz(props) {
+  console.log(props);
   const [list, setList] = useState(props.data);
   const [listArr, setListArr] = useState({
     Countries: [],
@@ -32,17 +33,16 @@ function LearnQuiz(props) {
     return img;
   }
 
-  function resetQuiz() {
-    setQuizStart(false);
-    if (finish) {
-      setFinish(false);
-    }
-    Map = props.map;
-    createListArr();
-  }
+  // function resetQuiz() {
+  //   setQuizStart(false);
+  //   if (finish) {
+  //     setFinish(false);
+  //   }
+  //   Map = props.map;
+  //   createListArr();
+  // }
 
   function createListArr() {
-  useEffect(() => {
     let newListArr = Object.assign({}, listArr);
     for (let [_, value] of Object.entries(list)) {
       newListArr.country.push(value.name);
@@ -60,7 +60,7 @@ function LearnQuiz(props) {
 
   useEffect(() => {
     console.log("reset?", props);
-    resetQuiz();
+    //resetQuiz();
   }, [props.data]);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function LearnQuiz(props) {
       if (!searchList) {
         setSearchList(listArr);
       }
-      getFind();
+      //getFind();
     }
   }, [listArr, searchType]);
 
@@ -133,7 +133,7 @@ function LearnQuiz(props) {
       </h1>
       <div className="LQ-gamearea">
         <div className="LQ-buttons">{quizButtons}</div>
-        <LearnNorthernEuropeQuiz />
+        {props.data ? <LearnNorthernEuropeQuiz /> : null}
       </div>
     </div>
   );

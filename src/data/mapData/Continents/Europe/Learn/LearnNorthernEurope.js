@@ -13,6 +13,7 @@ function LearnNorthernEurope(props) {
           strokeMiterlimit="1.5"
           clipRule="evenodd"
           viewBox="0 0 850 700"
+          id="learnMap"
         >
           <filter id="dropshadow" height="130%">
             <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
