@@ -36,6 +36,7 @@ const Home = () => {
         <title>Interactive Geography Quiz - GeoQuiz</title>
       </Helmet>
       <div className="home-welcome-page">
+      <div className="home-page-content">
         {/* <img src={BackgroundImg} id="home-bg" /> */}
         <img
           alt="wave-svg"
@@ -55,16 +56,17 @@ const Home = () => {
             // data-aos="zoom-in"
           />
         </div>
-      </div>
-      <img
+        </div>
+        <img
         id="scroll-wave"
         className="wave"
         alt=""
-        src={require("../../assets/images/home-wave-split.svg")}
+        src={require("../../assets/images/home-split-wave.svg")}
       />
       <p id="quizzes-label">
         Geography Quizzes <span style={{ fontSize: "40px" }}>&darr;</span>
       </p>
+      </div>
       <ScrollPage mode={mode} setMode={setModeState} scroll={scroll} />
       <img
         id="scroll-wave2"

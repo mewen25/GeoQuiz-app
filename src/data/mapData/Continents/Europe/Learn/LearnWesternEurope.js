@@ -9,6 +9,7 @@ function LearnWesternEurope(props) {
           fillRule="evenodd"
           clipRule="evenodd"
           viewBox="0 0 497 494"
+          id="learnMap"
         >
           <filter id="dropshadow" height="130%">
             <feGaussianBlur in="SourceAlpha" stdDeviation="3" />

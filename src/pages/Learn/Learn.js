@@ -68,12 +68,6 @@ export default function Learn({ match }) {
   }, []);
 
   useEffect(() => {
-    console.log("MAP DATA", mapData);
-    console.log("LEARN DATA", learnData);
-    console.log("COUNTRIES", countries);
-  },[mapData, learnData])
-
-  useEffect(() => {
     if (learn) {
       if(isDoingTest){setIsDoingTest(false);}
       manageClass(learn, "learn", "selected");

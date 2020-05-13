@@ -77,7 +77,6 @@ function LearnSelected(props) {
     }
 
     const checkAnswer = (input, value) => {
-        console.log(props.data.altNames[input]);
         return value.toLowerCase() === answers[input].toLowerCase() || (props.data.altNames && props.data.altNames[input].includes(value.toLowerCase()));
     }
 

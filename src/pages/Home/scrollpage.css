@@ -6,12 +6,21 @@
   min-height: 500px;
   padding-bottom: 4%;
   font-family: "Baloo Chettan", cursive;
+  position: relative;
+  z-index: 2;
+}
+
+#scrollpage-title {
+  font-family: 'Quicksand', sans-serif;
+  color: black;
+  text-align: center;
 }
 
 #scroll-wave {
   position: relative;
   width: 100%;
-  top: -00px;
+  top: -140px;
+  z-index: 1;
 }
 
 #scroll-wave2 {

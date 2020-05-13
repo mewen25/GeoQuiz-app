@@ -5,7 +5,6 @@ import LearnQuizButtons from "./LearnQuizButtons";
 import LearnNorthernEuropeQuiz from "./LearnNorthernEuropeQuiz";
 
 function LearnQuiz(props) {
-  console.log(props);
   const [list, setList] = useState(props.data);
   const [listArr, setListArr] = useState({
     Countries: [],
@@ -110,7 +109,6 @@ function LearnQuiz(props) {
       newListArr.Capitals.push(value.capital);
       newListArr.Flags.push(getImage(value.name));
     }
-    console.log("settin countries", newListArr.Countries);
     props.setCountries(newListArr.Countries);
     setListArr({
       Countries: shuffleArray(newListArr.Countries, "country"),

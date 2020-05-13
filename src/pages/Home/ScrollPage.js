@@ -20,7 +20,9 @@ export default function ScrollPage(props) {
 
   return (
     <div className="scrollpage">
-      <div className="continent-quiz-container">{quizLinks}</div>
+      <h1 id="scrollpage-title">Continents</h1>
+      <img alt="plane" src={require('../../assets/images/plane.svg')} />
+      {/* <div className="continent-quiz-container">{quizLinks}</div> */}
     </div>
   );
 }

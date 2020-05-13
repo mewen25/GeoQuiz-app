@@ -14,7 +14,7 @@ export default [
               capital: "Reykjavík",
               altName: {
                 country: [],
-                capital: ["Reykjavik"]
+                capital: ["reykjavik"]
               },
               population: "364,000",
               land: "103,000 km²",
@@ -379,7 +379,7 @@ export default [
               capital: "Kyiv",
               altName: {
                 country: [],
-                capital: ["Kiev"]
+                capital: ["kiev"]
               },
               styles: {
                 learn: ["#18583B"],
@@ -486,7 +486,7 @@ export default [
               name: "Czechia",
               capital: "Prague",
               altName: {
-                country: ["Czech Republic", "Czech Republic"],
+                country: ["czech republic", "czech republic"],
                 capital: []
               },
               styles: {
