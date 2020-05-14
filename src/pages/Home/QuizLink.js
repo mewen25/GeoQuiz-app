@@ -2,13 +2,10 @@ import React from "react";
 
 const QuizLink = (props) => (
   <div className="quiz-link-container">
-    <div className="quiz-link-continent">
-      <img alt={`continent-image-${props.name}`} src={props.img} />
-      <div className="quiz-link-label">
-        <p>{props.name}</p>
-      </div>
-    </div>
-    <div className="quiz-link-links">{props.links}</div>
+    <div className="quiz-link-links">{props.quizzes}</div>
+    <div className="quiz-link-links">{props.learns}</div>
+    <img id={`continent-img-${props.continentLink}`} alt={`continent-${props.name}`} src={props.img} />
+    <p>{props.name}</p>
   </div>
 );
 

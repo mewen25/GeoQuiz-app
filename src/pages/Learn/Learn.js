@@ -64,7 +64,6 @@ export default function Learn({ match }) {
     // setMapData(
     //   learnDatas[0][match.params.continent][match.params.learn]["countries"]
     // );
-    console.log(mapData);
   }, []);
 
   useEffect(() => {
@@ -96,7 +95,8 @@ export default function Learn({ match }) {
     return () => {
       let newState = Object.assign({}, mapData);
       for (let [key, _] of Object.entries(mapData[0])) {
-        newState[0][key].class = "country";
+        newState[0][key].class["quiz"] = ["country"];
+        newState[0][key].class["learn"] = ["country"];
       }
       //window.location.reload();
       setMapData(newState);
@@ -233,7 +233,7 @@ export default function Learn({ match }) {
               }
           </div>
           <div className="learn-map-container">
-            {!isDoingTest ? <Map
+            {!isDoingTest && mapData[0] ? <Map
               handleClick={handleClick}
               data={mapData[0]}
               selected={learn}
@@ -264,52 +264,7 @@ export default function Learn({ match }) {
             </svg>
             }
           </div>
-          {/* <GameModal
-            show={show}
-            title={<h1>Learning {learnDatas[0][continent][thisMap].title}</h1>}
-            content={modalContent}
-            gameStart={handleStart}
-          />
-          <div
-            className="learn-map-container"
-            id="mapContainer"
-            onClick={handleClose}
-          >
-            <Map
-              handleClick={handleClick}
-              data={mapData[0]}
-              selected={learn}
-              type="learn"
-            />
-          </div>
-          <BarInfo
-            one={
-              learnData
-                ? {
-                    place: learnData.name,
-                    img: learnData.flag,
-                    sub: learnData.capital,
-                  }
-                : null
-            }
-            two={learnData ? learnData : null}
-            three={countries}
-            handleClick={handleClickLink}
-            anim={animate}
-          /> */}
         </div>
-        {/* <button
-          onClick={() =>
-            window.scrollTo({
-              top: 1200,
-              left: 0,
-              behavior: "smooth",
-            })
-          }
-          className="learn-scroll"
-        >
-          Quiz Below!
-        </button> */}
         <div className="learn-page-key">
           <div className="learn-page-key-hints">
             <img src={require('../../assets/images/hint.svg')} alt="hint-img" />

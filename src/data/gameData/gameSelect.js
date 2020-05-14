@@ -1,6 +1,10 @@
+
+
 export default [
   {
     europe: {
+      name: "Europe",
+      img: require('../../assets/images/continents/europe.svg'),
       quiz: {
         links: [
           {
@@ -35,20 +39,17 @@ export default [
             img: "learn_eastern-europe.png",
             link: "eastern-europe",
           },
-          // {
-          //   name: "Southern Europe",
-          //   img: "europe-capitals-icon.png",
-          //   link: "southern-europe"
-          // },
-          // {
-          //   name: "Eastern Europe",
-          //   img: "europe-capitals-icon.png",
-          //   link: "eastern-europe"
-          // }
+          {
+            name: "Southern Europe",
+            img: "europe-capitals-icon.png",
+            link: "southern-europe"
+          }
         ],
       },
     },
     asia: {
+      name: "Asia",
+      img: require('../../assets/images/continents/asia.svg'),
       quiz: {
         links: [
           {
@@ -91,6 +92,8 @@ export default [
       },
     },
     "south-america": {
+      name: "South America",
+      img: require('../../assets/images/continents/south-america.svg'),
       quiz: {
         links: [
           {
@@ -133,6 +136,8 @@ export default [
       },
     },
     africa: {
+      name: "Africa",
+      img: require('../../assets/images/continents/africa.svg'),
       quiz: {
         links: [
           {
@@ -175,6 +180,8 @@ export default [
       },
     },
     "north-america": {
+      name: "North America",
+      img: require('../../assets/images/continents/north-america.png'),
       quiz: {
         links: [
           {
@@ -229,6 +236,8 @@ export default [
       },
     },
     oceania: {
+      name: "Oceania",
+      img: require('../../assets/images/continents/oceania.png'),
       quiz: {
         links: [
           {

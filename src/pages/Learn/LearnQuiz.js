@@ -48,7 +48,6 @@ function LearnQuiz(props) {
       newListArr.capital.push(value.capital);
       newListArr.flag.push(getImage(value.name));
     }
-    console.log("settin countries", newListArr.country);
     props.setCountries(newListArr.country);
     setListArr({
       country: shuffleArray(newListArr.country, "country"),
@@ -58,7 +57,6 @@ function LearnQuiz(props) {
   }
 
   useEffect(() => {
-    console.log("reset?", props);
     //resetQuiz();
   }, [props.data]);
 
