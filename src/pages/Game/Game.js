@@ -21,7 +21,7 @@ const Game = ({ match }) => {
     time: undefined,
     findAmount: undefined,
     countriesData: undefined,
-    map: undefined
+    map: undefined,
   });
   const [finish, setFinish] = useState(false);
   const [gameResults, setGameResults] = useState({});
@@ -36,7 +36,7 @@ const Game = ({ match }) => {
       findAmount: data.mode[newMode].findAmount,
       map: data.mode[newMode].map,
       data: data.mode[newMode].data,
-      maxPointGain: 250
+      maxPointGain: 250,
     });
   };
 
@@ -61,16 +61,17 @@ const Game = ({ match }) => {
           <h1>{gameValues.continent}</h1>
         </div>
       </div>
-    )
+    ),
   };
 
   useEffect(() => {
     gameSetup();
     setGameState(true);
+    console.log(gameData[continent]);
 
     return function cleanup() {
       setGameState(false);
-      window.location.reload();
+      //window.location.reload();
     };
   }, []);
 
