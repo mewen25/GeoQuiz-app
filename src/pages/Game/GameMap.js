@@ -292,7 +292,7 @@ const GameMap = props => {
           handleFinish={setFinishTime}
         />
       ) : null}
-      <Map handleClick={handleClick} data={props.data.data} />
+      {/* <Map handleClick={handleClick} data={props.data.data} search={props.search} /> */}
     </div>
   );
 };

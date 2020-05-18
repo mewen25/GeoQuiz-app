@@ -8,6 +8,9 @@ const ShowMeBtn = props => {
       size="lg"
       block
       name="showMe"
+      data-toggle="tooltip"
+      data-placement="bottom"
+      title="Show Me"
       onClick={props.handleShowMe}
       id={props.id}
     >

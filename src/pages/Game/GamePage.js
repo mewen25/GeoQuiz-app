@@ -263,7 +263,7 @@ export default function GamePage(props) {
           setFinish={setFinishTime}
         />
       ) : null}
-      <Map handleClick={handleClick} data={list} />
+      <Map handleClick={handleClick} data={list} search={find.simple.name} />
       {/* {!props.show ? (
         <ExtraData
           place={find.data}

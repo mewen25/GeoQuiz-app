@@ -1,25 +1,28 @@
 .game {
-  height: calc(100% - 45px);
+  height: calc(100vh - 45px);
+  top: 45px;
   position: relative;
 }
 
 .game-layout {
-  width: 100%;
+  width: auto;
   height: 100%;
   background: rgba(194, 226, 255, 0.54);
 }
 
 .game-map-container {
-  height: 100%;
   width: auto;
+  height: 100%;
   overflow-x: scroll;
   position: relative;
   padding-bottom: 10px;
+  margin: 0 auto;
 }
 
 .game-map-container svg {
-  display: block;
-  margin: 0 auto;
+  width: 100%;
+  min-width: 1000px;
+  height: 100%;
 }
 
 .zoomIn {
@@ -29,7 +32,7 @@
 
 .game-map {
   display: block;
-  height: 100%;
+  height: 50%;
   margin: 0 auto;
 }
 .quiz-country {

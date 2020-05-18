@@ -61,11 +61,8 @@ const Home = () => {
         id="scroll-wave"
         className="wave"
         alt=""
-        src={require("../../assets/images/home-split-wave.svg")}
+        src={require("../../assets/images/home-topWave.svg")}
       />
-      <p id="quizzes-label">
-        Geography Quizzes <span style={{ fontSize: "40px" }}>&darr;</span>
-      </p>
       </div>
       <ScrollPage mode={mode} setMode={setModeState} scroll={scroll} />
       <img
