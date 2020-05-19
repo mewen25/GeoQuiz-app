@@ -9,20 +9,20 @@ import ShowMeBtn from "./ShowMeBtn";
 import GameButton from "./GameButton";
 import FinishModal from "./FinishModal";
 
-const GameMap = props => {
+const GameMap = (props) => {
   let showPoints = 0;
   const { time, start, reset } = useTimer();
   let timer = null;
   const [countryList, setCountryList] = useState(props.data.data);
   const [mousePos, setMousePos] = useState({
     x: 0,
-    y: 0
+    y: 0,
   });
   const [points, setPoints] = useState({
     current: 0,
     total: 0,
     sign: "",
-    colour: "#fff"
+    colour: "#fff",
   });
   const [questionTimer, setQuestionTimer] = useState(0);
   const [search, setSearch] = useState({});
@@ -33,7 +33,7 @@ const GameMap = props => {
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const [answerCount, setAnswerCount] = useState({
     correct: 0,
-    wrong: 0
+    wrong: 0,
   });
   const [totalCountries, setTotalCountries] = useState(
     Object.keys(props.data.data).length
@@ -90,7 +90,7 @@ const GameMap = props => {
     top: mousePos.y,
     //display: displayPoints,
     colour: col,
-    fontSize: 50
+    fontSize: 50,
   };
 
   useEffect(() => {
@@ -130,7 +130,7 @@ const GameMap = props => {
     node.addEventListener("animationend", handleAnimationEnd);
   }
 
-  const handlePoints = correct => {
+  const handlePoints = (correct) => {
     let newPoints = 0;
     let newSign = "";
     let col = "#56b953";
@@ -156,12 +156,12 @@ const GameMap = props => {
       newPoints -= 50;
     }
 
-    setPoints(prevData => ({
+    setPoints((prevData) => ({
       current: newPoints,
       total:
         points.total + points.current < 0 ? 0 : points.total + points.current,
       sign: newSign,
-      colour: col
+      colour: col,
     }));
   };
 
@@ -189,14 +189,14 @@ const GameMap = props => {
     handleAnimation("#game-pointsScore", "fadeOutUp");
     var findGuess = document.getElementById(search.id || search.name);
     findGuess.classList.add("selected");
-    setCountryList(countryList.filter(country => country != search));
+    setCountryList(countryList.filter((country) => country != search));
     const newNumber =
       answerCount.correct < totalCountries
         ? answerCount.correct + 1
         : totalCountries;
-    setAnswerCount(prevData => ({ ...prevData, correct: newNumber }));
-    setCorrectAnswers(prevData => [...prevData, search.id || search.name]);
-    setMissCount(prevData => [...prevData, currentMisses]);
+    setAnswerCount((prevData) => ({ ...prevData, correct: newNumber }));
+    setCorrectAnswers((prevData) => [...prevData, search.id || search.name]);
+    setMissCount((prevData) => [...prevData, currentMisses]);
     gameQuestion();
   };
 
@@ -216,12 +216,12 @@ const GameMap = props => {
   //   });
   // };
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     //console.log(answerCount.correct);
     const clicked = event.target.id;
     setMousePos({
       x: event.nativeEvent.offsetX,
-      y: event.nativeEvent.offsetY
+      y: event.nativeEvent.offsetY,
     });
     if (
       !correctAnswers.includes(clicked) &&
@@ -238,15 +238,15 @@ const GameMap = props => {
       } else {
         handleAnimation("#game-pointsScore", "fadeOutUp");
         handlePoints(false);
-        setWrongAnswers(prevData => [...prevData, clicked]);
+        setWrongAnswers((prevData) => [...prevData, clicked]);
         currentMisses += 1;
         const newNumber = answerCount.wrong + 1;
-        setAnswerCount(prevData => ({ ...prevData, wrong: newNumber }));
+        setAnswerCount((prevData) => ({ ...prevData, wrong: newNumber }));
         const txt = document.querySelector(`#${clicked}`);
         handleAnimation(`#${clicked}`, "wrongSelect", true);
         handlePoints(false);
       }
-      setGuesses(prevData => [...prevData, clicked]);
+      setGuesses((prevData) => [...prevData, clicked]);
     }
   };
 
