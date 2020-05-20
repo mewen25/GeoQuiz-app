@@ -1,13 +1,14 @@
 import React from "react";
-
+import { pure } from "recompose";
 import InfoPlace from "./Info/InfoPlace";
 import InfoScore from "./Info/InfoScore";
 import HelpBtns from "./Info/HelpBtns";
 import InfoMisses from "./Info/InfoMisses";
 
 import "./Info/info.css";
+import { useTheme } from "styled-components";
 
-export default function GameInfo(props) {
+function GameInfo(props) {
   return (
     <div className="info-container">
       <InfoPlace
@@ -32,3 +33,4 @@ export default function GameInfo(props) {
     </div>
   );
 }
+export default GameInfo;

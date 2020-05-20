@@ -36,14 +36,16 @@
   margin: 0 auto;
 }
 .quiz-country {
-  stroke: #deefff;
-  stroke-width: 0.8px;
+  /* stroke: #deefff;
+  stroke-width: 0.8px; */
 }
 
-.quiz-country:hover {
+.quiz-country:not(.complete):hover {
   opacity: 0.5;
   outline: 0;
   cursor: pointer;
+  /* stroke: rgb(255, 0, 0);
+  stroke-width: 2px; */
 }
 
 /* .showPoints {

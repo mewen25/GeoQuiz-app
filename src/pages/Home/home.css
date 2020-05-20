@@ -77,7 +77,8 @@ body {
 #home-slogan {
   text-align: center;
   color: white;
-  font-size: 4.5em;
+  font-size: 4em;
+  font-size: calc(2vw + 2vh);
 }
 
 .home-header {

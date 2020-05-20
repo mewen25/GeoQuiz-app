@@ -26,6 +26,7 @@
     "react-svg-map": "^2.0.2",
     "react-svgmt": "^1.1.9",
     "react-tooltip": "^4.2.6",
+    "recompose": "^0.30.0",
     "styled-components": "^5.0.0",
     "use-state-with-callback": "^1.0.18",
     "use-timer": "^1.0.7"

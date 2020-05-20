@@ -14,8 +14,9 @@ export default function InfoScore(props) {
   }, []);
 
   useEffect(() => {
-    props.finalTime(time);
+    //props.finalTime(time);
     if (props.correct >= props.total) {
+      props.finalTime(time);
       pause();
     }
   }, [time]);

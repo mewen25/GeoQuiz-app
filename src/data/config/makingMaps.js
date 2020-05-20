@@ -7,35 +7,31 @@ export default function App() {
   const [data, setData] = useState(Data);
   const [MadeMap, setMadeMap] = useState(null);
 
-  const createComponent = () => {
-    console.log(data.elements);
-    const svgData = {
-      label: data.label,
-      viewBox: data.viewBox
-    };
-    const groups = data.elements.map(obj => {
+  const createMap = () => {
+    return (
+      <svg className="game-map" viewBox={data.viewBox} label={data.label} >
+        {getGroups}
+      </svg>
+    )
+  }
+
+  const getGroups = () => {
+    let groups = data.elements.map(obj => {
       const g = obj[Object.keys(obj)[0]];
-      console.log(g);
       const paths = g.d[0].map(p => <path d={p} />);
       const group = (
         <g id={g.id} className={g.id}>
           {paths}
         </g>
-      );
-      console.log("group", group);
+      )
       return group;
-    });
-    console.log("got me groups", groups);
-    const svg = (
-      <svg className="game-map" viewBox={svgData.viewBox} label={svgData.label}>
-        {groups}
-      </svg>
-    );
-    setMadeMap(svg);
-  };
+    })
+    console.log("done my groups", groups);
+    return groups;
+  }
 
   useEffect(() => {
-    createComponent();
+    createMap();
   }, []);
 
   useEffect(() => {

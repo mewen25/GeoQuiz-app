@@ -1,36 +1,36 @@
 import EuropeCountries from "../mapData/Continents/Europe/EuropeCountries";
 import EuropeData from "../gameData/QuizData/europeData";
-import AsiaCountries from "../mapData/Continents/Asia/AsiaCountries";
+import AsiaMap from "../mapData/Continents/Asia/svgData";
 import AsiaData from "../gameData/QuizData/asiaData";
-import SouthAmericaCountries from "../mapData/Continents/South-America/SouthAmericaCountries";
+import SAMap from "../mapData/Continents/South-America/svgData";
 import SAData from "../gameData/QuizData/southAmericaData";
-import AfricaCountries from "../mapData/Continents/Africa/AfricaCountries";
+import AfricaMap from "../mapData/Continents/Africa/svgData";
 import AfricaData from "../gameData/QuizData/africaData";
+import NAMap from "../../data/mapData/Continents/North-America/svgData";
+import NorthAmericaData from "../gameData/QuizData/northAmericaData";
+import StatesMap from "../../data/mapData/Other/States/svgData";
+import StatesData from "../gameData/QuizData/statesData";
 
 //import EuropeMap from "../../data/mapData/Continents/Europe/Europe";
 import EuropeCapitalsMap from "../../data/mapData/Continents/Europe/Capitals/Europe-Capitals";
 
 import AsiaCapitalsMap from "../../data/mapData/Continents/Asia/Capitals/AsiaCapitalsMap";
-import NAMap from "../../data/mapData/Continents/North-America/NorthAmerica";
 import NACapitalsMap from "../../data/mapData/Continents/North-America/Capitals/NACapitals";
 import SACapitalsMap from "../../data/mapData/Continents/South-America/Capitals/SACapitalsMap";
 
 import AfricaCapitalsMap from "../../data/mapData/Continents/Africa/Capitals/AfricaCapitalsMap";
 import OceaniaMap from "../../data/mapData/Continents/Oceania/Oceania";
 import OceaniaCapitalsMap from "../../data/mapData/Continents/Oceania/Capitals/OceaniaCapitalsMap";
-import StatesMap from "../../data/mapData/Other/States/US-States";
 import StateCapitalsMap from "../../data/mapData/Other/States/state-capitals/US-State-Capitals";
 
 //import EuropeData from "../../data/mapData/Continents/Europe/EuropeData";
 import EuropeCapitalsData from "../../data/mapData/Continents/Europe/Capitals/Europe-Capitals-Data";
 import AsiaCapitalsData from "../../data/mapData/Continents/Asia/Capitals/AsiaCapitalsData";
-import NorthAmericaData from "../../data/mapData/Continents/North-America/NorthAmericaData";
 import NACapitalsData from "../../data/mapData/Continents/North-America/Capitals/NACapitalsData";
 import SACapitalsData from "../../data/mapData/Continents/South-America/Capitals/SACapitalsData";
 import AfricaCapitalsData from "../../data/mapData/Continents/Africa/Capitals/AfricaCapitalsData";
 import OceaniaData from "../../data/mapData/Continents/Oceania/OceaniaData";
 import OceaniaCapitalsData from "../../data/mapData/Continents/Oceania/Capitals/OceaniaCapitalsData";
-import StatesData from "../../data/mapData/Other/States/US-StatesData";
 import StateCapitalsData from "../../data/mapData/Other/States/state-capitals/US-State-CapitalsData";
 
 const two = 120;
@@ -102,7 +102,7 @@ export default {
         title: "Countries",
         time: two,
         findAmount: 55,
-        map: AfricaCountries,
+        map: AfricaMap,
         data: AfricaData,
       },
       capitals: {
@@ -123,7 +123,7 @@ export default {
         title: "Countries",
         time: two,
         findAmount: 48,
-        map: AsiaCountries,
+        map: AsiaMap,
         data: AsiaData,
       },
       capitals: {
@@ -144,7 +144,7 @@ export default {
         title: "Countries",
         time: two,
         findAmount: 13,
-        map: SouthAmericaCountries,
+        map: SAMap,
         data: SAData,
       },
       capitals: {

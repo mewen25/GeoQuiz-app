@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTimer } from "use-timer";
 
 import GameInfo from "./GameInfo";
+import CreateMap from "./CreateMap";
 //import ExtraData from "./ExtraData";
 
 export default function GamePage(props) {
@@ -38,7 +39,7 @@ export default function GamePage(props) {
   });
   const [finishTime, setFinishTime] = useState(0);
   const totalCountries = Object.keys(props.data.data).length;
-  const Map = props.data.map;
+  const mapSvgData = props.data.map;
   const maxPoints = props.data.maxPointGain;
 
   useEffect(() => {
@@ -86,7 +87,7 @@ export default function GamePage(props) {
 
   const setupTimer = () => {
     reset();
-    start();
+    //start();
   };
 
   const getImage = () => {
@@ -123,7 +124,7 @@ export default function GamePage(props) {
     };
   }
 
-  const getFind = () => {
+  const getFind = () => { 
     if (answers.correct.length < totalCountries) {
       if (!props.show) {
         setupTimer();
@@ -145,6 +146,7 @@ export default function GamePage(props) {
 
   const handleClick = (event) => {
     const clicked = event.currentTarget.id;
+    console.log("compare", clicked, find.simple.name, clicked===find.data.name);
     if (list[clicked].class.includes("complete")) {
       return;
     }
@@ -263,7 +265,8 @@ export default function GamePage(props) {
           setFinish={setFinishTime}
         />
       ) : null}
-      <Map handleClick={handleClick} data={list} search={find.simple.name} />
+      {find.simple?.name ? <CreateMap mapData={list} svgData={mapSvgData} handleClick={handleClick} search={find.simple.name} /> : null}
+      {/* <Map handleClick={handleClick} data={list} search={find.simple.name} /> */}
       {/* {!props.show ? (
         <ExtraData
           place={find.data}
