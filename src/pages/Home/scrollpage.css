@@ -247,7 +247,7 @@
   text-align: center;
 }
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   #theme-switch {
     top: 10px;
   }
@@ -264,7 +264,6 @@
     top: 120px;
   }
   .quiz-link-container {
-    /* flex-direction: column; */
     justify-content: center;
     height: 100%;
   }
@@ -307,4 +306,4 @@
     height: 30px;
     top: 5px;
   }
-}
+} */

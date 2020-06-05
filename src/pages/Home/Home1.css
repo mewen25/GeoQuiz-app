@@ -1,0 +1,77 @@
+html,
+body {
+  /* overflow-x: hidden; */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: "Amiko", sans-serif;
+  /* font-family: "Baloo Chettan", cursive; */
+  font-weight: bold;
+}
+
+.home-page {
+  width: 100%;
+  height: auto;
+  /* font-family: "Baloo Chettan", cursive; */
+  /* min-height: 100vh; */
+}
+
+.home-page-top {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* min-height: 100vh; */
+}
+
+.home-page-top-content-container {
+  display: flex;
+  justify-content: center;
+  background-color: #285979;
+  background-image: url("../../assets/images/homeStars.svg");
+  width: 100%;
+  height: 95%;
+}
+
+.home-page-top-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: auto 0;
+}
+
+.home-page-top-wave {
+    display: flex;
+    height: 100px;
+    min-height: 5vw;
+    width: 100%;
+    background-color: #285979;
+}
+
+
+.wave {
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Likely future */
+  pointer-events: none;
+}
+
+#top-wave {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 1200px) {
+  .home-page-top-content {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  #world-img {
+    width: 500px;
+    height: 500px;
+  }
+}

@@ -5,7 +5,7 @@ import FinishModal from "./FinishModal";
 import Header from "../../components/Header";
 import gameData from "../../data/config/continentData";
 import { GameContext } from "../../components/gameContext";
-import "./game.css";
+// import "./game.css";
 import "./modal.css";
 
 //import GameMap from "./GameMap";

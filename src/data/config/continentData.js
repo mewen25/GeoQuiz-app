@@ -12,26 +12,26 @@ import StatesMap from "../../data/mapData/Other/States/svgData";
 import StatesData from "../gameData/QuizData/statesData";
 
 //import EuropeMap from "../../data/mapData/Continents/Europe/Europe";
-import EuropeCapitalsMap from "../../data/mapData/Continents/Europe/Capitals/Europe-Capitals";
+// import EuropeCapitalsMap from "../../data/mapData/Continents/Europe/Capitals/Europe-Capitals";
 
-import AsiaCapitalsMap from "../../data/mapData/Continents/Asia/Capitals/AsiaCapitalsMap";
-import NACapitalsMap from "../../data/mapData/Continents/North-America/Capitals/NACapitals";
-import SACapitalsMap from "../../data/mapData/Continents/South-America/Capitals/SACapitalsMap";
+// import AsiaCapitalsMap from "../../data/mapData/Continents/Asia/Capitals/AsiaCapitalsMap";
+// import NACapitalsMap from "../../data/mapData/Continents/North-America/Capitals/NACapitals";
+// import SACapitalsMap from "../../data/mapData/Continents/South-America/Capitals/SACapitalsMap";
 
-import AfricaCapitalsMap from "../../data/mapData/Continents/Africa/Capitals/AfricaCapitalsMap";
-import OceaniaMap from "../../data/mapData/Continents/Oceania/Oceania";
-import OceaniaCapitalsMap from "../../data/mapData/Continents/Oceania/Capitals/OceaniaCapitalsMap";
-import StateCapitalsMap from "../../data/mapData/Other/States/state-capitals/US-State-Capitals";
+// import AfricaCapitalsMap from "../../data/mapData/Continents/Africa/Capitals/AfricaCapitalsMap";
+// import OceaniaMap from "../../data/mapData/Continents/Oceania/Oceania";
+// import OceaniaCapitalsMap from "../../data/mapData/Continents/Oceania/Capitals/OceaniaCapitalsMap";
+// import StateCapitalsMap from "../../data/mapData/Other/States/state-capitals/US-State-Capitals";
 
-//import EuropeData from "../../data/mapData/Continents/Europe/EuropeData";
-import EuropeCapitalsData from "../../data/mapData/Continents/Europe/Capitals/Europe-Capitals-Data";
-import AsiaCapitalsData from "../../data/mapData/Continents/Asia/Capitals/AsiaCapitalsData";
-import NACapitalsData from "../../data/mapData/Continents/North-America/Capitals/NACapitalsData";
-import SACapitalsData from "../../data/mapData/Continents/South-America/Capitals/SACapitalsData";
-import AfricaCapitalsData from "../../data/mapData/Continents/Africa/Capitals/AfricaCapitalsData";
-import OceaniaData from "../../data/mapData/Continents/Oceania/OceaniaData";
-import OceaniaCapitalsData from "../../data/mapData/Continents/Oceania/Capitals/OceaniaCapitalsData";
-import StateCapitalsData from "../../data/mapData/Other/States/state-capitals/US-State-CapitalsData";
+// //import EuropeData from "../../data/mapData/Continents/Europe/EuropeData";
+// import EuropeCapitalsData from "../../data/mapData/Continents/Europe/Capitals/Europe-Capitals-Data";
+// import AsiaCapitalsData from "../../data/mapData/Continents/Asia/Capitals/AsiaCapitalsData";
+// import NACapitalsData from "../../data/mapData/Continents/North-America/Capitals/NACapitalsData";
+// import SACapitalsData from "../../data/mapData/Continents/South-America/Capitals/SACapitalsData";
+// import AfricaCapitalsData from "../../data/mapData/Continents/Africa/Capitals/AfricaCapitalsData";
+// import OceaniaData from "../../data/mapData/Continents/Oceania/OceaniaData";
+// import OceaniaCapitalsData from "../../data/mapData/Continents/Oceania/Capitals/OceaniaCapitalsData";
+// import StateCapitalsData from "../../data/mapData/Other/States/state-capitals/US-State-CapitalsData";
 
 const two = 120;
 const five = 300;
@@ -49,13 +49,13 @@ export default {
         map: EuropeCountries,
         data: EuropeData,
       },
-      capitals: {
-        title: "Capitals",
-        time: five,
-        findAmount: 49,
-        map: EuropeCapitalsMap,
-        data: EuropeCapitalsData,
-      },
+      // capitals: {
+      //   title: "Capitals",
+      //   time: five,
+      //   findAmount: 49,
+      //   map: EuropeCapitalsMap,
+      //   data: EuropeCapitalsData,
+      // },
     },
   },
   "north-america": {
@@ -70,13 +70,13 @@ export default {
         map: NAMap,
         data: NorthAmericaData,
       },
-      capitals: {
-        title: "Capitals",
-        time: five,
-        findAmount: 23,
-        map: NACapitalsMap,
-        data: NACapitalsData,
-      },
+      // capitals: {
+      //   title: "Capitals",
+      //   time: five,
+      //   findAmount: 23,
+      //   map: NACapitalsMap,
+      //   data: NACapitalsData,
+      // },
       states: {
         title: "US States",
         time: five,
@@ -84,13 +84,13 @@ export default {
         map: StatesMap,
         data: StatesData,
       },
-      "state-capitals": {
-        title: "US State Capitals",
-        time: five,
-        findAmount: 50,
-        map: StateCapitalsMap,
-        data: StateCapitalsData,
-      },
+      // "state-capitals": {
+      //   title: "US State Capitals",
+      //   time: five,
+      //   findAmount: 50,
+      //   map: StateCapitalsMap,
+      //   data: StateCapitalsData,
+      // },
     },
   },
   africa: {
@@ -105,13 +105,13 @@ export default {
         map: AfricaMap,
         data: AfricaData,
       },
-      capitals: {
-        title: "Capitals",
-        time: five,
-        findAmount: 55,
-        map: AfricaCapitalsMap,
-        data: AfricaCapitalsData,
-      },
+      // capitals: {
+      //   title: "Capitals",
+      //   time: five,
+      //   findAmount: 55,
+      //   map: AfricaCapitalsMap,
+      //   data: AfricaCapitalsData,
+      // },
     },
   },
   asia: {
@@ -126,13 +126,13 @@ export default {
         map: AsiaMap,
         data: AsiaData,
       },
-      capitals: {
-        title: "Capitals",
-        time: five,
-        findAmount: 48,
-        map: AsiaCapitalsMap,
-        data: AsiaCapitalsData,
-      },
+      // capitals: {
+      //   title: "Capitals",
+      //   time: five,
+      //   findAmount: 48,
+      //   map: AsiaCapitalsMap,
+      //   data: AsiaCapitalsData,
+      // },
     },
   },
   "south-america": {
@@ -147,13 +147,13 @@ export default {
         map: SAMap,
         data: SAData,
       },
-      capitals: {
-        title: "Capitals",
-        time: five,
-        findAmount: 13,
-        map: SACapitalsMap,
-        data: SACapitalsData,
-      },
+      // capitals: {
+      //   title: "Capitals",
+      //   time: five,
+      //   findAmount: 13,
+      //   map: SACapitalsMap,
+      //   data: SACapitalsData,
+      // },
     },
   },
   oceania: {
@@ -161,20 +161,20 @@ export default {
     continent: "Oceania",
     continentId: "oceania",
     mode: {
-      countries: {
-        title: "Countries",
-        time: two,
-        findAmount: 14,
-        map: OceaniaMap,
-        data: OceaniaData,
-      },
-      capitals: {
-        title: "Capitals",
-        time: five,
-        findAmount: 14,
-        map: OceaniaCapitalsMap,
-        data: OceaniaCapitalsData,
-      },
+      // countries: {
+      //   title: "Countries",
+      //   time: two,
+      //   findAmount: 14,
+      //   map: OceaniaMap,
+      //   data: OceaniaData,
+      // },
+      // capitals: {
+      //   title: "Capitals",
+      //   time: five,
+      //   findAmount: 14,
+      //   map: OceaniaCapitalsMap,
+      //   data: OceaniaCapitalsData,
+      // },
     },
   },
 };

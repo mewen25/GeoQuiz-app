@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { GameContext } from "../../components/gameContext";
 import { ModeContext } from "../../components/modeContext";
 import BackgroundImg from "../../assets/images/stars.jpg";
-import "./home.css";
+// import "./home.css";
 
 import HomeBtns from "./HomeBtns";
 import ScrollPage from "./ScrollPage";
