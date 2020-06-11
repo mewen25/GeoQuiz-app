@@ -1,0 +1,21 @@
+.all-links {
+    width: 100%;
+    margin-top: 12%;
+}
+.all-links svg {
+    width: 80vw;
+    display: block;
+    margin: 0 auto;
+}
+
+.all-links-container {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 200px;
+    display: grid;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: repeat(auto-fill, minmax(500px,1fr));
+    row-gap: 100px;
+    align-items: flex-start;
+    justify-items: center;
+}

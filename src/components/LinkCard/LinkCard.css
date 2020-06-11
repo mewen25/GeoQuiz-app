@@ -1,0 +1,42 @@
+.link-card {
+    width: 320px;
+    height: 400px;
+    background: #FFEEF0;
+    box-shadow: 0px 8px 3px #CE9FA2;
+    border-radius: 34px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+
+    font-family: "Baloo Chettan", cursive;
+}
+.link-card:hover {
+    cursor: pointer;
+    transform: translate(0px, -10px);
+    box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.591) !important;
+}
+
+.link-card img {    
+    height: 250px;
+    padding: 10px;
+    margin: 10px;
+    max-width: 300px;
+}
+
+.link-card p {
+    font-size: 18px;
+    color: #545454;
+    text-align: center;
+}
+
+.link-card h2 {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    width: 70%;
+    height: 50px;
+    border-radius: 11px;
+    padding-top: 10px;
+}

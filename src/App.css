@@ -9,13 +9,11 @@
 }
 
 .header {
-  background: rgba(255, 255, 255, 0.09);
-  border-radius: 27px;
+  background: #1c435c;
   display: flex;
   /* position: absolute; */
-  height: 5%;
-  width: 95%;
-  margin: 10px 2.5%;
+  height: 50px;
+  width: 100%;
 }
 
 .header-nav {
@@ -23,8 +21,8 @@
   margin-left: 5%;
   display: flex;
   justify-content: space-evenly;
-  color: rgb(0, 0, 0);
-  font-size: 20px;
+  color: white;
+  font-size: 30px;
   font-family: "Baloo Chettan", cursive;
 }
 
@@ -32,9 +30,8 @@
   font-size: 25px;
   color: white;
   font-family: "Baloo Chettan", cursive;
-  background-color: #487fb1;
+  background-color: #a4c5e4;
   border-radius: 15px;
-  padding: 0 15px;
   margin-left: 30px;
   align-self: center;
 }

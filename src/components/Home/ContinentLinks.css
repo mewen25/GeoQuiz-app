@@ -1,0 +1,32 @@
+.continent-links {
+  font-family: "Baloo Chettan", cursive;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.continent-link-title {
+    color: #4E4E4E;
+    text-align: left;
+    font-size: 30px;
+    letter-spacing: 0.205em;
+    margin-bottom: 20px;
+}
+
+.continentLink {
+    margin: 0;
+    text-align: left;
+    font-size: 18px;
+    padding: 5px;
+}
+.continentLink:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.continentLink[quiztype="quiz"] {
+    color: #285979;
+    /* background-color: lightblue; */
+}.continentLink[quiztype="learn"] {
+    color: #FF720C;
+    /* background-color: rgb(230, 193, 173); */
+}
