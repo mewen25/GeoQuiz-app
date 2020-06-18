@@ -1,0 +1,27 @@
+.quiz-other-link {
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(158, 158, 158, 0.25);
+  border-radius: 17px;
+  padding: 5px 15px;
+  height: 35px;
+  display: inline-block;
+
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+
+  color: #3a7195;
+}
+
+.related-links {
+  position: relative;
+  left: 65px;
+  top: 15px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.quiz-other-link {
+  margin-right: 25px;
+}

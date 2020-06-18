@@ -1,8 +1,10 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import "./LinkCard.css";
 
-function LinkCard( { theme, img }) {
+function LinkCard( { theme, img, title, link }) {
+  const history = useHistory();
   
   const themes = {
     red: {
@@ -28,13 +30,13 @@ function LinkCard( { theme, img }) {
   const colour = themes[theme];
 
   return (
-    <div className="link-card" style={{ 
+    <div className="link-card" onClick={() => history.push(link)} style={{ 
         backgroundColor: colour.cardBackground,
         boxShadow: `0px 8px 3px ${colour.cardShadow}`,
     }}>
       <img alt="link" src={img} />
       <p syle={{ color: colour.descriptionColour }} >Description for the link</p>
-      <h2 className="link-card-btn" style={{ background: colour.buttonBg }}>Europe Quiz</h2>
+      <h2 className="link-card-btn" style={{ background: colour.buttonBg }}>{title}</h2>
     </div>
   );
 }

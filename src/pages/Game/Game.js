@@ -10,6 +10,7 @@ import "./modal.css";
 
 //import GameMap from "./GameMap";
 import GameMap from "./GamePage";
+import QuizPage from "../../components/Game/QuizPage";
 
 const Game = ({ match }) => {
   const { game, setGameState } = useContext(GameContext);
@@ -76,17 +77,18 @@ const Game = ({ match }) => {
   }, []);
 
   return (
-    <div className="game">
+    <>
       <Helmet>
         <title>{gameValues.continent + " - " + gameValues.mode} Quiz</title>
       </Helmet>
       {gameValues.map ? (
-        <GameMap
-          data={gameValues}
-          show={show}
-          setFinish={setFinish}
-          setResults={setGameResults}
-        />
+        <QuizPage />
+        // <GameMap
+        //   data={gameValues}
+        //   show={show}
+        //   setFinish={setFinish}
+        //   setResults={setGameResults}
+        // />
       ) : null}
       <GameModal
         show={show}
@@ -95,7 +97,7 @@ const Game = ({ match }) => {
         gameStart={handleStart}
       />
       {finish ? <FinishModal finish={finish} info={gameResults} /> : null}
-    </div>
+    </>
   );
 };
 
