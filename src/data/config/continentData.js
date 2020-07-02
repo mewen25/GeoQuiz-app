@@ -1,4 +1,4 @@
-import EuropeCountries from "../mapData/Continents/Europe/EuropeCountries";
+import EuropeCountries from "../mapData/Continents/Europe/svgData";
 import EuropeData from "../gameData/QuizData/europeData";
 import AsiaMap from "../mapData/Continents/Asia/svgData";
 import AsiaData from "../gameData/QuizData/asiaData";

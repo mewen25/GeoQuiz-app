@@ -1,3 +1,8 @@
+.quiz-other-links {
+  /* position: absolute; */
+  width: 45%;
+}
+
 .quiz-other-link {
   background: #ffffff;
   box-shadow: 0px 2px 2px rgba(158, 158, 158, 0.25);

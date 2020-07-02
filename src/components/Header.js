@@ -8,7 +8,7 @@ const Header = (match) => {
     <>
       <div className="header">
         <Link to="/" className="header-logo">
-          <img src={require("../assets/images/header-logo.png")} />
+          <img src={require("../assets/images/logo.svg")} />
         </Link>
         <div className="header-nav">
           <p>Home</p>
