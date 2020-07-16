@@ -1,11 +1,11 @@
 import React from 'react';
 import "./QuizInfos.css"
 
-const QuizInfos = () => {
+const QuizInfos = ({ place }) => {
     return (
         <div className="quiz-infos-container">
             <span id="quiz-infos-find">
-                <h2 id="quiz-find">Albion</h2>
+                <h2 id="quiz-find">{place}</h2>
                 <img alt="find" src={require('../../../assets/images/flags/continents/europe/Countries/France.png')} />
             </span>
             <div className="quiz-infos-score">

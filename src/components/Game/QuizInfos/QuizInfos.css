@@ -1,7 +1,4 @@
 .quiz-infos-container {
-  position: sticky;
-  top: 140px;
-  left: 60px;
   margin-left: 30px;
   display: inline-block;
 }
@@ -22,13 +19,13 @@
 #quiz-find {
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
-  font-size: 48px;
+  font-size: 58px;
   color: #20693e;
 }
 
 #quiz-infos-find img {
   width: 60px;
-  height: 30px;
+  height: 40px;
   border-radius: 5px;
   margin-left: 15px;
   align-self: center;

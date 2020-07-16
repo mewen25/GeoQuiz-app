@@ -11,6 +11,10 @@ export default function GameSetup({ match }) {
     console.log("game setup", data);
     if (data) {
       setQuizValues({
+        info: {
+          continent: data.continent,
+          mode: data.mode[match.params.quiz].title
+        },
         continent: data.continent,
         map: data.mode[match.params.quiz].map,
         data: data.mode[match.params.quiz].data,
