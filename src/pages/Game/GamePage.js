@@ -29,10 +29,6 @@ export default function GamePage(props) {
   });
   const [score, setScore] = useState(0);
   const [misses, setMisses] = useState(0);
-  // const [status, setStatus] = useState({
-  //   finish: [],
-  //   wrong: "",
-  // });
   const [pointFeedback, setPointFeedback] = useState({
     points: 0,
     state: false,

@@ -84,7 +84,7 @@ function GamePage({ show, data }) {
 
   const handleGuess = (place) => {
     const isCorrect = place === find.simple.name;
-    console.log("guess", isCorrect, place)
+    // console.log("guess", isCorrect, place)
     if(isCorrect) {
       setFind(prevData => ({
         ...prevData,
@@ -113,12 +113,11 @@ function GamePage({ show, data }) {
     <div className="game" bg="green">
       <div className="quiz-page">
         <QuizHeader />
-        <span style={{display: "inline-block"}}>
-        <QuizInfos place={find?.simple?.name} />
-        </span>
         <div className="main-container">
           <div className="quiz-side">
-          
+        <span style={{display: "inline-block"}}>
+          <QuizInfos place={find?.simple?.name} />
+        </span>
           </div>
           <div className="quiz-map">
             {find.simple?.name && (
