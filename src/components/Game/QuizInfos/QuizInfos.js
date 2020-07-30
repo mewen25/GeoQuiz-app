@@ -1,14 +1,14 @@
 import React from 'react';
 
 import QuizFind from "./QuizFind";
+import QuizSideInfo from "./QuizSideInfo";
 import "./QuizInfos.css";
 
-const QuizInfos = ({ place }) => {
+const QuizInfos = ({ data, infoName }) => {
     return (
-        <div className="quiz-infos-container">
-            <span id="quiz-infos-find">
-                
-            </span>
+        <div className={infoName||"quiz-infos-container"}>
+            {data && data.type === "top" ? <QuizFind find={data.place} /> :
+                data && data.type === "side" ? <QuizSideInfo marks={data.marks} total={data.total} score={data.score} time={data.time} /> : null}
         </div>
     )
 }
