@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import {useHistory} from "react-router";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 //import data from "../../data/mapData/Continents/Europe/Europe";
 import "./learn.css";
-import { GameContext } from "../../components/gameContext";
+import { GameContext } from "../../components/Utils/gameContext";
 import GameModal from "../Game/GameModal";
 import learnDatas from "../../data/gameData/learningData";
 import PageLinks from "./PageLinks";
@@ -12,8 +12,8 @@ import PageLinks from "./PageLinks";
 import LearnContents from "./LearnContents";
 import LearnSelected from "./LearnSelected";
 import LearnQuiz from "./LearnQuiz";
-import LearnTestModal from "./LearnTestModal"
-import BarInfo from "../../components/BarInfo";
+import LearnTestModal from "./LearnTestModal";
+import BarInfo from "../../components/Utils/BarInfo";
 
 export default function Learn({ match }) {
   const { game, setGameState } = useContext(GameContext);
@@ -68,11 +68,13 @@ export default function Learn({ match }) {
 
   useEffect(() => {
     if (learn) {
-      if(isDoingTest){setIsDoingTest(false);}
+      if (isDoingTest) {
+        setIsDoingTest(false);
+      }
       manageClass(learn, "learn", "selected");
-      manageClass(learn, "learn", "country-searched")
-      if(!clickedPlaces.includes(learn)){
-        setClickedPlaces(prevData => [...prevData, learn]);
+      manageClass(learn, "learn", "country-searched");
+      if (!clickedPlaces.includes(learn)) {
+        setClickedPlaces((prevData) => [...prevData, learn]);
       }
       //animate("#barInfo-one-flex1", ["zoomIn", "faster"]);
       if (prevLearn) {
@@ -80,7 +82,7 @@ export default function Learn({ match }) {
       }
       setPrevLearn(learn);
 
-      setLearnCountry(getCountrySvg())
+      setLearnCountry(getCountrySvg());
     }
   }, [learn]);
 
@@ -89,7 +91,9 @@ export default function Learn({ match }) {
       top: 0,
       left: 0,
     });
-    if(thisMap !== currentMap){history.go();}
+    if (thisMap !== currentMap) {
+      history.go();
+    }
     //window.location.reload();
     setGameState(true);
     return () => {
@@ -119,16 +123,20 @@ export default function Learn({ match }) {
   }
 
   function getCountryData(selected) {
-    if(selected){setLearnData({
-      name: selected,
-      capital: mapData[0][selected].capital,
-      population: mapData[0][selected].population,
-      language: mapData[0][selected].language,
-      land: mapData[0][selected].land,
-      animal: mapData[0][selected].animal,
-      flag: mapData[0][selected].flag,
-      altName: mapData[0][selected].altName ? mapData[0][selected].altName : null
-    })};
+    if (selected) {
+      setLearnData({
+        name: selected,
+        capital: mapData[0][selected].capital,
+        population: mapData[0][selected].population,
+        language: mapData[0][selected].language,
+        land: mapData[0][selected].land,
+        animal: mapData[0][selected].animal,
+        flag: mapData[0][selected].flag,
+        altName: mapData[0][selected].altName
+          ? mapData[0][selected].altName
+          : null,
+      });
+    }
   }
 
   function animate(name, animation, custom = false) {
@@ -179,9 +187,11 @@ export default function Learn({ match }) {
   };
 
   const getCountrySvg = () => {
-    const map = document.getElementById("learnMap")
-    return Array.from(map.querySelectorAll("g")).filter(c => c.id === learn)[0].querySelector("path");
-  }
+    const map = document.getElementById("learnMap");
+    return Array.from(map.querySelectorAll("g"))
+      .filter((c) => c.id === learn)[0]
+      .querySelector("path");
+  };
 
   return (
     <>
@@ -215,59 +225,72 @@ export default function Learn({ match }) {
         <hr />
         <div className="learn-page-container" onClick={handleClose}>
           <div className="learn-page-infos">
-            <LearnContents learn={learn} countries={countries} handleClick={handleClickLink} searched={clickedPlaces} />
-            {learn ? <LearnSelected isTest={isDoingTest} setTest={setIsDoingTest} data={
-              learnData
-                ? {
-                    place: learnData.name,
-                    img: learnData.flag,
-                    capital: learnData.capital,
-                    altNames: learnData.altName
-                  }
-                : null
-              }
-            /> : !hasClicked ?
-            <div className="learn-page-infos-placeholder" style={{marginTop: "150px"}}>
-            <h1>Select a Country to get Learning!</h1>
-            </div> : null
-              }
+            <LearnContents
+              learn={learn}
+              countries={countries}
+              handleClick={handleClickLink}
+              searched={clickedPlaces}
+            />
+            {learn ? (
+              <LearnSelected
+                isTest={isDoingTest}
+                setTest={setIsDoingTest}
+                data={
+                  learnData
+                    ? {
+                        place: learnData.name,
+                        img: learnData.flag,
+                        capital: learnData.capital,
+                        altNames: learnData.altName,
+                      }
+                    : null
+                }
+              />
+            ) : !hasClicked ? (
+              <div
+                className="learn-page-infos-placeholder"
+                style={{ marginTop: "150px" }}
+              >
+                <h1>Select a Country to get Learning!</h1>
+              </div>
+            ) : null}
           </div>
           <div className="learn-map-container">
-            {!isDoingTest && mapData[0] ? <Map
-              handleClick={handleClick}
-              data={mapData[0]}
-              selected={learn}
-              type="learn"
-              prevSelected={clickedPlaces}
-            /> : 
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              fillRule="evenodd"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeMiterlimit="1.5"
-              clipRule="evenodd"
-              viewBox="0 0 850 700"
-              id="learnMap1"
-              onClick={handleClose}
-              style={{display: "inline-block"}}
-            >
-              <path
-                fill={LearnCountry["attributes"]["fill"].value}
-                fillRule="nonzero"
-                d={LearnCountry["attributes"]["d"].value}
-                style={{width: "100%", height: "100%"}}
+            {!isDoingTest && mapData[0] ? (
+              <Map
+                handleClick={handleClick}
+                data={mapData[0]}
+                selected={learn}
+                type="learn"
+                prevSelected={clickedPlaces}
+              />
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                fillRule="evenodd"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="1.5"
+                clipRule="evenodd"
+                viewBox="0 0 850 700"
+                id="learnMap1"
+                onClick={handleClose}
+                style={{ display: "inline-block" }}
               >
-
-              </path>
-            </svg>
-            }
+                <path
+                  fill={LearnCountry["attributes"]["fill"].value}
+                  fillRule="nonzero"
+                  d={LearnCountry["attributes"]["d"].value}
+                  style={{ width: "100%", height: "100%" }}
+                ></path>
+              </svg>
+            )}
           </div>
         </div>
         <div className="learn-page-key">
           <div className="learn-page-key-hints">
-            <img src={require('../../assets/images/hint.svg')} alt="hint-img" />
+            <img src={require("../../assets/images/hint.svg")} alt="hint-img" />
             <p>Hints/Memorisation tips</p>
           </div>
           <div className="learn-page-test-info">

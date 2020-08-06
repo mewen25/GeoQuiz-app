@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 
-import SelectContinent from "../../components/SelectContinent";
+import SelectContinent from "../../components/Utils/SelectContinent";
 import NavOptions from "./NavOptions";
-import ToggleSwitch from "../../components/ToggleSwitch";
+import ToggleSwitch from "../../components/Utils/ToggleSwitch";
 import QuizLink from "./QuizLink";
 import navData from "../../data/gameData/gameSelect";
 import "./scrollpage.css";

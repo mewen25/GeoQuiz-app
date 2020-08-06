@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import QuizPage from "./QuizPage";
+import QuizPage from "../Quiz/QuizPage";
 import GameModal from "../../pages/Game/GameModal";
 import gameData from "../../data/config/continentData";
 
@@ -13,7 +13,7 @@ export default function GameSetup({ match }) {
       setQuizValues({
         info: {
           continent: data.continent,
-          mode: data.mode[match.params.quiz].title
+          mode: data.mode[match.params.quiz].title,
         },
         continent: data.continent,
         map: data.mode[match.params.quiz].map,

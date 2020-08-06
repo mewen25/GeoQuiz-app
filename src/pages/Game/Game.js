@@ -2,15 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import { Helmet } from "react-helmet";
 import GameModal from "./GameModal";
 import FinishModal from "./FinishModal";
-import Header from "../../components/Header";
+import Header from "../../components/Utils/Header";
 import gameData from "../../data/config/continentData";
-import { GameContext } from "../../components/gameContext";
+import { GameContext } from "../../components/Utils/gameContext";
 // import "./game.css";
 import "./modal.css";
 
 //import GameMap from "./GameMap";
 import GameMap from "./GamePage";
-import QuizPage from "../../components/Game/QuizPage";
+import QuizPage from "../../components/Quiz/QuizPage";
 
 const Game = ({ match }) => {
   const { game, setGameState } = useContext(GameContext);
@@ -83,13 +83,13 @@ const Game = ({ match }) => {
       </Helmet>
       {gameValues.map ? (
         <QuizPage />
-        // <GameMap
-        //   data={gameValues}
-        //   show={show}
-        //   setFinish={setFinish}
-        //   setResults={setGameResults}
-        // />
-      ) : null}
+      ) : // <GameMap
+      //   data={gameValues}
+      //   show={show}
+      //   setFinish={setFinish}
+      //   setResults={setGameResults}
+      // />
+      null}
       <GameModal
         show={show}
         title={modalContent.title}

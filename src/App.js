@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Routes from "./Routes";
-import Header from "./components/Header";
+import Header from "./components/Utils/Header";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home/Home";

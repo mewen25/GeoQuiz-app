@@ -1,0 +1,10 @@
+.theme-switch {
+  position: absolute;
+  right: 20px;
+
+  display: inline-flex;
+  flex-direction: column;
+}
+.theme-switch .theme-button {
+  margin-top: 10px;
+}

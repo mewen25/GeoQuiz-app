@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ModeContext } from "../../components/modeContext";
+import { ModeContext } from "../../components/Utils/modeContext";
 
 export default function QuizButton(props) {
   const { mode, setModeState } = useContext(ModeContext);

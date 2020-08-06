@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 //import { Link, animateScroll as Scroll } from "react-scroll";
 import { Helmet } from "react-helmet";
-import { GameContext } from "../../components/gameContext";
-import { ModeContext } from "../../components/modeContext";
+import { GameContext } from "../../components/Utils/gameContext";
+import { ModeContext } from "../../components/Utils/modeContext";
 import BackgroundImg from "../../assets/images/stars.jpg";
 // import "./home.css";
 
@@ -36,33 +36,33 @@ const Home = () => {
         <title>Interactive Geography Quiz - GeoQuiz</title>
       </Helmet>
       <div className="home-welcome-page">
-      <div className="home-page-content">
-        {/* <img src={BackgroundImg} id="home-bg" /> */}
-        <img
-          alt="wave-svg"
-          className="top-wave wave"
-          src={require("../../assets/images/home-wave.svg")}
-        />
-        <div className="home-content-container">
-          {/* <img
+        <div className="home-page-content">
+          {/* <img src={BackgroundImg} id="home-bg" /> */}
+          <img
+            alt="wave-svg"
+            className="top-wave wave"
+            src={require("../../assets/images/home-wave.svg")}
+          />
+          <div className="home-content-container">
+            {/* <img
             id="moon-img"
             src={require("../../assets/images/home-moon.svg")}
           /> */}
-          <HomeBtns quiz={handleClickQuiz} learn={handleClickLearn} />
-          <img
-            alt="world-img"
-            src={require("../../assets/images/home-bg-extra.svg")}
-            id="home-img"
-            // data-aos="zoom-in"
-          />
-        </div>
+            <HomeBtns quiz={handleClickQuiz} learn={handleClickLearn} />
+            <img
+              alt="world-img"
+              src={require("../../assets/images/home-bg-extra.svg")}
+              id="home-img"
+              // data-aos="zoom-in"
+            />
+          </div>
         </div>
         <img
-        id="scroll-wave"
-        className="wave"
-        alt=""
-        src={require("../../assets/images/home-topWave.svg")}
-      />
+          id="scroll-wave"
+          className="wave"
+          alt=""
+          src={require("../../assets/images/home-topWave.svg")}
+        />
       </div>
       <ScrollPage mode={mode} setMode={setModeState} scroll={scroll} />
       <img
