@@ -6,10 +6,12 @@ import SAMap from "../mapData/Continents/South-America/svgData";
 import SAData from "../gameData/QuizData/southAmericaData";
 import AfricaMap from "../mapData/Continents/Africa/svgData";
 import AfricaData from "../gameData/QuizData/africaData";
-import NAMap from "../../data/mapData/Continents/North-America/svgData";
+import NAMap from "../../data/mapData/Continents/North-America/States/svgData";
 import NorthAmericaData from "../gameData/QuizData/northAmericaData";
-import StatesMap from "../../data/mapData/Other/States/svgData";
+import StatesMap from "../mapData/Continents/North-America/States/svgData";
 import StatesData from "../gameData/QuizData/statesData";
+import OceaniaMap from "../mapData/Continents/Oceania/svgData";
+import OceaniaData from "../gameData/QuizData/oceaniaData";
 
 //import EuropeMap from "../../data/mapData/Continents/Europe/Europe";
 // import EuropeCapitalsMap from "../../data/mapData/Continents/Europe/Capitals/Europe-Capitals";
@@ -161,13 +163,13 @@ export default {
     continent: "Oceania",
     continentId: "oceania",
     mode: {
-      // countries: {
-      //   title: "Countries",
-      //   time: two,
-      //   findAmount: 14,
-      //   map: OceaniaMap,
-      //   data: OceaniaData,
-      // },
+      countries: {
+        title: "Countries",
+        time: two,
+        findAmount: 14,
+        map: OceaniaMap,
+        data: OceaniaData,
+      },
       // capitals: {
       //   title: "Capitals",
       //   time: five,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 const MapElements = (props) => {
     const groups = props.svgData.elements.map((obj, index) => {
         const countryColour = props.colour[Math.floor(Math.random() * props.colour.length)];

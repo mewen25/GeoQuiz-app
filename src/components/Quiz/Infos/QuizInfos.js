@@ -1,16 +1,25 @@
 import React from 'react';
 
 import QuizFind from "./QuizFind";
-import QuizSideInfo from "./QuizSideInfo";
+import QuizScore from "./QuizScore";
+import QuizButtons from "./QuizButtons";
 import "./QuizInfos.css";
 
-const QuizInfos = ({ data, infoName }) => {
+const QuizInfos = ({ place, marks, total, time, colour }) => {
     return (
-        <div className={infoName||"quiz-infos-container"}>
-            {data && data.type === "top" ? <QuizFind find={data.place} /> :
-                data && data.type === "side" ? <QuizSideInfo marks={data.marks} total={data.total} score={data.score} time={data.time} /> : null}
+        <div className="quiz-infos-container">
+            <QuizFind place={place} colour={colour} />
+            <QuizScore marks={marks} total={total} time={time} colour={colour} />
+            <QuizButtons />
         </div>
     )
+    
+    // return (
+    //     <div className={infoName||"quiz-infos-container"}>
+    //         {data && data.type === "top" ? <QuizFind find={data.place} /> :
+    //             data && data.type === "side" ? <QuizSideInfo marks={data.marks} total={data.total} score={data.score} time={data.time} /> : null}
+    //     </div>
+    // )
 }
 
 // const QuizInfos = ({ place }) => {

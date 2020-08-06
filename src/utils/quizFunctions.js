@@ -34,9 +34,8 @@ export const manageClass = (element, classname, data, add = true) => {
 
 export const getFlag = (continent, mode, name) => {
   var imgPath = null;
-  const flagPath = "../assets/images/flags/continents/";
   try {
-    imgPath = require(`${flagPath}${continent.toLowerCase()}/${mode}/${name}.png`);
+    imgPath = require(`../assets/images/flags/continents/${continent}/${mode}/${name}.png`);
   } catch (e) {
     imgPath = null;
   }

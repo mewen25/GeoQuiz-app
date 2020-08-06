@@ -15,6 +15,7 @@ export default function GameSetup({ match }) {
           continent: data.continent,
           mode: data.mode[match.params.quiz].title,
         },
+        continentId: data.continentId,
         continent: data.continent,
         map: data.mode[match.params.quiz].map,
         data: data.mode[match.params.quiz].data,

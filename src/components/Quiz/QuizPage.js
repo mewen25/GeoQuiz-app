@@ -19,6 +19,12 @@ const countryColours = {
   yellow: ["#F5E158", "#FCEB7B"],
   red: ["#F55858", "#FC7B7B"],
 };
+const guiColours = {
+  blue: ["#90AEDB", "#fff"],
+  green: ["#90AEDB", "#fff"],
+  yellow: ["#90AEDB", "#fff"],
+  red: ["#90AEDB", "#fff"],
+}
 
 function QuizPage({ show, data }) {
   const [theme, setTheme] = useState("blue");
@@ -68,7 +74,8 @@ function QuizPage({ show, data }) {
         ...prevData,
         simple: {
           name: place,
-          image: getFlag(continent, data.info.mode, place),
+          id: find.data[find.list[0]].id || null,
+          image: getFlag(data.continentId, data.info.mode, place),
         },
       }));
     }
@@ -79,7 +86,7 @@ function QuizPage({ show, data }) {
     const list = find.data;
     if (list[clicked].class.includes("complete")) return;
 
-    const place = find.data[clicked].name;
+    const place = find.data[clicked].id || find.data[clicked].name;
     setGuesses((prevData) => ({
       ...prevData,
       current: place,
@@ -94,21 +101,12 @@ function QuizPage({ show, data }) {
   return (
     <div className="game" bg={theme}>
       <div className="quiz-page">
-        <QuizHeader />
+        {/* <QuizHeader /> */}
         <ThemeSwitch theme={theme} setTheme={setTheme} />
-        <p>{guesses.current}</p>
-        <div className="main-container">
-          <QuizInfos data={{ type: "top", place: find?.simple?.name }} />
-          <QuizInfos
-            data={{
-              type: "side",
-              marks: guesses.score.marks,
-              total: find.totals.all,
-            }}
-            infoName="quiz-side-container"
-          />
+        <div className="game-view">
+          <QuizInfos place={find?.simple} marks={guesses?.score?.marks} total={find?.totals?.all} colour={guiColours[theme]} />
           <div className="quiz-map">
-            {find.simple?.name && (
+             {find.simple?.name && (
               <CreateMap
                 mapData={find.data}
                 svgData={data.map}
@@ -121,10 +119,10 @@ function QuizPage({ show, data }) {
         </div>
       </div>
     </div>
-  );
+  )
 
   function handleGuess(place) {
-    const isCorrect = place === find.simple.name;
+    const isCorrect = place === find.simple?.id || place === find.simple.name ? true : false;
     if (isCorrect) {
       setFind((prevData) => ({
         ...prevData,

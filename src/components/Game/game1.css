@@ -3,24 +3,41 @@
   font-family: "Baloo Chettan", cursive;
 }
 
-.game[bg="green"] {
-  background-image: url("../../assets/images/quiz-bg-green.svg");
-}
+/* .game[bg="green"] {
+  background-image: url("../../assets/images/Theme/quiz-bg-green.svg");
+}.game[bg="green"]  */
 .game[bg="blue"] {
-  background-image: url("../../assets/images/quiz-bg-blu.svg");
+  background-image: url("../../assets/images/Theme/Blue/bg1.svg");
+} .game[bg="blue"] .game-view {
+  background-image: url("../../assets/images/Theme/Blue/bg2.svg");
 }
 
 .quiz-page {
   width: 100%;
   height: calc(100vh - 60px);
-  max-width: 70%;
+  /* max-width: 70%;
   min-width: 1480px;
-  margin: 0 auto;
+  margin: 0 auto; */
   margin-top: 60px;
 
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.game-view {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.game-view-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .quiz-header {

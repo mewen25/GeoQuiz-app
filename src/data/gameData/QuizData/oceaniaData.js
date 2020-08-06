@@ -1,0 +1,92 @@
+export default {
+    "Australia": {
+        name: "Australia",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Federated-States-of-Micronesia": {
+        name: "Australia",
+        id: "Federated-States-of-Micronesia",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Fiji": {
+        name: "Fiji",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Kiribati": {
+        name: "Kiribati",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Marshall-Islands": {
+        name: "Marshall Islands",
+        id: "Marshall-Islands",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Nauru": {
+        name: "Nauru",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "New-Zealand": {
+        name: "New Zealand",
+        id: "New-Zealand",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Palau": {
+        name: "Palau",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Papua-New-Guinea": {
+        name: "Papua New Guinea",
+        id: "Papua-New-Guinea",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Samoa": {
+        name: "Samoa",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Solomon-Islands": {
+        name: "Solomon Islands",
+        id: "Solomon-Islands",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Tonga": {
+        name: "Tonga",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Tuvalu": {
+        name: "Tuvalu",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+    "Vanuatu": {
+        name: "Vanuatu",
+        capital: "N/A",
+        class: ["quiz-country"],
+        styles: ["#4A9B61", "#5FD981"],
+    },
+};
+  
