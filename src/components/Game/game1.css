@@ -76,13 +76,14 @@
   align-self: center;
 
   /* max-height: 100%; */
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
+  margin: auto auto;
 
   min-width: 900px;
   border-radius: 21px;
   grid-area: qm;
-  background: rgba(51, 74, 131, 0.152);
+  /* background: rgba(51, 74, 131, 0.152); */
 
   /* position: relative;
   z-index: 0;
@@ -129,6 +130,14 @@
 }
 .other {
   pointer-events: none;
+}
+
+.quiz-country[data-small="true"] {
+  outline: 2px solid rgb(11, 19, 45);
+}
+
+.quiz-line {
+  pointer-events: none !important;
 }
 
 /* .quiz-country path {

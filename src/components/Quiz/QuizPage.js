@@ -11,6 +11,7 @@ import QuizInfos from "./Infos/QuizInfos";
 import QuizHeader from "./QuizHeader";
 import CreateMap from "../../pages/Game/CreateMap";
 import ThemeSwitch from "../Utils/Game/ThemeSwitch";
+import SmallsPanel from "./Infos/SmallsPanel";
 import "../Game/game1.css";
 
 const countryColours = {
@@ -38,6 +39,7 @@ function QuizPage({ show, data }) {
     totals: {
       all: formatList(data.data).length,
     },
+    smalls: []
   });
   const [guesses, setGuesses] = useState({
     current: undefined,
@@ -56,6 +58,14 @@ function QuizPage({ show, data }) {
   });
   const continent = data.continent;
   const [listArr, setListArr] = useState([]);
+
+  useEffect(() => {
+    const smalls = Object.values(data.data).reduce((acc, cur) => {return cur.small ? [...acc, cur] : [...acc]}, []);
+    setFind((prev) => ({
+      ...find,
+      smalls: smalls
+    }));
+  },[])
 
   useEffect(() => {
     if (!find.data) return;
@@ -106,13 +116,14 @@ function QuizPage({ show, data }) {
         <div className="game-view">
           <QuizInfos place={find?.simple} marks={guesses?.score?.marks} total={find?.totals?.all} colour={guiColours[theme]} />
           <div className="quiz-map">
-             {find.simple?.name && (
+            <SmallsPanel smalls={find.smalls} />
+            {find.simple?.name && (
               <CreateMap
                 mapData={find.data}
                 svgData={data.map}
                 handleClick={handleClick}
                 search={find.simple.name}
-                colour={countryColours[theme]}
+                colour={countryColours["green"]}
               />
             )}
           </div>

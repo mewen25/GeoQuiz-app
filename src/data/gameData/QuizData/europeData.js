@@ -9,6 +9,7 @@ export default {
     name: "Andorra",
     capital: "Andorra la Vella",
     class: ["quiz-country"],
+    small: true,
     styles: ["#4A9B61", "#5FD981"],
   },
   Austria: {
@@ -184,6 +185,7 @@ export default {
     name: "Liechtenstein",
     capital: "Vaduz",
     class: ["quiz-country"],
+    small: true,
     styles: ["#4A9B61", "#5FD981"],
   },
   Lithuania: {
@@ -202,6 +204,7 @@ export default {
     name: "Luxembourg",
     capital: "Luxembourg",
     class: ["quiz-country"],
+    small: true,
     styles: ["#4A9B61", "#5FD981"],
   },
   Malta: {
@@ -282,6 +285,7 @@ export default {
     id: "San-Marino",
     capital: "San Marino",
     class: ["quiz-country"],
+    small: true,
     styles: ["#4A9B61", "#5FD981"],
   },
   Serbia: {
@@ -356,6 +360,7 @@ export default {
     id: "Vatican-City",
     capital: "Vatican City",
     class: ["quiz-country"],
+    small: true,
     styles: ["#4A9B61", "#5FD981"],
   },
 };

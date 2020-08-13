@@ -7,6 +7,7 @@ const MapElements = (props) => {
         if(props.mapData[id] && !props.mapData[id].class.includes("complete")) {
             handler = [`data-tip data-for=search onClick=${props.handleClick}`];
         }
+        const smalls = props.mapData[id] && props.mapData[id].small ? true : false;
         const elements = obj.render.map((e, index) => {
             let element = <></>;
             if(e.type === "path") element = <path key={index} {...e.attributes} />;
@@ -19,7 +20,8 @@ const MapElements = (props) => {
             key: index,
             id: id,
             onClick: props.mapData[id] && props.handleClick,
-            className: props.mapData[id] && props.mapData[id].class.join(" ") || `other`,
+            className: `${props.mapData[id] && props.mapData[id].class.join(" ") || `other`}${props.mapData[id] ? ` qc-${props.mapData[id].id||props.mapData[id].name}` : ""}`,
+            ["data-small"]: smalls,
             ["data-tip"]: props.mapData[id] && !props.mapData[id].class.includes(["complete", "other"]) || false,
             ["data-for"]: "search",
             fill: props.mapData[id] && props.mapData[id].colour||"#e67",
