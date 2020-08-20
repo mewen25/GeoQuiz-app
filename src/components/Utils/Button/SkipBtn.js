@@ -3,9 +3,9 @@ import { Button } from "react-bootstrap";
 import ReactTooltip from "react-tooltip";
 import { ReactComponent as BtnSvg } from "../../../assets/images/game/skipBtn.svg";
 
-const SkipBtn = props => {
+const SkipBtn = ({ handleClick }) => {
   return (
-    <div className="circle-btn">
+    <div className="circle-btn" onClick={handleClick}>
       <BtnSvg />
     </div>
   )

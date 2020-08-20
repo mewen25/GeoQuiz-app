@@ -1,14 +1,20 @@
 .game {
   height: 100%;
   font-family: "Baloo Chettan", cursive;
+  background-size: cover;
 }
 
-/* .game[bg="green"] {
-  background-image: url("../../assets/images/Theme/quiz-bg-green.svg");
-}.game[bg="green"]  */
-.game[bg="blue"] {
-  background-image: url("../../assets/images/Theme/Blue/bg2.svg");
-  background-size: cover;
+.game[bg="green"] {
+  background-image: url("../../assets/images/Theme/Blue/bg1.svg");
+}
+.game[bg="b"] {
+  background-image: url("../../assets/images/Theme/Green/bg1.svg");
+}
+.game[bg="yellow"] {
+  background-image: url("../../assets/images/Theme/Yellow/bg1.svg");
+}
+.game[bg="red"] {
+  background-image: url("../../assets/images/Theme/Red/bg1.svg");
 }
 /* .game[bg="blue"] .game-view {
   background-image: url("../../assets/images/Theme/Blue/bg1.svg");
@@ -25,6 +31,22 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.exit {
+  position: absolute;
+  top: 2%;
+  left: 1%;
+}
+.exit path {
+  transition: 0.2s;
+}
+
+.exit:hover {
+  cursor: pointer;
+}
+.exit:hover path {
+  stroke: rgb(35, 81, 159);
 }
 
 .game-view {
@@ -121,21 +143,41 @@
 }
 
 .quiz-country:not(.complete):hover {
-  opacity: 0.5;
+  opacity: 0.7;
   outline: 0;
   cursor: pointer;
 }
 
 .complete {
-  fill: rgb(114, 113, 113) !important;
+  fill: white;
+  stroke: #D9E7DC;
+  stroke-width: 1.5px;
   pointer-events: none;
 }
 .other {
   pointer-events: none;
+  fill: #D9E7DC;
 }
 
 .quiz-country[data-small="true"] {
-  outline: 2px solid rgb(11, 19, 45);
+  /* outline: 2px solid rgb(11, 19, 45); */
+}
+
+.quiz-country[data-attempts="1"] {
+  fill: #FFDEDE !important;
+  stroke: none;
+}
+
+.quiz-country[data-attempts="2"] {
+  fill: #FFA3A3 !important;
+  stroke: none;
+}
+
+.quiz-country[data-col="#285979"]:hover {
+  fill: #3A7195;
+}
+.quiz-country[data-col="#3A7195"]:hover {
+  fill: #285979;
 }
 
 .quiz-line {
@@ -146,3 +188,16 @@
   stroke: white;
   stroke-width: 0.5px;
 } */
+
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}

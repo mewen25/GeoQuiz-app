@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 1%;
 }
 
 .quiz-info-scores {
@@ -64,7 +64,7 @@
 }
 
 .find-flag {
-  width: 60px;
+  width: 70px;
   height: 45px;
   border-radius: 8px;
   margin-left: 20px;
@@ -86,6 +86,11 @@
   color: #a4a4a4;
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   margin-right: 4%;
+}
+
+.quiz-helpers div:hover {
+  cursor: pointer;
+  background-color: rgb(240, 240, 240);
 }
 
 .showme-btn {
@@ -196,16 +201,46 @@
 }
 
 .small-place-panel {
-  width: 60px;
-  height: 20%;
+  max-width: 100px;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  position: relative;
+  top: 40%;
+  right: 6%;
+  justify-content: flex-start;
+  align-content: flex-start;
 }
 
 .small-place-btn {
-  width: 30px;
-  height: 30px;
-  background: rgba(64, 141, 149, 0.15);
+  width: 95px;
+  height: 80px;
   border-radius: 34px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.small-place-btn.disabled-btn {
+  pointer-events: none;
+  background: none;
+}
+.small-place-btn.disabled-btn circle {
+  fill: rgb(189, 189, 189);
+  stroke: rgb(189, 189, 189);
+}
+.small-place-btn.disabled-btn path {
+  fill: grey;
+}
+
+.small-place-btn:hover {
+  cursor: pointer;
+  background: rgba(64, 141, 149, 0.15);
+}
+.small-place-btn:hover circle {
+  stroke: #5CCB81;
+}
+/* .small-place-btn:hover svg {
+  border: 2px solid red;
+} */

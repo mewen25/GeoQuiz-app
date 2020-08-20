@@ -12,7 +12,6 @@ class GameContextProvider extends React.Component {
   };
 
   setHeaderState = (setting) => {
-    console.log("header state", setting);
     this.setState({ header: setting });
   };
 

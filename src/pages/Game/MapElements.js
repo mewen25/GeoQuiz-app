@@ -1,7 +1,10 @@
-import React from 'react'; 
+import React from 'react';
+import Ripples from "react-ripples";
+
 const MapElements = (props) => {
     const groups = props.svgData.elements.map((obj, index) => {
-        const countryColour = props.colour[Math.floor(Math.random() * props.colour.length)];
+        const colRng = Math.floor(Math.random() * props.colour.length);
+        const countryColour = props.colour[colRng];
         let handler = [];
         const id = obj.id;
         if(props.mapData[id] && !props.mapData[id].class.includes("complete")) {
@@ -16,15 +19,22 @@ const MapElements = (props) => {
 
             return element;
         })
+        
+        // if(props.mapData && props.mapData[id] && props.mapData[id].finished && !props.mapData[id].class.includes("complete")) props.mapData[id].class = [...props.mapData[id].class, "complete"];
+        // console.log("attempts", props.mapData && props.mapData[id] && props.mapData[id].finished)
+        const col = props.mapData[id] && props.mapData[id].colour||"#e67";
+        const dataCol = props.mapData[id] && col === props.mapData[id].colour[0] ? "1" : "2";
         const handles = {
             key: index,
             id: id,
             onClick: props.mapData[id] && props.handleClick,
-            className: `${props.mapData[id] && props.mapData[id].class.join(" ") || `other`}${props.mapData[id] ? ` qc-${props.mapData[id].id||props.mapData[id].name}` : ""}`,
+            className: `ripple ${props.mapData[id] && props.mapData[id].class.join(" ") || `other`}${props.mapData[id] ? ` qc-${props.mapData[id].id||props.mapData[id].name}` : ""}`,
             ["data-small"]: smalls,
             ["data-tip"]: props.mapData[id] && !props.mapData[id].class.includes(["complete", "other"]) || false,
             ["data-for"]: "search",
-            fill: props.mapData[id] && props.mapData[id].colour||"#e67",
+            ["data-attempts"]: props.mapData[id] && props.mapData[id].finished ? props.mapData[id].finished : "",
+            ["data-col"]: col,
+            fill: col,
         }
         return(
             <g {...handles} >

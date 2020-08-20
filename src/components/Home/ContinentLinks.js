@@ -4,10 +4,8 @@ import { LinkContainer } from "react-router-bootstrap";
 import "./ContinentLinks.css";
 
 const ContinentLinks = ({ linkTitle, title, data }) => {
-    console.log("DATA", data);
-
-    const quizLinks = [data?.quiz?.map(link => <LinkContainer to={`/quiz/${linkTitle}/${link.link}`}><p className="continentLink" quiztype="quiz">{link.name} Quiz</p></LinkContainer>)]
-    const learnLinks = [data?.learn?.map(link => <LinkContainer to={`/quiz/${linkTitle}/${link.link}`}><p className="continentLink" quiztype="learn">Learn {link.name}</p></LinkContainer>)]
+    const quizLinks = [data?.quiz?.map((link, index) => <LinkContainer key={index} to={`/quiz/${linkTitle}/${link.link}`}><p className="continentLink" quiztype="quiz">{link.name} Quiz</p></LinkContainer>)]
+    const learnLinks = [data?.learn?.map((link, index) => <LinkContainer key={index} to={`/quiz/${linkTitle}/${link.link}`}><p className="continentLink" quiztype="learn">Learn {link.name}</p></LinkContainer>)]
 
     return (
         <div className="continent-links">

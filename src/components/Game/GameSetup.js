@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import _ from "lodash";
 import QuizPage from "../Quiz/QuizPage";
 import GameModal from "../../pages/Game/GameModal";
 import gameData from "../../data/config/continentData";
@@ -9,8 +10,7 @@ export default function GameSetup({ match }) {
   const [quizValues, setQuizValues] = useState();
   const [show, setShow] = useState(true);
   const gameSetup = () => {
-    const data = gameData[match.params.continent];
-    console.log("game setup", data);
+    let data = _.cloneDeep(gameData[match.params.continent]);
     if (data) {
       setQuizValues({
         info: {
@@ -31,7 +31,7 @@ export default function GameSetup({ match }) {
 
     return () => {
       setHeaderState(true);
-    };
+    }
   }, []);
 
   return (

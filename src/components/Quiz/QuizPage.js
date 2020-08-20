@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   assignColour,
+  completeGuess,
   formatList,
   manageClass,
   getFlag,
 } from "../../utils/quizFunctions";
+
+import { ReactComponent as Exit } from "../../assets/images/game/exit.svg";
 
 import QuizInfos from "./Infos/QuizInfos";
 import QuizHeader from "./QuizHeader";
@@ -31,6 +35,7 @@ function QuizPage({ show, data }) {
   const [theme, setTheme] = useState("blue");
   const [find, setFind] = useState({
     data: data?.data,
+    savedData: Object.assign(data?.data, {}),
     simple: {
       name: undefined,
       image: undefined,
@@ -59,6 +64,7 @@ function QuizPage({ show, data }) {
   const [currentAttempts, setCurrentAttempts] = useState(0);
   const continent = data.continent;
   const [listArr, setListArr] = useState([]);
+  let history = useHistory();
 
   useEffect(() => {
     const smalls = Object.values(data.data).reduce((acc, cur) => {
@@ -72,7 +78,6 @@ function QuizPage({ show, data }) {
 
   useEffect(() => {
     if (!find.data) return;
-    console.log("theme", theme);
     setFind((prevData) => ({
       ...prevData,
       data: assignColour(countryColours[theme], find.data),
@@ -96,7 +101,7 @@ function QuizPage({ show, data }) {
   };
 
   const handleClick = (event) => {
-    const clicked = event.currentTarget.id;
+    const clicked = event?.currentTarget?.id||event;
     const list = find.data;
     if (list[clicked].class.includes("complete")) return;
 
@@ -112,9 +117,24 @@ function QuizPage({ show, data }) {
     getFind();
   }, [find.list]);
 
+  const handleSkip = () => {
+    let tempArr = find.list;
+    tempArr.push(tempArr.shift());
+    setFind(prev => ({
+      ...prev,
+      list: tempArr
+    }));
+    getFind();
+  }
+
+  const handleShow = () => {
+
+  }
+
   return (
     <div className="game" bg={theme}>
       <div className="quiz-page">
+        <Exit className="exit" onClick={() => history.push("/")} />
         {/* <QuizHeader /> */}
         <ThemeSwitch theme={theme} setTheme={setTheme} />
         <div className="game-view">
@@ -123,9 +143,11 @@ function QuizPage({ show, data }) {
             marks={guesses?.score?.marks}
             total={find?.totals?.all}
             colour={guiColours[theme]}
+            handleSkip={handleSkip}
+            handleShow={handleShow}
           />
           <div className="quiz-map">
-            <SmallsPanel smalls={find.smalls} />
+            <SmallsPanel smalls={find.smalls} handleClick={handleClick} />
             {find.simple?.name && (
               <CreateMap
                 mapData={find.data}
@@ -165,10 +187,17 @@ function QuizPage({ show, data }) {
       }));
       setFind((prev) => ({
         ...prev,
+        data: completeGuess(place, currentAttempts, find.data)
+      }));
+      setFind((prev) => ({
+        ...prev,
         data: manageClass(place, "complete", find.data),
       }));
     } else {
-      setCurrentAttempts((prev) => prev + 1);
+      setCurrentAttempts((prev) => {
+        if(prev > 0) return 2;
+        return prev + 1;
+      });
       setGuesses((prevData) => ({
         ...prevData,
         answers: {
