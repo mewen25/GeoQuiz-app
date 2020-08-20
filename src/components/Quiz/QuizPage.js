@@ -25,7 +25,7 @@ const guiColours = {
   green: ["#90AEDB", "#fff"],
   yellow: ["#90AEDB", "#fff"],
   red: ["#90AEDB", "#fff"],
-}
+};
 
 function QuizPage({ show, data }) {
   const [theme, setTheme] = useState("blue");
@@ -39,7 +39,7 @@ function QuizPage({ show, data }) {
     totals: {
       all: formatList(data.data).length,
     },
-    smalls: []
+    smalls: [],
   });
   const [guesses, setGuesses] = useState({
     current: undefined,
@@ -56,16 +56,19 @@ function QuizPage({ show, data }) {
       time: 0,
     },
   });
+  const [currentAttempts, setCurrentAttempts] = useState(0);
   const continent = data.continent;
   const [listArr, setListArr] = useState([]);
 
   useEffect(() => {
-    const smalls = Object.values(data.data).reduce((acc, cur) => {return cur.small ? [...acc, cur] : [...acc]}, []);
+    const smalls = Object.values(data.data).reduce((acc, cur) => {
+      return cur.small ? [...acc, cur] : [...acc];
+    }, []);
     setFind((prev) => ({
       ...find,
-      smalls: smalls
+      smalls: smalls,
     }));
-  },[])
+  }, []);
 
   useEffect(() => {
     if (!find.data) return;
@@ -79,6 +82,7 @@ function QuizPage({ show, data }) {
   const getFind = () => {
     const totalCountries = find.totals.all;
     if (guesses.answers.correct.length < totalCountries && find.list[0]) {
+      setCurrentAttempts(0);
       const place = find.data[find.list[0]].name;
       setFind((prevData) => ({
         ...prevData,
@@ -114,7 +118,12 @@ function QuizPage({ show, data }) {
         {/* <QuizHeader /> */}
         <ThemeSwitch theme={theme} setTheme={setTheme} />
         <div className="game-view">
-          <QuizInfos place={find?.simple} marks={guesses?.score?.marks} total={find?.totals?.all} colour={guiColours[theme]} />
+          <QuizInfos
+            place={find?.simple}
+            marks={guesses?.score?.marks}
+            total={find?.totals?.all}
+            colour={guiColours[theme]}
+          />
           <div className="quiz-map">
             <SmallsPanel smalls={find.smalls} />
             {find.simple?.name && (
@@ -130,10 +139,11 @@ function QuizPage({ show, data }) {
         </div>
       </div>
     </div>
-  )
+  );
 
   function handleGuess(place) {
-    const isCorrect = place === find.simple?.id || place === find.simple.name ? true : false;
+    const isCorrect =
+      place === find.simple?.id || place === find.simple.name ? true : false;
     if (isCorrect) {
       setFind((prevData) => ({
         ...prevData,
@@ -143,7 +153,10 @@ function QuizPage({ show, data }) {
         ...prevData,
         answers: {
           ...prevData.answers,
-          correct: [...prevData.answers.correct, place],
+          correct: [
+            ...prevData.answers.correct,
+            { place: place, attempts: currentAttempts },
+          ],
         },
         score: {
           ...prevData.score,
@@ -155,6 +168,7 @@ function QuizPage({ show, data }) {
         data: manageClass(place, "complete", find.data),
       }));
     } else {
+      setCurrentAttempts((prev) => prev + 1);
       setGuesses((prevData) => ({
         ...prevData,
         answers: {

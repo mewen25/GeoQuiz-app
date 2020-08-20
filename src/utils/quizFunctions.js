@@ -9,6 +9,17 @@ export const assignColour = (theme, data) => {
   return newObj;
 };
 
+export const completeGuess = (place, data) => {
+  const { attempts } = place;
+  let newObj = Object.assign(data, {});
+  for (const key in data) {
+    newObj[key] = {
+      ...data[key],
+      finished: attempts,
+    };
+  }
+};
+
 export const shuffleArray = (arr) => {
   for (var i = arr.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));

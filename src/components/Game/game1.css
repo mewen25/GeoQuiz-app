@@ -7,18 +7,20 @@
   background-image: url("../../assets/images/Theme/quiz-bg-green.svg");
 }.game[bg="green"]  */
 .game[bg="blue"] {
-  background-image: url("../../assets/images/Theme/Blue/bg1.svg");
-} .game[bg="blue"] .game-view {
   background-image: url("../../assets/images/Theme/Blue/bg2.svg");
+  background-size: cover;
 }
-
+/* .game[bg="blue"] .game-view {
+  background-image: url("../../assets/images/Theme/Blue/bg1.svg");
+} */
 .quiz-page {
   width: 100%;
-  height: calc(100vh - 60px);
+  /* height: calc(100vh - 60px); */
+  height: 100vh;
   /* max-width: 70%;
   min-width: 1480px;
   margin: 0 auto; */
-  margin-top: 60px;
+  /* margin-top: 60px; */
 
   display: flex;
   flex-direction: column;
@@ -26,7 +28,7 @@
 }
 
 .game-view {
-  width: 80%;
+  width: 85%;
   height: 100%;
   margin: 0 auto;
 

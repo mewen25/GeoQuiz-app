@@ -1,13 +1,15 @@
 .progress-base {
-  min-width: 350px;
+  width: 100%;
   background: rgba(0, 0, 0, 0.08);
 }
 
 .progress-overlay {
-    background: #5DBCFB;
+  background: #5dbcfb;
+  transition: 0.5s;
 }
 
-.progress-base, .progress-overlay {
-    height: 15px;
-    border-radius: 22px;
+.progress-base,
+.progress-overlay {
+  height: 15px;
+  border-radius: 22px;
 }

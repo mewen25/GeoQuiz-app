@@ -4,6 +4,8 @@
   justify-content: space-between; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  margin-top: 5px;
 }
 
 .quiz-info-scores {
@@ -24,22 +26,25 @@
 }
 .score {
   margin-left: 10px;
-}.score p {
+}
+.score p {
   margin: 0;
 }
 
 .quiz-infos-find {
   height: 100%;
-
+  width: 100%;
+  min-width: 400px;
   display: flex;
   flex-direction: row;
   align-items: center;
   white-space: nowrap;
 
-  position: relative;
-  top: 130px;
-}
+  justify-self: flex-start;
 
+  position: relative;
+  top: 50px;
+}
 
 .quiz-infos-find h2 {
   color: rgba(10, 10, 10, 0.35);
@@ -59,8 +64,8 @@
 }
 
 .find-flag {
-  width: 90px;
-  height: 65px;
+  width: 60px;
+  height: 45px;
   border-radius: 8px;
   margin-left: 20px;
   margin-right: 50px;
@@ -78,29 +83,36 @@
 
 .quiz-helpers div {
   background-color: #fff;
-  color: #A4A4A4;
+  color: #a4a4a4;
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   margin-right: 4%;
 }
 
 .showme-btn {
   padding: 0 20px;
-  padding-top: 5px;
-  border-radius: 14px;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px #babebf;
+  border-radius: 0px 14px 14px 0px;
   white-space: nowrap;
 }
 
 .circle-btn {
-  width: 55px;
+  width: 85px;
   height: 50px;
-  border-radius: 25px;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 14px 0px 0px 14px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .circle-btn svg {
-  width: 60%;
-  height: 60%;
+  width: 50%;
+  height: 50%;
 }
 
 #find-place {
@@ -109,7 +121,7 @@
   margin-left: 10px;
 }
 
-.quiz-side-container {  
+.quiz-side-container {
   grid-area: qs;
   background-color: rgba(83, 174, 83, 0.358);
 }
@@ -130,12 +142,12 @@
 
 .quiz-boxed-text {
   display: inline-block;
-  background: #FFFFFF;
-  border: 2px solid #A6DDFF;
+  background: #ffffff;
+  border: 2px solid #a6ddff;
   box-sizing: border-box;
   border-radius: 14px;
   font-size: 30px;
-  color: #009CFF;
+  color: #009cff;
   padding: 0px 10px;
 }
 

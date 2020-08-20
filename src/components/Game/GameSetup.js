@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import QuizPage from "../Quiz/QuizPage";
 import GameModal from "../../pages/Game/GameModal";
 import gameData from "../../data/config/continentData";
+import { GameContext } from "../Utils/gameContext";
 
 export default function GameSetup({ match }) {
+  const { setHeaderState } = useContext(GameContext);
   const [quizValues, setQuizValues] = useState();
   const [show, setShow] = useState(true);
   const gameSetup = () => {
@@ -25,6 +27,11 @@ export default function GameSetup({ match }) {
 
   useEffect(() => {
     gameSetup();
+    setHeaderState(false);
+
+    return () => {
+      setHeaderState(true);
+    };
   }, []);
 
   return (
