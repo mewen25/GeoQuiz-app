@@ -662,7 +662,7 @@
 .complete {
   cursor: default !important;
   filter: none;
-  transform: translate(0px, 0px) !important;
+  /* transform: translate(0px, 0px) !important; */
 }
 
 .learn-quiz-modal {

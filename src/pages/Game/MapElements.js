@@ -28,7 +28,7 @@ const MapElements = (props) => {
             key: index,
             id: id,
             onClick: props.mapData[id] && props.handleClick,
-            className: `ripple ${props.mapData[id] && props.mapData[id].class.join(" ") || `other`}${props.mapData[id] ? ` qc-${props.mapData[id].id||props.mapData[id].name}` : ""}`,
+            className: `${props.mapData[id] && props.mapData[id].class.join(" ") || `other`}${props.mapData[id] ? ` qc-${props.mapData[id].id||props.mapData[id].name}` : ""}`,
             ["data-small"]: smalls,
             ["data-tip"]: props.mapData[id] && !props.mapData[id].class.includes(["complete", "other"]) || false,
             ["data-for"]: "search",

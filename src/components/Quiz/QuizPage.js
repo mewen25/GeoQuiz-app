@@ -40,6 +40,7 @@ function QuizPage({ show, data }) {
       name: undefined,
       image: undefined,
     },
+    previous: null,
     list: formatList(data.data),
     totals: {
       all: formatList(data.data).length,
@@ -84,6 +85,11 @@ function QuizPage({ show, data }) {
     }));
   }, [theme]);
 
+  useEffect(() => {
+    if(!find.previous) return;
+    animate(find.previous, "ripple", "", true);
+  },[find.previous])
+
   const getFind = () => {
     const totalCountries = find.totals.all;
     if (guesses.answers.correct.length < totalCountries && find.list[0]) {
@@ -113,6 +119,100 @@ function QuizPage({ show, data }) {
     handleGuess(place);
   };
 
+  const manageScore = (state) => {
+    let newPoints;
+    const maxPoints = 200;
+    let score = guesses.score.score;
+    const thisTime = 0;//time;
+    if (state === "correct") {
+      newPoints = Math.min(
+        Math.max(maxPoints - thisTime * 10, maxPoints * 0.5),
+        maxPoints
+      );
+    } else if (state === "wrong") {
+      newPoints = maxPoints * -0.2;
+    } else if (state === "skipped") {
+      newPoints = -50;
+    }
+    if (score + newPoints <= 0) {
+      setGuesses(prev => ({
+        ...prev,
+        score: {
+          ...prev.score,
+          score: 0
+        }
+      }));
+    } else {
+      setGuesses(prev => ({
+        ...prev,
+        score: {
+          ...prev.score,
+          score: score + newPoints
+        }
+      }));
+    }
+    // setPointFeedback({
+    //   points: newPoints,
+    //   state: true,
+    // });
+    // animate("#game-pointsScore", "fadeOutUp", false, true);
+  };
+
+  const animate = (element, animation, prefix = 'animate__', custom=false) =>
+  new Promise((resolve, reject) => {
+    var classes = [];
+    if(!custom) classes.push(`${prefix}animated`);
+    classes.push(`${!custom ? prefix : ""}${animation}`)
+    // const animationName = `${!custom ? prefix : ""}${animation}`;
+    const node = document.querySelector(element) ?? document.querySelector(`#${element}`);
+
+    if(!custom) node.classList.add(classes[0], classes[1]);
+    else node.classList.add(classes[0]);
+    // node.classList.add([...classes]);
+
+    function handleAnimationEnd() {
+      if(!custom) node.classList.remove(classes[0], classes[1]);
+      else node.classList.remove(classes[0]);
+
+      // node.classList.remove([...classes]);
+      node.removeEventListener('animationend', handleAnimationEnd);
+
+      resolve('Animation ended');
+    }
+
+    node.addEventListener('animationend', handleAnimationEnd);
+  });
+
+  function animatee(name, animation, custom = false, instruction = false) {
+    const node = document.querySelector(name) ?? document.querySelector(`#${name}`);
+    console.log("name", name, node);
+    node.classList.add("animate__animated", animation);
+    node.onanimationend = () => {
+      node.classList.remove("animate__animated", animation);
+    }
+    // let node;
+    // if (!custom) {
+    //   node = document.querySelector(name);
+    //   node.classList.add("animated", animation);
+    // } else {
+    //   node = document.querySelector(`#${name}`);
+    //   node.classList.add(animation);
+    // }
+    // node.onanimationend = () => {
+    //   if (custom) {
+    //     node.classList.remove(animation);
+    //   } else {
+    //     node.classList.remove("animated", animation);
+    //     if (instruction) {
+    //       setPointFeedback({
+    //         points: 0,
+    //         state: false,
+    //       });
+    //     }
+    //   }
+    // };
+  }
+
   useEffect(() => {
     getFind();
   }, [find.list]);
@@ -140,6 +240,7 @@ function QuizPage({ show, data }) {
         <div className="game-view">
           <QuizInfos
             place={find?.simple}
+            score={guesses?.score?.score}
             marks={guesses?.score?.marks}
             total={find?.totals?.all}
             colour={guiColours[theme]}
@@ -167,6 +268,7 @@ function QuizPage({ show, data }) {
     const isCorrect =
       place === find.simple?.id || place === find.simple.name ? true : false;
     if (isCorrect) {
+      manageScore("correct");
       setFind((prevData) => ({
         ...prevData,
         list: prevData.list.filter((c) => c !== place),
@@ -191,9 +293,11 @@ function QuizPage({ show, data }) {
       }));
       setFind((prev) => ({
         ...prev,
+        previous: place,
         data: manageClass(place, "complete", find.data),
       }));
     } else {
+      manageScore("wrong");
       setCurrentAttempts((prev) => {
         if(prev > 0) return 2;
         return prev + 1;
@@ -211,7 +315,8 @@ function QuizPage({ show, data }) {
           misses: prevData.score.misses + 1,
         },
       }));
-    }
+      animate(place, "wrongSelect", "", true);
+    } 
   }
 }
 

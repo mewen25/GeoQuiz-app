@@ -5,11 +5,11 @@ import QuizScore from "./QuizScore";
 import QuizButtons from "./QuizButtons";
 import "./QuizInfos.css";
 
-const QuizInfos = ({ place, marks, total, time, colour, handleSkip, handleShow }) => {
+const QuizInfos = ({ place, marks, score, total, time, colour, handleSkip, handleShow }) => {
     return (
         <div className="quiz-infos-container">
             <QuizFind place={place} colour={colour} />
-            <QuizScore marks={marks} total={total} time={time} colour={colour} />
+            <QuizScore marks={marks} total={total} score={score} time={time} colour={colour} />
             <QuizButtons handleSkip={handleSkip} handleShow={handleShow} />
         </div>
     )

@@ -4,7 +4,7 @@ import { pure } from "recompose";
 
 import MapElements from "./MapElements";
 
-const CreateMap = React.memo(({ handleClick, mapData, svgData, search, colour }) => (
+const CreateMap = React.memo(({ handleClick, setPlaces, mapData, svgData, search, colour }) => (
     <div className="game-map-container">
         <svg className="game-map" viewBox={svgData.viewBox} label={svgData.label} >
             <MapElements svgData={svgData} mapData={mapData} handleClick={handleClick} search={search} colour={colour} />
