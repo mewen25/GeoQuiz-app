@@ -1,0 +1,113 @@
+
+@keyframes pulse-white {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	}
+}
+
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
+        background-color: rgba(51, 217, 178, 0.4);
+    }
+    
+    70% {
+        transform: scale(2.5);
+        box-shadow: 0 0 0 20px rgba(51, 217, 178, 0);
+        
+    }
+    
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+        background-color: rgba(51, 217, 178, 0);
+    }
+}
+
+.complete {
+    /* background: white; */
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    transform-origin: unset;
+    animation: wipey 1.5s;
+    /* animation: pulse-white 2s; */
+}
+
+.pulsey {
+    fill: white;
+    fill-opacity: 0;
+    /* transform-origin: 50% 50%; */
+    transform-origin: center;
+    animation-duration: 0.5s;
+    animation-name: pulsey;
+    /* animation-iteration-count: infinite; */
+  }
+  
+  @keyframes pulsey {
+    from {
+      stroke-width: 3px;
+      stroke-opacity: 1;
+      transform: scale(0.3);
+    }
+    to {
+      stroke-width: 0;
+      stroke-opacity: 0;
+      transform: scale(2);
+    }
+  }
+
+  .quiz-country circle {
+    stroke: black; 
+    fill: grey;
+    stroke-width: 2px;
+    stroke-opacity: 1;
+  }
+
+  .wipe {
+    animation-duration: 1s;
+    animation-name: wipey;
+    background-position:left bottom;
+    background-color: rgb(243, 255, 206);
+  }
+
+  @keyframes wipey {
+      0% {
+        background-color: rgb(243, 255, 206, 0);
+      }
+      50% {
+        background-color: rgb(243, 255, 206, 1);
+      }
+      100% {
+          background-color: rgb(243, 255, 206, 0);
+      }
+  }
+
+.quiz-circle {
+    display: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.circle-complete {
+    pointer-events: none;
+    display: block;
+    /* animation-name: waveyz; */
+    background-color: none;
+    transform-origin: center;
+    animation-duration: 1.5s;
+    stroke-width: 8px;
+    animation-name: pulse-green;
+}

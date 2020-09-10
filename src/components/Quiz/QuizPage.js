@@ -17,6 +17,7 @@ import CreateMap from "../../pages/Game/CreateMap";
 import ThemeSwitch from "../Utils/Game/ThemeSwitch";
 import SmallsPanel from "./Infos/SmallsPanel";
 import "../Game/game1.css";
+import "./quiz.css";
 
 const countryColours = {
   blue: ["#285979", "#3A7195"],
@@ -66,6 +67,10 @@ function QuizPage({ show, data }) {
   const continent = data.continent;
   const [listArr, setListArr] = useState([]);
   let history = useHistory();
+  const [mousePos, setMousePos] = useState({
+    x: 0,
+    y: 0,
+  });
 
   useEffect(() => {
     const smalls = Object.values(data.data).reduce((acc, cur) => {
@@ -75,7 +80,16 @@ function QuizPage({ show, data }) {
       ...find,
       smalls: smalls,
     }));
+
+    window.addEventListener("click", updateMousePosition);
+
+    return () => window.removeEventListener("click", updateMousePosition);
   }, []);
+
+  const updateMousePosition = (ev) => {
+    setMousePos({ x: ev.clientX, y: ev.clientY });
+    console.log(ev.clientX, ev.clientY);
+  };
 
   useEffect(() => {
     if (!find.data) return;
@@ -87,7 +101,9 @@ function QuizPage({ show, data }) {
 
   useEffect(() => {
     if(!find.previous) return;
-    animate(find.previous, "ripple", "", true);
+    // animate(find.previous, "pulsey", "", true);
+    // animate(".quiz-page", "wipe", "", true);
+    if(currentAttempts < 1) animate(".quiz-circle", "circle-complete", "", true);
   },[find.previous])
 
   const getFind = () => {
@@ -234,7 +250,7 @@ function QuizPage({ show, data }) {
   return (
     <div className="game" bg={theme}>
       <div className="quiz-page">
-        <Exit className="exit" onClick={() => history.push("/")} />
+        <Exit className="exit" onClick={() => history.goBack()} />
         {/* <QuizHeader /> */}
         <ThemeSwitch theme={theme} setTheme={setTheme} />
         <div className="game-view">
@@ -256,10 +272,12 @@ function QuizPage({ show, data }) {
                 handleClick={handleClick}
                 search={find.simple.name}
                 colour={countryColours["green"]}
+                mousePos={mousePos}
               />
             )}
           </div>
         </div>
+        <div className="quiz-circle" style={{top: mousePos.y-25, left: mousePos.x-25}} />
       </div>
     </div>
   );

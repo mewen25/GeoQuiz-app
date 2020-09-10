@@ -22,6 +22,7 @@ const MapElements = (props) => {
         
         // if(props.mapData && props.mapData[id] && props.mapData[id].finished && !props.mapData[id].class.includes("complete")) props.mapData[id].class = [...props.mapData[id].class, "complete"];
         // console.log("attempts", props.mapData && props.mapData[id] && props.mapData[id].finished)
+        const isComplete = props.mapData[id] && props.mapData[id].class.includes("complete");
         const col = props.mapData[id] && props.mapData[id].colour||"#e67";
         const dataCol = props.mapData[id] && col === props.mapData[id].colour[0] ? "1" : "2";
         const handles = {
@@ -36,8 +37,13 @@ const MapElements = (props) => {
             ["data-col"]: col,
             fill: col,
         }
+        // console.log("mouse", props?.mousePos);
         return(
             <g {...handles} >
+                {/* {isComplete && <g className={`animationTest`}>
+                    <circle cx={`${props?.mousePos?.x}%`} cy ={`${props?.mousePos?.x}%`} r = "7px"></circle>
+                    <circle className="pulsey" cx={`${props?.mousePos?.y}%`} cy ={`${props?.mousePos?.y}%`} r = "10px"></circle>
+                </g>} */}
                 {elements}
             </g>
         )

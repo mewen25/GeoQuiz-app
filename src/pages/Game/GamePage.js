@@ -261,7 +261,7 @@ export default function GamePage(props) {
           setFinish={setFinishTime}
         />
       ) : null}
-      {find.simple?.name ? <CreateMap mapData={list} svgData={mapSvgData} handleClick={handleClick} search={find.simple.name} /> : null}
+      {find.simple?.name ? <CreateMap mapData={list} svgData={mapSvgData} handleClick={handleClick} search={find.simple.name} mousePos={mousePos} /> : null}
       {/* <Map handleClick={handleClick} data={list} search={find.simple.name} /> */}
       {/* {!props.show ? (
         <ExtraData
