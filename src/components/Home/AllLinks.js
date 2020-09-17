@@ -7,12 +7,14 @@ import "./AllLinks.css";
 import data from "../../data/gameData/gameSelect";
 
 import { ReactComponent as Banner } from "../../assets/images/home/banner.svg";
+import { ReactComponent as ReverseWave } from "../../assets/images/home/scroll/reverse-wave.svg";
 
 function AllLinks() {
 
     return (
         <div className="all-links">
-            <Banner />
+            {/* <Banner /> */}
+            {/* <ReverseWave /> */}
             <div className="all-links-container">
                 <ContinentLinks linkTitle="europe" title="Europe" data={{
                     quiz: data[0]?.europe?.quiz?.links,

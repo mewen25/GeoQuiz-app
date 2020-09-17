@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import HomeBtns from "../../components/Home/HomeBtns";
 import QuickLinks from "../../components/Home/QuickLinks";
 import AllLinks from "../../components/Home/AllLinks";
+import ScrollPage1 from "./ScrollPage1";
 
 import { ReactComponent as WorldSvg } from "../../assets/images/home-bg-extra.svg";
 import { ReactComponent as Wave } from "../../assets/images/home-top-wave.svg";
@@ -29,10 +30,8 @@ function Home1(props) {
             <Wave className="wave" id="top-wave" />
           </div>
         </div>
-        <div className="home-page-scroll">
-          <QuickLinks />
-          <AllLinks />
-        </div>
+          <ScrollPage1 />
+          {/* <AllLinks /> */}
         <footer style={{height: "50vh", width: "100%"}}></footer>
       </div>
     </>

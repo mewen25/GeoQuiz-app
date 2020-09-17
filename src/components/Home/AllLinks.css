@@ -1,6 +1,8 @@
 .all-links {
   width: 100%;
   margin-top: 12%;
+  background-color: #285979;
+  color: white;
 }
 .all-links svg {
   width: 80vw;

@@ -6,7 +6,8 @@
 }
 
 .continent-link-title {
-  color: #4e4e4e;
+  /* color: #4e4e4e; */
+  color: white;
   text-align: left;
   font-size: 30px;
   letter-spacing: 0.205em;
@@ -24,10 +25,10 @@
   text-decoration: underline;
 }
 .continentLink[quiztype="quiz"] {
-  color: #285979;
+  color: #d8d8d8;
   /* background-color: lightblue; */
 }
 .continentLink[quiztype="learn"] {
-  color: #ff720c;
+  color: #fac096;
   /* background-color: rgb(230, 193, 173); */
 }
