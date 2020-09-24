@@ -20,7 +20,7 @@ import "../Game/game1.css";
 import "./quiz.css";
 
 const countryColours = {
-  blue: ["#285979", "#3A7195"],
+  blue: ["#CBE0ED", "#CCE3F2"],
   green: ["#3E7D53", "#4A9B61"],
   yellow: ["#F5E158", "#FCEB7B"],
   red: ["#F55858", "#FC7B7B"],
@@ -75,7 +75,7 @@ function QuizPage({ show, data }) {
   useEffect(() => {
     const smalls = Object.values(data.data).reduce((acc, cur) => {
       return cur.small ? [...acc, cur] : [...acc];
-    }, []);
+    }, []).sort((a, b) => a.small.order - b.small.order );
     setFind((prev) => ({
       ...find,
       smalls: smalls,
@@ -250,7 +250,7 @@ function QuizPage({ show, data }) {
   return (
     <div className="game" bg={theme}>
       <div className="quiz-page">
-        <Exit className="exit" onClick={() => history.goBack()} />
+        <Exit className="exit" onClick={() => history.push("/")} />
         {/* <QuizHeader /> */}
         <ThemeSwitch theme={theme} setTheme={setTheme} />
         <div className="game-view">
@@ -267,6 +267,7 @@ function QuizPage({ show, data }) {
             <SmallsPanel smalls={find.smalls} handleClick={handleClick} />
             {find.simple?.name && (
               <CreateMap
+                started={!show}
                 mapData={find.data}
                 svgData={data.map}
                 handleClick={handleClick}

@@ -31,7 +31,6 @@ function Home1(props) {
           </div>
         </div>
           <ScrollPage1 />
-          {/* <AllLinks /> */}
         <footer style={{height: "50vh", width: "100%"}}></footer>
       </div>
     </>

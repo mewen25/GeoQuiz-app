@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Ripples from "react-ripples";
 
 const MapElements = (props) => {
@@ -25,8 +25,11 @@ const MapElements = (props) => {
         const isComplete = props.mapData[id] && props.mapData[id].class.includes("complete");
         const col = props.mapData[id] && props.mapData[id].colour||"#e67";
         const dataCol = props.mapData[id] && col === props.mapData[id].colour[0] ? "1" : "2";
+        const randomDelay = (Math.random() * 1).toFixed(1);
+        // const fadeType = Math.random() < 0.5 ? "fadeInTopLeft" : "fadeInTopRight";animate__animated ${props.started && `animate__pulse`} 
         const handles = {
             key: index,
+            // style: {animationDelay: `${randomDelay}s`},
             id: id,
             onClick: props.mapData[id] && props.handleClick,
             className: `${props.mapData[id] && props.mapData[id].class.join(" ") || `other`}${props.mapData[id] ? ` qc-${props.mapData[id].id||props.mapData[id].name}` : ""}`,

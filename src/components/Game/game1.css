@@ -142,11 +142,6 @@
   flex: 1;
 }
 
-.quiz-country:not(.complete):hover {
-  opacity: 0.7;
-  outline: 0;
-  cursor: pointer;
-}
 
 .complete {
   fill: white;
@@ -172,13 +167,12 @@
   fill: #FFA3A3 !important;
   stroke: none;
 }
-
-.quiz-country[data-col="#285979"]:hover {
+/* .quiz-country[data-col="#285979"]:hover {
   fill: #3A7195;
 }
 .quiz-country[data-col="#3A7195"]:hover {
   fill: #285979;
-}
+} */
 
 .quiz-line {
   pointer-events: none !important;

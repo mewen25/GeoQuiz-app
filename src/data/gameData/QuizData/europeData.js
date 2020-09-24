@@ -9,7 +9,9 @@ export default {
     name: "Andorra",
     capital: "Andorra la Vella",
     class: ["quiz-country"],
-    small: true,
+    small: {
+      order: 5
+    },
     styles: ["#4A9B61", "#5FD981"],
   },
   Austria: {
@@ -185,7 +187,9 @@ export default {
     name: "Liechtenstein",
     capital: "Vaduz",
     class: ["quiz-country"],
-    small: true,
+    small: {
+      order: 2
+    },
     styles: ["#4A9B61", "#5FD981"],
   },
   Lithuania: {
@@ -204,13 +208,18 @@ export default {
     name: "Luxembourg",
     capital: "Luxembourg",
     class: ["quiz-country"],
-    small: true,
+    small: {
+      order: 1
+    },
     styles: ["#4A9B61", "#5FD981"],
   },
   Malta: {
     name: "Malta",
     capital: "Valletta",
     class: ["quiz-country"],
+    small: {
+      order: 7
+    },
     styles: ["#4A9B61", "#5FD981"],
   },
   Moldova: {
@@ -223,6 +232,9 @@ export default {
     name: "Monaco",
     capital: "Monte Carlo",
     class: ["quiz-country"],
+    small: {
+      order: 4
+    },
     styles: ["#4A9B61", "#5FD981"],
   },
   Montenegro: {
@@ -285,7 +297,9 @@ export default {
     id: "San-Marino",
     capital: "San Marino",
     class: ["quiz-country"],
-    small: true,
+    small: {
+      order: 3
+    },
     styles: ["#4A9B61", "#5FD981"],
   },
   Serbia: {
@@ -360,7 +374,9 @@ export default {
     id: "Vatican-City",
     capital: "Vatican City",
     class: ["quiz-country"],
-    small: true,
+    small: {
+      order: 6
+    },
     styles: ["#4A9B61", "#5FD981"],
   },
 };
