@@ -7,7 +7,7 @@
   z-index: 1;
   /* font-family: 'Amiko', sans-serif; */
   font-family: "Baloo Chettan", cursive;
-}
+} 
 
 #home-slogan {
   text-align: center;
@@ -51,7 +51,7 @@
 }
 
 #home-learnBtn:active {
-  background: #98e575;
+  background: #85cd64;
 }
 
 #home-quizBtn {
@@ -81,4 +81,8 @@
   outline: none;
   border: none;
   white-space: nowrap;
+}
+
+.selectable:focus {
+  outline: none;
 }

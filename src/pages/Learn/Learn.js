@@ -194,7 +194,7 @@ export default function Learn({ match }) {
   };
 
   return (
-    <>
+    <> 
       <Helmet>
         <title>Learning {learnDatas[0][continent][thisMap].title}</title>
       </Helmet>

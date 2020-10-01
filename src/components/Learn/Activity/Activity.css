@@ -1,0 +1,43 @@
+.learn-activity {
+    width: 100%;
+    height: 100vh;
+    min-height: 70rem;
+    text-align-last: center;
+}
+
+.learn-top {
+    background-image: url("../../../assets/images/learn/learn-bg.svg");
+    background-size: cover;
+}
+
+.l-top-container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-areas:
+    'i i m m m m'
+    'i i m m m m'
+    'i i m m m m'
+    'l l l l l l';
+    /* max-width: 100rem; */
+    /* max-height: 60rem; */
+    margin: 0 auto;
+}
+
+.l-top-info {
+    grid-area: i;
+    background-color: cyan;
+}
+.l-top-map {
+    grid-area: m;
+    background-color: rgb(20, 160, 160);
+}
+
+.l-top-list {
+    grid-area: l;
+    background-color: rgb(14, 67, 67);
+}
+
+.learn-bottom {
+    background-color: lime;
+}

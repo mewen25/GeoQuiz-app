@@ -37,6 +37,7 @@
 
     display: flex;
     justify-content: space-between;
+    max-width: 64rem;
     /* grid-template-columns: 1fr 1fr; */
 }
 

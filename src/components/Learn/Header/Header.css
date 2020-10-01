@@ -1,0 +1,30 @@
+.learn-header {
+    background-image: url("../../../assets/images/learn/learn-bg.svg");
+    background-size: cover;
+}
+
+.learn-header-links {
+   display: flex;
+   width: 64rem;
+   padding: 20px;
+   justify-content: space-evenly;
+   font-family: 'Baloo Chettan', cursive;
+   margin: 0 auto;
+}
+
+.learn-link {
+  color: black;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.learn-link:hover {
+    color: #6aacd8;
+    text-decoration: none;
+}
+
+.learn-link.l-selected {
+    color: #5DBCFB;
+    border-bottom: 5px solid #5DBCFB;
+    cursor: default;
+}

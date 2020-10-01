@@ -1,0 +1,39 @@
+.contents-page {
+    width: 100%;
+    height: 100%;
+}
+.contents-title {
+    display: flex;
+    flex-direction: column;
+    width: 64rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.contents-filter {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    padding: 10px;
+}
+
+.contents-filter-btn {
+    background-color: #062132;
+    border-radius: 4px;
+    width: 170px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.contents-filter-btn:hover {
+    background-color: #0d3f5e;
+    cursor: pointer;
+}
+
+.contents-items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    
+}

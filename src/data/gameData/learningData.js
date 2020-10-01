@@ -5,6 +5,16 @@ import LearnEasternEurope from "../mapData/Continents/Europe/Learn/LearnEasternE
 export default [
   {
     europe: {
+      regions: [{
+        title: "Northern Europe",
+        link: "northern-europe"
+      }, {
+        title: "Western Europe",
+        link: "western-europe"
+      }, {
+        title: "Eastern Europe",
+        link: "eastern-europe"
+      }],
       "northern-europe": {
         title: "Northern Europe",
         countries: [
