@@ -6,7 +6,7 @@ import SAMap from "../mapData/Continents/South-America/svgData";
 import SAData from "../gameData/QuizData/southAmericaData";
 import AfricaMap from "../mapData/Continents/Africa/svgData";
 import AfricaData from "../gameData/QuizData/africaData";
-import NAMap from "../../data/mapData/Continents/North-America/States/svgData";
+import NAMap from "../../data/mapData/Continents/North-America/svgData";
 import NorthAmericaData from "../gameData/QuizData/northAmericaData";
 import StatesMap from "../mapData/Continents/North-America/States/svgData";
 import StatesData from "../gameData/QuizData/statesData";

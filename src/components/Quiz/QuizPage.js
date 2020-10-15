@@ -18,6 +18,7 @@ import ThemeSwitch from "../Utils/Game/ThemeSwitch";
 import SmallsPanel from "./Infos/SmallsPanel";
 import "../Game/game1.css";
 import "./quiz.css";
+import svgData from "../../data/mapData/Continents/Europe/old/svgData";
 
 const countryColours = {
   blue: ["#CBE0ED", "#CCE3F2"],
@@ -47,6 +48,7 @@ function QuizPage({ show, data }) {
       all: formatList(data.data).length,
     },
     smalls: [],
+    assists: [],
   });
   const [guesses, setGuesses] = useState({
     current: undefined,
@@ -73,18 +75,94 @@ function QuizPage({ show, data }) {
   });
 
   useEffect(() => {
-    const smalls = Object.values(data.data).reduce((acc, cur) => {
-      return cur.small ? [...acc, cur] : [...acc];
-    }, []).sort((a, b) => a.small.order - b.small.order );
+    const smalls = Object.values(data.data)
+      .reduce((acc, cur) => {
+        return cur.small ? [...acc, cur] : [...acc];
+      }, [])
+      .sort((a, b) => a.small.order - b.small.order);
+    const assists = Object.values(data.data).reduce((acc, cur) => {
+      return cur.assist ? [...acc, cur] : [...acc];
+    }, []);
     setFind((prev) => ({
       ...find,
       smalls: smalls,
+      assists: assists,
     }));
 
     window.addEventListener("click", updateMousePosition);
 
     return () => window.removeEventListener("click", updateMousePosition);
   }, []);
+
+  useEffect(() => {
+    for (var small of find.smalls) {
+      const place = document.querySelector(`#${small.id || small.name}`);
+      if (!place) continue;
+      const bbox = place.getBBox();
+      appendSVGChild("circle", place, {
+        class: "small-helper",
+        fill: `${small.styles[0]}`,
+        cx: `${bbox.x + 5}`,
+        cy: `${bbox.y + 5}`,
+        r: "10",
+      });
+    }
+  }, [find?.smalls]);
+
+  useEffect(() => {
+    for (var assist of find.assists) {
+      const place = document.querySelector(`#${assist.id || assist.name}`);
+      if (!place) continue;
+      const bbox = place.getBBox();
+      const path = place.children[0];
+      console.log(assist, bbox);
+      if (assist.assist === "ring") {
+        if (bbox.width > 10 || bbox.height > 10) {
+          appendSVGChild("ellipse", place, {
+            class: "ring-helper",
+            stroke: "red",
+            "stroke-width": "2",
+            "fill-opacity": "0",
+            cx: `${bbox.x + bbox.width / 2}`,
+            cy: `${bbox.y + bbox.height / 2}`,
+            rx: `${Math.min(bbox.width, 30)}`,
+            ry: `${Math.min(bbox.height, 25)}`,
+          });
+        } else {
+          appendSVGChild("circle", place, {
+            class: "ring-helper",
+            stroke: "red",
+            "stroke-width": "2",
+            "fill-opacity": "0",
+            cx: `${bbox.x + bbox.width / 2}`,
+            cy: `${bbox.y + bbox.height / 2}`,
+            r: "10",
+          });
+        }
+      } else {
+        appendSVGChild("rect", place, {
+          class: "assist-helper",
+          fill: "orange",
+          opacity: "0",
+          "z-index": "2",
+          x: `${bbox.x - 2}`,
+          y: `${bbox.y - 2}`,
+          width: `${bbox.width + 4}`,
+          height: `${bbox.height + 4}`,
+        });
+      }
+    }
+  }, [find?.assists]);
+
+  function appendSVGChild(element, target, attributes = {}, text = "") {
+    let e = document.createElementNS("http://www.w3.org/2000/svg", element);
+    Object.entries(attributes).map((a) => e.setAttribute(a[0], a[1]));
+    if (text) {
+      e.textContent = text;
+    }
+    target.appendChild(e);
+    return e;
+  }
 
   const updateMousePosition = (ev) => {
     setMousePos({ x: ev.clientX, y: ev.clientY });
@@ -100,11 +178,12 @@ function QuizPage({ show, data }) {
   }, [theme]);
 
   useEffect(() => {
-    if(!find.previous) return;
+    if (!find.previous) return;
     // animate(find.previous, "pulsey", "", true);
     // animate(".quiz-page", "wipe", "", true);
-    if(currentAttempts < 1) animate(".quiz-circle", "circle-complete", "", true);
-  },[find.previous])
+    if (currentAttempts < 1)
+      animate(".quiz-circle", "circle-complete", "", true);
+  }, [find.previous]);
 
   const getFind = () => {
     const totalCountries = find.totals.all;
@@ -123,7 +202,7 @@ function QuizPage({ show, data }) {
   };
 
   const handleClick = (event) => {
-    const clicked = event?.currentTarget?.id||event;
+    const clicked = event?.currentTarget?.id || event;
     const list = find.data;
     if (list[clicked].class.includes("complete")) return;
 
@@ -139,7 +218,7 @@ function QuizPage({ show, data }) {
     let newPoints;
     const maxPoints = 200;
     let score = guesses.score.score;
-    const thisTime = 0;//time;
+    const thisTime = 0; //time;
     if (state === "correct") {
       newPoints = Math.min(
         Math.max(maxPoints - thisTime * 10, maxPoints * 0.5),
@@ -151,20 +230,20 @@ function QuizPage({ show, data }) {
       newPoints = -50;
     }
     if (score + newPoints <= 0) {
-      setGuesses(prev => ({
+      setGuesses((prev) => ({
         ...prev,
         score: {
           ...prev.score,
-          score: 0
-        }
+          score: 0,
+        },
       }));
     } else {
-      setGuesses(prev => ({
+      setGuesses((prev) => ({
         ...prev,
         score: {
           ...prev.score,
-          score: score + newPoints
-        }
+          score: score + newPoints,
+        },
       }));
     }
     // setPointFeedback({
@@ -174,38 +253,41 @@ function QuizPage({ show, data }) {
     // animate("#game-pointsScore", "fadeOutUp", false, true);
   };
 
-  const animate = (element, animation, prefix = 'animate__', custom=false) =>
-  new Promise((resolve, reject) => {
-    var classes = [];
-    if(!custom) classes.push(`${prefix}animated`);
-    classes.push(`${!custom ? prefix : ""}${animation}`)
-    // const animationName = `${!custom ? prefix : ""}${animation}`;
-    const node = document.querySelector(element) ?? document.querySelector(`#${element}`);
+  const animate = (element, animation, prefix = "animate__", custom = false) =>
+    new Promise((resolve, reject) => {
+      var classes = [];
+      if (!custom) classes.push(`${prefix}animated`);
+      classes.push(`${!custom ? prefix : ""}${animation}`);
+      // const animationName = `${!custom ? prefix : ""}${animation}`;
+      const node =
+        document.querySelector(element) ??
+        document.querySelector(`#${element}`);
 
-    if(!custom) node.classList.add(classes[0], classes[1]);
-    else node.classList.add(classes[0]);
-    // node.classList.add([...classes]);
+      if (!custom) node.classList.add(classes[0], classes[1]);
+      else node.classList.add(classes[0]);
+      // node.classList.add([...classes]);
 
-    function handleAnimationEnd() {
-      if(!custom) node.classList.remove(classes[0], classes[1]);
-      else node.classList.remove(classes[0]);
+      function handleAnimationEnd() {
+        if (!custom) node.classList.remove(classes[0], classes[1]);
+        else node.classList.remove(classes[0]);
 
-      // node.classList.remove([...classes]);
-      node.removeEventListener('animationend', handleAnimationEnd);
+        // node.classList.remove([...classes]);
+        node.removeEventListener("animationend", handleAnimationEnd);
 
-      resolve('Animation ended');
-    }
+        resolve("Animation ended");
+      }
 
-    node.addEventListener('animationend', handleAnimationEnd);
-  });
+      node.addEventListener("animationend", handleAnimationEnd);
+    });
 
   function animatee(name, animation, custom = false, instruction = false) {
-    const node = document.querySelector(name) ?? document.querySelector(`#${name}`);
+    const node =
+      document.querySelector(name) ?? document.querySelector(`#${name}`);
     console.log("name", name, node);
     node.classList.add("animate__animated", animation);
     node.onanimationend = () => {
       node.classList.remove("animate__animated", animation);
-    }
+    };
     // let node;
     // if (!custom) {
     //   node = document.querySelector(name);
@@ -236,16 +318,14 @@ function QuizPage({ show, data }) {
   const handleSkip = () => {
     let tempArr = find.list;
     tempArr.push(tempArr.shift());
-    setFind(prev => ({
+    setFind((prev) => ({
       ...prev,
-      list: tempArr
+      list: tempArr,
     }));
     getFind();
-  }
+  };
 
-  const handleShow = () => {
-
-  }
+  const handleShow = () => {};
 
   return (
     <div className="game" bg={theme}>
@@ -278,7 +358,10 @@ function QuizPage({ show, data }) {
             )}
           </div>
         </div>
-        <div className="quiz-circle" style={{top: mousePos.y-25, left: mousePos.x-25}} />
+        <div
+          className="quiz-circle"
+          style={{ top: mousePos.y - 25, left: mousePos.x - 25 }}
+        />
       </div>
     </div>
   );
@@ -308,7 +391,7 @@ function QuizPage({ show, data }) {
       }));
       setFind((prev) => ({
         ...prev,
-        data: completeGuess(place, currentAttempts, find.data)
+        data: completeGuess(place, currentAttempts, find.data),
       }));
       setFind((prev) => ({
         ...prev,
@@ -318,7 +401,7 @@ function QuizPage({ show, data }) {
     } else {
       manageScore("wrong");
       setCurrentAttempts((prev) => {
-        if(prev > 0) return 2;
+        if (prev > 0) return 2;
         return prev + 1;
       });
       setGuesses((prevData) => ({
@@ -335,7 +418,7 @@ function QuizPage({ show, data }) {
         },
       }));
       animate(place, "wrongSelect", "", true);
-    } 
+    }
   }
 }
 

@@ -15,7 +15,12 @@ export default ({ childProps }) => {
   return (
     <Switch>
       <AppliedRoute path="/" exact component={Home1} props={childProps} />
-      <AppliedRoute path="/:contents" component={Contents} props={childProps} />
+      <AppliedRoute
+        path="/:contents"
+        exact
+        component={Contents}
+        props={childProps}
+      />
       <AppliedRoute
         path="/quiz/:continent/:quiz"
         component={GameSetup}

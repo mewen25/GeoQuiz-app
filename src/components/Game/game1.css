@@ -90,6 +90,7 @@
   height: 100%;
   margin: 0 auto;
   justify-content: center;
+  /* z-index: 1; */
   /* max-height: 100%; */
   /* margin-left: 10%;
   padding-top: 5%; */
@@ -116,6 +117,7 @@
 }
 .quiz-map svg {
   max-height: 100%;
+  overflow: visible;
 }
 
 .shadow {
@@ -142,16 +144,28 @@
   flex: 1;
 }
 
-
 .complete {
-  fill: white;
-  stroke: #D9E7DC;
-  stroke-width: 1.5px;
-  pointer-events: none;
+  fill: white !important;
+  stroke: #d9e7dc !important;
+  stroke-width: 1.1px;
+  pointer-events: none !important;
+}
+.complete .small-helper {
+  fill-opacity: 0.2;
 }
 .other {
   pointer-events: none;
-  fill: #D9E7DC;
+  fill: #5f5f5f98;
+}
+#Misc path {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.459);
+}
+
+.quiz-country[data-assist="true"] {
+  fill: orange;
+  pointer-events: bounding-box;
+  z-index: 1;
 }
 
 .quiz-country[data-small="true"] {
@@ -159,12 +173,12 @@
 }
 
 .quiz-country[data-attempts="1"] {
-  fill: #FFDEDE !important;
+  fill: #ffdede !important;
   stroke: none;
 }
 
 .quiz-country[data-attempts="2"] {
-  fill: #FFA3A3 !important;
+  fill: #ffa3a3 !important;
   stroke: none;
 }
 /* .quiz-country[data-col="#285979"]:hover {
@@ -190,7 +204,8 @@
   transform-origin: center center;
 }
 .ripple:hover {
-  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+    center/15000%;
 }
 .ripple:active {
   background-color: #6eb9f7;

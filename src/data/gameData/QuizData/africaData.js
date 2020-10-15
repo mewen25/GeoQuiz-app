@@ -33,12 +33,14 @@ export default {
   Burundi: {
     name: "Burundi",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   "Cabo-Verde": {
     name: "Cabo Verde",
     id: "Cabo-Verde",
+    assist: "ring",
     capital: "N/A",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -65,6 +67,7 @@ export default {
   Comoros: {
     name: "Comoros",
     capital: "N/A",
+    assist: "ring",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -78,6 +81,7 @@ export default {
   Djibouti: {
     name: "Djibouti",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -97,6 +101,7 @@ export default {
   "Equatorial-Guinea": {
     name: "Equatorial Guinea",
     id: "Equatorial-Guinea",
+    assist: "box",
     capital: "N/A",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -110,6 +115,7 @@ export default {
   Eswatini: {
     name: "Eswatini",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -128,6 +134,7 @@ export default {
   "The-Gambia": {
     id: "The-Gambia",
     name: "The Gambia",
+    assist: "box",
     capital: "N/A",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -147,6 +154,7 @@ export default {
   "Guinea-Bissau": {
     name: "Guinea Bissau",
     id: "Guinea-Bissau",
+    assist: "box",
     capital: "N/A",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -160,6 +168,7 @@ export default {
   Lesotho: {
     name: "Lesotho",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -202,6 +211,7 @@ export default {
   Mauritius: {
     name: "Mauritius",
     capital: "N/A",
+    assist: "ring",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -245,6 +255,7 @@ export default {
   Rwanda: {
     name: "Rwanda",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -252,6 +263,7 @@ export default {
     name: "Sao Tome and Principe",
     id: "Sao-Tome",
     capital: "N/A",
+    assist: "ring",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -264,6 +276,7 @@ export default {
   Seychelles: {
     name: "Seychelles",
     capital: "N/A",
+    assist: "ring",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -309,6 +322,7 @@ export default {
   Togo: {
     name: "Togo",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },

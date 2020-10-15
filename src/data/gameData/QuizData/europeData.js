@@ -10,7 +10,7 @@ export default {
     capital: "Andorra la Vella",
     class: ["quiz-country"],
     small: {
-      order: 5
+      order: 5,
     },
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -60,6 +60,7 @@ export default {
   Cyprus: {
     name: "Cyprus",
     capital: "Nicosia",
+    assist: true,
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -168,6 +169,7 @@ export default {
   Kosovo: {
     name: "Kosovo",
     capital: "Prishtina",
+    assist: true,
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -188,7 +190,7 @@ export default {
     capital: "Vaduz",
     class: ["quiz-country"],
     small: {
-      order: 2
+      order: 2,
     },
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -209,7 +211,7 @@ export default {
     capital: "Luxembourg",
     class: ["quiz-country"],
     small: {
-      order: 1
+      order: 1,
     },
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -218,7 +220,7 @@ export default {
     capital: "Valletta",
     class: ["quiz-country"],
     small: {
-      order: 7
+      order: 7,
     },
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -233,13 +235,14 @@ export default {
     capital: "Monte Carlo",
     class: ["quiz-country"],
     small: {
-      order: 4
+      order: 4,
     },
     styles: ["#4A9B61", "#5FD981"],
   },
   Montenegro: {
     name: "Montenegro",
     capital: "Podgorica",
+    assist: true,
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -298,7 +301,7 @@ export default {
     capital: "San Marino",
     class: ["quiz-country"],
     small: {
-      order: 3
+      order: 3,
     },
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -375,7 +378,7 @@ export default {
     capital: "Vatican City",
     class: ["quiz-country"],
     small: {
-      order: 6
+      order: 6,
     },
     styles: ["#4A9B61", "#5FD981"],
   },

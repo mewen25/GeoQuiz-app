@@ -8,18 +8,21 @@ export default {
   Armenia: {
     name: "Armenia",
     capital: "Yerevan",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   Azerbaijan: {
     name: "Azerbaijan",
     capital: "Baku",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   Bahrain: {
     name: "Bahrain",
     capital: "Manama",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -32,12 +35,14 @@ export default {
   Bhutan: {
     name: "Bhutan",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   Brunei: {
     name: "Brunei",
     capital: "N/A",
+    assist: "ring",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -90,6 +95,7 @@ export default {
   Israel: {
     name: "Israel",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -114,6 +120,7 @@ export default {
   Kuwait: {
     name: "Kuwait",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -132,6 +139,7 @@ export default {
   Lebanon: {
     name: "Lebanon",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -187,12 +195,14 @@ export default {
   Philippines: {
     name: "Philippines",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   Qatar: {
     name: "Qatar",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -212,6 +222,7 @@ export default {
   Singapore: {
     name: "Singapore",
     capital: "N/A",
+    assist: "ring",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -242,13 +253,15 @@ export default {
   },
   Taiwan: {
     name: "Taiwan",
-    cappital: "N/A",
+    capital: "N/A",
+    assist: "ring",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   Tajikistan: {
     name: "Tajikistan",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -261,6 +274,7 @@ export default {
   "Timor-Leste": {
     name: "Timor Leste",
     id: "Timor-Leste",
+    assist: "ring",
     capital: "Dili",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],

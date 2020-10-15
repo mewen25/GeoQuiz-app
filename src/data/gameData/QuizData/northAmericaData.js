@@ -2,6 +2,7 @@ export default {
   "Antigua-and-Barbuda": {
     name: "Antigua and Barbuda",
     id: "Antigua-and-Barbuda",
+    assist: "box",
     capital: "Saint John's",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -9,18 +10,21 @@ export default {
   Bahamas: {
     name: "Bahamas",
     capital: "Nassau",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   Barbados: {
     name: "Barbados",
     capital: "Bridgetown",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   Belize: {
     name: "Belize",
     capital: "Belmopan",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -33,6 +37,7 @@ export default {
   "Costa-Rica": {
     name: "Costa Rica",
     id: "Costa-Rica",
+    assist: "box",
     capital: "San José",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -40,18 +45,21 @@ export default {
   Cuba: {
     name: "Cuba",
     capital: "Havana",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   Dominica: {
     name: "Dominica",
     capital: "Roseau",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
   "Dominican-Republic": {
     name: "Dominican Republic",
     id: "Dominican-Republic",
+    assist: "box",
     capital: "Santo Domingo",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -59,6 +67,7 @@ export default {
   "El-Salvador": {
     name: "El Salvador",
     id: "El-Salvador",
+    assist: "box",
     capital: "San Salvador",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -66,6 +75,7 @@ export default {
   Grenada: {
     name: "Grenada",
     capital: "Saint George's",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -78,6 +88,7 @@ export default {
   Haiti: {
     name: "Haiti",
     capital: "Port-au-Prince",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -90,6 +101,7 @@ export default {
   Jamaica: {
     name: "Jamaica",
     capital: "Kingston",
+    assist: "box",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -114,6 +126,7 @@ export default {
   "Saint-Kitts-and-Nevis": {
     name: "Saint Kitts and Nevis",
     id: "Saint-Kitts-and-Nevis",
+    assist: "box",
     capital: "Basseterre",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -121,6 +134,7 @@ export default {
   "Saint-Lucia": {
     name: "Saint Lucia",
     id: "Saint-Lucia",
+    assist: "box",
     capital: "Castries",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -128,6 +142,7 @@ export default {
   "Saint-Vincent-and-the-Grenadines": {
     name: "Saint Vincent and the Grenadines",
     id: "Saint-Vincent-and-the-Grenadines",
+    assist: "box",
     capital: "Kingstown",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
@@ -135,15 +150,16 @@ export default {
   "Trinidad-and-Tobago": {
     name: "Trinidad and Tobago",
     id: "Trinidad-and-Tobago",
+    assist: "box",
     capital: "Port of Spain",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
   },
-  "USA": {
+  USA: {
     name: "United States of America",
     id: "USA",
     capital: "Washington, D.C.",
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
-  }
+  },
 };
