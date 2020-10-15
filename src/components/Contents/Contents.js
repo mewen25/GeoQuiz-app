@@ -9,7 +9,6 @@ export default function Contents({ match }) {
   console.log(match);
   let { contents } = match.params;
   contents = contents[0].toUpperCase()+contents.slice(1)
-  console.log("C", contents, contents === "Quiz", contents === "Learn");
   if (contents !== "Quiz" && contents !== "Learn") history.push("/");
 
   const links = Object.values(data[0]).map(l => {

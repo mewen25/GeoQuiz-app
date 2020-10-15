@@ -6,7 +6,7 @@ import {
   completeGuess,
   formatList,
   manageClass,
-  getFlag,
+  getFlag, 
 } from "../../utils/quizFunctions";
 
 import { ReactComponent as Exit } from "../../assets/images/game/exit.svg";
