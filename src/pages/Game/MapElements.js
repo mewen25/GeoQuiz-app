@@ -51,6 +51,9 @@ const MapElements = (props) => {
       props.mapData[id] && col === props.mapData[id].colour[0] ? "1" : "2";
     const randomDelay = (Math.random() * 1).toFixed(1);
     // const fadeType = Math.random() < 0.5 ? "fadeInTopLeft" : "fadeInTopRight";animate__animated ${props.started && `animate__pulse`}
+    const answer = props.mapData[id] && props.mapData[id].name === props.find ? {
+      ["data-answer"]: true
+    } : {};
     const handles = {
       key: index,
       // style: {animationDelay: `${randomDelay}s`},
@@ -75,11 +78,12 @@ const MapElements = (props) => {
           ? props.mapData[id].finished
           : "",
       ["data-col"]: col,
+      ["data-mode"]: props.mode,
       fill: col,
     };
     // console.log("mouse", props?.mousePos);
     return (
-      <g {...handles}>
+      <g {...handles} {...answer}>
         {/* {isComplete && <g className={`animationTest`}>
                     <circle cx={`${props?.mousePos?.x}%`} cy ={`${props?.mousePos?.x}%`} r = "7px"></circle>
                     <circle className="pulsey" cx={`${props?.mousePos?.y}%`} cy ={`${props?.mousePos?.y}%`} r = "10px"></circle>

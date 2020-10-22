@@ -38,6 +38,16 @@
   fill: #326688;
 }
 
+.quiz-country[data-mode="choice"] {
+  fill: rgb(80, 181, 92);
+}
+
+.quiz-country[data-answer="true"] {
+  fill: #ABDEFF;
+  stroke: #5DBCFB;
+  stroke-width: 3px;
+}
+
 .quiz-country:not(.complete):hover {
   /* opacity: 0.7; */
   outline: 0;

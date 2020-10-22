@@ -51,6 +51,14 @@ export default {
         map: EuropeCountries,
         data: EuropeData,
       },
+      'countries-multiple-choice': {
+        title: "Countries (Multiple Choice)",
+        time: two,
+        findAmount: 49,
+        map: EuropeCountries,
+        data: EuropeData,
+        layout: "multipleChoice"
+      }
       // capitals: {
       //   title: "Capitals",
       //   time: five,
@@ -71,6 +79,14 @@ export default {
         findAmount: 23,
         map: NAMap,
         data: NorthAmericaData,
+      },
+      "countries-multiple-choice": {
+        title: "Countries (Multiple Choice)",
+        time: two,
+        findAmount: 23,
+        map: NAMap,
+        data: NorthAmericaData,
+        layout: "multipleChoice"
       },
       // capitals: {
       //   title: "Capitals",
@@ -107,6 +123,14 @@ export default {
         map: AfricaMap,
         data: AfricaData,
       },
+      'countries-multiple-choice': {
+        title: "Countries (Multiple Choice)",
+        time: two,
+        findAmount: 55,
+        map: AfricaMap,
+        data: AfricaData,
+        layout: "multipleChoice"
+      }
       // capitals: {
       //   title: "Capitals",
       //   time: five,
@@ -128,6 +152,14 @@ export default {
         map: AsiaMap,
         data: AsiaData,
       },
+      'countries-multiple-choice': {
+        title: "Countries (Multiple Choice)",
+        time: two,
+        findAmount: 48,
+        map: AsiaMap,
+        data: AsiaData,
+        layout: "multipleChoice"
+      }
       // capitals: {
       //   title: "Capitals",
       //   time: five,

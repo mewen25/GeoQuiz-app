@@ -2,255 +2,304 @@ export default [
   {
     name: "Albania",
     capital: "Tirana",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [41, 20],
   },
   {
     name: "Andorra",
     capital: "Andorra la Vella",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [42.5, 1.5]
   },
   {
     name: "Austria",
     capital: "Vienna",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [47.33333333, 13.33333333],
   },
   {
     name: "Azerbaijan",
     id: "Azerbaijan-eu",
     capital: "Baku",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [40.5, 47.5],
   },
   {
     name: "Belarus",
     capital: "Minsk",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [53, 28],
   },
   {
     name: "Belgium",
     capital: "Brussels",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [50.83333333, 4],
   },
   {
     name: "Bosnia and Herzegovina",
     id: "Bosnia-and-Herzegovina",
     capital: "Sarajevo",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [44, 18],
   },
   {
     name: "Bulgaria",
     capital: "Sofia",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [43, 25],
   },
   {
     name: "Croatia",
     capital: "Zagreb",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [45.16666666, 15.5],
   },
   {
     name: "Cyprus",
     capital: "Nicosia",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [35, 33],
   },
   {
     name: "Czechia",
     capital: "Prague",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [49.75, 15.5],
   },
   {
     name: "Denmark",
     capital: "Copenhagen",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [56, 10],
   },
   {
     name: "Estonia",
     capital: "Tallinn",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [59, 26],
   },
   {
     name: "Finland",
     capital: "Helsinki",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [64, 26],
   },
   {
     name: "France",
     capital: "Paris",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [46, 2],
   },
   {
     name: "Georgia",
     id: "Georgia-eu",
     capital: "Tbilisi",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [42, 43.5],
   },
   {
     name: "Germany",
     capital: "Berlin",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [51, 9],
   },
   {
     name: "Greece",
     capital: "Athens",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [39, 22],
   },
   {
     name: "Hungary",
     capital: "Budapest",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [47, 20],
   },
   {
     name: "Iceland",
     capital: "Reykjavík",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [65, -18],
   },
   {
     name: "Ireland",
     capital: "Dublin",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [53, -8],
   },
   {
     name: "Italy",
     capitals: "Rome",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [42.83333333, 12.83333333],
   },
   {
     name: "Kosovo",
     capital: "Prishtina",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [42.666667, 21.166667],
   },
   {
     name: "Latvia",
     capital: "Riga",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [57, 25],
   },
   {
     name: "Liechtenstein",
     capital: "Vaduz",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [47.26666666, 9.53333333],
   },
   {
     name: "Lithuania",
     capital: "Vilnius",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [56, 24],
   },
   {
     name: "Luxembourg",
     capital: "Luxembourg",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [49.75, 6.16666666],
   },
   {
     name: "Malta",
     capital: "Valletta",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [35.83333333, 14.58333333],
   },
   {
     name: "Moldova",
     capital: "Chisinau",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [47, 29],
   },
   {
     name: "Monaco",
     capital: "Monte Carlo",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [43.73333333, 7.4],
   },
   {
     name: "Montenegro",
     capital: "Podgorica",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [42.5, 19.3],
   },
   {
     name: "Netherlands",
     capital: "Amsterdam",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [52.5, 5.75],
   },
   {
     name: "North Macedonia",
     id: "North-Macedonia",
     capital: "Skopje",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [41.83333333, 22],
   },
   {
     name: "Norway",
     capital: "Oslo",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [62, 10],
   },
   {
     name: "Poland",
     capital: "Warsaw",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [52, 20],
   },
   {
     name: "Portugal",
     capital: "Lisbon",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [39.5, -8],
   },
   {
     name: "Romania",
     capital: "Bucharest",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [46, 25],
   },
   {
     name: "Russia",
     id: "Russia-eu",
     capital: "Moscow",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [60, 100],
   },
   {
     name: "San Marino",
     id: "San-Marino",
     capital: "San Marino",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [43.76666666, 12.41666666],
   },
   {
     name: "Serbia",
     capital: "Belgrade",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [44, 21],
   },
   {
     name: "Slovakia",
     capital: "Bratislava",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [48.66666666, 19.5],
   },
   {
     name: "Slovenia",
     capital: "Ljubljana",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [46.11666666, 14.81666666],
   },
   {
     name: "Spain",
     capital: "Madrid",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [40, -4],
   },
   {
     name: "Sweden",
     capital: "Stockholm",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [62, 15],
   },
   {
     name: "Switzerland",
     capital: "Bern",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [47, 8],
   },
   {
     name: "Turkey",
     id: "Turkey-eu",
     capital: "Ankara",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [39, 35],
   },
   {
     name: "Ukraine",
     capital: "Kiev",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [49, 32],
   },
   {
     name: "United Kingdom",
     id: "United-Kingdom",
     capital: "London",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [54, -2],
   },
   {
     name: "Vatican City",
     id: "Vatican-City",
     capital: "Vatican City",
-    class: "quiz-country"
+    class: "quiz-country",
+    latlng: [41.9, 12.45],
   }
 ];

@@ -6,10 +6,14 @@ import {
   completeGuess,
   formatList,
   manageClass,
-  getFlag, 
+  getFlag,
+  getClose
 } from "../../utils/quizFunctions";
 
 import { ReactComponent as Exit } from "../../assets/images/game/exit.svg";
+
+import NormalLayout from "./NormalLayout";
+import MultipleChoice from "./MultipleChoiceLayout";
 
 import QuizInfos from "./Infos/QuizInfos";
 import QuizHeader from "./QuizHeader";
@@ -49,6 +53,7 @@ function QuizPage({ show, data }) {
     },
     smalls: [],
     assists: [],
+    close: []
   });
   const [guesses, setGuesses] = useState({
     current: undefined,
@@ -197,6 +202,7 @@ function QuizPage({ show, data }) {
           id: find.data[find.list[0]].id || null,
           image: getFlag(data.continentId, data.info.mode, place),
         },
+        close: getClose(find.data[find.list[0]].id || place, find.data)
       }));
     }
   };
@@ -288,27 +294,6 @@ function QuizPage({ show, data }) {
     node.onanimationend = () => {
       node.classList.remove("animate__animated", animation);
     };
-    // let node;
-    // if (!custom) {
-    //   node = document.querySelector(name);
-    //   node.classList.add("animated", animation);
-    // } else {
-    //   node = document.querySelector(`#${name}`);
-    //   node.classList.add(animation);
-    // }
-    // node.onanimationend = () => {
-    //   if (custom) {
-    //     node.classList.remove(animation);
-    //   } else {
-    //     node.classList.remove("animated", animation);
-    //     if (instruction) {
-    //       setPointFeedback({
-    //         points: 0,
-    //         state: false,
-    //       });
-    //     }
-    //   }
-    // };
   }
 
   useEffect(() => {
@@ -333,35 +318,35 @@ function QuizPage({ show, data }) {
         <Exit className="exit" onClick={() => history.push("/")} />
         {/* <QuizHeader /> */}
         <ThemeSwitch theme={theme} setTheme={setTheme} />
-        <div className="game-view">
-          <QuizInfos
-            place={find?.simple}
-            score={guesses?.score?.score}
-            marks={guesses?.score?.marks}
-            total={find?.totals?.all}
-            colour={guiColours[theme]}
-            handleSkip={handleSkip}
+        {data.layout === "normal" ? (
+          <NormalLayout
+            find={find}
+            guesses={guesses}
+            guiColour={guiColours[theme]}
+            countryColour={countryColours["green"]}
+            show={show}
             handleShow={handleShow}
+            handleSkip={handleSkip}
+            handleClick={handleClick}
+            data={data}
+            mousePos={mousePos}
           />
-          <div className="quiz-map">
-            <SmallsPanel smalls={find.smalls} handleClick={handleClick} />
-            {find.simple?.name && (
-              <CreateMap
-                started={!show}
-                mapData={find.data}
-                svgData={data.map}
-                handleClick={handleClick}
-                search={find.simple.name}
-                colour={countryColours["green"]}
-                mousePos={mousePos}
-              />
-            )}
-          </div>
-        </div>
-        <div
-          className="quiz-circle"
-          style={{ top: mousePos.y - 25, left: mousePos.x - 25 }}
-        />
+        ) : data.layout === "multipleChoice" ? (
+          <MultipleChoice
+            find={find}
+            guesses={guesses}
+            guiColour={guiColours[theme]}
+            countryColour={countryColours["green"]}
+            show={show}
+            handleShow={handleShow}
+            handleSkip={handleSkip}
+            handleClick={handleClick}
+            data={data}
+            mousePos={mousePos}
+          />
+        ) : (
+          <h1>not found</h1>
+        )}
       </div>
     </div>
   );

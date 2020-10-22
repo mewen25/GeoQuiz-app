@@ -14,9 +14,11 @@ const CreateMap = React.memo(
     search,
     colour,
     mousePos,
+    mode="normal",
+    find
   }) => (
     <div className="game-map-container">
-      <svg className="game-map" viewBox={svgData.viewBox} label={svgData.label}>
+      <svg className="game-map" viewBox={svgData.viewBox} label={svgData.label} style={mode === "choice" ? {pointerEvents: "none"} : null }>
         <defs>
           <filter id="shadow">
             <feDropShadow dx="0.5" dy="1.4" stdDeviation=".5" />
@@ -30,6 +32,8 @@ const CreateMap = React.memo(
           search={search}
           colour={colour}
           mousePos={mousePos}
+          mode={mode}
+          find={find}
         />
       </svg>
       {/* <ReactTooltip id="search" place="bottom" type="error" effect="float">

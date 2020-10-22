@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export const assignColour = (theme, data) => {
   let newObj = {};
   for (const key in data) {
@@ -50,3 +52,47 @@ export const getFlag = (continent, mode, name) => {
   }
   return imgPath;
 };
+
+function sortDistance(country, data) {
+  let distances = [];
+  const findCountry = data[country];
+  for (var c of Object.values(data)) {
+    if (c === findCountry) continue;
+    distances.push({
+      dist: Math.sqrt(
+        Math.pow(69.1 * (c.latlng[0] - findCountry.latlng[0]), 2) +
+          Math.pow(
+            69.1 *
+              (c.latlng[1] - findCountry.latlng[1] * Math.cos(c.latlng[1] / 57.3)),
+            2
+          )
+      ),
+      place: c
+    });
+  }
+  return distances.sort((a, b) => a.dist - b.dist);
+}
+
+export const getClose = (country, data) => {
+  if(!country || !data || !data[country]) return [];
+  const list = sortDistance(country, data);
+  console.log(country, list, data);
+
+  const questions = [];
+  let rngs = [];
+  for (var i = 0; i < 2; i++) {
+    const rng = 2 + Math.floor(Math.random() * 5);
+    if (rngs.includes(rng)) {
+      i += 1;
+      continue;
+    }
+    rngs.push(rng);
+  }
+  console.log(rngs);
+  questions[0] = list[Math.floor(Math.random() * 2)].place.id || list[Math.floor(Math.random() * 2)].place.name;
+  questions[1] = list[rngs[0]].place.id || list[rngs[0]].place.name;
+  // questions[2] = list[rngs[1]].place.name;
+  questions[2] = country;
+  let final = _.shuffle(questions);
+  return final;
+}

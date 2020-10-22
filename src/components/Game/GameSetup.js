@@ -21,6 +21,7 @@ export default function GameSetup({ match }) {
         continent: data.continent,
         map: data.mode[match.params.quiz].map,
         data: data.mode[match.params.quiz].data,
+        layout: data.mode[match.params.quiz].layout || "normal"
       });
     }
   };
