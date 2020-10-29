@@ -9471,6 +9471,11 @@ react-svgmt@^1.1.9:
     react-motion "^0.5.2"
     react-move "^2.7.0"
 
+react-timer-hook@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-timer-hook/-/react-timer-hook-2.0.3.tgz#4dd6c4d78b489b41d9af9c1319c025d1caa5d8fa"
+  integrity sha512-9+O4P0m+ALzAoJXyDx/enxefWLXjkiX3SmU2sssHv1JT6hWSacMTqotT0nvD+zaoAwS0fgnOaKUGe0R/r4TyaQ==
+
 react-tooltip@^4.2.6:
   version "4.2.6"
   resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-4.2.6.tgz#a3d5f0d1b0c597c0852ba09c5e2af0019b7cfc70"

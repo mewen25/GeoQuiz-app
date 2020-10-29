@@ -58,6 +58,14 @@ export default {
         map: EuropeCountries,
         data: EuropeData,
         layout: "multipleChoice"
+      },
+      'countries-hinted': {
+        title: "Countries (Hinted)",
+        time: two,
+        findAmount: 49,
+        map: EuropeCountries,
+        data: EuropeData,
+        layout: "hinted"
       }
       // capitals: {
       //   title: "Capitals",

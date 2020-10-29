@@ -7,13 +7,15 @@ import {
   formatList,
   manageClass,
   getFlag,
-  getClose
+  getClose,
+  sortDistance
 } from "../../utils/quizFunctions";
 
 import { ReactComponent as Exit } from "../../assets/images/game/exit.svg";
 
 import NormalLayout from "./NormalLayout";
 import MultipleChoice from "./MultipleChoiceLayout";
+// import HintedLayout from "./HintedLayout";
 
 import QuizInfos from "./Infos/QuizInfos";
 import QuizHeader from "./QuizHeader";
@@ -53,7 +55,15 @@ function QuizPage({ show, data }) {
     },
     smalls: [],
     assists: [],
-    close: []
+    close: [],
+    sorted: {
+      list: [],
+      choice: []
+    },
+    timer: {
+      total: 0,
+      current: 0
+    }
   });
   const [guesses, setGuesses] = useState({
     current: undefined,
@@ -130,8 +140,8 @@ function QuizPage({ show, data }) {
             "fill-opacity": "0",
             cx: `${bbox.x + bbox.width / 2}`,
             cy: `${bbox.y + bbox.height / 2}`,
-            rx: `${Math.min(bbox.width, 30)}`,
-            ry: `${Math.min(bbox.height, 25)}`,
+            rx: `${Math.min(bbox.width, 40)}`,
+            ry: `${Math.min(bbox.height, 30)}`,
           });
         } else {
           appendSVGChild("circle", place, {
@@ -195,6 +205,8 @@ function QuizPage({ show, data }) {
     if (guesses.answers.correct.length < totalCountries && find.list[0]) {
       setCurrentAttempts(0);
       const place = find.data[find.list[0]].name;
+      const distSorted = sortDistance(find.data[find.list[0]]?.id || place);
+      // console.log(place, find.data);
       setFind((prevData) => ({
         ...prevData,
         simple: {
@@ -202,7 +214,7 @@ function QuizPage({ show, data }) {
           id: find.data[find.list[0]].id || null,
           image: getFlag(data.continentId, data.info.mode, place),
         },
-        close: getClose(find.data[find.list[0]].id || place, find.data)
+        close: getClose(find.data[find.list[0]]?.id || place, find.data)
       }));
     }
   };
@@ -344,9 +356,22 @@ function QuizPage({ show, data }) {
             data={data}
             mousePos={mousePos}
           />
-        ) : (
+        ) : data.layout === "hinted" ? (
+          <NormalLayout
+            find={find}
+            guesses={guesses}
+            guiColour={guiColours[theme]}
+            countryColour={countryColours["green"]}
+            show={show}
+            handleShow={handleShow}
+            handleSkip={handleSkip}
+            handleClick={handleClick}
+            data={data}
+            mousePos={mousePos}
+            modifier="hinted"
+          />) :
           <h1>not found</h1>
-        )}
+        }
       </div>
     </div>
   );

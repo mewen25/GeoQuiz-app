@@ -28,6 +28,7 @@
     "react-svg": "^11.0.7",
     "react-svg-map": "^2.0.2",
     "react-svgmt": "^1.1.9",
+    "react-timer-hook": "^2.0.3",
     "react-tooltip": "^4.2.6",
     "recompose": "^0.30.0",
     "styled-components": "^5.1.1",

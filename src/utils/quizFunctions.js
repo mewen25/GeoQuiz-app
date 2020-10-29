@@ -53,7 +53,7 @@ export const getFlag = (continent, mode, name) => {
   return imgPath;
 };
 
-function sortDistance(country, data) {
+export function sortDistance(country, data) {
   let distances = [];
   const findCountry = data[country];
   for (var c of Object.values(data)) {
@@ -74,7 +74,7 @@ function sortDistance(country, data) {
 }
 
 export const getClose = (country, data) => {
-  if(!country || !data || !data[country]) return [];
+  if(!country || !data || !data[country] || !data[country].latlng) return [];
   const list = sortDistance(country, data);
   console.log(country, list, data);
 

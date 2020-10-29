@@ -5,7 +5,7 @@ import QuizHeader from "./QuizHeader";
 import CreateMap from "../../pages/Game/CreateMap";
 import SmallsPanel from "./Infos/SmallsPanel";
 
-export default function NormalLayout({ find, guesses, guiColour, countryColour, handleSkip, handleShow, show, handleClick, data, mousePos }) {
+export default function NormalLayout({ find, guesses, guiColour, countryColour, handleSkip, handleShow, show, handleClick, data, mousePos, modifier }) {
     return (
         <>
         <div className="game-view">

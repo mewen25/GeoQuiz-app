@@ -11,7 +11,7 @@ export default function ActivitySection({ type, text, reverse=false, link, actio
         multi: {
             txt: "#67C871"
         }
-    };
+    }; 
     return (
         <section data-aos="fade-up" data-aos-duration="1000" className="scroll-link-section" style={{flexDirection: reverse ? "row-reverse" : "row"}}>
             <article className="link-section-text">
