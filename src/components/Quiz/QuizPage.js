@@ -8,7 +8,8 @@ import {
   manageClass,
   getFlag,
   getClose,
-  sortDistance
+  sortDistance,
+  sortedData,
 } from "../../utils/quizFunctions";
 
 import { ReactComponent as Exit } from "../../assets/images/game/exit.svg";
@@ -58,12 +59,15 @@ function QuizPage({ show, data }) {
     close: [],
     sorted: {
       list: [],
-      choice: []
+      choice: [],
+    },
+    distance: {
+      sorted: [],
     },
     timer: {
       total: 0,
-      current: 0
-    }
+      current: 0,
+    },
   });
   const [guesses, setGuesses] = useState({
     current: undefined,
@@ -108,6 +112,22 @@ function QuizPage({ show, data }) {
 
     return () => window.removeEventListener("click", updateMousePosition);
   }, []);
+
+  // const moveOnSvg = (e) => {
+  //   // console.log(e.clientX, mousePos.x);
+  //   setMousePos({
+  //     x: e.clientX,
+  //     y: e.clientY,
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   const place = document.querySelector(`#${find.simple.name}`);
+  //   if (!place) return;
+  //   const bbox = place.getBBox();
+  //   console.log(mousePos, bbox.x, bbox.y);
+  //   console.log(Math.abs(mousePos.x - bbox.x), Math.abs(mousePos.y - bbox.y));
+  // }, []);
 
   useEffect(() => {
     for (var small of find.smalls) {
@@ -206,6 +226,10 @@ function QuizPage({ show, data }) {
       setCurrentAttempts(0);
       const place = find.data[find.list[0]].name;
       const distSorted = sortDistance(find.data[find.list[0]]?.id || place);
+      const distScored = sortedData(
+        find.data[find.list[0]?.id] || place,
+        find.data
+      );
       // console.log(place, find.data);
       setFind((prevData) => ({
         ...prevData,
@@ -214,7 +238,10 @@ function QuizPage({ show, data }) {
           id: find.data[find.list[0]].id || null,
           image: getFlag(data.continentId, data.info.mode, place),
         },
-        close: getClose(find.data[find.list[0]]?.id || place, find.data)
+        close: getClose(find.data[find.list[0]]?.id || place, find.data),
+        distance: {
+          sorted: distScored,
+        },
       }));
     }
   };
@@ -369,9 +396,10 @@ function QuizPage({ show, data }) {
             data={data}
             mousePos={mousePos}
             modifier="hinted"
-          />) :
+          />
+        ) : (
           <h1>not found</h1>
-        }
+        )}
       </div>
     </div>
   );

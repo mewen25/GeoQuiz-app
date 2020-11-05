@@ -1,7 +1,28 @@
 import React, { useState } from "react";
 import Ripples from "react-ripples";
 
+const colourScores = {
+  perfect: "#47FF5A",
+  veryHigh: "#B8E9A1",
+  high: "#EEF8B6",
+  med: "#F8D5B6",
+  low: "#FF9A9A",
+};
+
 const MapElements = (props) => {
+  function closest(needle, haystack) {
+    return haystack.reduce((a, b) => {
+      let aDiff = Math.abs(a - needle);
+      let bDiff = Math.abs(b - needle);
+
+      if (aDiff == bDiff) {
+        return a > b ? a : b;
+      } else {
+        return bDiff < aDiff ? b : a;
+      }
+    });
+  }
+
   const groups = props.svgData.elements.map((obj, index) => {
     const colRng = Math.floor(Math.random() * props.colour.length);
     const countryColour = props.colour[colRng];
@@ -51,9 +72,36 @@ const MapElements = (props) => {
       props.mapData[id] && col === props.mapData[id].colour[0] ? "1" : "2";
     const randomDelay = (Math.random() * 1).toFixed(1);
     // const fadeType = Math.random() < 0.5 ? "fadeInTopLeft" : "fadeInTopRight";animate__animated ${props.started && `animate__pulse`}
-    const answer = props.mapData[id] && props.mapData[id].name === props.find ? {
-      ["data-answer"]: true
-    } : {};
+    let tempCol = null;
+    // console.log(props.scoreData);
+    if (props?.scoreData?.obj && props.scoreData.obj[id]) {
+      const distScore = props.scoreData.obj[id].dist;
+      const percentiles = [props.scoreData.low, props.scoreData.high];
+      const close = closest(distScore, percentiles);
+      console.log(distScore, props.scoreData);
+      if (distScore > props.scoreData.mid)
+        tempCol = { ["data-dist-low"]: colourScores["low"] };
+      else if (distScore <= props.scoreData.mid)
+        tempCol = { ["data-dist-high"]: colourScores["high"] };
+      else tempCol = { ["data-dist-perfect"]: colourScores["perfect"] };
+
+      // // else if (distScore > 0 && distScore <= 4)
+      // //   tempCol = { ["data-dist-veryHigh"]: colourScores["veryHigh"] };
+      // else if (distScore > 0 && distScore < 8)
+      //   tempCol = { ["data-dist-high"]: colourScores["high"] };
+      // else if (distScore > 8 && distScore < 12)
+      //   tempCol = { ["data-dist-med"]: colourScores["med"] };
+      // else tempCol = { ["data-dist-low"]: colourScores["low"] };
+    }
+
+    const distanceScore = tempCol ? tempCol : {};
+
+    const answer =
+      props.mapData[id] && props.mapData[id].name === props.find
+        ? {
+            ["data-answer"]: true,
+          }
+        : {};
     const handles = {
       key: index,
       // style: {animationDelay: `${randomDelay}s`},
@@ -83,7 +131,7 @@ const MapElements = (props) => {
     };
     // console.log("mouse", props?.mousePos);
     return (
-      <g {...handles} {...answer}>
+      <g {...handles} {...answer} {...distanceScore}>
         {/* {isComplete && <g className={`animationTest`}>
                     <circle cx={`${props?.mousePos?.x}%`} cy ={`${props?.mousePos?.x}%`} r = "7px"></circle>
                     <circle className="pulsey" cx={`${props?.mousePos?.y}%`} cy ={`${props?.mousePos?.y}%`} r = "10px"></circle>
