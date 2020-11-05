@@ -26,6 +26,8 @@ import SmallsPanel from "./Infos/SmallsPanel";
 import "../Game/game1.css";
 import "./quiz.css";
 import svgData from "../../data/mapData/Continents/Europe/old/svgData";
+// import { useTimer } from "use-timer";
+
 
 const countryColours = {
   blue: ["#CBE0ED", "#CCE3F2"],
@@ -41,6 +43,7 @@ const guiColours = {
 };
 
 function QuizPage({ show, data }) {
+  // const gameTimer = useTimer();
   const [theme, setTheme] = useState("blue");
   const [find, setFind] = useState({
     data: data?.data,
@@ -113,6 +116,10 @@ function QuizPage({ show, data }) {
     return () => window.removeEventListener("click", updateMousePosition);
   }, []);
 
+  useEffect(() => {
+    // if(!show) gameTimer.start();
+  }, [show])
+
   // const moveOnSvg = (e) => {
   //   // console.log(e.clientX, mousePos.x);
   //   setMousePos({
@@ -155,7 +162,7 @@ function QuizPage({ show, data }) {
         if (bbox.width > 10 || bbox.height > 10) {
           appendSVGChild("ellipse", place, {
             class: "ring-helper",
-            stroke: "red",
+            stroke: "#FFA3A3",
             "stroke-width": "2",
             "fill-opacity": "0",
             cx: `${bbox.x + bbox.width / 2}`,
@@ -166,7 +173,7 @@ function QuizPage({ show, data }) {
         } else {
           appendSVGChild("circle", place, {
             class: "ring-helper",
-            stroke: "red",
+            stroke: "#FFA3A3",
             "stroke-width": "2",
             "fill-opacity": "0",
             cx: `${bbox.x + bbox.width / 2}`,
@@ -368,6 +375,7 @@ function QuizPage({ show, data }) {
             handleSkip={handleSkip}
             handleClick={handleClick}
             data={data}
+            // time={gameTimer.time}
             mousePos={mousePos}
           />
         ) : data.layout === "multipleChoice" ? (

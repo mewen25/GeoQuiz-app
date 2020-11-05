@@ -17,6 +17,7 @@ export default function NormalLayout({
   data,
   mousePos,
   modifier,
+  time,
   ...props
 }) {
   return (
@@ -28,8 +29,10 @@ export default function NormalLayout({
           marks={guesses?.score?.marks}
           total={find?.totals?.all}
           colour={guiColour}
+          time={time}
           handleSkip={handleSkip}
           handleShow={handleShow}
+          show={show}
         />
         <div className="quiz-map">
           <SmallsPanel smalls={find.smalls} handleClick={handleClick} />

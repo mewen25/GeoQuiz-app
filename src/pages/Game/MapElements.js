@@ -72,29 +72,29 @@ const MapElements = (props) => {
       props.mapData[id] && col === props.mapData[id].colour[0] ? "1" : "2";
     const randomDelay = (Math.random() * 1).toFixed(1);
     // const fadeType = Math.random() < 0.5 ? "fadeInTopLeft" : "fadeInTopRight";animate__animated ${props.started && `animate__pulse`}
-    let tempCol = null;
-    // console.log(props.scoreData);
-    if (props?.scoreData?.obj && props.scoreData.obj[id]) {
-      const distScore = props.scoreData.obj[id].dist;
-      const percentiles = [props.scoreData.low, props.scoreData.high];
-      const close = closest(distScore, percentiles);
-      console.log(distScore, props.scoreData);
-      if (distScore > props.scoreData.mid)
-        tempCol = { ["data-dist-low"]: colourScores["low"] };
-      else if (distScore <= props.scoreData.mid)
-        tempCol = { ["data-dist-high"]: colourScores["high"] };
-      else tempCol = { ["data-dist-perfect"]: colourScores["perfect"] };
+    // let tempCol = null;
+    // // console.log(props.scoreData);
+    // if (props?.scoreData?.obj && props.scoreData.obj[id]) {
+    //   const distScore = props.scoreData.obj[id].dist;
+    //   // const percentiles = [props.scoreData.low, props.scoreData.high];
+    //   // const close = closest(distScore, percentiles);
+    //   // console.log(distScore, props.scoreData);
+    //   // if (distScore > props.scoreData.mid)
+    //   //   tempCol = { ["data-dist-low"]: colourScores["low"] };
+    //   // else if (distScore <= props.scoreData.mid)
+    //   //   tempCol = { ["data-dist-high"]: colourScores["high"] };
+    //   // else tempCol = { ["data-dist-perfect"]: colourScores["perfect"] };
 
-      // // else if (distScore > 0 && distScore <= 4)
-      // //   tempCol = { ["data-dist-veryHigh"]: colourScores["veryHigh"] };
-      // else if (distScore > 0 && distScore < 8)
-      //   tempCol = { ["data-dist-high"]: colourScores["high"] };
-      // else if (distScore > 8 && distScore < 12)
-      //   tempCol = { ["data-dist-med"]: colourScores["med"] };
-      // else tempCol = { ["data-dist-low"]: colourScores["low"] };
-    }
+    //   // else if (distScore > 0 && distScore <= 4)
+    //   //   tempCol = { ["data-dist-veryHigh"]: colourScores["veryHigh"] };
+    //   if (distScore > 0 && distScore < 8)
+    //     tempCol = { ["data-dist-high"]: colourScores["high"] };
+    //   else if (distScore > 8 && distScore < 12)
+    //     tempCol = { ["data-dist-med"]: colourScores["med"] };
+    //   else tempCol = { ["data-dist-low"]: colourScores["low"] };
+    // }
 
-    const distanceScore = tempCol ? tempCol : {};
+    // const distanceScore = tempCol ? tempCol : {};
 
     const answer =
       props.mapData[id] && props.mapData[id].name === props.find
@@ -131,7 +131,7 @@ const MapElements = (props) => {
     };
     // console.log("mouse", props?.mousePos);
     return (
-      <g {...handles} {...answer} {...distanceScore}>
+      <g {...handles} {...answer}>
         {/* {isComplete && <g className={`animationTest`}>
                     <circle cx={`${props?.mousePos?.x}%`} cy ={`${props?.mousePos?.x}%`} r = "7px"></circle>
                     <circle className="pulsey" cx={`${props?.mousePos?.y}%`} cy ={`${props?.mousePos?.y}%`} r = "10px"></circle>
