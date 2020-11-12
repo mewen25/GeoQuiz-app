@@ -36,6 +36,7 @@
 
 .quiz-country:hover {
   fill: #326688;
+  /* fill: #368832; */
 }
 
 .quiz-country[data-mode="choice"] {

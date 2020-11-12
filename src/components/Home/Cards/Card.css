@@ -1,0 +1,47 @@
+.mode-card {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    text-align: center;
+    background: #FFFFFF;
+    box-shadow: -1px 3px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 18.1623px;
+}
+
+.card-top {
+    padding: 25px 40px;
+    padding-bottom: 5px;
+}
+
+.card-top-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #3C3C3C;
+}
+
+.card-top-description {
+    color: #848484;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-top-subText {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.105em;
+}
+
+.card-bottom img {
+    width: 100%;
+}
+
+.difficulty-hard {
+    color: #F04949;
+}
+.difficulty-medium {
+    color: #F0AD49;
+}
+.difficulty-easy {
+    color: #98E575;
+}

@@ -52,7 +52,7 @@ export const getFlag = (continent, mode, name) => {
   }
   return imgPath;
 };
-
+ 
 export function sortDistance(country, data) {
   if (!data) return;
   let distances = [];
@@ -91,13 +91,21 @@ export const getClose = (country, data) => {
     }
     rngs.push(rng);
   }
-  console.log(rngs);
-  questions[0] =
-    list[Math.floor(Math.random() * 2)].place.id ||
-    list[Math.floor(Math.random() * 2)].place.name;
-  questions[1] = list[rngs[0]].place.id || list[rngs[0]].place.name;
+  const q1rng = Math.floor(Math.random() * 2);
+  questions[0] = {
+    name: list[q1rng].place.name,
+    value: list[q1rng].place.id ?? list[q1rng].place.name
+  };
+  questions[1] = {
+    name: list[rngs[0]].place.name,
+    value: list[rngs[0]].place.id ?? list[rngs[0]].place.name
+  };
   // questions[2] = list[rngs[1]].place.name;
-  questions[2] = country;
+  questions[2] = {
+    name: data[country].name,
+    value: data[country].id ?? country
+  };
+  console.log(questions, data[country]);
   let final = _.shuffle(questions);
   return final;
 };

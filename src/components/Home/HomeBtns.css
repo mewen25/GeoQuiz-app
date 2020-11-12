@@ -6,14 +6,16 @@
   padding: 20px;
   z-index: 1;
   /* font-family: 'Amiko', sans-serif; */
-  font-family: "Baloo Chettan", cursive;
+  /* font-family: "Baloo Chettan", cursive; */
+  font-family: 'Nunito', sans-serif;
 } 
 
 #home-slogan {
   text-align: center;
   color: white;
-  font-size: 4em;
-  font-size: calc(2vw + 2vh);
+  font-size: 70px;
+  font-weight: 700;
+  /* font-size: calc(2vw + 2vh); */
 }
 
 .home-btns-panel {
@@ -36,13 +38,15 @@
 
 .home-btns-panel button {
   margin-top: 20px;
+  font-weight: 800;
+  font-size: 36px;
 }
 
 #home-learnBtn {
-  background: #98e575;
-  font-size: 50px;
+  background: #98E575;
+  /* font-size: 50px; */
 
-  box-shadow: 0px 4px 1px #88cc69;
+  box-shadow: 0px 4px 1px #88CC69;
   border-radius: 24px;
 }
 
@@ -55,9 +59,9 @@
 }
 
 #home-quizBtn {
-  background: #74c5e6;
-  font-size: 50px;
-  box-shadow: 0px 4px 1px #64acc9;
+  background: #5ABAFF;
+  /* font-size: 50px; */
+  box-shadow: 0px 5px 0px #19AAE6;
   border-radius: 24px;
 }
 
@@ -75,9 +79,8 @@
   height: 80px;
   text-align: center;
   line-height: 10px;
-  background: #173b5b;
-  box-shadow: 12px 12px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
+  background: #98E575;
+  border-radius: 30px;
   outline: none;
   border: none;
   white-space: nowrap;

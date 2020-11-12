@@ -34,17 +34,17 @@ export default function NormalLayout({ find, guesses, guiColour, countryColour, 
                 <div className="quiz-map-multipleChoice-options-container">
                   <h2>Click the correct answer</h2>
                   <div className="quiz-map-multipleChoice-options">
-                    <div className="quiz-choice" onClick={() => handleClick(find?.close[0])}>
+                    <div className="quiz-choice" onClick={() => handleClick(find?.close[0].value)}>
                       <p>1.</p>
-                      <h2>{find?.close[0]}</h2>
+                      <h2>{find?.close[0]?.name}</h2>
                     </div>
-                    <div className="quiz-choice" onClick={() => handleClick(find?.close[1])}>
+                    <div className="quiz-choice" onClick={() => handleClick(find?.close[1].value)}>
                       <p>2.</p>
-                      <h2>{find?.close[1]}</h2>
+                      <h2>{find?.close[1]?.name}</h2>
                     </div>
-                    <div className="quiz-choice" onClick={() => handleClick(find?.close[2])}>
+                    <div className="quiz-choice" onClick={() => handleClick(find?.close[2].value)}>
                       <p>3.</p>
-                      <h2>{find?.close[2]}</h2>
+                      <h2>{find?.close[2]?.name}</h2>
                     </div>
                   </div>
                 </div>

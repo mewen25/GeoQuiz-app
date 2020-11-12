@@ -31,7 +31,7 @@ import svgData from "../../data/mapData/Continents/Europe/old/svgData";
 
 const countryColours = {
   blue: ["#CBE0ED", "#CCE3F2"],
-  green: ["#3E7D53", "#4A9B61"],
+  green: ["#caf0d6", "#c2e9cd"],
   yellow: ["#F5E158", "#FCEB7B"],
   red: ["#F55858", "#FC7B7B"],
 };
@@ -236,7 +236,8 @@ function QuizPage({ show, data }) {
       const distScored = sortedData(
         find.data[find.list[0]?.id] || place,
         find.data
-      );
+      ); 
+      console.log(distSorted, distScored);
       // console.log(place, find.data);
       setFind((prevData) => ({
         ...prevData,
@@ -254,7 +255,8 @@ function QuizPage({ show, data }) {
   };
 
   const handleClick = (event) => {
-    const clicked = event?.currentTarget?.id || event;
+    let clicked = event?.currentTarget?.id || event;
+    if(clicked.value) clicked = clicked.value;
     const list = find.data;
     if (list[clicked].class.includes("complete")) return;
 

@@ -1,0 +1,30 @@
+.scrollpage-container {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.scroll-cards-modes {
+
+}
+
+.cards-show {
+    display: flex;
+    justify-content: space-between;
+    width: 80rem;
+    /* width: 1200px; */
+}
+
+.scroll-bar-blue {
+    width: 100vw;
+    height: 200px;
+    background: linear-gradient(90deg, #648CC9 0%, #285979 100%);
+    position: absolute;
+    left: 0%;
+    top: 145%;
+    z-index: -1;
+}
