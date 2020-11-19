@@ -27,7 +27,7 @@ export default function Learn1({ match }) {
       });
     }
   };
-
+ 
   useEffect(() => {
     gameSetup();
     setHeaderState(false);

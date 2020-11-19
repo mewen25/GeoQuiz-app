@@ -2,9 +2,28 @@
   width: 50px;
   height: 50px;
   border-radius: 25px;
+  transition: 0.5s;
 }
 
 .btn-disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.linkButton {
+  color: white;
+  font-size: 36px;
+  font-family: 'Nunito', sans-serif;
+  width: 6em;
+}
+
+.linkButton[data-col="blue"]:hover {
+  background-color: #5bcbf7 !important;
+}
+.linkButton[data-col="green"]:hover {
+  background-color: #88CC69 !important;
+}
+.linkButton:active {
+  height: 75px;
+  box-shadow: none !important;
 }

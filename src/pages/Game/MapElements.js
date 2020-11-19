@@ -35,6 +35,8 @@ const MapElements = (props) => {
     const assist = props.mapData[id] && props.mapData[id].assist ? true : false;
     if (Object.keys(obj.render).length < 1) return;
 
+    let context = obj.modify === "context" ? true : false;
+
     const elements = obj.render.map((e, index) => {
       let element = <></>;
       if (e.type === "path") element = <path key={index} {...e.attributes} />;
@@ -102,6 +104,7 @@ const MapElements = (props) => {
             ["data-answer"]: true,
           }
         : {};
+
     const handles = {
       key: index,
       // style: {animationDelay: `${randomDelay}s`},
@@ -127,6 +130,7 @@ const MapElements = (props) => {
           : "",
       ["data-col"]: col,
       ["data-mode"]: props.mode,
+      ["data-modify"]: context,
       fill: col,
     };
     // console.log("mouse", props?.mousePos);

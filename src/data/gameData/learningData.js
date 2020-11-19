@@ -2,6 +2,8 @@ import LearnNorthernEurope from "../mapData/Continents/Europe/Learn/LearnNorther
 import LearnWesternEurope from "../mapData/Continents/Europe/Learn/LearnWesternEurope";
 import LearnEasternEurope from "../mapData/Continents/Europe/Learn/LearnEasternEurope";
 
+import LearnMap from "../mapData/Continents/Europe/Learn/svgData";
+
 export default [
   {
     europe: {
@@ -209,7 +211,7 @@ export default [
             },
           },
         ],
-        map: LearnNorthernEurope,
+        map: LearnMap,
       },
       "western-europe": {
         title: "Western Europe",

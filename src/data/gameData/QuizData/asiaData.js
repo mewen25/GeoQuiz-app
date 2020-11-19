@@ -176,6 +176,7 @@ export default {
   Maldives: {
     name: "Maldives",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     latlng: [3.25, 73],
     styles: ["#4A9B61", "#5FD981"],
@@ -274,6 +275,7 @@ export default {
     name: "Sri Lanka",
     id: "Sri-Lanka",
     capital: "N/A",
+    assist: "box",
     class: ["quiz-country"],
     latlng: [7, 81],
     styles: ["#4A9B61", "#5FD981"],
@@ -293,7 +295,7 @@ export default {
   Taiwan: {
     name: "Taiwan",
     capital: "N/A",
-    assist: "ring",
+    assist: "box",
     class: ["quiz-country"],
     latlng: [23.5, 121],
     styles: ["#4A9B61", "#5FD981"],

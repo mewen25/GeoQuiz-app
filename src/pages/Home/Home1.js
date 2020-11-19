@@ -32,7 +32,7 @@ function Home1(props) {
           </div>
         </div>
           <Scrollpage />
-        <footer style={{height: "50vh", width: "100%"}}></footer>
+        <footer style={{height: "15vh", width: "100%"}}></footer>
       </div>
     </>
   );

@@ -1,0 +1,25 @@
+.scroll-info-block {
+    width: 85rem;
+    height: 25rem;
+    /* background-color: lime; */
+    display: flex;
+    justify-content: center;
+}
+
+.info-block-img {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 80px;
+  /* width: 60%; */
+}
+.info-block-img img {
+    height: 100%;
+    width: 100%;
+}
+
+.info-block-content {
+  display: flex;
+  align-items: center;
+  color: #a09292;
+}
