@@ -11,13 +11,15 @@ export default function TopActivity({ data }) {
     console.log(e)
   }
 
+  
+
   return (
     <div className="learn-top learn-activity">
       <h1>TopActivity</h1>
-      <div className="l-top-container">
-        <div className="l-top-info">
+      <div>
+        {/* <div className="l-top-info">
           <SelectedInfo selectedData={selected} />
-        </div>
+        </div> */}
         <div className="l-top-map">
           <div className="learn-map-quiz">
             <CreateMap

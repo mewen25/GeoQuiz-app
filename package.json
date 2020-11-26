@@ -32,6 +32,7 @@
     "react-tooltip": "^4.2.6",
     "recompose": "^0.30.0",
     "styled-components": "^5.1.1",
+    "svg-pan-zoom": "^3.6.1",
     "use-state-with-callback": "^1.0.18",
     "use-timer": "^1.0.7"
   },

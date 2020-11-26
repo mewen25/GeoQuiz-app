@@ -6,7 +6,7 @@
 }
 
 .learn-top {
-    background-image: url("../../../assets/images/learn/learn-bg.svg");
+    /* background-image: url("../../../assets/images/learn/learn-bg.svg"); */
     background-size: cover;
 }
 
@@ -26,18 +26,18 @@
 
 .l-top-info {
     grid-area: i;
-    background-color: cyan;
+    /* background-color: cyan; */
 }
 .l-top-map {
     grid-area: m;
-    background-color: rgb(20, 160, 160);
+    /* background-color: rgb(20, 160, 160); */
 }
 
 .l-top-list {
     grid-area: l;
-    background-color: rgb(14, 67, 67);
+    /* background-color: rgb(14, 67, 67); */
 }
 
 .learn-bottom {
-    background-color: lime;
+    /* background-color: lime; */
 }

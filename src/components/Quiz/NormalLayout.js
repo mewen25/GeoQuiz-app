@@ -4,7 +4,7 @@ import QuizInfos from "./Infos/QuizInfos";
 import QuizHeader from "./QuizHeader";
 import CreateMap from "../../pages/Game/CreateMap";
 import SmallsPanel from "./Infos/SmallsPanel";
-
+ 
 export default function NormalLayout({
   find,
   guesses,

@@ -20,7 +20,7 @@
 
 .scroll-bar-blue {
     width: 100vw;
-    height: 15rem;
+    height: 18rem;
     background: linear-gradient(90deg, #648CC9 0%, #285979 100%);
     /* background: linear-gradient(90deg, #7DB1FF 0%, #2B70C9 100%); */
     position: absolute;
