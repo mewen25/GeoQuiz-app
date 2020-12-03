@@ -294,6 +294,20 @@
   transition: background 0s;
 }
 
+.quiz-tooltip {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quiz-tooltip svg {
+  width: 20px;
+  height: 20px;
+  /* background-color: lime !important; */
+}
+.__react_component_tooltip::after {
+  /* border-bottom-color: lime !important; */
+}
+
 @keyframes ripple1 {
   0% {
     fill: "grey" !important;

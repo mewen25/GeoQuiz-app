@@ -43,6 +43,9 @@ export default function NormalLayout({
               svgData={data.map}
               handleClick={handleClick}
               search={find.simple.name}
+              list={find.list.length}
+              total={find.totals.all}
+              marks={guesses.score.marks}
               colour={countryColour}
               mousePos={mousePos}
               scoreData={find?.distance?.sorted}
