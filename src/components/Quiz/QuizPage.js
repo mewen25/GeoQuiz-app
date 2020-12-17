@@ -12,6 +12,8 @@ import {
   sortedData,
 } from "../../utils/quizFunctions";
 
+import EndModal from "./Modal/EndModal";
+
 import { ReactComponent as Exit } from "../../assets/images/game/exit.svg";
 
 import NormalLayout from "./NormalLayout";
@@ -45,6 +47,7 @@ const guiColours = {
 function QuizPage({ show, data }) {
   // const gameTimer = useTimer();
   const [theme, setTheme] = useState("blue");
+  const [finished, setFinished] = useState(false);
   const [find, setFind] = useState({
     data: data?.data,
     savedData: Object.assign(data?.data, {}),
@@ -252,6 +255,9 @@ function QuizPage({ show, data }) {
         },
       }));
     }
+    else {
+      setFinished(true);
+    }
   };
 
   const handleClick = (event) => {
@@ -365,6 +371,10 @@ function QuizPage({ show, data }) {
       <div className="quiz-page">
         <Exit className="exit" onClick={() => history.push("/")} />
         {/* <QuizHeader /> */}
+        {finished && <EndModal info={{
+          title: "Total Score",
+          sub: "0"
+        }} />}
         <ThemeSwitch theme={theme} setTheme={setTheme} />
         {data.layout === "normal" ? (
           <NormalLayout

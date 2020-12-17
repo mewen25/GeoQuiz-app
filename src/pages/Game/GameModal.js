@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import "../../components/Quiz/Modal/modal.scss";
 
 const GameModal = (props) => {
   const history = useHistory();

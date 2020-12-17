@@ -215,9 +215,9 @@ export default function Contents({ match }) {
 
   return (
     <div className="contents-page">
+      <div className="contents-page-container">
       <div className="contents-header">
-        <h2>{contents}</h2>
-        <p>Ready to take on some Quizzes?</p>
+        <h3>Choose a quiz</h3>
       </div>
       <div className="contents-list-wrapper">
           <aside className="contents-filter">
@@ -228,6 +228,7 @@ export default function Contents({ match }) {
           <section className="contents-list">
             {linksList.map(l => <ContentsItem data={l} />)}
           </section>
+      </div>
       </div>
     </div>
   );
