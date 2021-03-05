@@ -35,7 +35,8 @@
 }
 
 .quiz-country:hover {
-  fill: #326688;
+  /* fill: #326688; */
+  fill: #6dc69a;
   /* fill: #368832; */
 }
 
@@ -44,8 +45,8 @@
 }
 
 .quiz-country[data-answer="true"] {
-  fill: #ABDEFF;
-  stroke: #5DBCFB;
+  fill: #abdeff;
+  stroke: #5dbcfb;
   stroke-width: 3px;
 }
 

@@ -77,7 +77,7 @@
 
 #game-pointsScore {
   position: absolute;
-  font-size: 50px;
+  font-size: 25px;
   font-family: "Baloo Chettan", cursive;
   pointer-events: none;
   z-index: 3;

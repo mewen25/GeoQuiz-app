@@ -1,13 +1,19 @@
 import React from "react";
 import "./Display.css";
 
-export default ({ percent, colour = "#000" }) => {
+export default ({ percent, colour = "#000", streak = 0 }) => {
   return (
-    <div className="progress-base">
+    <>
+      {streak > 0 && <p>{streak} in a row</p>}
       <div
-        className="progress-overlay"
-        style={{ width: `${percent}%`, backgroundColor: colour }}
-      />
-    </div>
+        className="progress-base"
+        style={streak > 0 ? { marginBottom: "15px" } : null}
+      >
+        <div
+          className="progress-overlay"
+          style={{ width: `${percent}%`, backgroundColor: colour }}
+        />
+      </div>
+    </>
   );
 };

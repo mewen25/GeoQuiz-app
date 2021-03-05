@@ -119,11 +119,11 @@ const MapElements = (props) => {
       }`,
       ["data-small"]: smalls,
       ["data-assist"]: assist,
-      ["data-tip"]:
-        (props.mapData[id] &&
-          !props.mapData[id].class.includes(["complete", "other"])) ||
-        false,
-      ["data-for"]: "search",
+      // ["data-tip"]:
+      //   (props.mapData[id] &&
+      //     !props.mapData[id].class.includes(["complete", "other"])) ||
+      //   false,
+      // ["data-for"]: "search",
       ["data-attempts"]:
         props.mapData[id] && props.mapData[id].finished
           ? props.mapData[id].finished

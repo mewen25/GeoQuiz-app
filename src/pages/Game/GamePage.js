@@ -120,7 +120,7 @@ export default function GamePage(props) {
     };
   }
 
-  const getFind = () => { 
+  const getFind = () => {
     if (answers.correct.length < totalCountries) {
       if (!props.show) {
         setupTimer();
@@ -142,7 +142,12 @@ export default function GamePage(props) {
 
   const handleClick = (event) => {
     const clicked = event.currentTarget.id;
-    console.log("compare", clicked, find.simple.name, clicked===find.data.name);
+    console.log(
+      "compare",
+      clicked,
+      find.simple.name,
+      clicked === find.data.name
+    );
     if (list[clicked].class.includes("complete")) {
       return;
     }
@@ -237,7 +242,7 @@ export default function GamePage(props) {
         <p
           id="game-pointsScore"
           style={{
-            color: pointFeedback.points > 0 ? "#56b953" : "#b95353",
+            color: pointFeedback.points > 0 ? "#2D592F" : "#b95353",
             left: mousePos.x,
             top: mousePos.y - 50,
           }}
@@ -261,7 +266,15 @@ export default function GamePage(props) {
           setFinish={setFinishTime}
         />
       ) : null}
-      {find.simple?.name ? <CreateMap mapData={list} svgData={mapSvgData} handleClick={handleClick} search={find.simple.name} mousePos={mousePos} /> : null}
+      {find.simple?.name ? (
+        <CreateMap
+          mapData={list}
+          svgData={mapSvgData}
+          handleClick={handleClick}
+          search={find.simple.name}
+          mousePos={mousePos}
+        />
+      ) : null}
       {/* <Map handleClick={handleClick} data={list} search={find.simple.name} /> */}
       {/* {!props.show ? (
         <ExtraData

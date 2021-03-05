@@ -1,36 +1,25 @@
 .scrollpage-container {
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Nunito', sans-serif;
-}
-
-.scroll-cards-modes {
-
-}
-
-.cards-show {
-    display: flex;
-    justify-content: space-between;
-    width: 80rem;
-    /* width: 1200px; */
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
 }
 
 .scroll-bar-blue {
-    width: 100vw;
-    height: 18rem;
-    background: linear-gradient(90deg, #648CC9 0%, #285979 100%);
-    /* background: linear-gradient(90deg, #7DB1FF 0%, #2B70C9 100%); */
-    position: absolute;
-    left: 0%;
-    top: 160%;
-    z-index: -1;
+  width: 100%;
+  height: 18rem;
+  background: linear-gradient(90deg, #648cc9 0%, #285979 100%);
+  /* background: linear-gradient(90deg, #7DB1FF 0%, #2B70C9 100%); */
+  position: absolute;
+  left: 0%;
+  top: 160%;
+  z-index: -1;
 }
 
 .block-space {
-    width: 100%;
-    height: 8rem;
-    /* background-color: gray; */
+  width: 100%;
+  height: 8rem;
+  /* background-color: gray; */
 }

@@ -1,0 +1,233 @@
+
+.game {
+  
+}
+
+.quizPage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  // overflow: hidden;
+}
+
+.quizHeader {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  font-family: 'Nunito', sans-serif;
+
+  > * {
+    min-width: 80px;
+    padding: 0 20px;
+    &:not(:first-of-type) {
+      border-left: 1px solid #E4E4E4;
+    }
+  }
+
+  .quizHeaderExit {
+    width: 250px;
+  }
+
+  .quizHeaderScore {
+    display: flex;
+    font-size: 18px;
+    color: #817d7d;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1px;
+
+    > p {
+      margin-right: 25px;
+      margin-bottom: 0;
+      font-weight: 700;
+    }
+    div {
+      color: white;
+      background-color: #5DBCFB;
+      height: 35px;
+      min-width: 100px;
+      font-size: 24px;
+      box-shadow: 0px 0px 0px 5px rgba(187, 231, 255, 0.58);
+      border-radius: 10px;
+      padding: 0 20px;
+    }
+  }
+
+  .quizHeaderBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 40%;
+    color: #5DBCFB;
+    font-size: 15px;
+    p {
+      margin: 0;
+      // margin-top: 5px;
+    }
+  }
+
+  .quizHeaderTime {
+    display: flex;
+    font-size: 22px;
+    color: #817d7d;
+    align-items: center;
+    text-align: center;
+    
+    p {
+      margin: 0;
+    }
+  }
+
+  .quizHeaderButtons {
+    display: flex;
+    align-items: center;
+
+    > * {
+      &:not(:first-child) {
+        margin-left: 20px;
+      }
+
+      &:active {
+        transform: translateY(2px);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: #7ac5f7;
+      }
+
+      height: 60%;
+      width: 100px;
+
+      user-select: none;
+      -moz-user-select: none;
+      background-color: #5DBCFB;
+      color: white;
+      font-size: 18px;
+      box-shadow: 0px 2px 0px #47A3D7;
+      border-radius: 6px;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    svg {
+      width: 100%;
+    }
+
+    path {
+      fill: white;
+    }
+
+    button {
+      border: none;
+    }
+  }
+}
+
+.banner {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 87%;
+  left: 0%;
+
+  .bannerLeft {
+    position: relative;
+    left: 20px;
+    top: 10px;
+    z-index: 1;
+  }
+  .bannerRight {
+    transform: scaleX(-1);
+    position: relative;
+    right: 20px;
+    top: 10px;
+    z-index: 1;
+  }
+
+  .bannerBox {
+    display: flex;
+    align-items: center;
+    background-color: #E86D6D;
+    height: 42px;
+    width: auto;
+    min-width: 200px;
+    position: relative;
+    z-index: 2;
+  }
+  .bannerBoxText {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+
+    span {
+      &:not(:first-of-type) {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.gameView {
+  // display: block;
+  flex: 0.9;
+  height: calc(100vh - 70px);
+  min-width: 800px;
+  background-repeat: repeat;
+  background-image: url("../../assets/images/game/map-bg.svg");
+  background-color: #b8e5ff;
+  // padding-bottom: 15px;
+
+
+  .gameMapContainer {
+    // max-height: 80vh;
+    margin-top: 20px;
+    // min-width: 800px;
+    // overflow-x: scroll;
+    height: 100%;
+    display: flex;
+    background-image: url("../../assets/maps/europe_bg.svg");
+    background-repeat: no-repeat;
+    background-position: 50% -40px;
+    background-size: contain;
+    justify-content: center;
+    padding: 30px;
+    
+    svg {
+      height: 95%;
+      min-width: 800px;
+      position: relative;
+    }
+  }
+}
+
+.toolTip {
+  font-family: "Baloo Chettan", cursive;
+  font-size: 14px !important;
+  // text-transform: uppercase;
+  font-weight: normal;
+  background: rgba(49, 146, 40, 0.671) !important;
+  border-radius: 14px;
+  color: white;
+  height: 30px;
+  padding: 3px 10px;
+  
+  .place-bottom::before {
+    border-left: 10px solid rgba(0, 0, 0, 0.29) !important;
+  }
+}

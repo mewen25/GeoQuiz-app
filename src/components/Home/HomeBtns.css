@@ -7,13 +7,13 @@
   z-index: 1;
   /* font-family: 'Amiko', sans-serif; */
   /* font-family: "Baloo Chettan", cursive; */
-  font-family: 'Nunito', sans-serif;
-} 
+  font-family: "Nunito", sans-serif;
+}
 
 #home-slogan {
   text-align: center;
   color: white;
-  font-size: 70px;
+  font-size: 3rem;
   font-weight: 700;
   /* font-size: calc(2vw + 2vh); */
 }
@@ -43,10 +43,8 @@
 }
 
 #home-learnBtn {
-  background: #98E575;
-  /* font-size: 50px; */
-
-  box-shadow: 0px 4px 1px #88CC69;
+  background: #98e575;
+  box-shadow: 0px 4px 1px #88cc69;
   border-radius: 24px;
 }
 
@@ -59,9 +57,8 @@
 }
 
 #home-quizBtn {
-  background: #5ABAFF;
-  /* font-size: 50px; */
-  box-shadow: 0px 5px 0px #19AAE6;
+  background: #5abaff;
+  box-shadow: 0px 5px 0px #19aae6;
   border-radius: 24px;
 }
 
@@ -79,7 +76,7 @@
   height: 80px;
   text-align: center;
   line-height: 10px;
-  background: #98E575;
+  background: #98e575;
   border-radius: 30px;
   outline: none;
   border: none;

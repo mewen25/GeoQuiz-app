@@ -1,9 +1,9 @@
 .scroll-info-block {
-    width: 85rem;
-    height: 25rem;
-    /* background-color: lime; */
-    display: flex;
-    justify-content: center;
+  /* width: 85rem; */
+  height: 25rem;
+  /* background-color: lime; */
+  display: flex;
+  justify-content: center;
 }
 
 .info-block-img {
@@ -14,8 +14,8 @@
   /* width: 60%; */
 }
 .info-block-img img {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .info-block-content {

@@ -1,5 +1,4 @@
-
-.pre-game-modal, .end-game-modal {
+ .pre-game-modal, .end-game-modal {
     background: radial-gradient(51.22% 67.68% at 50% 50%, rgba(61, 85, 149, 0.5554) 0%, rgba(32, 45, 79, 0.81) 100%);
     font-family: 'Nunito', 'Sans-serif';
     .modal-dialog {
@@ -18,10 +17,45 @@
 
   #pre-game-title, #end-game-title {
     display: flex;
-    flex-direction: column;
+    flex-direction: flex;
     text-align: center;
     color: white;
-    font-size: 3em;
+    font-size: 30px;
+    background: #172C5E;
+    border-radius: 20px 20px 0px 0px;
+
+    #modal-back {
+      flex: 0.25;
+      color: #5DBCFB;
+      // background-color: #193E97;
+      font-size: 24px;
+      align-self: center;
+      padding: 5px 0;
+      // margin-right: 20%;
+      border-radius: 20px 20px 0px 0px;
+
+      &:hover {
+        background-color: #263d70;
+        cursor: pointer;
+      }
+    }
+    #modal-title-text {
+      // position: relative;
+      flex: 1;
+      text-align: center;
+      // left: 10%;
+    }
+    #modal-title-title {
+      flex: 0.25;
+    }
+
+    #modal-title-title {
+      display: flex;
+      width: 75%;
+      justify-content: flex-end;
+
+      
+    }
 
     #modal-sub {
       color: #7F8FAA;
@@ -34,9 +68,11 @@
   }
 
   .modal-body {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
+    background: rgba(0, 32, 111, 0.26);
+    border-radius: 0px 0px 20px 20px;
 
     > * {
         margin-bottom: 50px !important;
@@ -109,7 +145,7 @@
       }
     }
   }
- }
+ } 
 
  .end-game-modal {
    .modal-stat {

@@ -5,6 +5,7 @@ import AppliedRoute from "./components/Utils/AppliedRoute";
 //Pages
 // import Home from "./pages/Home/Home";
 import Home1 from "./pages/Home/Home1";
+import Home2 from "./cleanup/Home";
 import Game from "./pages/Game/Game";
 import GameSetup from "./components/Game/GameSetup";
 import Learn from "./pages/Learn/Learn";
@@ -19,6 +20,12 @@ export default ({ childProps }) => {
         path="/:contents"
         exact
         component={Contents}
+        props={childProps}
+      />
+      <AppliedRoute
+        path="/quiz/:continent"
+        exact
+        component={GameSetup}
         props={childProps}
       />
       <AppliedRoute

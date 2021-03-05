@@ -52,7 +52,7 @@ export const getFlag = (continent, mode, name) => {
   }
   return imgPath;
 };
- 
+
 export function sortDistance(country, data) {
   if (!data) return;
   let distances = [];
@@ -79,7 +79,6 @@ export function sortDistance(country, data) {
 export const getClose = (country, data) => {
   if (!country || !data || !data[country] || !data[country].latlng) return [];
   const list = sortDistance(country, data);
-  console.log(country, list, data);
 
   const questions = [];
   let rngs = [];
@@ -94,18 +93,17 @@ export const getClose = (country, data) => {
   const q1rng = Math.floor(Math.random() * 2);
   questions[0] = {
     name: list[q1rng].place.name,
-    value: list[q1rng].place.id ?? list[q1rng].place.name
+    value: list[q1rng].place.id ?? list[q1rng].place.name,
   };
   questions[1] = {
     name: list[rngs[0]].place.name,
-    value: list[rngs[0]].place.id ?? list[rngs[0]].place.name
+    value: list[rngs[0]].place.id ?? list[rngs[0]].place.name,
   };
   // questions[2] = list[rngs[1]].place.name;
   questions[2] = {
     name: data[country].name,
-    value: data[country].id ?? country
+    value: data[country].id ?? country,
   };
-  console.log(questions, data[country]);
   let final = _.shuffle(questions);
   return final;
 };
@@ -138,7 +136,6 @@ export function sortedData(country, data) {
       dist: d.dist,
     }))
     .sort((a, b) => a.dist - b.dist);
-  console.log("TESTING---", countryDist, distList);
 
   distances
     .sort((a, b) => a.dist - b.dist)
@@ -151,7 +148,6 @@ export function sortedData(country, data) {
         score: scoreThing,
       };
     });
-  console.log(distances);
   return {
     data,
     top: distances[distances.length - 1].dist,

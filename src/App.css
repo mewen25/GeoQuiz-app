@@ -9,32 +9,6 @@
   min-height: 100vh;
 }
 
-.header {
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 27px;
-  display: flex;
-  position: absolute;
-  margin-top: 10px;
-  height: 35px;
-  width: 95%;
-  align-self: center;
-}
-
-.header-nav {
-  width: 80%;
-  margin-left: 50px;
-  display: flex;
-  /* justify-content: space-around; */
-  color: white;
-  font-size: 24px;
-  font-family: "Baloo Chettan", cursive;
-  box-sizing: border-box;
-}
-
-.header-nav p {
-  padding-right: 4%;
-}
-
 .home-link {
   font-size: 25px;
   color: white;

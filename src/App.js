@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import "./styles/global.scss";
 import Routes from "./Routes";
 import Header from "./components/Utils/Header";
 

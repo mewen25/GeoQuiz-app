@@ -22,6 +22,7 @@ const CreateMap = React.memo(
     list,
     marks,
     total,
+    styles,
     scoreData = null,
     ...props
   }) => {
@@ -29,12 +30,10 @@ const CreateMap = React.memo(
       // const svgThing = svgPanZoom('#learn-map')
     }, []);
 
-    console.log(list, total);
-
     return (
-      <div className="game-map-container">
+      <div className={styles.gameMapContainer}>
         <svg
-          className="game-map"
+          className={styles.gameMap}
           id="learn-map"
           // preserveAspectRatio="xMidYMid meet"
           viewBox={svgData.viewBox ?? "0 0 898 690"}
@@ -44,6 +43,8 @@ const CreateMap = React.memo(
               ? { pointerEvents: "none", overflow: "hidden" }
               : { overflow: "hidden" }
           }
+          data-tip="true"
+          data-for="search"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           xmlnsEv="http://www.w3.org/2001/xml-events"
@@ -64,12 +65,22 @@ const CreateMap = React.memo(
             colour={colour}
             mousePos={mousePos}
             mode={mode}
+            styles={styles}
             find={find}
             scoreData={scoreData}
           />
           {/* </g> */}
         </svg>
-        <ReactTooltip id="search" delayShow="150" className="custom-color" backgroundColor="rgba(51, 141, 49, 0.94)" borderColor="#368334" place="bottom" type="error" effect="float">
+        <ReactTooltip
+          id="search"
+          // delayShow="0"
+          className={styles.toolTip}
+          // backgroundColor="rgba(51, 141, 49, 0.94)"
+          // borderColor="#368334"
+          place="bottom"
+          // type="error"
+          effect="float"
+        >
           <div className="quiz-tooltip">
             <span>{search}?</span>
             {/* <Question /> */}

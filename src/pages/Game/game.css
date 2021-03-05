@@ -37,7 +37,7 @@
 }
 .quiz-country {
   /* stroke: #deefff;
-  stroke-width: 0.8px; */
+  stroke-width: 2.8px; */
 }
 
 .quiz-country:not(.complete):hover {
@@ -295,4 +295,3 @@
     line-height: 30px;
   }
 }
-

@@ -14,10 +14,9 @@ import {
 
 import EndModal from "./Modal/EndModal";
 
-import { ReactComponent as Exit } from "../../assets/images/game/exit.svg";
-
 import NormalLayout from "./NormalLayout";
 import MultipleChoice from "./MultipleChoiceLayout";
+import NewLayout from "./NewLayout";
 // import HintedLayout from "./HintedLayout";
 
 import QuizInfos from "./Infos/QuizInfos";
@@ -30,10 +29,13 @@ import "./quiz.css";
 import svgData from "../../data/mapData/Continents/Europe/old/svgData";
 // import { useTimer } from "use-timer";
 
+import styles from "./quiz.module.scss";
+import Banner from "./Banner/Banner";
 
 const countryColours = {
   blue: ["#CBE0ED", "#CCE3F2"],
-  green: ["#caf0d6", "#c2e9cd"],
+  // green: ["#6FB191", "#79D3A7"],
+  green: ["#6FB191", "#6FB191"],
   yellow: ["#F5E158", "#FCEB7B"],
   red: ["#F55858", "#FC7B7B"],
 };
@@ -46,7 +48,7 @@ const guiColours = {
 
 function QuizPage({ show, data }) {
   // const gameTimer = useTimer();
-  const [theme, setTheme] = useState("blue");
+  const [theme, setTheme] = useState("green");
   const [finished, setFinished] = useState(false);
   const [find, setFind] = useState({
     data: data?.data,
@@ -90,6 +92,7 @@ function QuizPage({ show, data }) {
       time: 0,
     },
   });
+  const [guessTime, setGuessTime] = useState(0);
   const [currentAttempts, setCurrentAttempts] = useState(0);
   const continent = data.continent;
   const [listArr, setListArr] = useState([]);
@@ -97,6 +100,10 @@ function QuizPage({ show, data }) {
   const [mousePos, setMousePos] = useState({
     x: 0,
     y: 0,
+  });
+  const [pointsFeedback, setPointsFeedback] = useState({
+    points: 0,
+    state: false,
   });
 
   useEffect(() => {
@@ -121,7 +128,11 @@ function QuizPage({ show, data }) {
 
   useEffect(() => {
     // if(!show) gameTimer.start();
-  }, [show])
+  }, [show]);
+
+  useEffect(() => {
+    console.log("GUESS TIME", guessTime);
+  }, [guessTime]);
 
   // const moveOnSvg = (e) => {
   //   // console.log(e.clientX, mousePos.x);
@@ -147,9 +158,9 @@ function QuizPage({ show, data }) {
       appendSVGChild("circle", place, {
         class: "small-helper",
         fill: `${small.styles[0]}`,
-        cx: `${bbox.x + 5}`,
-        cy: `${bbox.y + 5}`,
-        r: "10",
+        cx: `${bbox.x + 2}`,
+        cy: `${bbox.y + 2}`,
+        r: "5",
       });
     }
   }, [find?.smalls]);
@@ -160,7 +171,6 @@ function QuizPage({ show, data }) {
       if (!place) continue;
       const bbox = place.getBBox();
       const path = place.children[0];
-      console.log(assist, bbox);
       if (assist.assist === "ring") {
         if (bbox.width > 10 || bbox.height > 10) {
           appendSVGChild("ellipse", place, {
@@ -211,7 +221,6 @@ function QuizPage({ show, data }) {
 
   const updateMousePosition = (ev) => {
     setMousePos({ x: ev.clientX, y: ev.clientY });
-    console.log(ev.clientX, ev.clientY);
   };
 
   useEffect(() => {
@@ -230,6 +239,13 @@ function QuizPage({ show, data }) {
       animate(".quiz-circle", "circle-complete", "", true);
   }, [find.previous]);
 
+  useEffect(() => {
+    // if (!guessTime || guessTime < 1) return;
+    if (find.list.length === find.totals.all) return;
+
+    manageScore("correct");
+  }, [guessTime]);
+
   const getFind = () => {
     const totalCountries = find.totals.all;
     if (guesses.answers.correct.length < totalCountries && find.list[0]) {
@@ -239,8 +255,8 @@ function QuizPage({ show, data }) {
       const distScored = sortedData(
         find.data[find.list[0]?.id] || place,
         find.data
-      ); 
-      console.log(distSorted, distScored);
+      );
+      // console.log(distSorted, distScored);
       // console.log(place, find.data);
       setFind((prevData) => ({
         ...prevData,
@@ -254,15 +270,14 @@ function QuizPage({ show, data }) {
           sorted: distScored,
         },
       }));
-    }
-    else {
+    } else {
       setFinished(true);
     }
   };
 
   const handleClick = (event) => {
     let clicked = event?.currentTarget?.id || event;
-    if(clicked.value) clicked = clicked.value;
+    if (clicked.value) clicked = clicked.value;
     const list = find.data;
     if (list[clicked].class.includes("complete")) return;
 
@@ -278,7 +293,7 @@ function QuizPage({ show, data }) {
     let newPoints;
     const maxPoints = 200;
     let score = guesses.score.score;
-    const thisTime = 0; //time;
+    const thisTime = guessTime; //time;
     if (state === "correct") {
       newPoints = Math.min(
         Math.max(maxPoints - thisTime * 10, maxPoints * 0.5),
@@ -302,15 +317,23 @@ function QuizPage({ show, data }) {
         ...prev,
         score: {
           ...prev.score,
-          score: score + newPoints,
+          score: prev.score.score + newPoints,
         },
       }));
     }
-    // setPointFeedback({
-    //   points: newPoints,
-    //   state: true,
+    const map = document.querySelector("#learn-map");
+    // appendSVGChild("circle", map, {
+    //   class: "points",
+    //   fill: `#5DBCFB`,
+    //   cx: `${mousePos.x}`,
+    //   cy: `${mousePos.y}`,
+    //   r: "10",
     // });
-    // animate("#game-pointsScore", "fadeOutUp", false, true);
+    setPointsFeedback({
+      points: newPoints,
+      state: true,
+    });
+    animate("#game-pointsScore", "fadeOutUp", null, true);
   };
 
   const animate = (element, animation, prefix = "animate__", custom = false) =>
@@ -367,17 +390,43 @@ function QuizPage({ show, data }) {
   const handleShow = () => {};
 
   return (
-    <div className="game" bg={theme}>
-      <div className="quiz-page">
-        <Exit className="exit" onClick={() => history.push("/")} />
-        {/* <QuizHeader /> */}
-        {finished && <EndModal info={{
-          title: "Total Score",
-          sub: "0"
-        }} />}
-        <ThemeSwitch theme={theme} setTheme={setTheme} />
+    <div className={styles.game} bg={theme}>
+      <div className={styles.quizPage}>
+        {pointsFeedback.state ? (
+          <p
+            id="game-pointsScore"
+            style={{
+              color: pointsFeedback.points > 0 ? "#5DBCFB" : "#b95353",
+              left: mousePos.x,
+              top: mousePos.y - 40,
+            }}
+          >{`${pointsFeedback.points > 0 ? "+" : ""}${
+            pointsFeedback.points
+          }`}</p>
+        ) : (
+          <p id="game-pointsScore"></p>
+        )}
+        <Banner />
+        <QuizHeader
+          history={history}
+          gameScore={guesses.score}
+          total={find.totals.all}
+          show={show}
+          handles={{ handleSkip, handleShow }}
+          setGuessTime={setGuessTime}
+          place={find?.simple?.name}
+        />
+        {finished && (
+          <EndModal
+            info={{
+              title: "Total Score",
+              sub: "0",
+            }}
+          />
+        )}
+        {/* <ThemeSwitch theme={theme} setTheme={setTheme} /> */}
         {data.layout === "normal" ? (
-          <NormalLayout
+          <NewLayout
             find={find}
             guesses={guesses}
             guiColour={guiColours[theme]}
@@ -387,6 +436,7 @@ function QuizPage({ show, data }) {
             handleSkip={handleSkip}
             handleClick={handleClick}
             data={data}
+            styles={styles}
             // time={gameTimer.time}
             mousePos={mousePos}
           />
@@ -428,7 +478,6 @@ function QuizPage({ show, data }) {
     const isCorrect =
       place === find.simple?.id || place === find.simple.name ? true : false;
     if (isCorrect) {
-      manageScore("correct");
       setFind((prevData) => ({
         ...prevData,
         list: prevData.list.filter((c) => c !== place),

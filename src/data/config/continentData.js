@@ -46,27 +46,30 @@ export default {
     mode: {
       countries: {
         title: "Countries",
+        quizType: "countries",
         time: two,
         findAmount: 49,
         map: EuropeCountries,
         data: EuropeData,
       },
-      'countries-multiple-choice': {
+      "countries-multiple-choice": {
         title: "Countries (Multiple Choice)",
+        quizType: "countries",
         time: two,
         findAmount: 49,
         map: EuropeCountries,
         data: EuropeData,
-        layout: "multipleChoice"
+        layout: "multipleChoice",
       },
-      'countries-hinted': {
+      "countries-hinted": {
         title: "Countries (Hinted)",
+        quizType: "countries",
         time: two,
         findAmount: 49,
         map: EuropeCountries,
         data: EuropeData,
-        layout: "hinted"
-      }
+        layout: "hinted",
+      },
       // capitals: {
       //   title: "Capitals",
       //   time: five,
@@ -83,6 +86,7 @@ export default {
     mode: {
       countries: {
         title: "Countries",
+        quizType: "countries",
         time: two,
         findAmount: 23,
         map: NAMap,
@@ -90,11 +94,12 @@ export default {
       },
       "countries-multiple-choice": {
         title: "Countries (Multiple Choice)",
+        quizType: "countries",
         time: two,
         findAmount: 23,
         map: NAMap,
         data: NorthAmericaData,
-        layout: "multipleChoice"
+        layout: "multipleChoice",
       },
       // capitals: {
       //   title: "Capitals",
@@ -105,6 +110,7 @@ export default {
       // },
       states: {
         title: "US States",
+        quizType: "countries",
         time: five,
         findAmount: 50,
         map: StatesMap,
@@ -126,19 +132,21 @@ export default {
     mode: {
       countries: {
         title: "Countries",
+        quizType: "countries",
         time: two,
         findAmount: 55,
         map: AfricaMap,
         data: AfricaData,
       },
-      'countries-multiple-choice': {
+      "countries-multiple-choice": {
         title: "Countries (Multiple Choice)",
+        quizType: "countries",
         time: two,
         findAmount: 55,
         map: AfricaMap,
         data: AfricaData,
-        layout: "multipleChoice"
-      }
+        layout: "multipleChoice",
+      },
       // capitals: {
       //   title: "Capitals",
       //   time: five,
@@ -155,19 +163,21 @@ export default {
     mode: {
       countries: {
         title: "Countries",
+        quizType: "countries",
         time: two,
         findAmount: 48,
         map: AsiaMap,
         data: AsiaData,
       },
-      'countries-multiple-choice': {
+      "countries-multiple-choice": {
         title: "Countries (Multiple Choice)",
+        quizType: "countries",
         time: two,
         findAmount: 48,
         map: AsiaMap,
         data: AsiaData,
-        layout: "multipleChoice"
-      }
+        layout: "multipleChoice",
+      },
       // capitals: {
       //   title: "Capitals",
       //   time: five,
@@ -184,6 +194,7 @@ export default {
     mode: {
       countries: {
         title: "Countries",
+        quizType: "countries",
         time: two,
         findAmount: 13,
         map: SAMap,
@@ -205,6 +216,7 @@ export default {
     mode: {
       countries: {
         title: "Countries",
+        quizType: "countries",
         time: two,
         findAmount: 14,
         map: OceaniaMap,

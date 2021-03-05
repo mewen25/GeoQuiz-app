@@ -1,0 +1,184 @@
+
+.home-main-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+
+    .home-buttons {
+        flex: 1;
+    }
+
+    .home-world {
+        flex: 1;
+    }
+}
+
+.scrollpage1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 5rem;
+  justify-content: center;
+}
+
+.header {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 27px;
+    // display: flex;
+    position: absolute;
+    margin-top: 10px;
+    height: 35px;
+    width: 95%;
+    align-self: center;
+  }
+  
+  .header-nav {
+    width: 80%;
+    margin-left: 50px;
+    // display: flex;
+    /* justify-content: space-around; */
+    color: white;
+    font-size: 24px;
+    font-family: "Baloo Chettan", cursive;
+    box-sizing: border-box;
+  }
+  
+  .header-nav p {
+    padding-right: 4%;
+  }
+
+.scroll-cards-modes {
+  display: flex;
+  justify-content: center;
+}
+
+.cards-show {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 80rem;
+
+    .mode-card {
+      max-width: 19rem;
+      display: flex;
+
+      .card-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        padding: 30px 20px;
+        max-height: 200px;
+
+        h5 {
+          justify-self: flex-end;
+        }
+      }
+      .card-bottom {
+        flex: 1;
+        img {
+          height: 100%;
+        }
+      }
+    }
+ 
+    > div {
+      margin: 0 20px;
+    }
+    /* width: 1200px; */
+}
+
+// @media (max-width: 1200px) {
+//     .home-page-top-content {
+//       flex-direction: column-reverse;
+//       justify-content: center;
+//     }
+//     #world-img {
+//       max-width: 500px;
+//       max-height: 500px;
+//       width: 100%;
+//       height: 100%;
+//     }
+//   }
+
+.scroll-quizzesButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 5rem;
+  max-width: 40rem;
+  height: 80px;
+
+  svg {
+    height: 60%;
+  }
+
+  button {
+    background-color: #fff;
+    border: 1px solid #285979;
+    color: #285979;
+    font-size: 24px;
+    border-radius: 35px;
+    width: 270px;
+    height: 80%;
+    margin: 0 10px;
+    transition: .4s;
+    // text-align: center;
+
+    &:hover {
+      cursor: pointer;
+      // background-color: #e5f5ff;
+    }
+
+  }
+}
+
+.header {
+  width: 100%;
+  height: 70px;
+  border-radius: 0px;
+  margin-top: 0;
+  position: relative;
+  display: flex;
+  background-color: #295C7D;
+  font-family: 'Nunito';
+
+  span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  > span {
+    flex: 0.22;
+    min-width: 200px;
+    max-width: 300px;
+  }
+
+  div {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    margin-right: 50px;
+    letter-spacing: 0.15em;
+    // height: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .header-logo {
+    align-self: center;
+    height: 35px;
+    margin-bottom: 5px;
+    img {
+      vertical-align: unset;
+    }
+  }
+}
