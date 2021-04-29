@@ -99,7 +99,7 @@ const MapElements = (props) => {
     // const distanceScore = tempCol ? tempCol : {};
 
     const answer =
-      props.mapData[id] && props.mapData[id].name === props.find
+      props.mapData[id] && props.mapData[id].name === props?.search
         ? {
             ["data-answer"]: true,
           }
@@ -109,7 +109,7 @@ const MapElements = (props) => {
       key: index,
       // style: {animationDelay: `${randomDelay}s`},
       id: id,
-      onClick: props.mapData[id] && props.handleClick,
+      onClick: !props.locked && props.mapData[id] && props.handleClick,
       className: `${
         (props.mapData[id] && props.mapData[id].class.join(" ")) || `other`
       }${
@@ -119,11 +119,10 @@ const MapElements = (props) => {
       }`,
       ["data-small"]: smalls,
       ["data-assist"]: assist,
-      // ["data-tip"]:
-      //   (props.mapData[id] &&
-      //     !props.mapData[id].class.includes(["complete", "other"])) ||
-      //   false,
-      // ["data-for"]: "search",
+      ["data-tip"]: props.mapData?.[id]?.name,
+      ["data-for"]: !props.locked && "search",
+      ["data-place"]: props?.mapData?.[id]?.toolTipPos ?? null,
+      ["data-offset"]: props?.mapData?.[id]?.toolTipOffset ?? null,
       ["data-attempts"]:
         props.mapData[id] && props.mapData[id].finished
           ? props.mapData[id].finished

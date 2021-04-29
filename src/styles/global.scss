@@ -1,6 +1,7 @@
 
 .home-main-container {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     height: 100%;
     margin-top: 100px;
@@ -11,6 +12,38 @@
 
     .home-world {
         flex: 1;
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+    }
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column-reverse;
+
+      .home-world {
+        width: 70%;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      #home-slogan {
+        font-size: 2.5rem;
+        width: 100%;
+        // max-width: 80%;
+      }
+
+      .home-btns-panel {
+        // max-width: 80%;
+      }
+      
+      .home-world {
+        width: auto;
+        max-width: 80%;
+      }
+
+      .selectable {
+        width: 100%;
+      }
     }
 }
 
@@ -21,6 +54,14 @@
   height: 100%;
   padding-top: 5rem;
   justify-content: center;
+
+  @media screen and (max-width: 700px) {
+    .mode-card {
+      margin: 0;
+      margin-top: 20px;
+    }  
+  }
+
 }
 
 .header {
@@ -32,6 +73,7 @@
     height: 35px;
     width: 95%;
     align-self: center;
+    max-width: 80%;
   }
   
   .header-nav {
@@ -112,6 +154,10 @@
   max-width: 40rem;
   height: 80px;
 
+  @media screen and (max-width: 700px) {
+    max-width: 80%;
+  }
+
   svg {
     height: 60%;
   }
@@ -141,13 +187,13 @@
   height: 70px;
   border-radius: 0px;
   margin-top: 0;
-  position: relative;
+  position: fixed;
+  z-index: 999;
   display: flex;
   background-color: #295C7D;
   font-family: 'Nunito';
 
   span {
-    flex: 1;
     display: flex;
     align-items: center;
   }
@@ -158,7 +204,7 @@
     max-width: 300px;
   }
 
-  div {
+  div, a {
     display: inline-block;
     font-size: 18px;
     font-weight: 800;
@@ -170,6 +216,7 @@
 
     &:hover {
       cursor: pointer;
+      color: whitesmoke;
     }
   }
 
@@ -177,8 +224,125 @@
     align-self: center;
     height: 35px;
     margin-bottom: 5px;
+    margin-left: 15px;
     img {
       vertical-align: unset;
     }
   }
+}
+
+.multipleChoice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  width: auto;
+  height: 100%;
+
+  &[data-selected="false"] {
+    .box:hover {
+        cursor: pointer;
+        background-color: rgb(255, 254, 185) 
+    }
+  }
+
+  .animateIn {
+    .box:nth-child(1) {
+      animation: ease-in-out animateIn 0.4s;
+      animation-delay: 0s
+    }
+    .box:nth-child(2) {
+      animation: ease-in-out  animateIn 0.4s;
+      animation-delay: 0.15s;
+    }
+    .box:nth-child(3) {
+      animation: ease-in-out  animateIn 0.4s;
+      animation-delay: 0.35s;
+    }
+  }
+  
+  .box {
+    display: flex;
+    align-items: center;
+    color:#454545;
+    height: 50px;
+    width: 300px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 0.095em;
+    font-family: Nunito;
+  
+  
+    &:focus {
+      outline: none;
+    }
+    div:first-of-type {
+      font-size: 20px;
+      align-self: left;
+      margin-left: 10px;
+      left: 2px;
+      color: #989898
+    }
+
+    div:last-of-type {
+      font-size: 24px;
+      width: calc(100% - 40px);
+    }    
+      
+  }
+  
+  .correct { 
+    .box[data-status="correct"] {
+      animation: ease-in correct 1.3s;
+    }
+    
+    // .key {
+    //   color: #73A65C;
+    // }
+  }
+  .wrong {
+    .box[data-status="wrong"] {
+      animation: ease-in wrong 1.6s;
+    }
+  
+    // .key {
+    //   color: #AF2D2D;
+    // }
+  }
+
+}
+
+@keyframes animateIn {
+  50% {
+    width: 150px;
+    height: 25px;
+  }
+  100% {
+    width: 300px;
+    height: 50px;
+  }
+}
+
+@keyframes correct {
+  30% {
+    background-color: #98E575;
+    box-shadow: 0px 0px 1px 8px #D2FECB;
+  }
+  
+}
+
+@keyframes wrong {
+  30% {
+    background-color: #F55858;
+    box-shadow: 0px 0px 0px 7px #FFB6B6;
+  }
+  70% {
+    background-color: #F55858;
+    box-shadow: 0px 0px 0px 7px #FFB6B6;
+  }
+
 }

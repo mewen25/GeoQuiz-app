@@ -7,8 +7,16 @@ export default function SmallsPanel({ smalls, handleClick }) {
   return (
     <div className="small-place-panel">
       {/* <h2>{hovered}</h2> */}
-      {smalls.map((s) => (
-        <div className={`small-place-btn sb-${s.id || s.name}${s.class.includes("complete") ? " disabled-btn" : ""}`} onClick={() => handleClick(s.id || s.name)} onMouseOver={() => setHovered(s.id || s.name)} onMouseLeave={() => setHovered(null)}>
+      {smalls.map((s, idx) => (
+        <div
+          key={idx}
+          className={`small-place-btn sb-${s.id || s.name}${
+            s.class.includes("complete") ? " disabled-btn" : ""
+          }`}
+          onClick={() => handleClick(s.id || s.name)}
+          onMouseOver={() => setHovered(s.id || s.name)}
+          onMouseLeave={() => setHovered(null)}
+        >
           <Small />
         </div>
       ))}

@@ -6,7 +6,7 @@ import { ReactComponent as BtnSvg } from "../../../assets/images/game/skipBtn.sv
 export default ({ handleSkip, handleShow }) => {
   return (
     <>
-      <button onClick={handleSkip}>Reveal</button>
+      <button onClick={handleShow}>Reveal</button>
       <div>
         <BtnSvg />
       </div>

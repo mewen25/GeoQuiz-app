@@ -5,7 +5,6 @@ export default {
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
     latlng: [41, 20],
-
   },
   Andorra: {
     name: "Andorra",
@@ -15,8 +14,7 @@ export default {
       order: 5,
     },
     styles: ["#4A9B61", "#5FD981"],
-    latlng: [42.5, 1.5]
-
+    latlng: [42.5, 1.5],
   },
   Austria: {
     name: "Austria",
@@ -24,7 +22,6 @@ export default {
     class: ["quiz-country"],
     styles: ["#4A9B61", "#5FD981"],
     latlng: [47.33333333, 13.33333333],
-
   },
   Azerbaijan: {
     name: "Azerbaijan",
@@ -118,6 +115,7 @@ export default {
       animal: "brown bear",
     },
     name: "Finland",
+    // toolTipPos: "left",
     capital: "Helsinki",
     class: ["quiz-country"],
     latlng: [64, 26],
@@ -303,6 +301,7 @@ export default {
       animal: "Moose",
     },
     name: "Norway",
+    // toolTipPos: "left",
     capital: "Oslo",
     class: ["quiz-country"],
     latlng: [62, 10],
@@ -333,6 +332,8 @@ export default {
     name: "Russia",
     capital: "Moscow",
     class: ["quiz-country"],
+    // toolTipPos: "left",
+    // toolTipOffset: "{'left: 25}",
     latlng: [60, 100],
     styles: ["#4A9B61", "#5FD981"],
   },
@@ -382,6 +383,7 @@ export default {
       language: "Swedish",
       animal: "Moose/Elk",
     },
+    // toolTipPos: "left",
     name: "Sweden",
     capital: "Stockholm",
     class: ["quiz-country"],

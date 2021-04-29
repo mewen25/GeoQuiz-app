@@ -24,6 +24,7 @@ export default function PreQuizModal({
   content,
   gameStart,
   modeSelected = "default",
+  modalModes,
 }) {
   const history = useHistory();
   const [mode, setMode] = useState(modeSelected);
@@ -46,24 +47,10 @@ export default function PreQuizModal({
         </Button> */}
       <Modal.Body>
         <div className="pre-modal-modes">
-          <ModalMode
-            label="Default"
-            modeName="default"
-            selected={mode}
-            setSelected={setMode}
-          />
-          <ModalMode
-            label="Multiple Choice"
-            modeName="multiple-choice"
-            selected={mode}
-            setSelected={setMode}
-          />
-          <ModalMode
-            label="Hinted"
-            modeName="hinted"
-            selected={mode}
-            setSelected={setMode}
-          />
+          {modalModes &&
+            modalModes.map((m) => (
+              <ModalMode {...m} selected={mode} setSelected={setMode} />
+            ))}
         </div>
         <SimpleButton name="Start" onClick={() => gameStart(mode)} />
         {/* <Button variant="info" size="lg" name="Start" onClick={gameStart} /> */}

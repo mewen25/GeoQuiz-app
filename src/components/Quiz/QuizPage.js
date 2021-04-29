@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import useSound from "use-sound";
 
 import {
   assignColour,
@@ -11,6 +12,9 @@ import {
   sortDistance,
   sortedData,
 } from "../../utils/quizFunctions";
+
+import CorrectSFX from "../../assets/sounds/Correct4.mp3";
+import WrongSFX from "../../assets/sounds/Wrong4.mp3";
 
 import EndModal from "./Modal/EndModal";
 
@@ -46,10 +50,18 @@ const guiColours = {
   red: ["#90AEDB", "#fff"],
 };
 
-function QuizPage({ show, data }) {
+function QuizPage({
+  show,
+  setShow,
+  data,
+  setFinished,
+  finished,
+  quizType,
+  setResults,
+}) {
   // const gameTimer = useTimer();
   const [theme, setTheme] = useState("green");
-  const [finished, setFinished] = useState(false);
+  // const [finished, setFinished] = useState(false);
   const [find, setFind] = useState({
     data: data?.data,
     savedData: Object.assign(data?.data, {}),
@@ -76,6 +88,7 @@ function QuizPage({ show, data }) {
       total: 0,
       current: 0,
     },
+    bgImg: data?.bgImage,
   });
   const [guesses, setGuesses] = useState({
     current: undefined,
@@ -101,12 +114,32 @@ function QuizPage({ show, data }) {
     x: 0,
     y: 0,
   });
-  const [pointsFeedback, setPointsFeedback] = useState({
-    points: 0,
-    state: false,
+  const [pointsFeedback, setPointsFeedback] = useState([]);
+  const [quizCircles, setQuizCircles] = useState([]);
+
+  const correctSound = useSound(CorrectSFX, {
+    playbackRate: 1.8,
+    volume: 0.3,
+  });
+  const wrongSound = useSound(WrongSFX, {
+    playbackRate: 1.2,
   });
 
+  function getResults() {
+    return {
+      ...guesses.score,
+      marks: `${guesses.answers.correct.length} / ${find.totals.all}`,
+      // time: find.timer.total,
+      accuracy: Math.round(
+        (guesses.answers.correct.length /
+          (guesses.score.misses + find.totals.all)) *
+          100
+      ),
+    };
+  }
+
   useEffect(() => {
+    console.log("updatiing?1");
     const smalls = Object.values(data.data)
       .reduce((acc, cur) => {
         return cur.small ? [...acc, cur] : [...acc];
@@ -121,9 +154,9 @@ function QuizPage({ show, data }) {
       assists: assists,
     }));
 
-    window.addEventListener("click", updateMousePosition);
+    // window.addEventListener("click", updateMousePosition);
 
-    return () => window.removeEventListener("click", updateMousePosition);
+    // return () => window.removeEventListener("click", updateMousePosition);
   }, []);
 
   useEffect(() => {
@@ -131,7 +164,7 @@ function QuizPage({ show, data }) {
   }, [show]);
 
   useEffect(() => {
-    console.log("GUESS TIME", guessTime);
+    // console.log("GUESS TIME", guessTime);
   }, [guessTime]);
 
   // const moveOnSvg = (e) => {
@@ -150,12 +183,20 @@ function QuizPage({ show, data }) {
   //   console.log(Math.abs(mousePos.x - bbox.x), Math.abs(mousePos.y - bbox.y));
   // }, []);
 
+  const getCountryPos = (place, bounding = false) => {
+    const element = document.querySelector(`#${place.id || place.name}`);
+    if (!element) return null;
+    const bbox = bounding ? element.getBoundingClientRect() : element.getBBox();
+    return { element, bbox };
+  };
+
   useEffect(() => {
+    console.log("updatiing?2");
+
     for (var small of find.smalls) {
-      const place = document.querySelector(`#${small.id || small.name}`);
-      if (!place) continue;
-      const bbox = place.getBBox();
-      appendSVGChild("circle", place, {
+      const { element, bbox } = getCountryPos(small);
+      if (!bbox) continue;
+      appendSVGChild("circle", element, {
         class: "small-helper",
         fill: `${small.styles[0]}`,
         cx: `${bbox.x + 2}`,
@@ -166,6 +207,7 @@ function QuizPage({ show, data }) {
   }, [find?.smalls]);
 
   useEffect(() => {
+    console.log("updatiing?3");
     for (var assist of find.assists) {
       const place = document.querySelector(`#${assist.id || assist.name}`);
       if (!place) continue;
@@ -224,6 +266,8 @@ function QuizPage({ show, data }) {
   };
 
   useEffect(() => {
+    console.log("updatiing?4");
+
     if (!find.data) return;
     setFind((prevData) => ({
       ...prevData,
@@ -232,21 +276,75 @@ function QuizPage({ show, data }) {
   }, [theme]);
 
   useEffect(() => {
-    if (!find.previous) return;
+    console.log("updatiing?5");
+    if (!find.previous || find.animSkip) return;
+
     // animate(find.previous, "pulsey", "", true);
     // animate(".quiz-page", "wipe", "", true);
-    if (currentAttempts < 1)
-      animate(".quiz-circle", "circle-complete", "", true);
+    if (currentAttempts < 1) {
+      const newID = Math.floor(Math.random() * 9999);
+      console.log("NEW CIRCLE", newID, [mousePos.x, mousePos.y]);
+      setQuizCircles((prev) => [
+        ...prev,
+        {
+          id: newID,
+          animation: "circle-complete",
+          state: true,
+          position: [mousePos.x, mousePos.y + 5],
+        },
+      ]);
+      //animate(".quiz-circle", "circle-complete", "", true);
+    }
   }, [find.previous]);
+
+  useEffect(() => {
+    console.log("updatiing?6");
+    if (quizType === "multipleChoice") return;
+    if (
+      pointsFeedback.length > 0 &&
+      pointsFeedback.some((p) => p.state === true)
+    ) {
+      setPointsFeedback((prev) =>
+        prev.map((p) => {
+          if (p.state === true && !find.animSkip) {
+            animate(`#game-points-${p.id}`, "fadeOutUp");
+            return { ...p, state: false };
+          } else return p;
+        })
+      );
+    }
+  }, [pointsFeedback]);
+
+  useEffect(() => {
+    console.log("updatiing?7");
+    if (quizCircles.length > 0 && quizCircles.some((c) => c.state === true)) {
+      setQuizCircles((prev) =>
+        prev.map((p) => {
+          if (p.state === true && !find.animSkip) {
+            animate(`#quiz-circle-${p.id}`, p.animation, "", true);
+            return { ...p, state: false };
+          } else return p;
+        })
+      );
+    }
+  }, [quizCircles]);
 
   useEffect(() => {
     // if (!guessTime || guessTime < 1) return;
     if (find.list.length === find.totals.all) return;
 
-    manageScore("correct");
+    // manageScore("correct");
   }, [guessTime]);
 
+  function handleMouseMove(e) {
+    const { clientX, clientY } = e;
+    setMousePos({ x: clientX, y: clientY });
+  }
+
   const getFind = () => {
+    if (quizType === "learn") {
+    }
+
     const totalCountries = find.totals.all;
     if (guesses.answers.correct.length < totalCountries && find.list[0]) {
       setCurrentAttempts(0);
@@ -256,8 +354,6 @@ function QuizPage({ show, data }) {
         find.data[find.list[0]?.id] || place,
         find.data
       );
-      // console.log(distSorted, distScored);
-      // console.log(place, find.data);
       setFind((prevData) => ({
         ...prevData,
         simple: {
@@ -272,10 +368,13 @@ function QuizPage({ show, data }) {
       }));
     } else {
       setFinished(true);
+      setResults(getResults());
     }
   };
 
-  const handleClick = (event) => {
+  function handleClick(event, options = {}) {
+    if (quizType === "learn") return;
+
     let clicked = event?.currentTarget?.id || event;
     if (clicked.value) clicked = clicked.value;
     const list = find.data;
@@ -286,8 +385,8 @@ function QuizPage({ show, data }) {
       ...prevData,
       current: place,
     }));
-    handleGuess(place);
-  };
+    handleGuess(place, false, options);
+  }
 
   const manageScore = (state) => {
     let newPoints;
@@ -329,23 +428,34 @@ function QuizPage({ show, data }) {
     //   cy: `${mousePos.y}`,
     //   r: "10",
     // });
-    setPointsFeedback({
-      points: newPoints,
-      state: true,
-    });
-    animate("#game-pointsScore", "fadeOutUp", null, true);
+    const newID = Math.floor(Math.random() * 9999);
+    console.log("NEW points", newPoints, newID, [mousePos.x, mousePos.y]);
+    setPointsFeedback((prev) => [
+      ...prev,
+      {
+        id: newID,
+        points: newPoints,
+        state: true,
+        position: [mousePos.x, mousePos.y],
+      },
+    ]);
+    // animate("#game-points", "fadeOutUp", undefined, false);
   };
 
-  const animate = (element, animation, prefix = "animate__", custom = false) =>
-    new Promise((resolve, reject) => {
+  const animate = async (
+    element,
+    animation,
+    prefix = "animate__",
+    custom = false
+  ) =>
+    new Promise(async (resolve, reject) => {
       var classes = [];
       if (!custom) classes.push(`${prefix}animated`);
       classes.push(`${!custom ? prefix : ""}${animation}`);
       // const animationName = `${!custom ? prefix : ""}${animation}`;
-      const node =
-        document.querySelector(element) ??
-        document.querySelector(`#${element}`);
-
+      // await sleep(5000);
+      const node = document.querySelector(element);
+      if (!node) return;
       if (!custom) node.classList.add(classes[0], classes[1]);
       else node.classList.add(classes[0]);
       // node.classList.add([...classes]);
@@ -353,6 +463,19 @@ function QuizPage({ show, data }) {
       function handleAnimationEnd() {
         if (!custom) node.classList.remove(classes[0], classes[1]);
         else node.classList.remove(classes[0]);
+
+        if (animation === "fadeOutUp") {
+          setPointsFeedback((prev) => {
+            console.log(element.split("-")[2]);
+            return prev.filter(
+              (p, i) => p.id === Number(element.split("-"[2]))
+            );
+          });
+        } else if (animation === "circle-complete") {
+          setQuizCircles((prev) => {
+            return prev.filter((p) => p.id === Number(element.split("-"[2])));
+          });
+        }
 
         // node.classList.remove([...classes]);
         node.removeEventListener("animationend", handleAnimationEnd);
@@ -366,16 +489,55 @@ function QuizPage({ show, data }) {
   function animatee(name, animation, custom = false, instruction = false) {
     const node =
       document.querySelector(name) ?? document.querySelector(`#${name}`);
-    console.log("name", name, node);
     node.classList.add("animate__animated", animation);
     node.onanimationend = () => {
       node.classList.remove("animate__animated", animation);
     };
   }
 
+  const renderPoints = () => {
+    return (
+      <>
+        {pointsFeedback.map((p) => (
+          <p
+            key={p.id}
+            id={`game-points-${p.id}`}
+            className={styles.gamePoints}
+            style={{
+              color: p.points > 0 ? "#468554" : "#b95353",
+              left: p.position[0] - 10,
+              top: p.position[1] - 30,
+            }}
+          >{`${p.points > 0 ? "+" : ""}${p.points}`}</p>
+        ))}
+      </>
+    );
+  };
+
+  const renderCircles = () => {
+    return (
+      <>
+        {quizCircles.map((p) => (
+          <div
+            key={p.id}
+            id={`quiz-circle-${p.id}`}
+            className="quiz-circle"
+            style={{ left: p.position[0] - 20, top: p.position[1] - 20 }}
+          />
+        ))}
+      </>
+    );
+  };
+
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
   useEffect(() => {
     getFind();
   }, [find.list]);
+
+  useEffect(() => {
+    // console.log("FIND", find);
+  }, [find]);
 
   const handleSkip = () => {
     let tempArr = find.list;
@@ -387,45 +549,65 @@ function QuizPage({ show, data }) {
     getFind();
   };
 
-  const handleShow = () => {};
+  const handleShow = () => {
+    // manageClass(find.data.id || find.data.name, "animated zoomIn");
+    const newID = Math.floor(Math.random() * 9999);
+    const { element, bbox } = getCountryPos(find.simple, true);
+    console.log("NEW CIRCLE", newID, bbox);
+    setQuizCircles((prev) => [
+      ...prev,
+      {
+        id: newID,
+        animation: "circle-reveal",
+        state: true,
+        position: [
+          Math.floor(bbox.x) + bbox.width / 2,
+          Math.floor(bbox.y) + bbox.height / 2,
+        ],
+      },
+    ]);
+    handleGuess(find.simple.id ?? find.simple.name, true);
+  };
+
+  const handleSoundEffect = (sfx, options = {}) => {
+    const [play, obj] = sfx;
+    play();
+  };
 
   return (
     <div className={styles.game} bg={theme}>
-      <div className={styles.quizPage}>
-        {pointsFeedback.state ? (
-          <p
-            id="game-pointsScore"
-            style={{
-              color: pointsFeedback.points > 0 ? "#5DBCFB" : "#b95353",
-              left: mousePos.x,
-              top: mousePos.y - 40,
-            }}
-          >{`${pointsFeedback.points > 0 ? "+" : ""}${
-            pointsFeedback.points
-          }`}</p>
+      <div className={styles.quizPage} onMouseMove={handleMouseMove}>
+        {quizType === "normal" && pointsFeedback.length > 0 ? (
+          renderPoints()
         ) : (
-          <p id="game-pointsScore"></p>
+          <p id="points-dummy" className={styles.gamePoints}></p>
         )}
-        <Banner />
+        {quizType === "normal" && quizCircles.length > 0 ? (
+          renderCircles()
+        ) : (
+          <div
+            id="quiz-circle"
+            className={styles.quizCircle}
+            style={{ top: 25, left: 25 }}
+          />
+        )}
+        {/* <Banner /> */}
         <QuizHeader
           history={history}
           gameScore={guesses.score}
           total={find.totals.all}
           show={show}
-          handles={{ handleSkip, handleShow }}
+          setShow={setShow}
+          handles={{ handleSkip, handleShow, setResults }}
           setGuessTime={setGuessTime}
-          place={find?.simple?.name}
+          place={find?.simple}
+          quizType={quizType}
+          listCount={find?.list?.length}
+          currentAttempts={currentAttempts}
+          finished={finished}
         />
-        {finished && (
-          <EndModal
-            info={{
-              title: "Total Score",
-              sub: "0",
-            }}
-          />
-        )}
         {/* <ThemeSwitch theme={theme} setTheme={setTheme} /> */}
-        {data.layout === "normal" ? (
+        {quizType === "normal" || quizType === "learn" ? (
           <NewLayout
             find={find}
             guesses={guesses}
@@ -437,10 +619,12 @@ function QuizPage({ show, data }) {
             handleClick={handleClick}
             data={data}
             styles={styles}
+            learn={quizType === "learn"}
+            quizType={quizType}
             // time={gameTimer.time}
             mousePos={mousePos}
           />
-        ) : data.layout === "multipleChoice" ? (
+        ) : quizType === "multipleChoice" ? (
           <MultipleChoice
             find={find}
             guesses={guesses}
@@ -451,9 +635,17 @@ function QuizPage({ show, data }) {
             handleSkip={handleSkip}
             handleClick={handleClick}
             data={data}
+            styles={styles}
+            learn={quizType === "learn"}
+            quizType={quizType}
+            // time={gameTimer.time}
             mousePos={mousePos}
+            sounds={{
+              handle: handleSoundEffect,
+              sounds: [correctSound, wrongSound],
+            }}
           />
-        ) : data.layout === "hinted" ? (
+        ) : quizType === "hinted" ? (
           <NormalLayout
             find={find}
             guesses={guesses}
@@ -474,10 +666,34 @@ function QuizPage({ show, data }) {
     </div>
   );
 
-  function handleGuess(place) {
+  function handleGuess(place, skipped = false, options = {}) {
     const isCorrect =
       place === find.simple?.id || place === find.simple.name ? true : false;
-    if (isCorrect) {
+
+    const { tries, skipAnimation } = options;
+    // console.log("options", options);
+
+    if (skipped === true) {
+      manageScore("skipped");
+      // console.log(place, find.list, find.simple);
+      setGuesses((prevData) => ({
+        ...prevData,
+        answers: {
+          ...prevData.answers,
+          skipped: !guesses.answers.skipped.includes(place)
+            ? [...prevData.answers.skipped, place]
+            : prevData.answers.skipped,
+        },
+      }));
+      setFind((prev) => ({
+        ...prev,
+        list: prev.list.filter((c) => c !== place),
+        previous: place,
+        data: manageClass(place, "complete-reveal", find.data),
+      }));
+      // animate(find.simple.id ?? find.simple.name, "zoomIn");
+    } else if (isCorrect) {
+      if (!skipAnimation) handleSoundEffect(correctSound);
       setFind((prevData) => ({
         ...prevData,
         list: prevData.list.filter((c) => c !== place),
@@ -499,11 +715,14 @@ function QuizPage({ show, data }) {
       setFind((prev) => ({
         ...prev,
         data: completeGuess(place, currentAttempts, find.data),
+        animSkip: skipAnimation,
       }));
       setFind((prev) => ({
         ...prev,
         previous: place,
-        data: manageClass(place, "complete", find.data),
+        data: !skipAnimation
+          ? manageClass(place, "complete", find.data)
+          : prev.data,
       }));
     } else {
       manageScore("wrong");
@@ -524,7 +743,19 @@ function QuizPage({ show, data }) {
           misses: prevData.score.misses + 1,
         },
       }));
-      animate(place, "wrongSelect", "", true);
+      if (!skipAnimation) {
+        animate(place, "wrongSelect", "", true);
+        handleSoundEffect(wrongSound, { rate: 0.1 });
+      }
+      if (tries === currentAttempts + 1) {
+        setFind((prev) => ({
+          ...prev,
+          list: prev.list.filter((d, i) => i !== 0),
+          data: completeGuess(place, currentAttempts, find.data),
+          previous: place,
+          animSkip: true,
+        }));
+      }
     }
   }
 }

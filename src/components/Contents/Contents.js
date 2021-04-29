@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import data from "../../data/gameData/gameSelect";
 import QuizLink from "./QuizLink";
 import "./Contents.css";
+import "./contents.scss";
 import QuickItem from "./QuickItem";
 import ContentsBlock from "./ContentsBlock";
 
@@ -15,8 +16,8 @@ const ContentsItem = ({ data }) => {
       <h2>{title}</h2>
       {title && items && (
         <div className="contents-items">
-          {items.map((i) => (
-            <Link to={i.link} className="contents-item">
+          {items.map((i, idx) => (
+            <Link key={idx} to={i.link} className="contents-item">
               <img
                 src={i.img}
                 className="contents-item-link-img"
@@ -37,15 +38,20 @@ const FilterItem = ({ data, filterClick, selected, modeClick }) => {
     <div className="filter-items" data-filterState={data.state}>
       <h3>{heading}</h3>
       {state === "mode"
-        ? items.map((i) => (
+        ? items.map((i, idx) => (
             <h5
+              key={idx}
               data-selectedMode={selected === i ? "true" : "false"}
               onClick={() => modeClick(i)}
             >
               {i}
             </h5>
           ))
-        : items.map((i) => <h5 onClick={() => filterClick(i.state)}>{i}</h5>)}
+        : items.map((i, idx) => (
+            <h5 key={idx} onClick={() => filterClick(i.state)}>
+              {i}
+            </h5>
+          ))}
     </div>
   );
 };
@@ -251,7 +257,7 @@ export default function Contents({ match }) {
       heading: "Game Mode",
       state: "mode",
       selectColour: "#F67A98",
-      items: ["Default", "Multiple", "Hinted"],
+      items: ["Default", "Multiple", "Learn"],
     },
     {
       heading: "Quiz",
@@ -295,8 +301,9 @@ export default function Contents({ match }) {
             style={{ paddingTop: scrolled ? "8%" : null }}
           >
             <div className="filter-wrapper">
-              {filtersList.map((f) => (
+              {filtersList.map((f, idx) => (
                 <FilterItem
+                  key={idx}
                   data={f}
                   selected={mode}
                   modeClick={handleModeClick}
@@ -307,13 +314,13 @@ export default function Contents({ match }) {
           </aside>
           <main className="contents-list">
             <section className="contents-popular">
-              {popularList.map((p) => (
-                <QuickItem data={p} />
+              {popularList.map((p, idx) => (
+                <QuickItem key={idx} data={p} />
               ))}
             </section>
             <section className="contents-block-container">
-              {linksList.map((l) => (
-                <ContentsBlock data={l} />
+              {linksList.map((l, idx) => (
+                <ContentsBlock key={idx} data={l} />
               ))}
             </section>
           </main>

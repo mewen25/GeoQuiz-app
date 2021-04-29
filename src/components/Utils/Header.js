@@ -13,9 +13,11 @@ const Header = (match) => {
               <img src={require("../../assets/images/logo.svg")} />
             </Link>
           </span>
-          <span>
-            <div>QUIZZES</div>
-            <div>LEARNING</div>
+          <span className="header-links-container">
+            <Link to="/quiz" className="header-quiz">
+              QUIZZES
+            </Link>
+            {/* <div>LEARNING</div> */}
           </span>
         </div>
       )}

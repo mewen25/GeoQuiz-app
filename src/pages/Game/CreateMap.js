@@ -19,22 +19,42 @@ const CreateMap = React.memo(
     mousePos,
     mode = "normal",
     find,
+    bgImg,
     list,
     marks,
     total,
     styles,
     scoreData = null,
+    learn,
+    locked = false,
+    hasSmalls = false,
     ...props
   }) => {
     useEffect(() => {
-      // const svgThing = svgPanZoom('#learn-map')
+      // const svgThing = svgPanZo om('#learn-map')
     }, []);
 
+    // let toolTipData = {};
+    // if (learn === false) {
+    //   toolTipData["data-for"] = "search";
+    //   toolTipData["data-tip"] = "true";
+    // }
+    ///
+
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    // console.log("BG IMAGE", bgImg, props);
     return (
-      <div className={styles.gameMapContainer}>
+      <div
+        className={styles.gameMapContainer}
+        style={{ backgroundImage: `url(${bgImg})` }}
+        data-has_smalls={hasSmalls}
+      >
         <svg
           className={styles.gameMap}
           id="learn-map"
+          data-for={"search"}
+          data-locked={locked}
+          data-tip={!learn ? "true" : null}
           // preserveAspectRatio="xMidYMid meet"
           viewBox={svgData.viewBox ?? "0 0 898 690"}
           label={svgData.label}
@@ -43,8 +63,6 @@ const CreateMap = React.memo(
               ? { pointerEvents: "none", overflow: "hidden" }
               : { overflow: "hidden" }
           }
-          data-tip="true"
-          data-for="search"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           xmlnsEv="http://www.w3.org/2001/xml-events"
@@ -63,31 +81,50 @@ const CreateMap = React.memo(
             handleClick={handleClick}
             search={search}
             colour={colour}
-            mousePos={mousePos}
+            // mousePos={mousePos}
             mode={mode}
             styles={styles}
             find={find}
             scoreData={scoreData}
+            locked={locked}
           />
           {/* </g> */}
+          {/* {learn && (
+            <ReactTooltip
+              id="search"
+              className={styles.toolTip}
+              effect="solid"
+              place="bottom"
+            />
+          )} */}
         </svg>
+        {learn ? (
+          <ReactTooltip
+            id="search"
+            className={[styles.toolTip, styles.learnToolTip]}
+            effect="solid"
+            place="top"
+            globalEventOff={isMobile ? "click" : undefined}
+          />
+        ) : (
+          <ReactTooltip
+            id="search"
+            className={styles.toolTip}
+            place="bottom"
+            globalEventOff={isMobile ? "click" : undefined}
+          >
+            <div className="quiz-tooltip">
+              <span>{search}?</span>
+            </div>
+          </ReactTooltip>
+        )}
         <ReactTooltip
-          id="search"
-          // delayShow="0"
-          className={styles.toolTip}
-          // backgroundColor="rgba(51, 141, 49, 0.94)"
-          // borderColor="#368334"
-          place="bottom"
-          // type="error"
-          effect="float"
+          id="complete"
+          place="top"
+          type="light"
+          effect="solid"
+          globalEventOff={isMobile ? "click" : undefined}
         >
-          <div className="quiz-tooltip">
-            <span>{search}?</span>
-            {/* <Question /> */}
-          </div>
-          {/* {marks && total && <span className="quiz-tooltip-bottom">{marks}/{total}</span>} */}
-        </ReactTooltip>
-        <ReactTooltip id="complete" place="top" type="light" effect="solid">
           <span>{`complete`}</span>
         </ReactTooltip>
       </div>

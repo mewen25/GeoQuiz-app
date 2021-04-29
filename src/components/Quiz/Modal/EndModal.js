@@ -11,18 +11,19 @@ const ModalStat = ({ name, value }) => (
   </div>
 );
 
-export default function PreQuizModal({
+export default function EndModal({
   show,
   info,
   stats,
   content,
   gameStart,
   modeSelected = "default",
+  handleButton,
 }) {
   const history = useHistory();
   const [mode, setMode] = useState(modeSelected);
   return (
-    <Modal centered size="xl" show={true} className="end-game-modal">
+    <Modal centered size="xl" show={show} className="end-game-modal">
       <Modal.Title id="end-game-title">
         <span id="modal-title-text">Finished!</span>
         {/* <span id="modal-title-title">
@@ -34,14 +35,14 @@ export default function PreQuizModal({
       <Modal.Body>
         <div className="end-modal-stats">
           <ModalStat name="Time" value={stats?.time ?? "0:00"} />
-          <ModalStat name="Answered" value={stats?.answered ?? "0/49"} />
-          <ModalStat name="Incorrect" value={stats?.wrong ?? "0"} />
-          <ModalStat name="Accuracy" value={stats?.accuracy ?? "0%"} />
+          <ModalStat name="Answered" value={stats?.marks ?? "0/49"} />
+          <ModalStat name="Incorrect" value={stats?.misses ?? "0"} />
+          <ModalStat
+            name="Accuracy"
+            value={stats?.accuracy ? `${stats.accuracy}%` : "0%"}
+          />
         </div>
-        <SimpleButton
-          name="Try Again"
-          onClick={() => history.push(history.location.pathname)}
-        />
+        <SimpleButton name="Try Again" onClick={() => handleButton(false)} />
       </Modal.Body>
     </Modal>
   );

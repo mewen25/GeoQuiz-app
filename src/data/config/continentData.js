@@ -1,6 +1,6 @@
-import EuropeCountries from "../mapData/Continents/Europe/svgData";
+import EuropeCountries from "../mapData/Continents/Europe/oldsvgData";
 import EuropeData from "../gameData/QuizData/europeData";
-import AsiaMap from "../mapData/Continents/Asia/svgData";
+import AsiaMap from "../mapData/Continents/backup/svgData";
 import AsiaData from "../gameData/QuizData/asiaData";
 import SAMap from "../mapData/Continents/South-America/svgData";
 import SAData from "../gameData/QuizData/southAmericaData";
@@ -61,15 +61,15 @@ export default {
         data: EuropeData,
         layout: "multipleChoice",
       },
-      "countries-hinted": {
-        title: "Countries (Hinted)",
-        quizType: "countries",
-        time: two,
-        findAmount: 49,
-        map: EuropeCountries,
-        data: EuropeData,
-        layout: "hinted",
-      },
+      // "countries-hinted": {
+      //   title: "Countries (Hinted)",
+      //   quizType: "countries",
+      //   time: two,
+      //   findAmount: 49,
+      //   map: EuropeCountries,
+      //   data: EuropeData,
+      //   layout: "hinted",
+      // },
       // capitals: {
       //   title: "Capitals",
       //   time: five,
@@ -110,11 +110,20 @@ export default {
       // },
       states: {
         title: "US States",
-        quizType: "countries",
+        quizType: "states",
         time: five,
         findAmount: 50,
         map: StatesMap,
         data: StatesData,
+      },
+      "states-multiple-choice": {
+        title: "US States (Multiple Choice)",
+        quizType: "states",
+        time: five,
+        findAmount: 50,
+        map: StatesMap,
+        data: StatesData,
+        layout: "multipleChoice",
       },
       // "state-capitals": {
       //   title: "US State Capitals",

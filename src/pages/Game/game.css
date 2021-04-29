@@ -179,6 +179,7 @@
 .fadeOutUp {
   animation-duration: 1s;
   animation-delay: 0s;
+  opacity: 1;
 }
 
 .game-button {
@@ -218,7 +219,6 @@
 
 @keyframes points {
   from {
-    color: rgb(87, 185, 83);
   }
   to {
     color: rgba(199, 120, 55, 0);

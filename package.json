@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "animate.css": "^4.1.0",
     "bootstrap": "^4.4.1",
+    "ismobilejs": "^1.1.1",
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "react": "^16.12.0",
@@ -35,6 +36,7 @@
     "sass": "^1.32.2",
     "styled-components": "^5.1.1",
     "svg-pan-zoom": "^3.6.1",
+    "use-sound": "^2.0.1",
     "use-state-with-callback": "^1.0.18",
     "use-timer": "^1.0.7"
   },
@@ -58,5 +60,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "guppy": {
+    "id": "0f67c190-8420-11eb-8bdd-73dca00080cc",
+    "name": "geoquiz",
+    "type": "create-react-app",
+    "color": "#C51162",
+    "icon": null,
+    "createdAt": 1615655879723
   }
 }

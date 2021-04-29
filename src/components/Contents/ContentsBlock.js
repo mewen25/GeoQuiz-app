@@ -9,8 +9,8 @@ export default function ContentsBlock({ data }) {
         <img src={data.img} alt="" />
       </div>
       <ul className="contents-block-list">
-        {data?.items?.map((l) => (
-          <Link to={l.link}>
+        {data?.items?.map((l, idx) => (
+          <Link key={idx} to={l.link}>
             <li>{l.name}</li>
           </Link>
         ))}
