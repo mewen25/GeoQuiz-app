@@ -1,3 +1,13 @@
+export const regions = {
+  "north-and-center-asia": ["Afghanistan", "Armenia", "Azerbaijan", "Georgia", "Kazakhstan", "Kyrgyzstan", "Mongolia", 
+  "Russia", "Tajikistan", "Turkmenistan", "Uzbekistan",  ],
+  "middle-east": ["Bahrain", "Iran", "Iraq", "Israel", "Jordan", "Kuwait", "Lebanon", "Oman", "Qatar", "Saudi-Arabia", 
+  "Syria", "Turkey", "United-Arab-Emirates", "Yemen"],
+  "east-asia": ["China", "Japan", "North-Korea", "South-Korea", "Taiwan", ],
+  "south-asia": ["Bangladesh", "Bhutan", "India", "Maldives", "Nepal", "Pakistan", "Sri-Lanka", ],
+  "south-east": ["Brunei", "Cambodia", "Indonesia", "Laos", "Malaysia", "Myanmar", "Philippines", "Singapore", "Thailand", 
+  "Timor-Leste", "Vietnam", ]
+
 export default {
   Afghanistan: {
     name: "Afghanistan",
