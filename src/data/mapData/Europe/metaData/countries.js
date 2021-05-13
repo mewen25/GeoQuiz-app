@@ -1,5 +1,12 @@
 export const regions = {
-  "northern-europe": ["United-Kingdom", "Norway"],
+  "northern-europe": ["United-Kingdom", "Norway", "Denmark", "Estonia", "Iceland","Ireland", "Latvia", "Lithuania", 
+  "Finland", "Sweden"],
+  "central-europe": ["Andorra", "Austria", "Belgium", "France", "Germany", "Liechtenstein", "Luxembourg", "Netherlands", 
+  "Switzerland"],
+  "eastern-europe": ["Azerbaijan", "Belarus", "Bulgaria", "Czechia", "Georgia", "Hungary", "Moldova", "Poland", "Romania", 
+  "Russia", "Slovakia", "Ukraine"],
+  "southern-europe": ["Albania", "Bosnia-and-Herzegovina", "Croatia", "Cyprus", "Greece", "Italy", "Kosovo", "Monaco", "Malta", 
+  "Montenegro", "North-Macedonia", "Portugal", "San Marino", "Serbia", "Spain", "Turkey", "Vatican-City"],
 };
 
 export default {

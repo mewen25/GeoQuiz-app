@@ -1,3 +1,13 @@
+export const regions = {
+  "northern-africa": [ "Algeria", "Egypt", "Libya", "Morocco", "Sudan", "Tunisia", "Western-Sahara"],
+  "western-africa": ["Benin", "Cabo-Verde", "Cote-d-Ivoire", "The-Gambia", "Guinea-Bissau", "Guinea", "Ghana", "Liberia", 
+  "Mali", "Mauritania", "Senegal", "Sierra-Leone", "Togo", "Nigeria", "Burkina-Faso", "Niger"],
+  "central-africa": ["Angola", "Cameroon", "Central-African-Republic", "Chad", "DR-Congo", "Equatorial-Guinea", "Gabon", 
+  "Congo", "Sao-Tome"],
+  "eastern-africa": ["Burundi", "Comoros", "Eritrea", "Ethiopia", "Kenya", "Madagascar", "Mozambique", "Rwanda", "Seychelles", 
+  "Somalia", "South-Sudan", "Tanzania", "Uganda", "Zambia", "Zimbabwe", "Djibouti", "Mauritius", "Malawi"],
+  "southern-africa": ["Botswana", "Eswatini", "Lesotho", "Namibia", "South-Africa"],
+
 export default {
   Algeria: {
     name: "Algeria",
