@@ -111,9 +111,10 @@ function QuizPage({
   const [pointsFeedback, setPointsFeedback] = useState([]);
   const [quizCircles, setQuizCircles] = useState([]);
   const [isMuted, setMuted] = useState(false);
+  const [correctPlayback, setCorrectPlayback] = useState(1.8);
 
   const correctSound = useSound(CorrectSFX, {
-    playbackRate: 1.8,
+    playbackRate: correctPlayback,
     volume: 0.3,
   });
   const wrongSound = useSound(WrongSFX, {
@@ -165,7 +166,6 @@ function QuizPage({
     // TODO DOESN@ WORK
     // if(!show) gameTimer.start();
     if (generatedExtra.length === 0) makeExtras();
-    console.log("UPDATE", show, data.data);
     const _data = data.data;
     if (show === false) {
       const smalls = Object.values(_data)
@@ -189,10 +189,6 @@ function QuizPage({
       }));
     }
   }, [show, data.data]);
-
-  useEffect(() => {
-    // console.log("GUESS TIME", guessTime);
-  }, [guessTime]);
 
   // const moveOnSvg = (e) => {
   //   // console.log(e.clientX, mousePos.x);
@@ -363,6 +359,10 @@ function QuizPage({
   };
 
   useEffect(() => {
+    console.log("PLayback", correctPlayback);
+  }, [correctPlayback]);
+
+  useEffect(() => {
     console.log("updatiing?4");
 
     if (!find.data) return;
@@ -380,7 +380,6 @@ function QuizPage({
     // animate(".quiz-page", "wipe", "", true);
     if (currentAttempts < 1) {
       const newID = Math.floor(Math.random() * 9999);
-      console.log("NEW CIRCLE", newID, [mousePos.x, mousePos.y]);
       setQuizCircles((prev) => [
         ...prev,
         {
@@ -525,7 +524,6 @@ function QuizPage({
     //   r: "10",
     // });
     const newID = Math.floor(Math.random() * 9999);
-    console.log("NEW points", newPoints, newID, [mousePos.x, mousePos.y]);
     setPointsFeedback((prev) => [
       ...prev,
       {
@@ -648,7 +646,6 @@ function QuizPage({
     // manageClass(find.data.id || find.data.name, "animated zoomIn");
     const newID = Math.floor(Math.random() * 9999);
     const { element, bbox } = getCountryPos(find.simple, true);
-    console.log("NEW CIRCLE", newID, bbox);
     setQuizCircles((prev) => [
       ...prev,
       {
@@ -802,6 +799,7 @@ function QuizPage({
       // animate(find.simple.id ?? find.simple.name, "zoomIn");
     } else if (isCorrect) {
       if (!skipAnimation) handleSoundEffect(correctSound);
+      setCorrectPlayback((prev) => prev + 0.03);
       setFind((prevData) => ({
         ...prevData,
         list: prevData.list.filter((c) => c !== place),
@@ -834,6 +832,7 @@ function QuizPage({
       }));
     } else {
       manageScore("wrong");
+      setCorrectPlayback(1.8);
       setCurrentAttempts((prev) => {
         if (prev > 0) return 2;
         return prev + 1;

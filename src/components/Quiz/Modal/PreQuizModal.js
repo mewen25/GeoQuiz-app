@@ -3,6 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import SimpleButton from "../../Utils/Button/SimpleButton";
 import { ReactComponent as Arrow } from "../../../assets/images/misc/arrow.svg";
+import cloneDeep from "lodash/cloneDeep";
 import "../Modal/modal.scss";
 
 import { formatList, shuffleArray } from "../../../utils/quizFunctions";
@@ -27,7 +28,7 @@ const getListAmount = (amount, data) => {
   const _data = shuffleArray(formatList(data));
   var len = _data.length;
   // if (amount === "All") return _data.length;
-  if (amount === "Long") len = _data.length * 0.75;
+  if (amount === "Most") len = _data.length * 0.75;
   else if (amount === "Half") len = _data.length * 0.5;
   else if (amount === "Quick") len = _data.length * 0.25;
 
@@ -35,11 +36,10 @@ const getListAmount = (amount, data) => {
 };
 
 const QuizLength = ({ data, list, dropdown, setDropdown }) => {
-  if (!list) list = ["All", "Long", "Half", "Quick"];
-
-  useEffect(() => {
-    console.log("DROP", dropdown);
-  }, [dropdown]);
+  if (!list) list = ["All", "Most", "Half", "Quick"];
+  const [selIdx, setSelIdx] = useState(
+    dropdown && list ? list.indexOf(dropdown.label) : 0
+  );
 
   list = list.map((l) => ({
     label: l,
@@ -49,12 +49,14 @@ const QuizLength = ({ data, list, dropdown, setDropdown }) => {
   return (
     <div className="pre-modal-length">
       <div className="dropdown-container">
-        <h3>Countries:</h3>
+        <h4>Quiz Size -</h4>
         <div className="length-dropdown">
           <select
+            value={selIdx}
             onChange={(e) => {
               console.log("selected", e.target.value, e.target);
               setDropdown(list[e.target.value]);
+              setSelIdx(e.target.value);
             }}
           >
             {list.map(
@@ -85,6 +87,7 @@ const QuizLength = ({ data, list, dropdown, setDropdown }) => {
 export default function PreQuizModal({
   show,
   info,
+  finished,
   content,
   gameStart,
   modeSelected = "default",
@@ -94,6 +97,15 @@ export default function PreQuizModal({
   const history = useHistory();
   const [mode, setMode] = useState(modeSelected);
   const [dropdown, setDropdown] = useState(null);
+  // const [quizData, setQuizData] = useState(_quizData);
+
+  useEffect(() => {
+    console.log("reset startModal", show, mode, modeSelected, dropdown);
+    if (show) {
+      setDropdown(dropdown);
+      // setQuizData(cloneDeep(_quizData));
+    }
+  }, [show]);
 
   return (
     <Modal centered size="xl" show={show} className="pre-game-modal">

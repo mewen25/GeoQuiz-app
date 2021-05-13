@@ -16,6 +16,7 @@ export default function GameSetup({ match }) {
   const [keyTest, setKeyTest] = useState("quiz");
   const [quizType, setQuizType] = useState("normal");
   const [results, setResults] = useState({});
+  const [customData, setCustomData] = useState(null);
 
   const [modeList, setModeList] = useState([]);
 
@@ -26,7 +27,8 @@ export default function GameSetup({ match }) {
       else {
         console.log("SETUP", data);
         setModeList(getModes(data?.mode));
-        setQuizValues({
+        setKeyTest();
+        setQuizValues((prev) => ({
           info: {
             continent: data.continent,
             mode: data.mode[match.params.quiz].title,
@@ -38,10 +40,11 @@ export default function GameSetup({ match }) {
           continentId: data.continentId,
           continent: data.continent,
           map: data.mode[match.params.quiz].map,
-          data: data.mode[match.params.quiz].data,
+          data: customData ?? data.mode[match.params.quiz].data,
+          allData: data.mode[match.params.quiz].data,
           layout: data.mode[match.params.quiz].layout || "normal",
           bgImage: getBGImage(data.continentId),
-        });
+        }));
       }
     }
   };
@@ -70,9 +73,23 @@ export default function GameSetup({ match }) {
     return temp;
   }
 
+  function dataRefresh() {
+    // setCustomData(null);
+    setKeyTest("modeReset");
+    console.log("done", keyTest, quizValues.map);
+    setQuizValues((prev) => ({ ...prev, data: _.cloneDeep(prev?.allData) }));
+  }
+
   function loadFailed() {
     history.push("/quiz");
   }
+
+  useEffect(() => {
+    if (show && !finished) {
+      console.log("reset???");
+      dataRefresh();
+    }
+  }, [show]);
 
   useEffect(() => {
     // console.log(match, match.params, history.location);
@@ -117,6 +134,7 @@ export default function GameSetup({ match }) {
   ];
 
   const handleGameStart = (mode, list) => {
+    console.log("start game?", mode, list);
     const path = getPathInfo(history.location.pathname);
     // console.log("Handling start", mode, path);
     history.replace(
@@ -134,34 +152,50 @@ export default function GameSetup({ match }) {
     } else if (mode === "learn") {
       setQuizType("learn");
     } else setQuizType("normal");
-    setQuizValues((prev) => {
-      let _list = {};
+
+    let _list = {};
+    if (list && Array.isArray(list)) {
       list.forEach((l) => {
-        const _data = prev.data?.[l];
+        const _data = quizValues.data?.[l];
         if (_data) {
           _list[_data.id ?? _data.name] = _data;
         }
       });
-      console.log("changing", prev.data, "to", _list);
-      return {
-        ...prev,
-        data: _list,
-        ready: true,
-      };
-    });
+      console.log("changing", quizValues.data, "to", _list);
+      setCustomData(_list);
+    }
+    setShow(false);
+
+    // setQuizValues((prev) => {
+    //   let _list = {};
+    //   if (list && Array.isArray(list)) {
+    //     list.forEach((l) => {
+    //       const _data = prev.data?.[l];
+    //       if (_data) {
+    //         _list[_data.id ?? _data.name] = _data;
+    //       }
+    //     });
+    //     console.log("changing", prev.data, "to", _list);
+    //   } else _list = prev.allData;
+    //   return {
+    //     ...prev,
+    //     data: _list,
+    //     ready: true,
+    //   };
+    // });
   };
 
-  useEffect(() => {
-    if (quizValues.ready) {
-      console.log("starting", quizValues);
-      setShow(false);
-    }
-  }, [quizValues]);
+  // useEffect(() => {
+  //   if (quizValues.ready) {
+  //     console.log("starting", quizValues);
+  //     setShow(false);
+  //   }
+  // }, [customData]);
 
   useEffect(() => {
     if (!finished && !show) {
       setShow(true);
-      setKeyTest("reset");
+      dataRefresh();
     }
   }, [finished]);
 

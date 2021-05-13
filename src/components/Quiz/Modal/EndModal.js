@@ -36,7 +36,7 @@ export default function EndModal({
         <div className="end-modal-stats">
           <ModalStat name="Time" value={stats?.time ?? "0:00"} />
           <ModalStat name="Answered" value={stats?.marks ?? "0/49"} />
-          <ModalStat name="Incorrect" value={stats?.misses ?? "0"} />
+          <ModalStat name="Mistakes" value={stats?.misses ?? "0"} />
           <ModalStat
             name="Accuracy"
             value={stats?.accuracy ? `${stats.accuracy}%` : "0%"}

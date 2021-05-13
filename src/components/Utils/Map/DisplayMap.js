@@ -105,8 +105,16 @@ function RenderElements(props) {
 
   function getHandles(_values, mapType = "quiz") {
     const { key, id } = _values;
-    const { small, assist, name, toolTipPos, toolTipOffset, finished, colour } =
-      mapData?.[id] ?? {};
+    const {
+      small,
+      assist,
+      name,
+      toolTipPos,
+      toolTipOffset,
+      finished,
+      styles,
+      colour,
+    } = mapData?.[id] ?? {};
 
     const className = mapData?.[id]?.class?.join(" ") ?? "other";
 
@@ -118,7 +126,7 @@ function RenderElements(props) {
       ["data-place"]: toolTipPos ?? null,
       ["data-offset"]: toolTipOffset ?? null,
       ["data-attempts"]: finished ?? "",
-      fill: colour ?? "#e67",
+      fill: colour ?? styles?.[0] ?? "#e67",
       onClick: handleClick,
     };
 
