@@ -1,3 +1,7 @@
+export const regions = {
+  "northern-europe": ["United-Kingdom", "Norway"],
+};
+
 export default {
   Albania: {
     name: "Albania",

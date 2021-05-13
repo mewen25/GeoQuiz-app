@@ -1,4 +1,4 @@
 import EuropeCountriesMap from "./svgData/countries";
-import EuropeCountriesData from "./metaData/countries";
+import EuropeCountriesData, { regions } from "./metaData/countries";
 
-export { EuropeCountriesMap, EuropeCountriesData };
+export { EuropeCountriesMap, EuropeCountriesData, regions };

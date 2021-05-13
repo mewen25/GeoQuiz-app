@@ -1,6 +1,10 @@
 import { AfricaCountriesMap, AfricaCountriesData } from "../mapData/Africa";
 import { AsiaCountriesMap, AsiaCountriesData } from "../mapData/Asia";
-import { EuropeCountriesMap, EuropeCountriesData } from "../mapData/Europe";
+import {
+  EuropeCountriesMap,
+  EuropeCountriesData,
+  regions as europeRegions,
+} from "../mapData/Europe";
 import {
   NACountriesMap,
   NACountriesData,
@@ -18,6 +22,7 @@ export default {
     id: 1,
     continent: "Europe",
     continentId: "europe",
+    regions: europeRegions,
     mode: {
       countries: {
         title: "Countries",
