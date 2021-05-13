@@ -23,19 +23,29 @@ $medium: 900px;
 
   .headerFind {
     display: flex;
-    padding: 0 10px;
+    // padding: 0 10px;
     min-height: 50px;
-    position: absolute;
-    top: 70px;
+    // position: absolute;
+    // top: 60px;
     background-color: white;
     align-items: center;
-    justify-content: space-between;
-    min-width: 300px;
-    margin-top: 5px;
-    margin-left: 5px;
-    border-radius: 6px;
+    justify-content: center;
+    align-self: center;
+    // min-width: 300px;
+    width: 100%;
+    // margin-top: 5px;
+    // margin-left: 5px;
+    // border-radius: 6px;
 
     // width: 100%;
+
+    .headerFindSub {
+      color: #A5A5A5;
+      font-size: 16px;
+      margin-right: 15px;
+      margin-left: -15px;
+      align-self: center;
+    }
 
     div {
       display: inline-flex;
@@ -160,6 +170,16 @@ $medium: 900px;
     display: flex;
     align-items: center;
 
+    .muteIcon {
+      box-shadow: none;
+      background-color: unset !important;
+      svg {
+        path {
+          fill:#5DBCFB;
+        }
+      }
+    }
+
     > * {
       &:not(:first-child) {
         margin-left: 20px;
@@ -256,6 +276,10 @@ $medium: 900px;
   }
 }
 
+.bgExtra {
+  position: absolute;
+}
+
 .gameView {
   // display: block;
   display: flex;
@@ -279,7 +303,8 @@ $medium: 900px;
 
   .gameMapContainer {
     // max-height: 80vh;
-    margin-top: 50px;
+    margin-top: 10px;
+    margin-bottom: 40px;
     width: 100%;
     display: flex;
     // min-width: 800px;
@@ -291,7 +316,7 @@ $medium: 900px;
     background-size: contain;
     background-image: none !important;
     justify-content: center;
-    padding: 30px;
+    // padding: 30px;
 
     &[data-has_smalls="true"] {
       justify-content: flex-start;
@@ -301,9 +326,10 @@ $medium: 900px;
     
     svg {
       height: 95%;
-      background-color: rgba(57, 81, 148, 0.048);
+      // background-color: rgba(57, 81, 148, 0.048);
       // min-width: 800px;
       position: relative;
+      overflow: visible;
 
       &[data-locked="true"] {
         pointer-events: none;
@@ -321,7 +347,7 @@ $medium: 900px;
     flex-direction: column-reverse;
     justify-content: space-between;
     height: 98%;
-    .gameMapContainer {
+    .gameMapContainer { 
       flex: 2;
       margin-top: 20px;
       // min-width: 800px;
@@ -337,30 +363,30 @@ $medium: 900px;
       pointer-events: none;
       position: unset;
       
-      svg {
-        height: unset;
-        // min-width: 800px;
-        max-width: 100%;
-        position: unset;
-      }
+      // svg {
+      //   height: unset;
+      //   // min-width: 800px;
+      //   max-width: 100%;
+      //   position: unset;
 
-      g {
-        fill: rgba(111, 177, 145, 0.58) !important;
-        &[data-answer="true"] {
-          fill: #F5E158 !important;
-
-          &[data-small="true"] {
-            outline: 8px solid #F5E158;
-            transform-origin: center;
-          }
-
-          path {
-            stroke: white !important;
-            stroke-width: 2px;
-          }
-          
-        }
-      }
+      //   g {
+      //     fill: rgba(111, 177, 145, 0.58) !important;
+      //     &[data-answer="true"] {
+      //       fill: #F5E158 !important;
+  
+      //       &[data-small="true"] {
+      //         outline: 8px solid #F5E158;
+      //         transform-origin: center;
+      //       }
+  
+      //       path {
+      //         stroke: white !important;
+      //         stroke-width: 2px;
+      //       }
+            
+      //     }
+      //   }
+      // }
     }
 
     .multipleChoiceSide {
@@ -498,7 +524,8 @@ $medium: 900px;
 
 .toolTip {
   font-family: "Baloo Chettan", cursive;
-  font-size: 14px !important;
+  font-size: 15px !important;
+  letter-spacing: 0.06em;
   // text-transform: uppercase;
   font-weight: normal;
   background: rgba(49, 146, 40, 0.671) !important;

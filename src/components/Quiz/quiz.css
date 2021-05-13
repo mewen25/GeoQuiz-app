@@ -15,75 +15,11 @@
   }
 }
 
-@keyframes pulse-reveal {
-  0% {
-    fill: #ff6969 !important;
-    transform: scale(3.5);
-    box-shadow: 0 0 0 0 rgba(217, 51, 51, 0.7);
-    background-color: rgba(217, 62, 51, 0.4);
-  }
-
-  70% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 20px rgba(217, 62, 51, 0);
-  }
-
-  100% {
-    fill: unset;
-    transform: scale(3.5);
-    box-shadow: 0 0 0 0 rgba(217, 90, 51, 0);
-    background-color: rgba(217, 84, 51, 0);
-  }
-}
-
-@keyframes pulse-green {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
-    background-color: rgba(51, 217, 178, 0.4);
-  }
-
-  70% {
-    transform: scale(2.5);
-    box-shadow: 0 0 0 20px rgba(51, 217, 178, 0);
-  }
-
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
-    background-color: rgba(51, 217, 178, 0);
-  }
-}
-
-.quiz-country:hover {
-  /* fill: #326688; */
-  fill: #6dc69a;
-  /* fill: #368832; */
-}
-
-.quiz-country[data-mode="choice"] {
-  fill: rgb(80, 181, 92);
-}
-
 /* .quiz-country[data-answer="true"] {
   fill: #abdeff;
   stroke: #5dbcfb;
   stroke-width: 3px;
 } */
-
-.quiz-country:not(.complete):hover {
-  /* opacity: 0.7; */
-  outline: 0;
-  cursor: pointer;
-}
-
-.complete {
-  /* background: white; */
-  box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
-  transform-origin: unset;
-  animation: wipey 1.5s;
-  /* animation: pulse-white 2s; */
-}
 
 .pulsey {
   fill: white;
@@ -106,14 +42,6 @@
     stroke-opacity: 0;
     transform: scale(2);
   }
-}
-
-.small-helper {
-  fill: rgb(98, 128, 148);
-}
-.small-helper:hover {
-  fill: #3298db;
-  opacity: 0.6;
 }
 
 .quiz-country:hover path {
@@ -148,39 +76,6 @@
   100% {
     background-color: rgb(243, 255, 206, 0);
   }
-}
-
-.quiz-circle {
-  z-index: 5;
-  display: none;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-}
-
-.circle-complete {
-  position: absolute;
-  pointer-events: none;
-  display: block;
-  /* animation-name: waveyz; */
-  background-color: none;
-  transform-origin: center;
-  animation-duration: 1.5s;
-  stroke-width: 8px;
-  animation-name: pulse-green;
-}
-
-.circle-reveal {
-  position: absolute;
-  pointer-events: none;
-  display: block;
-  /* animation-name: waveyz; */
-  background-color: none;
-  transform-origin: center;
-  animation-duration: 2.5s;
-  stroke-width: 8px;
-  animation-name: pulse-reveal;
 }
 
 .animated {

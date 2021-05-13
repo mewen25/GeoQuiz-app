@@ -2,7 +2,6 @@ import React from "react";
 
 import QuizInfos from "./Infos/QuizInfos";
 import QuizHeader from "./QuizHeader";
-import CreateMap from "../../pages/Game/CreateMap";
 import SmallsPanel from "./Infos/SmallsPanel";
 
 export default function NormalLayout({
@@ -37,19 +36,20 @@ export default function NormalLayout({
         <div className="quiz-map">
           <SmallsPanel smalls={find.smalls} handleClick={handleClick} />
           {find.simple?.name && (
-            <CreateMap
-              started={!show}
-              mapData={find.data}
-              svgData={data.map}
-              handleClick={handleClick}
-              search={find.simple.name}
-              list={find.list.length}
-              total={find.totals.all}
-              marks={guesses.score.marks}
-              colour={countryColour}
-              mousePos={mousePos}
-              scoreData={find?.distance?.sorted}
-            />
+            <></>
+            // <CreateMap
+            //   started={!show}
+            //   mapData={find.data}
+            //   svgData={data.map}
+            //   handleClick={handleClick}
+            //   search={find.simple.name}
+            //   list={find.list.length}
+            //   total={find.totals.all}
+            //   marks={guesses.score.marks}
+            //   colour={countryColour}
+            //   mousePos={mousePos}
+            //   scoreData={find?.distance?.sorted}
+            // />
           )}
         </div>
       </div>

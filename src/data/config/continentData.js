@@ -1,39 +1,14 @@
-import EuropeCountries from "../mapData/Continents/Europe/oldsvgData";
-import EuropeData from "../gameData/QuizData/europeData";
-import AsiaMap from "../mapData/Continents/backup/svgData";
-import AsiaData from "../gameData/QuizData/asiaData";
-import SAMap from "../mapData/Continents/South-America/svgData";
-import SAData from "../gameData/QuizData/southAmericaData";
-import AfricaMap from "../mapData/Continents/Africa/svgData";
-import AfricaData from "../gameData/QuizData/africaData";
-import NAMap from "../../data/mapData/Continents/North-America/svgData";
-import NorthAmericaData from "../gameData/QuizData/northAmericaData";
-import StatesMap from "../mapData/Continents/North-America/States/svgData";
-import StatesData from "../gameData/QuizData/statesData";
-import OceaniaMap from "../mapData/Continents/Oceania/svgData";
-import OceaniaData from "../gameData/QuizData/oceaniaData";
-
-//import EuropeMap from "../../data/mapData/Continents/Europe/Europe";
-// import EuropeCapitalsMap from "../../data/mapData/Continents/Europe/Capitals/Europe-Capitals";
-
-// import AsiaCapitalsMap from "../../data/mapData/Continents/Asia/Capitals/AsiaCapitalsMap";
-// import NACapitalsMap from "../../data/mapData/Continents/North-America/Capitals/NACapitals";
-// import SACapitalsMap from "../../data/mapData/Continents/South-America/Capitals/SACapitalsMap";
-
-// import AfricaCapitalsMap from "../../data/mapData/Continents/Africa/Capitals/AfricaCapitalsMap";
-// import OceaniaMap from "../../data/mapData/Continents/Oceania/Oceania";
-// import OceaniaCapitalsMap from "../../data/mapData/Continents/Oceania/Capitals/OceaniaCapitalsMap";
-// import StateCapitalsMap from "../../data/mapData/Other/States/state-capitals/US-State-Capitals";
-
-// //import EuropeData from "../../data/mapData/Continents/Europe/EuropeData";
-// import EuropeCapitalsData from "../../data/mapData/Continents/Europe/Capitals/Europe-Capitals-Data";
-// import AsiaCapitalsData from "../../data/mapData/Continents/Asia/Capitals/AsiaCapitalsData";
-// import NACapitalsData from "../../data/mapData/Continents/North-America/Capitals/NACapitalsData";
-// import SACapitalsData from "../../data/mapData/Continents/South-America/Capitals/SACapitalsData";
-// import AfricaCapitalsData from "../../data/mapData/Continents/Africa/Capitals/AfricaCapitalsData";
-// import OceaniaData from "../../data/mapData/Continents/Oceania/OceaniaData";
-// import OceaniaCapitalsData from "../../data/mapData/Continents/Oceania/Capitals/OceaniaCapitalsData";
-// import StateCapitalsData from "../../data/mapData/Other/States/state-capitals/US-State-CapitalsData";
+import { AfricaCountriesMap, AfricaCountriesData } from "../mapData/Africa";
+import { AsiaCountriesMap, AsiaCountriesData } from "../mapData/Asia";
+import { EuropeCountriesMap, EuropeCountriesData } from "../mapData/Europe";
+import {
+  NACountriesMap,
+  NACountriesData,
+  StatesMap,
+  StatesData,
+} from "../mapData/North-America";
+import { OceaniaCountriesMap, OceaniaCountriesData } from "../mapData/Oceania";
+import { SACountriesMap, SACountriesData } from "../mapData/South-America";
 
 const two = 120;
 const five = 300;
@@ -49,16 +24,16 @@ export default {
         quizType: "countries",
         time: two,
         findAmount: 49,
-        map: EuropeCountries,
-        data: EuropeData,
+        map: EuropeCountriesMap,
+        data: EuropeCountriesData,
       },
       "countries-multiple-choice": {
         title: "Countries (Multiple Choice)",
         quizType: "countries",
         time: two,
         findAmount: 49,
-        map: EuropeCountries,
-        data: EuropeData,
+        map: EuropeCountriesMap,
+        data: EuropeCountriesData,
         layout: "multipleChoice",
       },
       // "countries-hinted": {
@@ -89,16 +64,16 @@ export default {
         quizType: "countries",
         time: two,
         findAmount: 23,
-        map: NAMap,
-        data: NorthAmericaData,
+        map: NACountriesMap,
+        data: NACountriesData,
       },
       "countries-multiple-choice": {
         title: "Countries (Multiple Choice)",
         quizType: "countries",
         time: two,
         findAmount: 23,
-        map: NAMap,
-        data: NorthAmericaData,
+        map: NACountriesMap,
+        data: NACountriesData,
         layout: "multipleChoice",
       },
       // capitals: {
@@ -144,16 +119,16 @@ export default {
         quizType: "countries",
         time: two,
         findAmount: 55,
-        map: AfricaMap,
-        data: AfricaData,
+        map: AfricaCountriesMap,
+        data: AfricaCountriesData,
       },
       "countries-multiple-choice": {
         title: "Countries (Multiple Choice)",
         quizType: "countries",
         time: two,
         findAmount: 55,
-        map: AfricaMap,
-        data: AfricaData,
+        map: AfricaCountriesMap,
+        data: AfricaCountriesData,
         layout: "multipleChoice",
       },
       // capitals: {
@@ -175,16 +150,16 @@ export default {
         quizType: "countries",
         time: two,
         findAmount: 48,
-        map: AsiaMap,
-        data: AsiaData,
+        map: AsiaCountriesMap,
+        data: AsiaCountriesData,
       },
       "countries-multiple-choice": {
         title: "Countries (Multiple Choice)",
         quizType: "countries",
         time: two,
         findAmount: 48,
-        map: AsiaMap,
-        data: AsiaData,
+        map: AsiaCountriesMap,
+        data: AsiaCountriesData,
         layout: "multipleChoice",
       },
       // capitals: {
@@ -206,8 +181,8 @@ export default {
         quizType: "countries",
         time: two,
         findAmount: 13,
-        map: SAMap,
-        data: SAData,
+        map: SACountriesMap,
+        data: SACountriesData,
       },
       // capitals: {
       //   title: "Capitals",
@@ -228,8 +203,8 @@ export default {
         quizType: "countries",
         time: two,
         findAmount: 14,
-        map: OceaniaMap,
-        data: OceaniaData,
+        map: OceaniaCountriesMap,
+        data: OceaniaCountriesData,
       },
       // capitals: {
       //   title: "Capitals",

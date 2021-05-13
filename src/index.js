@@ -5,7 +5,6 @@ import { GameContextProvider } from "./components/Utils/gameContext";
 import { ModeContextProvider } from "./components/Utils/modeContext";
 import "./index.css";
 import App from "./App";
-import Game from "./pages/Game/Game";
 
 ReactDOM.render(
   <GameContextProvider>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import data from "../../data/gameData/gameSelect";
+import data from "../../data/config/continentData";
 import QuizLink from "./QuizLink";
 import "./Contents.css";
 import "./contents.scss";

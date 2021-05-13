@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useHistory } from "react-router-dom";
 import useSound from "use-sound";
 
@@ -13,28 +13,22 @@ import {
   sortedData,
 } from "../../utils/quizFunctions";
 
+import { ReactComponent as Wave } from "../../assets/images/game/wave.svg";
+
 import CorrectSFX from "../../assets/sounds/Correct4.mp3";
 import WrongSFX from "../../assets/sounds/Wrong4.mp3";
-
-import EndModal from "./Modal/EndModal";
 
 import NormalLayout from "./NormalLayout";
 import MultipleChoice from "./MultipleChoiceLayout";
 import NewLayout from "./NewLayout";
 // import HintedLayout from "./HintedLayout";
 
-import QuizInfos from "./Infos/QuizInfos";
 import QuizHeader from "./QuizHeader";
-import CreateMap from "../../pages/Game/CreateMap";
-import ThemeSwitch from "../Utils/Game/ThemeSwitch";
-import SmallsPanel from "./Infos/SmallsPanel";
 import "../Game/game1.css";
 import "./quiz.css";
-import svgData from "../../data/mapData/Continents/Europe/old/svgData";
 // import { useTimer } from "use-timer";
 
 import styles from "./quiz.module.scss";
-import Banner from "./Banner/Banner";
 
 const countryColours = {
   blue: ["#CBE0ED", "#CCE3F2"],
@@ -116,6 +110,7 @@ function QuizPage({
   });
   const [pointsFeedback, setPointsFeedback] = useState([]);
   const [quizCircles, setQuizCircles] = useState([]);
+  const [isMuted, setMuted] = useState(false);
 
   const correctSound = useSound(CorrectSFX, {
     playbackRate: 1.8,
@@ -124,6 +119,7 @@ function QuizPage({
   const wrongSound = useSound(WrongSFX, {
     playbackRate: 1.2,
   });
+  const [generatedExtra, setGeneratedExtra] = useState([]);
 
   function getResults() {
     return {
@@ -138,30 +134,61 @@ function QuizPage({
     };
   }
 
-  useEffect(() => {
-    console.log("updatiing?1");
-    const smalls = Object.values(data.data)
-      .reduce((acc, cur) => {
-        return cur.small ? [...acc, cur] : [...acc];
-      }, [])
-      .sort((a, b) => a.small.order - b.small.order);
-    const assists = Object.values(data.data).reduce((acc, cur) => {
-      return cur.assist ? [...acc, cur] : [...acc];
-    }, []);
-    setFind((prev) => ({
-      ...find,
-      smalls: smalls,
-      assists: assists,
-    }));
+  // useEffect(() => {
+  //   setFind(prev => ({...prev, data}))
+  // }, [data])
 
+  useEffect(() => {
+    console.log("updatiing?1", find.data);
+    if (!find.data) return;
+    // if (find.assists.length === 0) {
+    // const smalls = Object.values(data.data)
+    //   .reduce((acc, cur) => {
+    //     return cur.small ? [...acc, cur] : [...acc];
+    //   }, [])
+    //   .sort((a, b) => a.small.order - b.small.order);
+    // const assists = Object.values(data.data).reduce((acc, cur) => {
+    //   return cur.assist ? [...acc, cur] : [...acc];
+    // }, []);
+    // setFind((prev) => ({
+    //   ...find,
+    //   smalls: smalls,
+    //   assists: assists,
+    // }));
+    // }
     // window.addEventListener("click", updateMousePosition);
 
     // return () => window.removeEventListener("click", updateMousePosition);
   }, []);
 
   useEffect(() => {
+    // TODO DOESN@ WORK
     // if(!show) gameTimer.start();
-  }, [show]);
+    if (generatedExtra.length === 0) makeExtras();
+    console.log("UPDATE", show, data.data);
+    const _data = data.data;
+    if (show === false) {
+      const smalls = Object.values(_data)
+        .reduce((acc, cur) => {
+          return cur.small ? [...acc, cur] : [...acc];
+        }, [])
+        .sort((a, b) => a.small.order - b.small.order);
+      const assists = Object.values(_data).reduce((acc, cur) => {
+        return cur.assist ? [...acc, cur] : [...acc];
+      }, []);
+      setFind((prev) => ({
+        ...prev,
+        data: data?.data,
+        savedData: Object.assign(data?.data, {}),
+        list: formatList(_data),
+        totals: {
+          all: formatList(_data).length,
+        },
+        smalls,
+        assists,
+      }));
+    }
+  }, [show, data.data]);
 
   useEffect(() => {
     // console.log("GUESS TIME", guessTime);
@@ -194,13 +221,13 @@ function QuizPage({
     console.log("updatiing?2");
 
     for (var small of find.smalls) {
-      const { element, bbox } = getCountryPos(small);
+      const { element, bbox } = getCountryPos(small) ?? {};
       if (!bbox) continue;
       appendSVGChild("circle", element, {
         class: "small-helper",
-        fill: `${small.styles[0]}`,
-        cx: `${bbox.x + 2}`,
-        cy: `${bbox.y + 2}`,
+        // fill: `${small.styles[0]}`,
+        cx: `${bbox.x + bbox.width / 2}`,
+        cy: `${bbox.y + bbox.height / 2}`,
         r: "5",
       });
     }
@@ -239,7 +266,10 @@ function QuizPage({
       } else {
         appendSVGChild("rect", place, {
           class: "assist-helper",
-          fill: "orange",
+          // fill: "orange",
+          rx: "8",
+          // stroke: "blue",
+          // strokeWidth: "1",
           opacity: "0",
           "z-index": "2",
           x: `${bbox.x - 2}`,
@@ -259,6 +289,73 @@ function QuizPage({
     }
     target.appendChild(e);
     return e;
+  }
+
+  function validPosition(bounds = {}, options = {}) {
+    var { absolute, rotation, x1, y1, w1, h1, imgSize } = options;
+    var { x, y, width, height } = bounds;
+    if (!x1) x1 = 0;
+    if (!y1) y1 = 0;
+    let objX = null;
+    let objY = null;
+
+    function getPosition() {
+      if (!objX) {
+        let _x = Math.floor(Math.random() * w1) + x1;
+        if (_x > x && _x < width) {
+          getPosition();
+        } else {
+          if (_x < x1 + imgSize) _x = _x + imgSize;
+          else if (_x + imgSize > w1) _x = _x - imgSize;
+          objX = _x;
+        }
+      }
+      if (!objY) {
+        let _y = Math.floor(Math.random() * h1);
+        if (_y > y && _y < height) {
+          getPosition();
+        } else {
+          if (_y < y1 + imgSize) _y = _y + imgSize;
+          else if (_y + imgSize > h1) _y = _y - imgSize;
+          objY = _y;
+        }
+      }
+    }
+    getPosition();
+
+    return { x: objX, y: objY };
+  }
+
+  function makeExtras() {
+    return;
+    const mapElement = document.querySelector(`#learn-map`);
+    const screenSpace = document.querySelector("#game-view");
+    if (!mapElement || !screenSpace) return;
+    const waves = 40;
+    const bbox =
+      mapElement.getBoundingClientRect() ?? mapElement.getBBox() ?? null;
+    const screenBox =
+      screenSpace.getBoundingClientRect() ?? screenSpace.getBBox() ?? null;
+    console.log("THIS", bbox, screenBox);
+
+    setGeneratedExtra(() => {
+      let arr = [];
+      [...Array(waves)].forEach((w) => {
+        const pos = validPosition(bbox, {
+          w1: screenBox.width,
+          h1: screenBox.height,
+          y1: screenBox.top,
+          imgSize: 100,
+        });
+        console.log(pos);
+        return arr.push({
+          Component: Wave,
+          top: pos.y,
+          left: pos.x,
+        });
+      });
+      return arr;
+    });
   }
 
   const updateMousePosition = (ev) => {
@@ -330,10 +427,8 @@ function QuizPage({
   }, [quizCircles]);
 
   useEffect(() => {
-    // if (!guessTime || guessTime < 1) return;
     if (find.list.length === find.totals.all) return;
-
-    // manageScore("correct");
+    if (guesses.current === find.previous) manageScore("correct");
   }, [guessTime]);
 
   function handleMouseMove(e) {
@@ -393,6 +488,7 @@ function QuizPage({
     const maxPoints = 200;
     let score = guesses.score.score;
     const thisTime = guessTime; //time;
+    console.log("state", state);
     if (state === "correct") {
       newPoints = Math.min(
         Math.max(maxPoints - thisTime * 10, maxPoints * 0.5),
@@ -454,7 +550,7 @@ function QuizPage({
       classes.push(`${!custom ? prefix : ""}${animation}`);
       // const animationName = `${!custom ? prefix : ""}${animation}`;
       // await sleep(5000);
-      const node = document.querySelector(element);
+      const node = document.querySelector(element ?? `#${element}`) ?? null;
       if (!node) return;
       if (!custom) node.classList.add(classes[0], classes[1]);
       else node.classList.add(classes[0]);
@@ -466,14 +562,13 @@ function QuizPage({
 
         if (animation === "fadeOutUp") {
           setPointsFeedback((prev) => {
-            console.log(element.split("-")[2]);
             return prev.filter(
-              (p, i) => p.id === Number(element.split("-"[2]))
+              (p, i) => p.id !== Number(element.split("-"[2]))
             );
           });
         } else if (animation === "circle-complete") {
           setQuizCircles((prev) => {
-            return prev.filter((p) => p.id === Number(element.split("-"[2])));
+            return prev.filter((p) => p.id !== Number(element.split("-"[2])));
           });
         }
 
@@ -571,7 +666,12 @@ function QuizPage({
 
   const handleSoundEffect = (sfx, options = {}) => {
     const [play, obj] = sfx;
-    play();
+    if (!isMuted) play();
+  };
+
+  const mapOptions = {
+    isMuted,
+    setMuted,
   };
 
   return (
@@ -591,6 +691,13 @@ function QuizPage({
             style={{ top: 25, left: 25 }}
           />
         )}
+        {/* {generatedExtra?.map((g, idx) => (
+          <g.Component
+            key={idx}
+            className={styles.bgExtra}
+            style={{ top: g.top, left: g.left }}
+          />
+        ))} */}
         {/* <Banner /> */}
         <QuizHeader
           history={history}
@@ -598,13 +705,14 @@ function QuizPage({
           total={find.totals.all}
           show={show}
           setShow={setShow}
-          handles={{ handleSkip, handleShow, setResults }}
+          handles={{ handleSkip, handleShow, setResults, setMuted }}
           setGuessTime={setGuessTime}
           place={find?.simple}
           quizType={quizType}
           listCount={find?.list?.length}
           currentAttempts={currentAttempts}
           finished={finished}
+          isMuted={isMuted}
         />
         {/* <ThemeSwitch theme={theme} setTheme={setTheme} /> */}
         {quizType === "normal" || quizType === "learn" ? (

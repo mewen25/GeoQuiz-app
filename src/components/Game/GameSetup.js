@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import _ from "lodash";
 import QuizPage from "../Quiz/QuizPage";
-import GameModal from "../../pages/Game/GameModal";
 import PreQuizModal from "../Quiz/Modal/PreQuizModal";
 import EndModal from "../Quiz/Modal/EndModal";
 import gameData from "../../data/config/continentData";
@@ -117,7 +116,7 @@ export default function GameSetup({ match }) {
     },
   ];
 
-  const handleGameStart = (mode) => {
+  const handleGameStart = (mode, list) => {
     const path = getPathInfo(history.location.pathname);
     // console.log("Handling start", mode, path);
     history.replace(
@@ -135,9 +134,29 @@ export default function GameSetup({ match }) {
     } else if (mode === "learn") {
       setQuizType("learn");
     } else setQuizType("normal");
-
-    setShow(false);
+    setQuizValues((prev) => {
+      let _list = {};
+      list.forEach((l) => {
+        const _data = prev.data?.[l];
+        if (_data) {
+          _list[_data.id ?? _data.name] = _data;
+        }
+      });
+      console.log("changing", prev.data, "to", _list);
+      return {
+        ...prev,
+        data: _list,
+        ready: true,
+      };
+    });
   };
+
+  useEffect(() => {
+    if (quizValues.ready) {
+      console.log("starting", quizValues);
+      setShow(false);
+    }
+  }, [quizValues]);
 
   useEffect(() => {
     if (!finished && !show) {
@@ -177,7 +196,8 @@ export default function GameSetup({ match }) {
         modalModes={modeList}
         show={show && !finished}
         modeSelected={match?.params?.quiz ?? null}
-        gameStart={(mode) => handleGameStart(mode)}
+        gameStart={handleGameStart}
+        quizData={quizValues?.data}
       />
     </>
   );

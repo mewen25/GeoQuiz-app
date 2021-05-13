@@ -1,3 +1,156 @@
+// .quiz-country.complete {
+//   box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+//   transform-origin: unset;
+//   animation: wipey 1.5s;
+// }
+
+.small-helper {
+  // fill: rgb(98, 128, 148);
+  fill: rgba(62, 125, 83, 0.56);
+}
+.small-helper:hover {
+  fill: #3298db;
+  opacity: 0.6;
+}
+
+.quiz-country.complete,
+.complete-reveal {
+  fill: white !important;
+  stroke: #d9e7dc !important;
+  stroke-width: 1.1px;
+  pointer-events: none !important;
+
+  .small-helper {
+    fill: white;
+  }
+
+  &[data-attempts="1"] {
+    // fill: #ffed72 !important;
+    fill: #ABC187 !important;
+    stroke: none;
+    .small-helper {
+      fill: #ABC187;
+    }
+  }
+  &[data-attempts="2"] {
+    // fill: #ffa3a3 !important;
+    fill: #C19287 !important;
+    stroke: none;
+    .small-helper {
+      fill: #ffa3a3;
+    }
+  }
+}
+
+.complete-reveal {
+  fill: #ff6969 !important;
+
+  .small-helper {
+    fill: #ff6969;
+  }
+}
+
+.complete:hover {
+  cursor: default;
+}
+
+.quiz-country {
+
+  path {
+    stroke: #b8e5ff;
+    // stroke-width: 3.5px !important;
+  }
+
+  &:not(.complete) {
+    &:hover {
+      fill: #6dc69a;
+      outline: 0;
+      cursor: pointer;
+      .assist-helper {
+        opacity: 0.1;
+      }
+    }
+    .assist-helper {
+      opacity: 0.3;
+    }
+  }
+
+  &[data-mode="choice"] {
+    fill: rgb(80, 181, 92);
+  }
+
+  &[data-assist="true"] {
+    pointer-events: bounding-box;
+    z-index: 1;
+  }
+  &[data-hidden="true"] {
+    fill: rgba(111, 111, 111, 0.317) !important;
+    stroke: none !important;
+    pointer-events: none !important;
+  }
+  &[data-small="true"] {
+  }
+}
+
+.game-map {
+  height: 100%;
+  // overflow: unset;
+
+  height: 95%;
+  // background-color: rgba(57, 81, 148, 0.048);
+  // min-width: 800px;
+  overflow: visible;
+  position: relative;
+
+  &[data-locked="true"] {
+    pointer-events: none;
+
+    .quiz-country {
+      pointer-events: none;
+    }
+
+    g:hover {
+      cursor: default;
+    }
+  }
+
+  &[data-continent="Africa"] {
+    g path {
+      stroke:rgb(182, 224, 204);
+      stroke-width: 1px;
+    }
+  }
+
+  &[data-mode="multiple"] {
+    overflow: hidden;
+    g {
+      fill: #92CCBE !important;
+      &[data-answer="true"] {
+        fill: #F5E158 !important;
+
+        &[data-small="true"] {
+          outline: 8px solid #F5E158;
+          transform-origin: center;
+        }
+
+        path {
+          stroke: white !important;
+          stroke-width: 2px;
+        }
+        
+      }
+    }
+  }
+
+}
+
+.game-map .other[data-modify="true"] {
+  fill: rgba(111, 111, 111, 0.317);
+}
+
+.quiz-line {
+  pointer-events: none !important;
+}
 
 .home-main-container {
     display: flex;
@@ -346,3 +499,128 @@
   }
 
 }
+
+.wrongSelect {
+  position: absolute;
+  animation: shake 0.2s;
+  -webkit-animation: shake 0.2s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+    -webkit-transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+    -webkit-transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+    transform: translate(-1px, -1px) rotate(1deg);
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+    -webkit-transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-reveal {
+  0% {
+    fill: #ff6969 !important;
+    transform: scale(3.5);
+    box-shadow: 0 0 0 0 rgba(217, 51, 51, 0.7);
+    background-color: rgba(217, 62, 51, 0.4);
+  }
+
+  70% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 20px rgba(217, 62, 51, 0);
+  }
+
+  100% {
+    fill: unset;
+    transform: scale(3.5);
+    box-shadow: 0 0 0 0 rgba(217, 90, 51, 0);
+    background-color: rgba(217, 84, 51, 0);
+  }
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
+    background-color: rgba(51, 217, 178, 0.4);
+  }
+
+  70% {
+    transform: scale(2.5);
+    box-shadow: 0 0 0 20px rgba(51, 217, 178, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+    background-color: rgba(51, 217, 178, 0);
+  }
+}
+
+@keyframes wipey {
+  0% {
+    background-color: rgba(243, 255, 206, 0);
+  }
+  50% {
+    background-color: rgba(243, 255, 206, 1);
+  }
+  100% {
+    background-color: rgba(243, 255, 206, 0);
+  }
+}
+
+.quiz-circle {
+  z-index: 5;
+  display: none;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.circle-complete {
+  position: absolute;
+  pointer-events: none;
+  display: block;
+  /* animation-name: waveyz; */
+  background-color: none;
+  transform-origin: center;
+  animation-duration: 1.5s;
+  stroke-width: 8px;
+  animation-name: pulse-green;
+}
+
+.circle-reveal {
+  position: absolute;
+  pointer-events: none;
+  display: block;
+  /* animation-name: waveyz; */
+  background-color: none;
+  transform-origin: center;
+  animation-duration: 2.5s;
+  stroke-width: 8px;
+  animation-name: pulse-reveal;
+}
+

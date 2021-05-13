@@ -21,6 +21,7 @@ export default function QuizHeader({
   listCount,
   currentAttempts,
   finished,
+  isMuted,
 }) {
   const { score, marks, points, misses } = gameScore;
   const { time, start, pause } = useTimer();
@@ -89,7 +90,7 @@ export default function QuizHeader({
             </div>
             {quizType !== "multipleChoice" && (
               <div className={styles.quizHeaderButtons}>
-                <QuizButtons {...handles} />
+                <QuizButtons {...handles} isMuted={isMuted} styles={styles} />
               </div>
             )}
           </>
@@ -97,7 +98,10 @@ export default function QuizHeader({
       </div>
       {quizType !== "learn" && quizType !== "multipleChoice" && (
         <div className={styles.headerFind}>
-          <div>{place?.name}</div>
+          <div>
+            <span className={styles.headerFindSub}>Find</span>
+            {place?.name}
+          </div>
           <img src={place.image} alt={place.name} />
         </div>
       )}

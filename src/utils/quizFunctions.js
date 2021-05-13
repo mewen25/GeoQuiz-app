@@ -141,12 +141,15 @@ export function sortedData(country, data) {
     .sort((a, b) => a.dist - b.dist)
     .forEach((c, i) => {
       const scoreThing = i + (1 / distances.length) * 100;
-      data[c.place.id || c.place.name]["score"] = scoreThing;
-      obj[c.place.id || c.place.name] = {
-        place: c.place.id || c.place.name,
-        dist: c.dist,
-        score: scoreThing,
-      };
+      const placeScore = data?.[c.place.id || c.place.name];
+      if (placeScore) {
+        placeScore.score = scoreThing;
+        obj[c.place.id || c.place.name] = {
+          place: c.place.id || c.place.name,
+          dist: c.dist,
+          score: scoreThing,
+        };
+      }
     });
   return {
     data,

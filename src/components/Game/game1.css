@@ -27,7 +27,7 @@
 
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .exit {
@@ -204,19 +204,6 @@
   flex: 1;
 }
 
-.complete,
-.complete-reveal {
-  fill: white !important;
-  stroke: #d9e7dc !important;
-  stroke-width: 1.1px;
-  pointer-events: none !important;
-}
-.complete .small-helper {
-  fill-opacity: 0.2;
-}
-.complete-reveal {
-  fill: #ff6969 !important;
-}
 .other {
   pointer-events: none;
   /* fill: #5f5f5f98; */
@@ -227,32 +214,19 @@
   stroke: rgba(0, 0, 0, 0.459);
 }
 
-.quiz-country[data-assist="true"] {
-  /* fill: orange; */
-  /* fill: #afccd7; */
-  pointer-events: bounding-box;
-  z-index: 1;
-}
-
-.quiz-country[data-hidden="true"] {
-  fill: rgba(111, 111, 111, 0.317) !important;
-  stroke: none !important;
-  pointer-events: none !important;
-}
-
 .quiz-country[data-small="true"] {
   /* outline: 2px solid rgb(11, 19, 45); */
 }
 
-.quiz-country[data-attempts="1"] {
+/* .quiz-country[data-attempts="1"] {
   fill: #ffed72 !important;
   stroke: none;
-}
+} */
 
-.quiz-country[data-attempts="2"] {
+/* .quiz-country[data-attempts="2"] {
   fill: #ffa3a3 !important;
   stroke: none;
-}
+} */
 /* .quiz-country[data-col="#285979"]:hover {
   fill: #3A7195;
 }
@@ -291,20 +265,6 @@
   background-color: #6eb9f7;
   background-size: 100%;
   transition: background 0s;
-}
-
-.quiz-tooltip {
-  display: flex;
-  justify-content: space-between;
-}
-
-.quiz-tooltip svg {
-  width: 20px;
-  height: 20px;
-  /* background-color: lime !important; */
-}
-.__react_component_tooltip::after {
-  /* border-bottom-color: lime !important; */
 }
 
 @keyframes ripple1 {

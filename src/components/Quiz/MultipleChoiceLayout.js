@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import QuizInfos from "./Infos/QuizInfos";
 import QuizScore from "./Infos/QuizScore";
 import QuizHeader from "./QuizHeader";
-import CreateMap from "../../pages/Game/CreateMap";
+// import CreateMap from "../../pages/Game/CreateMap";
 import SmallsPanel from "./Infos/SmallsPanel";
-import SelectInput from "@material-ui/core/Select/SelectInput";
+import DisplayMap from "../Utils/Map/DisplayMap";
 
 export default function NormalLayout({
   find,
@@ -127,20 +127,15 @@ export default function NormalLayout({
             </div>
           </div>
           {find.simple?.name && (
-            <CreateMap
-              started={!show}
-              mapData={find.data}
-              svgData={data.map}
-              handleClick={handleClick}
-              search={find.simple.name}
-              list={find.list.length}
-              total={find.totals.all}
-              marks={guesses.score.marks}
-              colour={countryColour}
-              mousePos={mousePos}
-              scoreData={find?.distance?.sorted}
-              styles={styles}
-              locked={true}
+            <DisplayMap
+              mapValues={{
+                svgData: data.map,
+                mapData: find.data,
+                solos: null,
+              }}
+              updates={{ search: find?.simple?.name, find }}
+              handles={{ handleClick }}
+              options={{ locked: true, mode: "multiple" }}
             />
           )}
         </div>
@@ -148,3 +143,19 @@ export default function NormalLayout({
     </>
   );
 }
+
+// <CreateMap
+//   started={!show}
+//   mapData={find.data}
+//   svgData={data.map}
+//   handleClick={handleClick}
+//   search={find.simple.name}
+//   list={find.list.length}
+//   total={find.totals.all}
+//   marks={guesses.score.marks}
+//   colour={countryColour}
+//   mousePos={mousePos}
+//   scoreData={find?.distance?.sorted}
+//   styles={styles}
+//   locked={true}
+// />

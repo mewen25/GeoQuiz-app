@@ -1,6 +1,9 @@
  .pre-game-modal, .end-game-modal {
-    background: radial-gradient(51.22% 67.68% at 50% 50%, rgba(61, 85, 149, 0.5554) 0%, rgba(32, 45, 79, 0.81) 100%);
+    // background: radial-gradient(51.22% 67.68% at 50% 50%, rgba(61, 85, 149, 0.5554) 0%, rgba(32, 45, 79, 0.81) 100%);
+    background: rgba(28, 43, 82, 0.884);
+    // backdrop-filter: blur(9px);
     font-family: 'Nunito', 'Sans-serif';
+    width: 80%;
     .modal-dialog {
      width: 100%;
     //  height: 100%;
@@ -10,27 +13,40 @@
      height: auto;
      min-height: 50%;
      border-radius: 0;
-     background-color: unset;
+     background-color: unset; 
      max-width: 64rem;
      border: none;
   }
 
   #pre-game-title, #end-game-title {
     display: flex;
-    flex-direction: flex;
+    flex-direction: column;
     text-align: center;
     color: white;
     font-size: 30px;
-    background: #172C5E;
+    // background: #172C5E;
     border-radius: 20px 20px 0px 0px;
 
+    .pre-game-title-top {
+      // width: 80%;
+      display: flex;
+      margin: 0 auto;
+    }
+
+    #modal-title-sub {
+      color: #7F8FAA;
+      font-size: 24px;
+    }
+
     #modal-back {
-      flex: 0.25;
+      // flex: 0.5;
       color: #5DBCFB;
       // background-color: #193E97;
       font-size: 24px;
       align-self: center;
-      padding: 5px 0;
+      padding: 4px 8px;
+      margin-right: 30px;
+      margin-left: -30px;
       // margin-right: 20%;
       border-radius: 20px 20px 0px 0px;
 
@@ -41,12 +57,12 @@
     }
     #modal-title-text {
       // position: relative;
-      flex: 1;
+      // flex: 1;
       text-align: center;
       // left: 10%;
     }
     #modal-title-title {
-      flex: 0.25;
+      flex: 0.6;
     }
 
     #modal-title-title {
@@ -71,7 +87,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(0, 32, 111, 0.26);
+    // background: rgba(0, 32, 111, 0.26);
     border-radius: 0px 0px 20px 20px;
 
     > * {
@@ -80,12 +96,73 @@
   }
 
   .pre-modal-modes {
-    width: 50%;
+    // width: 50%;
     margin: 0 auto;
+    display: flex;
+    background-color: none;
   }
 
   .end-modal-stats {
     width: 50%;
+  }
+
+  .pre-modal-length {
+    display: flex;
+    flex-direction: column;
+    .dropdown-container {
+      display: flex;
+      color: white;
+      justify-content: center;
+    }
+
+    h3 {
+      margin-right: 30px;
+    }
+  }
+
+  .dropdown-list {
+    width: 100%;
+    color: #7F8FAA;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    p {
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+  }
+
+  .modal-mode-horizontal {
+    display: flex;
+    height: 60px;
+    font-size: 24px;
+    // line-height: 32px;
+    font-family: 'Nunito';
+    color: white;
+    white-space: nowrap;
+    padding: 0 20px;
+    padding-top: 10px;
+    align-items: center;
+    border-radius: 5px;
+
+    &:not(:last-of-type) {
+      margin-right: 50px;
+    }
+
+    &:hover {
+      cursor: default;
+      &[data-selected="false"] {
+        border-radius: 0px;
+        cursor: pointer;
+        background-color: #5dbcfb1a;
+      }
+    }
+
+    transition: 0.1s;
+
+    &[data-selected="true"] {
+      border-bottom: 5px solid #5DBCFB;
+    }
   }
 
   .modal-mode {
@@ -94,6 +171,8 @@
     color: white;
     font-size: 1.5em;
     margin-top: 40px;
+    padding: 20px;
+    background-color: none;
 
     &:hover {
       color: rgb(170, 206, 206);
