@@ -1,4 +1,4 @@
 import OceaniaCountriesMap from "./svgData/countries";
-import OceaniaCountriesData from "./metaData/countries";
+import OceaniaCountriesData, {regions} from "./metaData/countries";
 
-export { OceaniaCountriesMap, OceaniaCountriesData };
+export { OceaniaCountriesMap, OceaniaCountriesData, regions };

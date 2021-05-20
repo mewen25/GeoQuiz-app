@@ -1,18 +1,17 @@
 export const regions = {
-  "north-and-center-asia": [
-    "Afghanistan",
-    "Armenia",
-    "Azerbaijan",
+  "North": [
     "Georgia",
-    "Kazakhstan",
-    "Kyrgyzstan",
-    "Mongolia",
-    "Russia",
-    "Tajikistan",
-    "Turkmenistan",
-    "Uzbekistan",
+    "Russia", "Armenia", "Azerbaijan"
   ],
-  "middle-east": [
+  "Central": ["Afghanistan",
+  "Kazakhstan",
+  "Kyrgyzstan",
+  "Mongolia", 
+  "Tajikistan",
+  "Turkmenistan",
+  "Uzbekistan"],
+
+  "Middle-East": [
     "Bahrain",
     "Iran",
     "Iraq",
@@ -26,19 +25,19 @@ export const regions = {
     "Syria",
     "Turkey",
     "United-Arab-Emirates",
-    "Yemen",
+    "Yemen"
   ],
-  "east-asia": ["China", "Japan", "North-Korea", "South-Korea", "Taiwan"],
-  "south-asia": [
+  "East": ["China", "Japan", "North-Korea", "South-Korea", "Taiwan"],
+  "South": [
     "Bangladesh",
     "Bhutan",
     "India",
     "Maldives",
     "Nepal",
     "Pakistan",
-    "Sri-Lanka",
+    "Sri-Lanka"
   ],
-  "south-east": [
+  "SouthEast": [
     "Brunei",
     "Cambodia",
     "Indonesia",
@@ -49,8 +48,8 @@ export const regions = {
     "Singapore",
     "Thailand",
     "Timor-Leste",
-    "Vietnam",
-  ],
+    "Vietnam"
+  ]
 };
 
 export default {
