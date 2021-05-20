@@ -28,23 +28,32 @@ const getListAmount = (amount, data) => {
   const _data = shuffleArray(formatList(data));
   var len = _data.length;
   // if (amount === "All") return _data.length;
-  if (amount === "Most") len = _data.length * 0.75;
+  if (amount === "Random(Most)") len = _data.length * 0.75;
   else if (amount === "Half") len = _data.length * 0.5;
   else if (amount === "Quick") len = _data.length * 0.25;
 
   return _data.slice(0, Math.floor(len));
 };
 
-const QuizLength = ({ data, list, dropdown, setDropdown }) => {
-  if (!list) list = ["All", "Most", "Half", "Quick"];
+const QuizLength = ({ data, list, dropdown, setDropdown, regions = [] }) => {
+  if (!list)
+    list = ["All", ...Object.keys(regions), "Random(Most)", "Half", "Quick"];
   const [selIdx, setSelIdx] = useState(
     dropdown && list ? list.indexOf(dropdown.label) : 0
   );
 
-  list = list.map((l) => ({
-    label: l,
-    listData: data && getListAmount(l, data),
-  }));
+  list = list.map((l) => {
+    if (regions && regions[l]) {
+      return {
+        label: l,
+        listData: regions[l],
+      };
+    }
+    return {
+      label: l,
+      listData: data && getListAmount(l, data),
+    };
+  });
 
   return (
     <div className="pre-modal-length">
@@ -63,6 +72,7 @@ const QuizLength = ({ data, list, dropdown, setDropdown }) => {
               (l, idx) =>
                 l.listData && (
                   <option
+                    key={idx}
                     value={idx}
                   >{`${l.label} x${l.listData.length}`}</option>
                 )
@@ -73,7 +83,7 @@ const QuizLength = ({ data, list, dropdown, setDropdown }) => {
       {dropdown && dropdown.label !== "All" ? (
         <div className="dropdown-list">
           {dropdown.listData.map((l, idx) => (
-            <p>
+            <p key={idx}>
               {l}
               {idx < dropdown.listData.length - 1 && `,`}
             </p>
@@ -93,6 +103,7 @@ export default function PreQuizModal({
   modeSelected = "default",
   modalModes,
   quizData,
+  regions,
 }) {
   const history = useHistory();
   const [mode, setMode] = useState(modeSelected);
@@ -126,11 +137,13 @@ export default function PreQuizModal({
           data={quizData}
           dropdown={dropdown}
           setDropdown={setDropdown}
+          regions={regions}
         />
         <div className="pre-modal-modes">
           {modalModes &&
-            modalModes.map((m) => (
+            modalModes.map((m, idx) => (
               <ModalMode
+                key={idx}
                 type="modal-mode-horizontal"
                 {...m}
                 selected={mode}

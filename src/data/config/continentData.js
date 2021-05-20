@@ -1,10 +1,12 @@
-import { AfricaCountriesMap, 
-  AfricaCountriesData , 
+import {
+  AfricaCountriesMap,
+  AfricaCountriesData,
   regions as africaRegions,
 } from "../mapData/Africa";
-import { AsiaCountriesMap, 
-  AsiaCountriesData, 
-  regions as asiaRegions, 
+import {
+  AsiaCountriesMap,
+  AsiaCountriesData,
+  regions as asiaRegions,
 } from "../mapData/Asia";
 import {
   EuropeCountriesMap,
@@ -14,19 +16,19 @@ import {
 import {
   NACountriesMap,
   NACountriesData,
-  regions as NARegions,
+  // regions as NARegions,
   StatesMap,
   StatesData,
 } from "../mapData/North-America";
-import { 
-  OceaniaCountriesMap, 
-  OceaniaCountriesData, 
-  regions as oceaniaRegions, 
+import {
+  OceaniaCountriesMap,
+  OceaniaCountriesData,
+  // regions as oceaniaRegions,
 } from "../mapData/Oceania";
-import { 
-  SACountriesMap, 
-  SACountriesData, 
-  regions as SARegions, 
+import {
+  SACountriesMap,
+  SACountriesData,
+  // regions as SARegions,
 } from "../mapData/South-America";
 
 const two = 120;
@@ -78,7 +80,7 @@ export default {
     id: 2,
     continent: "North America",
     continentId: "north-america",
-    regions: NARegions,
+    // regions: NARegions,
     mode: {
       countries: {
         title: "Countries",
@@ -198,7 +200,7 @@ export default {
     id: 5,
     continent: "South America",
     continentId: "south-america",
-    regions: SARegions,
+    // regions: SARegions,
     mode: {
       countries: {
         title: "Countries",
@@ -221,7 +223,7 @@ export default {
     id: 6,
     continent: "Oceania",
     continentId: "oceania",
-    regions: oceaniaRegions,
+    // regions: oceaniaRegions,
     mode: {
       countries: {
         title: "Countries",

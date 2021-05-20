@@ -25,7 +25,7 @@ export default function EndModal({
   return (
     <Modal centered size="xl" show={show} className="end-game-modal">
       <Modal.Title id="end-game-title">
-        <span id="modal-title-text">Finished!</span>
+        <span id="modal-title-text">Total Score</span>
         {/* <span id="modal-title-title">
           <span>{`< Back`}</span>
           <span>{info?.title}</span>

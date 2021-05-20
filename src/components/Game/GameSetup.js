@@ -38,6 +38,7 @@ export default function GameSetup({ match }) {
               Object.entries(data.mode[match.params.quiz].data).length,
           },
           continentId: data.continentId,
+          regions: data.regions ?? {},
           continent: data.continent,
           map: data.mode[match.params.quiz].map,
           data: customData ?? data.mode[match.params.quiz].data,
@@ -232,6 +233,7 @@ export default function GameSetup({ match }) {
         modeSelected={match?.params?.quiz ?? null}
         gameStart={handleGameStart}
         quizData={quizValues?.data}
+        regions={quizValues?.regions}
       />
     </>
   );
