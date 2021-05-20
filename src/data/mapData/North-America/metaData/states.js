@@ -14,6 +14,7 @@ export default {
     name: "Alabama",
     capital: "N/A",
     class: ["quiz-country"],
+    latlng: [32.31, -86.90],
     styles: ["#4A9B61", "#5FD981"],
   },
   Alaska: {
@@ -21,30 +22,35 @@ export default {
     capital: "N/A",
     assist: "box",
     class: ["quiz-country"],
+    latlng: [66.16, -153.36],
     styles: ["#4A9B61", "#5FD981"],
   },
   Arizona: {
     name: "Arizona",
     capital: "N/A",
     class: ["quiz-country"],
+    latlng: [34.04, -111.09],
     styles: ["#4A9B61", "#5FD981"],
   },
   Arkansas: {
     name: "Arkansas",
     capital: "N/A",
     class: ["quiz-country"],
+    latlng: [34.79, -92.19],
     styles: ["#4A9B61", "#5FD981"],
   },
   California: {
     name: "California",
     capital: "N/A",
     class: ["quiz-country"],
+    latlng: [36.77, -119.41],
     styles: ["#4A9B61", "#5FD981"],
   },
   Colorado: {
     name: "Colorado",
     capital: "N/A",
     class: ["quiz-country"],
+    latlng: [39.11, -105.35],
     styles: ["#4A9B61", "#5FD981"],
   },
   Connecticut: {
@@ -52,6 +58,7 @@ export default {
     capital: "N/A",
     assist: "box",
     class: ["quiz-country"],
+    latlng: [41.59, -72.69],
     styles: ["#4A9B61", "#5FD981"],
   },
   Delaware: {
@@ -59,18 +66,21 @@ export default {
     capital: "N/A",
     assist: "box",
     class: ["quiz-country"],
+    latlng: [39.00, -75.50],
     styles: ["#4A9B61", "#5FD981"],
   },
   Florida: {
     name: "Florida",
     capital: "N/A",
     class: ["quiz-country"],
+    latlng: [27.99, -81.76],
     styles: ["#4A9B61", "#5FD981"],
   },
   Georgia: {
     name: "Georgia",
     capital: "N/A",
     class: ["quiz-country"],
+    latlng: [33.24, -83.44],
     styles: ["#4A9B61", "#5FD981"],
   },
   Hawaii: {
@@ -78,12 +88,14 @@ export default {
     capital: "N/A",
     assist: "box",
     class: ["quiz-country"],
+    latlng: [19.74, -155.84],
     styles: ["#4A9B61", "#5FD981"],
   },
   Idaho: {
     name: "Idaho",
     capital: "N/A",
     class: ["quiz-country"],
+    latlng: [44.06, -114.74],
     styles: ["#4A9B61", "#5FD981"],
   },
   Illinois: {
