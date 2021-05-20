@@ -2,6 +2,7 @@ import React from "react";
 import "./Display.css";
 
 export default ({ percent, colour = "#000", streak = 0 }) => {
+  // console.log(`Streak ${streak}`);
   return (
     <>
       {streak > 0 && <p>{streak} in a row</p>}

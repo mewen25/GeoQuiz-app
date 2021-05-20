@@ -106,7 +106,7 @@ export default {
   Burundi: {
     name: "Burundi",
     capital: "N/A",
-    assist: "box",
+    // assist: "box",
     small: true,
     class: ["quiz-country"],
     latlng: [-3.5, 30],
@@ -116,9 +116,9 @@ export default {
     name: "Cabo Verde",
     id: "Cabo-Verde",
     assist: true,
-    small: {
-      order: 1,
-    },
+    // small: {
+    //   order: 1,
+    // },
     capital: "N/A",
     class: ["quiz-country"],
     latlng: [16, -24],
@@ -149,7 +149,7 @@ export default {
   Comoros: {
     name: "Comoros",
     capital: "N/A",
-    assist: true,
+    // assist: true,
     small: {
       order: 1,
     },
@@ -168,7 +168,7 @@ export default {
   Djibouti: {
     name: "Djibouti",
     capital: "N/A",
-    assist: "box",
+    // assist: "box",
     small: true,
     class: ["quiz-country"],
     latlng: [11.5, 43],
@@ -192,7 +192,7 @@ export default {
   "Equatorial-Guinea": {
     name: "Equatorial Guinea",
     id: "Equatorial-Guinea",
-    assist: "box",
+    // assist: "box",
     capital: "N/A",
     class: ["quiz-country"],
     latlng: [2, 10],
@@ -208,7 +208,7 @@ export default {
   Eswatini: {
     name: "Eswatini",
     capital: "N/A",
-    assist: "box",
+    // assist: "box",
     small: true,
     class: ["quiz-country"],
     latlng: [-26.5, 31.5],
@@ -270,7 +270,7 @@ export default {
   Lesotho: {
     name: "Lesotho",
     capital: "N/A",
-    assist: "box",
+    // assist: "box",
     small: true,
     class: ["quiz-country"],
     latlng: [-29.5, 28.5],
@@ -321,7 +321,7 @@ export default {
   Mauritius: {
     name: "Mauritius",
     capital: "N/A",
-    assist: true,
+    // assist: true,
     small: {
       order: 1,
     },
@@ -375,7 +375,7 @@ export default {
   Rwanda: {
     name: "Rwanda",
     capital: "N/A",
-    assist: "box",
+    // assist: "box",
     small: true,
     class: ["quiz-country"],
     latlng: [-2, 30],
@@ -385,7 +385,7 @@ export default {
     name: "Sao Tome and Principe",
     id: "Sao-Tome",
     capital: "N/A",
-    assist: true,
+    // assist: true,
     small: {
       order: 1,
     },
@@ -404,9 +404,9 @@ export default {
     name: "Seychelles",
     capital: "N/A",
     assist: true,
-    small: {
-      order: 1,
-    },
+    // small: {
+    //   order: 1,
+    // },
     class: ["quiz-country"],
     latlng: [-4.58333333, 55.66666666],
     styles: ["#4A9B61", "#5FD981"],

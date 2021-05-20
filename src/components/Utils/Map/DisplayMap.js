@@ -25,6 +25,8 @@ export default function DisplayMap(props) {
         data-continent={continent}
         data-quiz_name={quizName}
         viewBox={svgData.viewBox ?? "0 0 898 690"}
+        height="100%"
+        width="100%"
         label={svgData.label}
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"

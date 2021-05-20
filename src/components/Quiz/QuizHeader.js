@@ -50,7 +50,7 @@ export default function QuizHeader({
   useEffect(() => {
     setGuessTime(time - placeStart ?? 0);
     setPlaceStart(time);
-    if (!show) {
+    if (!show && marks > 1) {
       setStreak((prev) => prev + 1);
     }
   }, [place]);

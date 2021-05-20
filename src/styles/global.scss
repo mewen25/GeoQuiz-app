@@ -102,6 +102,11 @@
   overflow: visible;
   position: relative;
 
+  .quiz-country .assist-helper {
+    stroke: #3d5b6d;
+    stroke-width: 0.4px;
+  }
+
   &[data-locked="true"] {
     pointer-events: none;
 
@@ -121,10 +126,17 @@
     }
   }
 
+  &[data-continent="North America"], &[data-quiz_name="countries"] {
+    .quiz-country path {
+      stroke: #a9e0ff;
+      stroke-width: 0.1px !important;
+    }
+  }
+
   &[data-mode="multiple"] {
     overflow: hidden;
     g {
-      fill: #92CCBE !important;
+      fill: #92CCBE;
       &[data-answer="true"] {
         fill: #F5E158 !important;
 

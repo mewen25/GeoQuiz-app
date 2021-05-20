@@ -140,7 +140,7 @@ function QuizPage({
   // }, [data])
 
   useEffect(() => {
-    console.log("updatiing?1", find.data);
+    // console.log("updatiing?1", find.data);
     if (!find.data) return;
     // if (find.assists.length === 0) {
     // const smalls = Object.values(data.data)
@@ -214,7 +214,7 @@ function QuizPage({
   };
 
   useEffect(() => {
-    console.log("updatiing?2");
+    // console.log("updatiing?2");
 
     for (var small of find.smalls) {
       const { element, bbox } = getCountryPos(small) ?? {};
@@ -230,14 +230,14 @@ function QuizPage({
   }, [find?.smalls]);
 
   useEffect(() => {
-    console.log("updatiing?3");
+    // console.log("updatiing?3");
     for (var assist of find.assists) {
       const place = document.querySelector(`#${assist.id || assist.name}`);
       if (!place) continue;
       const bbox = place.getBBox();
       const path = place.children[0];
       if (assist.assist === "ring") {
-        if (bbox.width > 10 || bbox.height > 10) {
+        if ((bbox.width > 145) & (bbox.height > 45)) {
           appendSVGChild("ellipse", place, {
             class: "ring-helper",
             stroke: "#FFA3A3",
@@ -256,7 +256,7 @@ function QuizPage({
             "fill-opacity": "0",
             cx: `${bbox.x + bbox.width / 2}`,
             cy: `${bbox.y + bbox.height / 2}`,
-            r: "10",
+            r: "7",
           });
         }
       } else {
@@ -359,11 +359,7 @@ function QuizPage({
   };
 
   useEffect(() => {
-    console.log("PLayback", correctPlayback);
-  }, [correctPlayback]);
-
-  useEffect(() => {
-    console.log("updatiing?4");
+    // console.log("updatiing?4");
 
     if (!find.data) return;
     setFind((prevData) => ({
@@ -373,7 +369,7 @@ function QuizPage({
   }, [theme]);
 
   useEffect(() => {
-    console.log("updatiing?5");
+    // console.log("updatiing?5");
     if (!find.previous || find.animSkip) return;
 
     // animate(find.previous, "pulsey", "", true);
@@ -394,7 +390,7 @@ function QuizPage({
   }, [find.previous]);
 
   useEffect(() => {
-    console.log("updatiing?6");
+    // console.log("updatiing?6");
     if (quizType === "multipleChoice") return;
     if (
       pointsFeedback.length > 0 &&
@@ -412,7 +408,7 @@ function QuizPage({
   }, [pointsFeedback]);
 
   useEffect(() => {
-    console.log("updatiing?7");
+    // console.log("updatiing?7");
     if (quizCircles.length > 0 && quizCircles.some((c) => c.state === true)) {
       setQuizCircles((prev) =>
         prev.map((p) => {
