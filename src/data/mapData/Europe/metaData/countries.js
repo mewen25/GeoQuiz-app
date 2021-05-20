@@ -1,5 +1,5 @@
 export const regions = {
-  "northern-europe": [
+  "Northern Europe": [
     "United-Kingdom",
     "Norway",
     "Denmark",
@@ -11,7 +11,7 @@ export const regions = {
     "Finland",
     "Sweden",
   ],
-  "central-europe": [
+  "Central Europe": [
     "Andorra",
     "Austria",
     "Belgium",
@@ -21,9 +21,8 @@ export const regions = {
     "Luxembourg",
     "Netherlands",
     "Switzerland",
-    "Monaco",
   ],
-  "eastern-europe": [
+  "Eastern Europe": [
     "Azerbaijan",
     "Belarus",
     "Bulgaria",
@@ -37,7 +36,7 @@ export const regions = {
     "Slovakia",
     "Ukraine",
   ],
-  "southern-europe": [
+  "Southern Europe": [
     "Albania",
     "Bosnia-and-Herzegovina",
     "Croatia",
@@ -45,6 +44,7 @@ export const regions = {
     "Greece",
     "Italy",
     "Kosovo",
+    "Monaco",
     "Malta",
     "Montenegro",
     "North-Macedonia",

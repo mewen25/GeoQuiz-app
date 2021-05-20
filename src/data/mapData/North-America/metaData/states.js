@@ -1,3 +1,14 @@
+export const regions = {
+  "NorthEast": ["Connecticut", "Delaware", "Maine", "Maryland", "Massachusetts", "New-Hampshire", "New-Jersey", "New-York", 
+  "Pennsylvania", "Rhode-Island", "Vermont"],
+  "South": ["Alabama", "Arkansas", "Florida", "Georgia", "Kentucky", "Louisiana", "Mississippi", "North-Carolina", "Oklahoma", 
+  "South-Carolina", "Tennessee", "Texas", "Virginia", "Washington"], 
+  "MidWest": ["Illinois", "Indiana", "Iowa", "Kansas", "Michigan", "Minnesota", "Missouri", "Nebraska", "North-Dakota", 
+  "Ohio", "South-Dakota", "Wisconsin"],
+  "West": ["Arizona", "California", "Colorado", "Idaho", "Montana", "Nevada", "New-Mexico", "Oregon", "Utah", "Wyoming", "Alaska", 
+  "Hawaii"]
+};
+
 export default {
   Alabama: {
     name: "Alabama",

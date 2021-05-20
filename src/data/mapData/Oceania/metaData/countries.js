@@ -1,3 +1,9 @@
+export const regions = {
+  "Polynesia": ["Samoa", "Tonga", "Tuvalu"],
+  "Melanesia": ["Papua-New-Guinea", "Vanuatu", "Solomon-Islands", "Fiji"],
+  "Micronesia": ["Palau", "Nauru", "Marshall-Islands", "Federated-States-of-Micronesia", "Kiribati"]
+};
+
 export default {
   Australia: {
     name: "Australia",
@@ -7,7 +13,7 @@ export default {
     styles: ["#4A9B61", "#5FD981"],
   },
   "Federated-States-of-Micronesia": {
-    name: "Australia",
+    name: "Federated States of Micronesia",
     id: "Federated-States-of-Micronesia",
     capital: "N/A",
     class: ["quiz-country"],
