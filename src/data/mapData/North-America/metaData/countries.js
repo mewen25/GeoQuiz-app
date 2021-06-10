@@ -1,8 +1,8 @@
 export const regions = {
   "North": ["Canada", "USA", "Mexico"],
-  "Caribbean": ["Antigua-and-Barbuda", "Bahamas", "Barbados", "Cuba", "Dominica", "Dominican Republic", "Grenada", 
-  "Haiti", "Jamaica", "Saint-Kitts-and-Nevis", "Saint-Lucia", "Saint-Vincent-and-the-Grenadines", "Trinidad-and-Tobago"],
-  "Central America": ["Belize", "Costa-Rica", "El-Salvador", "Guatemala", "Honduras", "Nicaragua", "Panama"]
+  "Caribbean": ["Antigua and Barbuda", "Bahamas", "Barbados", "Cuba", "Dominica", "Dominican Republic", "Grenada", 
+  "Haiti", "Jamaica", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Trinidad and Tobago"],
+  "Central America": ["Belize", "Costa Rica", "El Salvador", "Guatemala", "Honduras", "Nicaragua", "Panama"]
 };
 
 export default {

@@ -21,13 +21,13 @@ export const regions = {
     "Lebanon",
     "Oman",
     "Qatar",
-    "Saudi-Arabia",
+    "Saudi Arabia",
     "Syria",
     "Turkey",
-    "United-Arab-Emirates",
+    "United Arab Emirates",
     "Yemen"
   ],
-  "East": ["China", "Japan", "North-Korea", "South-Korea", "Taiwan"],
+  "East": ["China", "Japan", "North Korea", "South Korea", "Taiwan"],
   "South": [
     "Bangladesh",
     "Bhutan",
@@ -35,7 +35,7 @@ export const regions = {
     "Maldives",
     "Nepal",
     "Pakistan",
-    "Sri-Lanka"
+    "Sri Lanka"
   ],
   "SouthEast": [
     "Brunei",
@@ -47,7 +47,7 @@ export const regions = {
     "Philippines",
     "Singapore",
     "Thailand",
-    "Timor-Leste",
+    "Timor Leste",
     "Vietnam"
   ]
 };

@@ -1,5 +1,5 @@
 export const regions = {
-  "East": ["Brazil", "New-Zealand", "Papua-New-Guinea", "Guyana", "Suriname"],
+  "East": ["Brazil", "New-Zealand", "Papua New Guinea", "Guyana", "Suriname"],
   "West": ["Colombia", "Peru", "Venezuela", "Ecuador", "Bolivia", "Palau", "Samoa"],
   "South": ["Argentina", "Chile", "Paraguay", "Uruguay"]
 };
